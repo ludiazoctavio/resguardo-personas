@@ -3,8 +3,11 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Plataforma de registro de personas bajo el resguardo del Gobierno de la Ciudad de México</title>
+        <script src="{{ asset('js/app.js') }}"></script>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -68,6 +71,21 @@
                 </div>
             </div>
         </header>
+        <div class="pleca" id="pleca">
+            <div class="container">
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                    
+                    </li>
+                    <li class="nav-item">
+                    
+                    </li>
+                    <li class="nav-item">
+                    
+                    </li>
+                </ul>
+            </div>
+        </div>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

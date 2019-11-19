@@ -6,3 +6,37 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+.imagen-encabezado {
+    margin: 0.9rem 0;
+    max-width: 22.6rem;
+}
+.pleca {
+    min-height: 2.5rem;
+    background-color: #f8f8f8;
+    display: flex;
+    align-items: center;
+    border-top: solid 0.31rem #f0f0f0;
+}
+.Group-1853 {
+    object-fit: contain;
+    opacity: 0.15;
+    background-image: url('../images/group-1853.svg');
+  }
+.footer {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: #2e2e32;
+    min-height: 74px;
+    bottom: 0;
+    width: 100%;
+    padding: 0.8rem;
+}
+.footer p, .footer h3, .footer h2, .footer h5, .footer .lista ul li, .lista ul .footer li {
+    font-size: 0.7rem;
+    line-height: 0.75rem;
+    color: #ffffff;
+    margin: 0;
+}
