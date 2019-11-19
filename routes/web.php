@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware('auth');
+});
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
@@ -21,6 +21,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/personas', 'PersonasController@index')->name('personas')->middleware('auth');

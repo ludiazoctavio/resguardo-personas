@@ -3,13 +3,8 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
+        <title>Plataforma de registro de personas bajo el resguardo del Gobierno de la Ciudad de México</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
-        <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
@@ -64,6 +59,15 @@
         </style>
     </head>
     <body>
+        <header class="container">
+            <div class="row d-flex justify-content-lg-between mx-0">
+                <div class="imagen-encabezado">
+                    <a href="https://ru.soluint.com/adip-regeneracion-urbana/public">
+                        <img src="https://ru.soluint.com/adip-regeneracion-urbana/public/src/img/logo-header.svg" alt="Gobierno de la Ciudad de México">
+                    </a>
+                </div>
+            </div>
+        </header>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
@@ -81,20 +85,22 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                    Personas
                 </div>
             </div>
         </div>
+        <footer class="footer">
+            <div class="container">
+              <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-lg-3 col-md-7 col-9">
+                    <img src="https://ru.soluint.com/adip-regeneracion-urbana/public/src/img/gobierno-y-adip.svg">
+                </div>
+                <div class="col-lg-6 col-10 text-center text-lg-left mt-3 mt-lg-0">
+                    <p>Plataforma de registro de personas bajo el resguardo del Gobierno de la Ciudad de México</p>
+                    <p class="font-weight-bold">Diseñado y operado por la Agencia Digital de Innovación Pública</p>
+                </div>
+              </div>
+            </div>
+        </footer>
     </body>
 </html>
