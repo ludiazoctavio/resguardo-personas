@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Dependence;
+use App\Permission;
 use Illuminate\Http\Request;
 
-class DependenceController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class DependenceController extends Controller
      */
     public function index()
     {
-        return view('people.dependences.index');
+        //
     }
 
     /**
@@ -41,10 +41,10 @@ class DependenceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Dependence  $dependence
+     * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function show(Dependence $dependence)
+    public function show(Permission $permission)
     {
         //
     }
@@ -52,10 +52,10 @@ class DependenceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Dependence  $dependence
+     * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dependence $dependence)
+    public function edit(Permission $permission)
     {
         //
     }
@@ -64,10 +64,10 @@ class DependenceController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dependence  $dependence
+     * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Dependence $dependence)
+    public function update(Request $request, Permission $permission)
     {
         //
     }
@@ -75,10 +75,10 @@ class DependenceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dependence  $dependence
+     * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dependence $dependence)
+    public function destroy(Permission $permission)
     {
         //
     }

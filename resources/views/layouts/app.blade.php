@@ -89,7 +89,18 @@
         </nav>-->
 
         <main class="py-4">
-            @yield('content')
+            <div class="row mx-0">
+                <div class="col-3">
+                    <nav class="nav flex-column lateral-menu">
+                        <a class="nav-link active" href="#">REGISTRO POR PERSONA IDENTIFICADA</a>
+                        <a class="nav-link" href="#">REGISTRO POR PERSONA NO IDENTIFICADA</a>
+                        <a class="nav-link" href="#">BÚSQUEDA DE REGISTROS</a>
+                    </nav>
+                </div>
+                <div class="col-9">
+                    @yield('content')
+                </div>
+            </div>
         </main>
         <footer class="footer">
             <div class="container">
