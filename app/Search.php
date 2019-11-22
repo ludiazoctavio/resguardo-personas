@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Personas extends Model
+class Search extends Model
 {
     //
 }

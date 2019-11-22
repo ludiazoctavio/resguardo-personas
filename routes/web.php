@@ -11,14 +11,16 @@
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
-Auth::routes();
+//Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('/persons', 'PersonController@index')->name('persons')->middleware('auth');
 
-Route::get('/personas', 'PersonasController@index')->name('personas')->middleware('auth');
+Route::get('dependencia/personas', 'DependenceController@index')->name('dependences')->middleware('auth');
