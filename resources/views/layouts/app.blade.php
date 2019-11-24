@@ -8,7 +8,6 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    @include('sweetalert::alert')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- extra_head --}}
     @yield('extra_head')
@@ -36,5 +35,6 @@
     </div>
     {{-- extra_script --}}
     @yield('extra_script')
+    @include('sweetalert::alert')
 </body>
 </html>
