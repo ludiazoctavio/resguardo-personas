@@ -2,7 +2,9 @@
 
 namespace App;
 
+use App\Http\Requests\Role\StoreRequest;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Role extends Model
 {
@@ -20,7 +22,23 @@ class Role extends Model
     {
         return $this->belongsToMany('App\User')->withTimestamps();
     }
+    
 //Almacenamiento
+    public function store($request)
+    {
+        $slug = Str::slug($request->name, '-');
+        return self::create($request->all() + [
+            'slug' => $slug,
+        ]);
+    }
+
+    public function my_update($request)
+    {
+        $slug = Str::slug($request->name, '-');
+        self::update($request->all() + [
+            'slug' => $slug,
+        ]);
+    }
 
 //Validacion
 

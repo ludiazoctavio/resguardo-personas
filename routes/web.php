@@ -13,14 +13,11 @@
 
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
+//Dashboard
+Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
+    Route::resource('role', 'RoleController');
+    Route::resource('permission', 'PermissionController');
+    Route::resource('dependence', 'DependenceController');
 });
 
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-
-//Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
-
-Route::get('/persons', 'PersonController@index')->name('persons')->middleware('auth');
-
-Route::get('dependencia/personas', 'DependenceController@index')->name('dependences')->middleware('auth');
+//Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
