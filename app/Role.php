@@ -29,7 +29,6 @@ class Role extends Model
     public function store($request)
     {
         $slug = Str::slug($request->name, '-');
-        alert('Éxito','El rol se a guardado', 'succes')->showConfirmButton();
         return self::create($request->all() + [
             'slug' => $slug,
         ]);
@@ -38,7 +37,6 @@ class Role extends Model
     public function my_update($request)
     {
         $slug = Str::slug($request->name, '-');
-        toast('Rol actualizado', 'succes');
         self::update($request->all() + [
             'slug' => $slug,
         ]);

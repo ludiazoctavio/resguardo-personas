@@ -33,8 +33,9 @@
         </main>
         @include('layouts.includes.footer')
     </div>
+    @include('sweetalert::alert')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {{-- extra_script --}}
     @yield('extra_script')
-    @include('sweetalert::alert')
 </body>
 </html>

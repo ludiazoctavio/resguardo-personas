@@ -1,27 +1,55 @@
 @extends('layouts.app')
 
 @section('content')
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Rol {{$role->name}}</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    {{--<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-    </div>--}}
-</nav>
+<div class="card">
+    <div class="card-header">
+        Rol
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{$role->name}}</h5>
+        <p class="card-text">{{$role->description}}</p>
+    </div>
+    <div class="card-footer text-muted">
+        <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
+        <a href="{{ route('dashboard.role.edit', $role) }}" class="btn btn-success">Editar</a>
+    </div>
+</div>
+<form method="POST" action="{{ route('dashboard.role.destroy', $role) }}" name="delete_form">
+    @method('DELETE')
+    @csrf
+</form>
+@endsection
+@section('extra_script')
+<script>
+    function send_form()
+    {
+        swal({
+            title:"¿Deseas eliminar este rol?",
+            text:"Esta acción no se puede deshacer",
+            icon:"warning",
+            buttons: {
+                cancel:{
+                    text:"No, cancelar",
+                    value:false,
+                    visible: true,
+                    closeModal: true,
+                },
+                confirm:{
+                    text:"Si, continuar",
+                    value:true,
+                    visible: true,
+                    closeModal: true,
+                }
+            }
+        })
+        .then((isConfir) =>
+        {
+            if (isConfir) {
+                document.delete_form.submit();
+            }else{
+                swal("Operación cancelada", "No se elimino el rol", "error")
+            }
+        });
+    }
+</script>
 @endsection

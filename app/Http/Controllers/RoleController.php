@@ -40,6 +40,7 @@ class RoleController extends Controller
     public function store(StoreRequest $request, Role $role)
     {
         $role = $role->store($request);
+        alert()->success('Éxito','El rol se a guardado', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.role.show', $role);
     }
 
@@ -79,6 +80,7 @@ class RoleController extends Controller
     public function update(UpdateRequest $request, Role $role)
     {
         $role->my_update($request);
+        toast('Rol actualizado', 'succes');
         return redirect()->route('dashboard.role.show', $role);
     }
 
@@ -90,6 +92,8 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        alert()->success('Rol eliminado')->showConfirmButton();
+        $role->delete();
+        return redirect()->route('dashboard.role.index');
     }
 }
