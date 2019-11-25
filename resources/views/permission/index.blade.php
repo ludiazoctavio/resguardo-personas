@@ -3,20 +3,22 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Rol
+        Permisos
     </div>
-    <div class="card-body">
-        <table class="table table-striped">
-            <thead class="thead-dark">
+    <div class="card-body p-0">
+        <table class="table table-hover">
+            <thead class="thead-light">
             <tr>
                 <th scope="col">Nombre</th>
+                <th scope="col">Rol</th>
                 <th scope="col">Descripcion</th>
             </tr>
             </thead>
             <tbody>
-                @foreach ($roles as $item)
+                @foreach ($permissions as $item)
                 <tr>
-                    <th scope="row"><a href="{{ route('dashboard.role.show', $item) }}">{{$item->name}}</a></th>
+                    <th scope="row"><a href="{{ route('dashboard.permission.show', $item) }}">{{$item->name}}</a></th>
+                    <th scope="row"><a href="{{ route('dashboard.role.show', $item->role) }}">{{$item->role->name}}</a></th>
                     <td>{{$item->description}}</td>
                 </tr>
                 @endforeach

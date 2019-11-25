@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Rol
+        Usuario
     </div>
     <div class="card-body">
         <h5 class="card-title"><strong>Nombre: </strong>{{$role->name}}</h5>

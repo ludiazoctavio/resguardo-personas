@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Role;
+use App\Permission;
 use App\Http\Requests\Role\StoreRequest;
 use App\Http\Requests\Role\UpdateRequest;
 use Illuminate\Http\Request;
@@ -54,6 +55,7 @@ class RoleController extends Controller
     {
         return view('role.show', [
             'role' =>$role,
+            'permissions' => Permission::all(),
         ]);
     }
 

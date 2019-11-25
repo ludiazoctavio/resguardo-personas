@@ -15,6 +15,7 @@ Auth::routes();
 
 //Dashboard
 Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
+    Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');
     Route::resource('permission', 'PermissionController');
     Route::resource('dependence', 'DependenceController');

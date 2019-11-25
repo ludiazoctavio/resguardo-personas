@@ -3,18 +3,19 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Rol
+        Permiso
     </div>
     <div class="card-body">
-        <h5 class="card-title">{{$role->name}}</h5>
-        <p class="card-text">{{$role->description}}</p>
+        <h5 class="card-title"><strong>Nombre: </strong>{{$permission->name}}</h5>
+        <h5 class="card-title"><strong>Rol: </strong>{{$permission->role->name}}</h5>
+        <p class="card-text"><strong>Descripción: </strong>{{$permission->description}}</p>
     </div>
     <div class="card-footer text-muted">
         <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
-        <a href="{{ route('dashboard.role.edit', $role) }}" class="btn btn-success">Editar</a>
+        <a href="{{ route('dashboard.permission.edit', $permission) }}" class="btn btn-success">Editar</a>
     </div>
 </div>
-<form method="POST" action="{{ route('dashboard.role.destroy', $role) }}" name="delete_form">
+<form method="POST" action="{{ route('dashboard.permission.destroy', $permission) }}" name="delete_form">
     @method('DELETE')
     @csrf
 </form>
@@ -24,7 +25,7 @@
     function send_form()
     {
         swal({
-            title:"¿Deseas eliminar este rol?",
+            title:"¿Deseas eliminar este permiso?",
             text:"Esta acción no se puede deshacer",
             icon:"warning",
             buttons: {
@@ -47,7 +48,7 @@
             if (isConfir) {
                 document.delete_form.submit();
             }else{
-                swal("Operación cancelada", "No se elimino el rol", "error")
+                swal("Operación cancelada", "No se elimino el permiso", "error")
             }
         });
     }

@@ -3,10 +3,10 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Crear permiso
+        Crear rol
     </div>
     <div class="card-body">
-        <form method="POST" class="" action="{{ route('dashboard.permission.store') }}">
+        <form method="POST" class="" action="{{ route('dashboard.role.store') }}">
             @csrf
             <div class="form-row">
                 <div class="form-group col-md-6">
@@ -14,22 +14,6 @@
                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Nombre">
                     @error('name')
                         <div class="invalid-feedback active" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @enderror
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                    <label for="role_id">Rol</label>
-                    <select class="form-control @error('role_id') is-invalid @enderror" id="role_id" name="role_id">
-                        <option value="" disabled="" selected="">Selecciona un rol</option>
-                        @foreach ($roles as $role)
-                        <option value="{{$role->id}}">{{$role->name}}</option>
-                        @endforeach
-                    </select>
-                    @error('role_id')
-                        <div class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </div>
                     @enderror

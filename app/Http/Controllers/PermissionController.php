@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Permission;
+use App\Role;
+use App\Http\Requests\Permission\StoreRequest;
+use App\Http\Requests\Permission\UpdateRequest;
 use Illuminate\Http\Request;
 
 class PermissionController extends Controller
@@ -14,7 +17,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        //
+        return view('permission.index', [
+            'permissions' => Permission::all(),
+        ]);
     }
 
     /**
@@ -24,7 +29,9 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('permission.create', [
+            'roles' => Role::all(),
+        ]);
     }
 
     /**
@@ -33,9 +40,11 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request, Permission $permission)
     {
-        //
+        $permission = $permission->store($request);
+        alert()->success('Éxito','El permiso se a guardado', 'succes')->showConfirmButton();
+        return redirect()->route('dashboard.permission.show', $permission);
     }
 
     /**
@@ -46,7 +55,9 @@ class PermissionController extends Controller
      */
     public function show(Permission $permission)
     {
-        //
+        return view('permission.show', [
+            'permission' =>$permission,
+        ]);
     }
 
     /**
@@ -57,7 +68,10 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
-        //
+        return view('permission.edit', [
+            'permission' =>$permission,
+            'roles' => Role::where('id', '!=', $permission->role->id)->get(),
+        ]);
     }
 
     /**
@@ -67,9 +81,11 @@ class PermissionController extends Controller
      * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Permission $permission)
+    public function update(UpdateRequest $request, Permission $permission)
     {
-        //
+        $permission->my_update($request);
+        toast('Permiso actualizado', 'succes');
+        return redirect()->route('dashboard.permission.show', $permission);
     }
 
     /**
@@ -80,6 +96,8 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
-        //
+        alert()->success('Permiso eliminado')->showConfirmButton();
+        $permission->delete();
+        return redirect()->route('dashboard.permission.index');
     }
 }
