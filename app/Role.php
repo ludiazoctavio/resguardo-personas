@@ -15,9 +15,15 @@ class Role extends Model
     ];
 
 //Relaciones
-    public function permissins()
+    public function permissions()
     {
-        return $this->hasMany(App\Permission);
+        return $this->hasMany('App\Permission');
+        if($user->is_admin())
+        {
+
+        }else{
+
+        }
     }
 
     public function users()

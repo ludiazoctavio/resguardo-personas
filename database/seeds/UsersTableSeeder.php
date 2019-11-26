@@ -20,13 +20,13 @@ class UsersTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'name' => 'Luis Octavio Diaz Neri',
+                'name' => 'Octavio Diaz',
                 'email' => 'ludiazoctavio@gmail.com',
                 'email_verified_at' => NULL,
-                'password' => '$2y$10$CriggQWLmoIWTCenJYsW4uO/4vMhGKkn20QMum7CZBGLf8b6UKLWa',
+                'password' => '$2y$10$3IBF96MKm.nKU/9ft7vetuDu/nb.2jxPAjIEwiYu0GkXjRMNO7pBG',
                 'remember_token' => NULL,
-                'created_at' => '2019-11-21 16:23:16',
-                'updated_at' => '2019-11-21 16:23:16',
+                'created_at' => '2019-11-25 10:39:06',
+                'updated_at' => '2019-11-25 10:39:06',
             ),
         ));
         

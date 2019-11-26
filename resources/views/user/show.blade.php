@@ -1,20 +1,32 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="card">
-    <div class="card-header">
-        Usuario
+<div class="row m-0">
+    <div class="col-9">
+        <div class="card">
+            <div class="card-header">
+                Usuario
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><strong>Nombre: </strong>{{$user->name}}</h5>
+                <p class="card-text"><strong>Email: </strong>{{$user->email}}</p>
+                <h6><strong>Roles asignados</strong></h6>
+                <ul class="list-group list-group-flush">
+                    @foreach ($user->roles as $role)
+                    <li class="list-group-item">{{$role->name}}</li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="card-footer text-muted">
+                <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
+            </div>
+        </div>
     </div>
-    <div class="card-body">
-        <h5 class="card-title"><strong>Nombre: </strong>{{$role->name}}</h5>
-        <p class="card-text"><strong>Descripción: </strong>{{$role->description}}</p>
-    </div>
-    <div class="card-footer text-muted">
-        <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
-        <a href="{{ route('dashboard.role.edit', $role) }}" class="btn btn-success">Editar</a>
+    <div class="col-3">
+        @include('user.includes.menu')
     </div>
 </div>
-<div class="card mt-5">
+{{-- <div class="card mt-5">
     <div class="card-header">
         Permisos
     </div>
@@ -39,8 +51,8 @@
     <div class="card-footer text-muted">
 
     </div>
-</div>
-<form method="POST" action="{{ route('dashboard.role.destroy', $role) }}" name="delete_form">
+</div> --}}
+<form method="POST" action="{{ route('dashboard.user.destroy', $user) }}" name="delete_form">
     @method('DELETE')
     @csrf
 </form>
@@ -50,7 +62,7 @@
     function send_form()
     {
         swal({
-            title:"¿Deseas eliminar este rol?",
+            title:"¿Deseas eliminar este el usuario?",
             text:"Esta acción no se puede deshacer",
             icon:"warning",
             buttons: {
@@ -73,7 +85,7 @@
             if (isConfir) {
                 document.delete_form.submit();
             }else{
-                swal("Operación cancelada", "No se elimino el rol", "error")
+                swal("Operación cancelada", "No se elimino el usuario", "error")
             }
         });
     }

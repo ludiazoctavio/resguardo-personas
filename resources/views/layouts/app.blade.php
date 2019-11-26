@@ -20,7 +20,7 @@
                 <div class="col-3">
                     <nav class="nav flex-column lateral-menu">
                         {{-- Menú lateral --}}
-                        @include('layouts.menu.a_dep')
+                        @include('layouts.menu.superadmin')
                     </nav>
                 </div>
                 <div class="col-9">

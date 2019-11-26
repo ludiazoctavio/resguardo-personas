@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
+use App\Permission;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -46,9 +48,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user)
     {
-        //
+        return view('user.show', [
+            'user' =>$user,
+        ]);
     }
 
     /**
@@ -83,5 +87,52 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Formulario rol.
+     *
+    */
+    public function assign_role(User $user)
+    {
+        return view('user.assign_role', [
+            'user' => $user,
+            'roles' => Role::all(),
+        ]);
+    }
+
+    /**
+     * Asignar rol.
+     *
+    */
+    public function role_assignment(Request $request, User $user)
+    {
+        $user->roles()->sync($request->roles);
+        $user->verify_permission_integrity();
+        alert()->success('Éxito','Roles asignados', 'succes')->showConfirmButton();
+        return redirect()->route('dashboard.user.show', $user);
+    }
+
+    /**
+     * Formulario permisos.
+     *
+    */
+    public function assign_permission(User $user)
+    {
+        return view('user.assign_permission', [
+            'user' => $user,
+            'roles' => $user->roles,
+        ]);
+    }
+
+    /**
+     * Asignar permisos.
+     *
+    */
+    public function permission_assignment(Request $request, User $user)
+    {
+        $user->permissions()->sync($request->permissions);    
+        alert()->success('Éxito','Permisos asignados', 'succes')->showConfirmButton();
+        return redirect()->route('dashboard.user.show', $user);
     }
 }

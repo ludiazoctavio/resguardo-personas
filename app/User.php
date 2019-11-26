@@ -52,8 +52,39 @@ class User extends Authenticatable
 //Almacenamiento
 
 //Validacion
+    public function is_admin()
+    {
+        $admin = config('app.adminrole');
+    }
+
+    public function has_role($id)
+    {
+        foreach ($this->roles as $role) {
+            if($role->id == $id || $role->slug == $id) return true;
+        }
+        return false;
+    }
+
+    public function has_permission($id)
+    {
+        foreach ($this->permissions as $permission) {
+            if($permission->id == $id || $permission->slug == $id) return true;
+        }
+        return false;
+    }
 
 //Recuperacion de informacion
 
 //Otras
+
+    public function verify_permission_integrity()
+    {
+        $permissions = $this->permissions;
+        foreach ($permissions as $permission) {
+            if (!$this->has_role($permission->role->id)) {
+                $this->permissions()->detach($permission->id);
+            }
+        }
+    }
+
 }
