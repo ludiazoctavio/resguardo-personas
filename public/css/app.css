@@ -11146,7 +11146,12 @@ a.text-dark:focus {
   margin: 0;
 }
 
-.btn-primary {
-  background-color: #00b140;
+.form-group label {
+  color: #009288;
+}
+
+.form-group.required label::before {
+  content: "*";
+  color: #009288;
 }
 

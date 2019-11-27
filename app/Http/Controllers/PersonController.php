@@ -14,7 +14,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        return view('people.index');
+        return view('person.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        //
+        return view('person.locatel.create');
     }
 
     /**

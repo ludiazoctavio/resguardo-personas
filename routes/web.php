@@ -11,10 +11,19 @@
 |
 */
 
+Route::get('/', function(){
+    return view('welcome');
+});
+
+Route::get('home', function(){
+    return view('home');
+})->middleware('auth');
+
 Auth::routes();
 
 //Dashboard
 Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
+    Route::get('admin','AdminController@show')->name('admin.show');
     Route::resource('user', 'UserController');
     Route::resource('role', 'RoleController');
     Route::get('user/{user}/assign_role', 'UserController@assign_role')->name('user.assign_role');

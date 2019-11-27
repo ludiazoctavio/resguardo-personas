@@ -55,7 +55,7 @@ class RoleController extends Controller
     {
         return view('role.show', [
             'role' =>$role,
-            'permissions' => Permission::all(),
+            'permissions' => $role->permissions,
         ]);
     }
 

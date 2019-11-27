@@ -39,9 +39,13 @@
     color: #ffffff;
     margin: 0;
 }
-.btn-primary {
-    background-color: #00b140;
-}
 .lateral-menu {
     
 }
+.form-group label {
+    color:#009288;
+}
+.form-group.required label::before {
+    content:"*";
+    color:#009288;
+  }

@@ -50,6 +50,13 @@ class User extends Authenticatable
     }
 
 //Almacenamiento
+    public function role_assignment($request)
+    {
+        $this->has_permissio_mass_assignment($request->roles);
+        $this->roles()->sync($request->roles);
+        $this->verify_permission_integrity($request->roles);
+        alert()->success('Éxito','Roles asignados', 'succes')->showConfirmButton();
+    }
 
 //Validacion
     public function is_admin()
@@ -77,12 +84,23 @@ class User extends Authenticatable
 
 //Otras
 
-    public function verify_permission_integrity()
+    public function verify_permission_integrity(array $roles)
     {
         $permissions = $this->permissions;
         foreach ($permissions as $permission) {
-            if (!$this->has_role($permission->role->id)) {
+            if (!in_array($permission->role->id, $roles)) {
                 $this->permissions()->detach($permission->id);
+            }
+        }
+    }
+
+    public function has_permissio_mass_assignment(array $roles)
+    {
+        foreach ($roles as $role) {
+            if(!$this->has_role($role)){
+                $role_obj = \App\Role::findOrFail($role);
+                $permissions = $role_obj->permissions;
+                $this->permissions()->syncWithoutDetaching($permissions);
             }
         }
     }

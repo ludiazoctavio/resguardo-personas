@@ -28,7 +28,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.locatel.create');
     }
 
     /**
@@ -107,9 +107,7 @@ class UserController extends Controller
     */
     public function role_assignment(Request $request, User $user)
     {
-        $user->roles()->sync($request->roles);
-        $user->verify_permission_integrity();
-        alert()->success('Éxito','Roles asignados', 'succes')->showConfirmButton();
+        $user->role_assignment($request);
         return redirect()->route('dashboard.user.show', $user);
     }
 

@@ -2,7 +2,8 @@
 
 return [
 
-    'admin_role' => env('ADMIN_ROLE', 'admin'),
+    'admin_role' => env('ADMIN_ROLE', 'superadmin'),
+    'usuario_role' => env('USER_ROLE', 'usuario'),
 
     /*
     |--------------------------------------------------------------------------
