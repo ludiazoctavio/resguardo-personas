@@ -19,8 +19,10 @@ class AddFieldsToUsersTable extends Migration
             $table->string('position')->after('last_name_2')->nullable(); //Cargo
             $table->unsignedInteger('phone')->nullable(); //Teléfono
             $table->unsignedInteger('phone_extension')->nullable(); //Teléfono extensión
-            $table->unsignedInteger('dependence')->nullable(); //Dependencia
-            $table->unsignedInteger('ascription')->nullable(); //Área de adscripción
+            $table->unsignedInteger('dependence_id')->nullable(); //Dependencia
+            $table->foreign('dependence_id')->references('id')->on('dependences')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedInteger('ascription_id')->nullable(); //Área de adscripción
+            $table->boolean('deactivate')->default(false); //desactivar
         });
     }
 

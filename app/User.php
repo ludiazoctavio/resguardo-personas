@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'last_name_1', 'last_name_2', 'position', 'phone', 'phone_extension', 'dependence_id', 'ascription_id', 'email', 'password',
     ];
 
     /**
@@ -49,12 +50,34 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Role')->withTimestamps();
     }
 
-//Almacenamiento
-    public function role_assignment($request)
+    public function dependence()
     {
-        $this->has_permissio_mass_assignment($request->roles);
-        $this->roles()->sync($request->roles);
-        $this->verify_permission_integrity($request->roles);
+        return $this->belongsTo('App\Dependence');
+    }
+
+//Almacenamiento
+    public function store($request)
+    {
+        $user = self::create($request->all());
+        $user->update(['password' => Hash::make($request->password)]);
+        $roles = [$request->role];
+        $user->role_assignment(null, $roles);
+        alert()->success('Éxito','El usuario se a guardado', 'succes')->showConfirmButton();
+        return $user;
+    }
+
+    public function my_update($request)
+    {
+        self::update($request->all());
+        alert()->success('Éxito','El usuario se actualizó', 'succes')->showConfirmButton();
+    }
+
+    public function role_assignment($request, array $roles = null)
+    {
+        $roles = (is_null($roles)) ? $request->roles : $roles;
+        $this->has_permissio_mass_assignment($roles);
+        $this->roles()->sync($roles);
+        $this->verify_permission_integrity($roles);
         alert()->success('Éxito','Roles asignados', 'succes')->showConfirmButton();
     }
 

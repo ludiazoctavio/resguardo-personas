@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-use App\Http\Requests\Permission\StoreRequest;
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 

@@ -16,13 +16,9 @@ class CreateDependencesTable extends Migration
     public function up()
     {
         Schema::create('dependences', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->charset = 'utf8';
-            $table->collation = 'utf8_unicode_ci';
-
             $table->bigIncrements('id');
             $table->string('name',200)->unique(); //nombre 
-            $table->boolean('inactive'); //inactiva
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
