@@ -8,6 +8,8 @@ use App\Permission;
 use App\Http\Requests\User\StoreRequest;
 use App\Http\Requests\User\UpdateRequest;
 use Illuminate\Http\Request;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -144,5 +146,16 @@ class UserController extends Controller
         $user->permissions()->sync($request->permissions);    
         alert()->success('Éxito','Permisos asignados', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.user.show', $user);
+    }
+
+    /**
+     * Importar desde excel
+     *
+    */
+    public function import(Request $request) 
+    {
+        Excel::import(new UsersImport, $request->file('excel'));
+        alert()->success('Éxito','Usuarios importados', 'succes')->showConfirmButton();
+        return redirect()->route('dashboard.user.index');
     }
 }
