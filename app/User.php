@@ -84,13 +84,21 @@ class User extends Authenticatable
 //Validacion
     public function is_admin()
     {
-        $admin = config('app.adminrole');
+        $admin = config('app.admin_role');
     }
 
     public function has_role($id)
     {
         foreach ($this->roles as $role) {
             if($role->id == $id || $role->slug == $id) return true;
+        }
+        return false;
+    }
+
+    public function has_any_role(array $roles)
+    {
+        foreach ($roles as $role) {
+            if ($this->has_role($role)) return true;
         }
         return false;
     }

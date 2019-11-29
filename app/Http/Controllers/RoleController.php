@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Role;
-use App\Permission;
 use App\Http\Requests\Role\StoreRequest;
 use App\Http\Requests\Role\UpdateRequest;
 use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:' . config('app.admin_role'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +20,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $this->authorize('index',Role::class);
         return view('role.index', [
             'roles' => Role::all(),
         ]);
@@ -29,6 +33,7 @@ class RoleController extends Controller
      */
     public function create()
     {
+        $this->authorize('create',Role::class);
         return view('role.create');
     }
 
@@ -41,7 +46,6 @@ class RoleController extends Controller
     public function store(StoreRequest $request, Role $role)
     {
         $role = $role->store($request);
-        alert()->success('Éxito','El rol se a guardado', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.role.show', $role);
     }
 
@@ -53,6 +57,7 @@ class RoleController extends Controller
      */
     public function show(Role $role)
     {
+        $this->authorize('view',$role);
         return view('role.show', [
             'role' =>$role,
             'permissions' => $role->permissions,
@@ -67,6 +72,7 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        $this->authorize('update', $role);
         return view('role.edit', [
             'role' =>$role,
         ]);
@@ -82,7 +88,6 @@ class RoleController extends Controller
     public function update(UpdateRequest $request, Role $role)
     {
         $role->my_update($request);
-        toast('Rol actualizado', 'succes');
         return redirect()->route('dashboard.role.show', $role);
     }
 
@@ -94,8 +99,9 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        alert()->success('Rol eliminado')->showConfirmButton();
+        $this->authorize('delete', $role);
         $role->delete();
+        alert()->success('Éxito', 'Rol eliminado')->showConfirmButton();
         return redirect()->route('dashboard.role.index');
     }
 }

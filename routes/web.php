@@ -18,8 +18,8 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
     Route::get('/', function(){ return view('home'); });
     Route::get('admin','AdminController@show')->name('admin.show');
     Route::resource('user', 'UserController');
-    Route::get('user/import','UserController@import')->name('user.import');
-    Route::post('user/make_import','UserController@make_import')->name('user.make_import');
+    Route::get('user_import','UserController@import')->name('user_import');
+    Route::post('user_make_import','UserController@make_import')->name('user_make_import');
     Route::resource('role', 'RoleController');
     Route::get('user/{user}/assign_role', 'UserController@assign_role')->name('user.assign_role');
     Route::post('user/{user}/role_assignment', 'UserController@role_assignment')->name('user.role_assignment');

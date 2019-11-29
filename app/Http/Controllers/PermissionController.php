@@ -10,6 +10,10 @@ use Illuminate\Http\Request;
 
 class PermissionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:' . config('app.admin_role'));
+    }
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +21,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
+        $this->authorize('index',Role::class);
         return view('permission.index', [
             'permissions' => Permission::all(),
         ]);
@@ -29,6 +34,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
+        $this->authorize('create',Role::class);
         return view('permission.create', [
             'roles' => Role::all(),
         ]);
@@ -43,7 +49,6 @@ class PermissionController extends Controller
     public function store(StoreRequest $request, Permission $permission)
     {
         $permission = $permission->store($request);
-        alert()->success('Éxito','El permiso se a guardado', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.permission.show', $permission);
     }
 
@@ -55,6 +60,7 @@ class PermissionController extends Controller
      */
     public function show(Permission $permission)
     {
+        $this->authorize('view', $permission);
         return view('permission.show', [
             'permission' =>$permission,
         ]);
@@ -68,6 +74,7 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
+        $this->authorize('update', $permission);
         return view('permission.edit', [
             'permission' =>$permission,
             'roles' => Role::where('id', '!=', $permission->role->id)->get(),
@@ -84,7 +91,6 @@ class PermissionController extends Controller
     public function update(UpdateRequest $request, Permission $permission)
     {
         $permission->my_update($request);
-        toast('Permiso actualizado', 'succes');
         return redirect()->route('dashboard.permission.show', $permission);
     }
 
@@ -96,8 +102,10 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
-        alert()->success('Permiso eliminado')->showConfirmButton();
+        $this->authorize('delete', $permission);
+        $role = $permission->role;
         $permission->delete();
-        return redirect()->route('dashboard.permission.index');
+        alert()->success('Permiso eliminado')->showConfirmButton();
+        return redirect()->route('dashboard.permission.index', $role);
     }
 }

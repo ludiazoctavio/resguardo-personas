@@ -10,6 +10,11 @@ class PersonPolicy
 {
     use HandlesAuthorization;
 
+    public function index(User $user)
+    {
+        return $user->has_permission('index-person');
+    }
+
     /**
      * Determine whether the user can view any people.
      *
@@ -30,7 +35,7 @@ class PersonPolicy
      */
     public function view(User $user, Person $person)
     {
-        //
+        return $user->has_permission('view-person');
     }
 
     /**
@@ -41,7 +46,7 @@ class PersonPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->has_permission('create-person');
     }
 
     /**
@@ -53,7 +58,7 @@ class PersonPolicy
      */
     public function update(User $user, Person $person)
     {
-        //
+        return $user->has_permission('update-person');
     }
 
     /**
@@ -65,7 +70,7 @@ class PersonPolicy
      */
     public function delete(User $user, Person $person)
     {
-        //
+        return $user->has_permission('delete-person');
     }
 
     /**

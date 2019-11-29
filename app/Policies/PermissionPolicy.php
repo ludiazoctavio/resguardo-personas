@@ -2,13 +2,18 @@
 
 namespace App\Policies;
 
-use App\Permission;
 use App\User;
+use App\Permission;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class PermissionPolicy
 {
     use HandlesAuthorization;
+
+    public function index(User $user)
+    {
+        return $user->has_permission('index-permission');
+    }
 
     /**
      * Determine whether the user can view any permissions.
@@ -30,7 +35,7 @@ class PermissionPolicy
      */
     public function view(User $user, Permission $permission)
     {
-        //
+        return $user->has_permission('view-permission');
     }
 
     /**
@@ -41,7 +46,7 @@ class PermissionPolicy
      */
     public function create(User $user)
     {
-        //
+        return $user->has_permission('create-permission');
     }
 
     /**
@@ -53,7 +58,7 @@ class PermissionPolicy
      */
     public function update(User $user, Permission $permission)
     {
-        //
+        return $user->has_permission('update-permission');
     }
 
     /**
@@ -65,7 +70,7 @@ class PermissionPolicy
      */
     public function delete(User $user, Permission $permission)
     {
-        //
+        return $user->has_permission('delete-permission');
     }
 
     /**

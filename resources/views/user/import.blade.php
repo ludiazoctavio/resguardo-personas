@@ -6,14 +6,14 @@
         Importar usuarios
     </div>
     <div class="card-body">
-        <form method="POST" class="" action="{{ route('dashboard.user.store') }}">
+        <form method="POST" class="" action="{{ route('dashboard.user_make_import') }}" enctype="multipart/form-data">
             @csrf
             <div class="pb-3">
                 <div class="form-row">
                     <div class="form-group required col-md-6">
-                        <label for="name">Selecciona un archivo de excel:</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" placeholder="Nombre(s)">
-                        @error('name')
+                        <label for="excel">Selecciona un archivo de excel:</label>
+                        <input type="file" class="form-control @error('excel') is-invalid @enderror" id="excel" name="excel" value="{{ old('name') }}" placeholder="Nombre(s)" required="required">
+                        @error('excel')
                             <div class="invalid-feedback active" role="alert">
                                 <strong>{{ $message }}</strong>
                             </div>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Crear usuario</button>
+            <button type="submit" class="btn btn-primary">Importar</button>
         </form>
     </div>
 </div>

@@ -72,7 +72,7 @@
                     <div class="form-group required required col-md-4">
                         <label for="dependence_id">Dependencia</label>
                         <select class="form-control @error('dependence_id') is-invalid @enderror" id="dependence_id" name="dependence_id">
-                            <option value="{{$user->dependence->id}}" selected="">{{$user->dependence->name}}</option>
+                            @if($user->dependence)<option value="{{$user->dependence->id}}" selected="">{{$user->dependence->name}}</option>@endif
                             @foreach ($dependences as $dependence)
                             <option value="{{$dependence->id}}">{{$dependence->name}}</option>
                             @endforeach

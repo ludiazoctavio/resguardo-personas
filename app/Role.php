@@ -35,6 +35,7 @@ class Role extends Model
     public function store($request)
     {
         $slug = Str::slug($request->name, '-');
+        alert()->success('Éxito','El rol se a guardado', 'succes')->showConfirmButton();
         return self::create($request->all() + [
             'slug' => $slug,
         ]);
@@ -46,6 +47,7 @@ class Role extends Model
         self::update($request->all() + [
             'slug' => $slug,
         ]);
+        alert()->success('Éxito','El rol se actualizó', 'succes')->showConfirmButton();
     }
 
 //Validacion

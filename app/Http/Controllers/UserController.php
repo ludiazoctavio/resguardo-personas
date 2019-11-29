@@ -154,6 +154,15 @@ class UserController extends Controller
     */
     public function import(Request $request) 
     {
+        return view('user.import');
+    }
+
+    /**
+     * Importar desde excel
+     *
+    */
+    public function make_import(Request $request) 
+    {
         Excel::import(new UsersImport, $request->file('excel'));
         alert()->success('Éxito','Usuarios importados', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.user.index');
