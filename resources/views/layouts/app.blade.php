@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="html-custom" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,9 +12,9 @@
     {{-- extra_head --}}
     @yield('extra_head')
 </head>
-<body>
+<body class="body-custom">
+    @include('layouts.includes.header')
     <div id="app">
-        @include('layouts.includes.header')
         <main class="py-4">
             <div class="row mx-0">
                 <div class="col-3">
@@ -31,8 +31,8 @@
                 </div>
             </div>
         </main>
-        @include('layouts.includes.footer')
     </div>
+    @include('layouts.includes.footer')
     @include('sweetalert::alert')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {{-- extra_script --}}

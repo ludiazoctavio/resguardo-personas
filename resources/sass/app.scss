@@ -7,6 +7,39 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@font-face {
+    font-family: "Metropolis";
+    src: url("../fonts/Metropolis-Bold.otf");
+    font-weight: 700;
+  }
+  @font-face {
+    font-family: "Metropolis";
+    src: url("../fonts/Metropolis-Regular.otf");
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: "Metropolis";
+    src: url("../fonts/Metropolis-SemiBold.otf");
+    font-weight: 600;
+  }
+  .html-custom {
+    min-height: 100%;
+    position: relative;
+  }
+  
+  .body-custom {
+    margin: 0;
+    margin-bottom: 10rem;
+  }
+  
+  @media (min-width: 768px) {
+    .body-custom {
+      margin-bottom: 7rem;
+    }
+  }
+  body {
+    font-family: "Metropolis", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
 
 .imagen-encabezado {
     margin: 0.9rem 0;

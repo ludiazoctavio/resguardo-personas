@@ -11100,6 +11100,44 @@ a.text-dark:focus {
   }
 }
 
+@font-face {
+  font-family: "Metropolis";
+  src: url(/fonts/Metropolis-Bold.otf?dea4998b081c6c1133a3b5b08ff2218c);
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url(/fonts/Metropolis-Regular.otf?f7b5e589f88206b4bd5cb1408c5362e6);
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Metropolis";
+  src: url(/fonts/Metropolis-SemiBold.otf?a49d383f60d6364ec2c23248f1a08b51);
+  font-weight: 600;
+}
+
+.html-custom {
+  min-height: 100%;
+  position: relative;
+}
+
+.body-custom {
+  margin: 0;
+  margin-bottom: 10rem;
+}
+
+@media (min-width: 768px) {
+  .body-custom {
+    margin-bottom: 7rem;
+  }
+}
+
+body {
+  font-family: "Metropolis", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .imagen-encabezado {
   margin: 0.9rem 0;
   max-width: 22.6rem;
