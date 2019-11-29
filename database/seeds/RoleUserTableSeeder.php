@@ -19,7 +19,7 @@ class RoleUserTableSeeder extends Seeder
         \DB::table('role_user')->insert(array (
             0 => 
             array (
-                'id' => 4,
+                'id' => 1,
                 'role_id' => 1,
                 'user_id' => 1,
                 'created_at' => '2019-11-28 20:32:31',

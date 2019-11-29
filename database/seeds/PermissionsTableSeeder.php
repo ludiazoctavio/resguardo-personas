@@ -167,8 +167,88 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2019-11-28 22:38:50',
                 'updated_at' => '2019-11-28 22:38:50',
             ),
+            15 => 
+            array (
+                'id' => 16,
+                'name' => 'index-user',
+                'slug' => 'index-user',
+                'description' => 'index-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            16 => 
+            array (
+                'id' => 17,
+                'name' => 'create-user',
+                'slug' => 'create-user',
+                'description' => 'create-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            17 => 
+            array (
+                'id' => 18,
+                'name' => 'view-user',
+                'slug' => 'view-user',
+                'description' => 'view-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            18 => 
+            array (
+                'id' => 19,
+                'name' => 'update-user',
+                'slug' => 'update-user',
+                'description' => 'update-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            19 => 
+            array (
+                'id' => 20,
+                'name' => 'delete-user',
+                'slug' => 'delete-user',
+                'description' => 'delete-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            19 => 
+            array (
+                'id' => 21,
+                'name' => 'assign-role-user',
+                'slug' => 'assign-role-user',
+                'description' => 'assign-role-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            20 => 
+            array (
+                'id' => 22,
+                'name' => 'assign-permission-user',
+                'slug' => 'assign-permission-user',
+                'description' => 'assign-permission-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            21 => 
+            array (
+                'id' => 23,
+                'name' => 'import-user',
+                'slug' => 'import-user',
+                'description' => 'import-user',
+                'role_id' => 1,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
         ));
         
-        
+    
     }
 }
