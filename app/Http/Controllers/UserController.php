@@ -4,15 +4,22 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Role;
-use App\Permission;
+use App\Dependence;
+
 use App\Http\Requests\User\StoreRequest;
 use App\Http\Requests\User\UpdateRequest;
+
 use Illuminate\Http\Request;
+
 use App\Imports\UsersImport;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -20,6 +27,7 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('index', User::class);
         return view('user.index', [
             'users' => User::all(),
         ]);
@@ -32,9 +40,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        $this->authorize('create', User::class);
         return view('user.locatel.create', [
             'roles' => Role::all(),
-            'dependences' => \App\Dependence::all(),
+            'dependences' => Dependence::all(),
         ]);
     }
 
@@ -58,6 +67,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
+        $this->authorize('view', $user);
         return view('user.show', [
             'user' =>$user,
         ]);
@@ -71,9 +81,10 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
+        $this->authorize('update', $user);
         return view('user.locatel.edit', [
             'user' => $user,
-            'dependences' => \App\Dependence::where('id', '!=', $user->dependence_id)->get(),
+            'dependences' => Dependence::where('id', '!=', $user->dependence_id)->get(),
         ]);
     }
 
@@ -98,6 +109,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
+        $this->authorize('delete', $user);
         $user->delete();
         alert()->success('Éxito','Usuario eliminado', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.user.index');
@@ -109,6 +121,7 @@ class UserController extends Controller
     */
     public function assign_role(User $user)
     {
+        $this->authorize('assign_role', $user);
         return view('user.assign_role', [
             'user' => $user,
             'roles' => Role::all(),
@@ -121,6 +134,7 @@ class UserController extends Controller
     */
     public function role_assignment(Request $request, User $user)
     {
+        $this->authorize('assign_role', $user);
         $user->role_assignment($request);
         return redirect()->route('dashboard.user.show', $user);
     }
@@ -131,6 +145,7 @@ class UserController extends Controller
     */
     public function assign_permission(User $user)
     {
+        $this->authorize('assign_permission', $user);
         return view('user.assign_permission', [
             'user' => $user,
             'roles' => $user->roles,
@@ -143,6 +158,7 @@ class UserController extends Controller
     */
     public function permission_assignment(Request $request, User $user)
     {
+        $this->authorize('assign_permission', $user);
         $user->permissions()->sync($request->permissions);    
         alert()->success('Éxito','Permisos asignados', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.user.show', $user);
@@ -154,6 +170,7 @@ class UserController extends Controller
     */
     public function import(Request $request) 
     {
+        $this->authorize('import', $user);
         return view('user.import');
     }
 
@@ -163,6 +180,7 @@ class UserController extends Controller
     */
     public function make_import(Request $request) 
     {
+        $this->authorize('import', $user);
         Excel::import(new UsersImport, $request->file('excel'));
         alert()->success('Éxito','Usuarios importados', 'succes')->showConfirmButton();
         return redirect()->route('dashboard.user.index');

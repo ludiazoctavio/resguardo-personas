@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Person_report;
+use App\Catalogs\Gender;
 use Illuminate\Http\Request;
 
-class PersonReportController extends Controller
+class GenderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PersonReportController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Person_report  $person_report
+     * @param  \App\Gender  $gender
      * @return \Illuminate\Http\Response
      */
-    public function show(Person_report $person_report)
+    public function show(Gender $gender)
     {
         //
     }
@@ -52,10 +52,10 @@ class PersonReportController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Person_report  $person_report
+     * @param  \App\Gender  $gender
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person_report $person_report)
+    public function edit(Gender $gender)
     {
         //
     }
@@ -64,10 +64,10 @@ class PersonReportController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Person_report  $person_report
+     * @param  \App\Gender  $gender
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person_report $person_report)
+    public function update(Request $request, Gender $gender)
     {
         //
     }
@@ -75,10 +75,10 @@ class PersonReportController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Person_report  $person_report
+     * @param  \App\Gender  $gender
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person_report $person_report)
+    public function destroy(Gender $gender)
     {
         //
     }

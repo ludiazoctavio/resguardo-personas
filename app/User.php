@@ -113,6 +113,11 @@ class User extends Authenticatable
 
 //Recuperacion de informacion
 
+    public function getFullNameAttribute()
+    {
+        return "{$this->name} {$this->last_name_1} {$this->last_name_2}";
+    }
+
 //Otras
 
     public function verify_permission_integrity(array $roles)

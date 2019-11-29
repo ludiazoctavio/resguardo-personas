@@ -32,4 +32,12 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
     Route::resource('search', 'SearchController');
 });
 
-//Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+//Rutas Locatel
+Route::group(['middleware' => ['auth'], 'as' => 'locatel'], function(){
+    //Route::resource('locatel/person/create', 'PersonController@locatel_create')->name('person.locatel_create');
+});
+
+//Rutas dependencia
+Route::group(['middleware' => ['auth'], 'as' => 'dependence'], function(){
+    //Route::resource('dependence/person/create', 'PersonController@dependence_create')->name('person.dependence_create');
+});

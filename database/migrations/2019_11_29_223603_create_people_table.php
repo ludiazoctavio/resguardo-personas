@@ -20,11 +20,16 @@ class CreatePeopleTable extends Migration
             $table->string('last_name_1')->default(null)->nullable(true); //primer apellido
             $table->string('last_name_2')->default(null)->nullable(true); //segundo apellido
             $table->unsignedInteger('age')->default(null)->nullable(true); //edad
-            $table->unsignedInteger('age_range')->default(null)->nullable(true); //rango de esda
-            $table->unsignedInteger('gender')->default(null)->nullable(true); //genero
-            $table->unsignedInteger('nationality')->default(null)->nullable(true); //nacionalidad
-            $table->unsignedInteger('disability')->default(null)->nullable(true); //discapacidad
-            $table->unsignedInteger('priority'); //semaforo prioridad
+            $table->unsignedInteger('age_range_id')->default(null)->nullable(true); //rango de esda
+            $table->foreign('age_range_id')->references('id')->on('age_ranges')->onUpdate('cascade');
+            $table->unsignedInteger('gender_id')->default(null)->nullable(true); //genero
+            $table->foreign('gender_id')->references('id')->on('genders')->onUpdate('cascade');
+            $table->unsignedInteger('nationality_id')->default(null)->nullable(true); //nacionalidad
+            $table->foreign('nationality_id')->references('id')->on('nationalities')->onUpdate('cascade');
+            $table->unsignedInteger('disability_id')->default(null)->nullable(true); //discapacidad
+            $table->foreign('disability_id')->references('id')->on('disabilities')->onUpdate('cascade');
+            $table->unsignedInteger('priority_id'); //semaforo prioridad
+            $table->foreign('priority_id')->references('id')->on('priorities')->onUpdate('cascade');
             $table->boolean('confidential'); //confidencial
             $table->boolean('closed'); //cerrado
             $table->timestamps();

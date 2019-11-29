@@ -18,7 +18,7 @@ class PersonController extends Controller
      */
     public function index()
     {
-        $this->authorize('index',Role::class);
+        $this->authorize('index', Person::class);
         return view('person.index');
     }
 
@@ -29,7 +29,7 @@ class PersonController extends Controller
      */
     public function create()
     {
-        $this->authorize('create',Role::class);
+        $this->authorize('create', Person::class);
         return view('person.locatel.create');
     }
 
