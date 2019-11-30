@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOccupationTable extends Migration
+class CreatePersonAliasesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateOccupationTable extends Migration
      */
     public function up()
     {
-        Schema::create('occupation', function (Blueprint $table) {
+        Schema::create('person_aliases', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateOccupationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('occupation');
+        Schema::dropIfExists('person_aliases');
     }
 }

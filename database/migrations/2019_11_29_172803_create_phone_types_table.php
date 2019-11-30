@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScholarshipTable extends Migration
+class CreatePhoneTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateScholarshipTable extends Migration
      */
     public function up()
     {
-        Schema::create('scholarship', function (Blueprint $table) {
+        Schema::create('phone_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateScholarshipTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('scholarship');
+        Schema::dropIfExists('phone_types');
     }
 }

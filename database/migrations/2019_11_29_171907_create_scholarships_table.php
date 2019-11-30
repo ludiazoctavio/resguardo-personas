@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddressCityTable extends Migration
+class CreateScholarshipsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateAddressCityTable extends Migration
      */
     public function up()
     {
-        Schema::create('address_city', function (Blueprint $table) {
+        Schema::create('scholarships', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateAddressCityTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_city');
+        Schema::dropIfExists('scholarships');
     }
 }

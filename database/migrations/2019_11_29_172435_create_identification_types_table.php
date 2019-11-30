@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePhysicalHealthTable extends Migration
+class CreateIdentificationTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreatePhysicalHealthTable extends Migration
      */
     public function up()
     {
-        Schema::create('physical_health', function (Blueprint $table) {
+        Schema::create('identification_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreatePhysicalHealthTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('physical_health');
+        Schema::dropIfExists('identification_types');
     }
 }

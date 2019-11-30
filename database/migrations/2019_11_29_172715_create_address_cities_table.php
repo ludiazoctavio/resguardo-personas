@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMentalHealthTable extends Migration
+class CreateAddressCitiesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMentalHealthTable extends Migration
      */
     public function up()
     {
-        Schema::create('mental_health', function (Blueprint $table) {
+        Schema::create('address_cities', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateMentalHealthTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mental_health');
+        Schema::dropIfExists('address_cities');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateIdentificationTypeTable extends Migration
+class CreateMentalHealthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateIdentificationTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('identification_type', function (Blueprint $table) {
+        Schema::create('mental_healths', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateIdentificationTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('identification_type');
+        Schema::dropIfExists('mental_healths');
     }
 }

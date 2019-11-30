@@ -30,7 +30,11 @@ class PersonController extends Controller
     public function create()
     {
         $this->authorize('create', Person::class);
-        return view('person.locatel.create');
+        return view('person.locatel.create', [
+            'genders' => \App\Catalogs\Gender::all(),
+            'nationalities' => \App\Catalogs\Nationality::all(),
+            'disabilities' => \App\Catalogs\Disability::all(),
+        ]);
     }
 
     /**

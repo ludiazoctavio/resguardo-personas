@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateRelationshipTable extends Migration
+class CreateOccupationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateRelationshipTable extends Migration
      */
     public function up()
     {
-        Schema::create('relationship', function (Blueprint $table) {
+        Schema::create('occupations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateRelationshipTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('relationship');
+        Schema::dropIfExists('occupations');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddressStateTable extends Migration
+class CreatePhysicalHealthsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateAddressStateTable extends Migration
      */
     public function up()
     {
-        Schema::create('address_state', function (Blueprint $table) {
+        Schema::create('physical_healths', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateAddressStateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_state');
+        Schema::dropIfExists('physical_healths');
     }
 }
