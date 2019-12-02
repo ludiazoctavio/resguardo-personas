@@ -30,6 +30,7 @@ class UserController extends Controller
         $this->authorize('index', User::class);
         return view('user.index', [
             'users' => User::all(),
+            'dependences' => Dependence::all(),
         ]);
     }
 
