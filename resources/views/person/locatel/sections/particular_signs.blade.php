@@ -1,0 +1,3 @@
+<div class="tab-pane fade" id="pills-particular_signs" role="tabpanel" aria-labelledby="pills-particular_signs-tab">
+    ...
+</div>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Rol
+        Personas
     </div>
     <div class="card-body">
         <table class="table table-striped">
@@ -14,7 +14,7 @@
             </tr>
             </thead>
             <tbody>
-                @foreach ($roles as $item)
+                @foreach ($people as $item)
                 <tr>
                     <th scope="row"><a href="{{ route('dashboard.role.show', $item) }}">{{$item->name}}</a></th>
                     <td>{{$item->description}}</td>

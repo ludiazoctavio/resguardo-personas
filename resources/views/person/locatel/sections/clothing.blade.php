@@ -1,0 +1,3 @@
+<div class="tab-pane fade" id="pills-clothing" role="tabpanel" aria-labelledby="pills-clothing-tab">
+    ...
+</div>

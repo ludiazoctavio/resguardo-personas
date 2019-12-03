@@ -28,6 +28,16 @@ class CreatePeopleTable extends Migration
             $table->foreign('nationality_id')->references('id')->on('nationalities')->onUpdate('cascade');
             $table->unsignedInteger('disability_id')->default(null)->nullable(true); //discapacidad
             $table->foreign('disability_id')->references('id')->on('disabilities')->onUpdate('cascade');
+            $table->unsignedInteger('physical_health_id')->default(null)->nullable(true); //discapacidad
+            $table->foreign('physical_health_id')->references('id')->on('physical_healths')->onUpdate('cascade');
+            $table->unsignedInteger('mental_health_id')->default(null)->nullable(true); //discapacidad
+            $table->foreign('mental_health_id')->references('id')->on('mental_healths')->onUpdate('cascade');
+            $table->unsignedInteger('occupation_id')->default(null)->nullable(true); //discapacidad
+            $table->foreign('occupation_id')->references('id')->on('occupations')->onUpdate('cascade');
+            $table->unsignedInteger('scholarship_id')->default(null)->nullable(true); //discapacidad
+            $table->foreign('scholarship_id')->references('id')->on('scholarships')->onUpdate('cascade');
+            $table->unsignedInteger('marital_status_id')->default(null)->nullable(true); //discapacidad
+            $table->foreign('marital_status_id')->references('id')->on('marital_statuses')->onUpdate('cascade');
             $table->unsignedInteger('priority_id'); //semaforo prioridad
             $table->foreign('priority_id')->references('id')->on('priorities')->onUpdate('cascade');
             $table->boolean('confidential'); //confidencial

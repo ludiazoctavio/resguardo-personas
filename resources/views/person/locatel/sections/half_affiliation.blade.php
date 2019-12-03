@@ -1,0 +1,3 @@
+<div class="tab-pane fade" id="pills-half_affiliation" role="tabpanel" aria-labelledby="pills-half_affiliation-tab">
+    ...
+</div>

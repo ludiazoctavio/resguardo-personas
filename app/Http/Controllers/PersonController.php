@@ -19,7 +19,9 @@ class PersonController extends Controller
     public function index()
     {
         $this->authorize('index', Person::class);
-        return view('person.index');
+        return view('person.index', [
+            'people' => Person::all(),
+        ]);
     }
 
     /**
@@ -34,6 +36,13 @@ class PersonController extends Controller
             'genders' => \App\Catalogs\Gender::all(),
             'nationalities' => \App\Catalogs\Nationality::all(),
             'disabilities' => \App\Catalogs\Disability::all(),
+            'physical_healths' => \App\Catalogs\Physical_health::all(),
+            'mental_healths' => \App\Catalogs\Mental_health::all(),
+            'occupations' => \App\Catalogs\Occupation::all(),
+            'scholarships' => \App\Catalogs\Scholarship::all(),
+            'marital_statuses' => \App\Catalogs\Marital_status::all(),
+            'relationships' => \App\Catalogs\Relationship::all(),
+            'phone_types' => \App\Catalogs\Phone_type::all(),
         ]);
     }
 
