@@ -25,6 +25,14 @@ class RoleUserTableSeeder extends Seeder
                 'created_at' => '2019-11-28 20:32:31',
                 'updated_at' => '2019-11-28 20:32:31',
             ),
+            1 => 
+            array (
+                'id' => 2,
+                'role_id' => 1,
+                'user_id' => 2,
+                'created_at' => '2019-12-04 11:06:18',
+                'updated_at' => '2019-12-04 11:06:18',
+            ),
         ));
         
         
