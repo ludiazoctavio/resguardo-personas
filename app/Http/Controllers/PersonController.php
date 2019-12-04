@@ -43,6 +43,9 @@ class PersonController extends Controller
             'marital_statuses' => \App\Catalogs\Marital_status::all(),
             'relationships' => \App\Catalogs\Relationship::all(),
             'phone_types' => \App\Catalogs\Phone_type::all(),
+            'cities' => \App\Catalogs\Address_city::all(),
+            'states' => \App\Catalogs\Address_state::all(),
+            'identification_types' => \App\Catalogs\Identification_type::all(),
         ]);
     }
 

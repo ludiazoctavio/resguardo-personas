@@ -141,27 +141,27 @@
         <h5>Domicilio</h5>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="first_name">Calle:</label>
-                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" value="{{ old('first_name') }}" placeholder="Escribe la calle">
-                @error('first_name')
+                <label for="street">Calle:</label>
+                <input type="text" class="form-control @error('street') is-invalid @enderror" id="street" name="street" value="{{ old('street') }}" placeholder="Escribe la calle">
+                @error('street')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="last_name_1">No. exterior:</label>
-                <input type="text" class="form-control @error('last_name_1') is-invalid @enderror" id="last_name_1" name="last_name_1" value="{{ old('last_name_1') }}" placeholder="Escribe el número exterior">
-                @error('last_name_1')
+                <label for="number">No. exterior:</label>
+                <input type="text" class="form-control @error('number') is-invalid @enderror" id="number" name="number" value="{{ old('number') }}" placeholder="Escribe el número exterior">
+                @error('number')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="last_name_2">No. interior:</label>
-                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="last_name_2" name="last_name_2" value="{{ old('last_name_2') }}" placeholder="Escribe el número interior">
-                @error('last_name_2')
+                <label for="outdoor_number">No. interior:</label>
+                <input type="text" class="form-control @error('outdoor_number') is-invalid @enderror" id="outdoor_number" name="outdoor_number" value="{{ old('outdoor_number') }}" placeholder="Escribe el número interior">
+                @error('outdoor_number')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
@@ -170,51 +170,46 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="last_name_2">Código postal:</label>
-                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="last_name_2" name="last_name_2" value="{{ old('last_name_2') }}">
-                @error('last_name_2')
+                <label for="pc">Código postal:</label>
+                <input type="text" class="form-control @error('pc') is-invalid @enderror" id="pc" name="pc" value="{{ old('pc') }}">
+                @error('pc')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-3">
-                <label for="physical_health_id">Colonia:</label>
-                <select class="form-control @error('physical_health_id') is-invalid @enderror" id="physical_health_id" name="physical_health_id">
-                    <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($physical_healths as $physical_health)
-                    <option value="{{$physical_health->id}}">{{$physical_health->name}}</option>
-                    @endforeach
-                </select>
-                @error('physical_health_id')
+                <label for="suburb">Colonia:</label>
+                <input type="text" class="form-control @error('suburb') is-invalid @enderror" id="suburb" name="suburb" value="{{ old('suburb') }}">
+                @error('suburb')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-3">
-                <label for="mental_health_id">Alcaldía:</label>
-                <select class="form-control @error('mental_health_id') is-invalid @enderror" id="mental_health_id" name="mental_health_id">
+                <label for="city_id">Alcaldía:</label>
+                <select class="form-control @error('city_id') is-invalid @enderror" id="city_id" name="city_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($mental_healths as $mental_health)
-                    <option value="{{$mental_health->id}}">{{$mental_health->name}}</option>
+                    @foreach ($cities as $city)
+                    <option value="{{$city->id}}">{{$city->name}}</option>
                     @endforeach
                 </select>
-                @error('mental_health_id')
+                @error('city_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-3">
-                <label for="mental_health_id">Entidad:</label>
-                <select class="form-control @error('mental_health_id') is-invalid @enderror" id="mental_health_id" name="mental_health_id">
+                <label for="state_id">Entidad:</label>
+                <select class="form-control @error('state_id') is-invalid @enderror" id="state_id" name="state_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($mental_healths as $mental_health)
-                    <option value="{{$mental_health->id}}">{{$mental_health->name}}</option>
+                    @foreach ($states as $state)
+                    <option value="{{$state->id}}">{{$state->name}}</option>
                     @endforeach
                 </select>
-                @error('mental_health_id')
+                @error('state_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
@@ -226,23 +221,23 @@
         <h5>Identificación</h5>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="occupation_id">Documento con el que se identifica:</label>
-                <select class="form-control @error('occupation_id') is-invalid @enderror" id="occupation_id" name="occupation_id">
+                <label for="identification_type_id">Documento con el que se identifica:</label>
+                <select class="form-control @error('identification_type_id') is-invalid @enderror" id="identification_type_id" name="identification_type_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($occupations as $occupation)
-                    <option value="{{$occupation->id}}">{{$occupation->name}}</option>
+                    @foreach ($identification_types as $identification_type)
+                    <option value="{{$identification_type->id}}">{{$identification_type->name}}</option>
                     @endforeach
                 </select>
-                @error('occupation_id')
+                @error('identification_type_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="first_name">Número o folio de la identificación:</label>
-                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" value="{{ old('first_name') }}" placeholder="Escribe el número o folio ">
-                @error('first_name')
+                <label for="number_identification">Número o folio de la identificación:</label>
+                <input type="text" class="form-control @error('number_identification') is-invalid @enderror" id="number_identification" name="number_identification" value="{{ old('number_identification') }}" placeholder="Escribe el número o folio ">
+                @error('number_identification')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
@@ -251,12 +246,12 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="occupation_id">Agregar fotografía (si se cuenta con ella):</label>
+                <label for="image_identification">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFileLang" lang="es">
+                    <input type="file" class="custom-file-input" id="image_identification" name="image_identification" lang="es">
                     <label class="custom-file-label" for="customFileLang">Selecciona un archivo JPG o PNG</label>
                 </div>
-                @error('occupation_id')
+                @error('image_identification')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>

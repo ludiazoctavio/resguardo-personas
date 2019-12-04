@@ -15,6 +15,10 @@ class CreateAddressCitiesTable extends Migration
     {
         Schema::create('address_cities', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
+            $table->unsignedInteger('state_id');
+            $table->foreign('state_id')->references('id')->on('address_states')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
