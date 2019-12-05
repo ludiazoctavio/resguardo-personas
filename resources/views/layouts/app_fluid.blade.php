@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="html-custom" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,15 +9,19 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @include('sweetalert::alert')
+    @yield('extra_head')
 </head>
-<body>
+<body class="body-custom">
     <div id="app">
         @include('layouts.includes.header')
         <main class="py-4">
             @yield('content')
         </main>
-        @include('layouts.includes.footer')
     </div>
+    @include('layouts.includes.footer')
+    @include('sweetalert::alert')
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {{-- extra_script --}}
+    @yield('extra_script')
 </body>
 </html>

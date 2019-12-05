@@ -11,4 +11,4 @@
     </ul>
 </li>
 <li><a class="dropdown-item" href="{{ route('dashboard.search.index') }}">BÚSQUEDA DE REGISTROS</a></li>
-<li><a class="dropdown-item" href="{{ route('dashboard.report.index') }}">Reportes</a></li>
+{{--<li><a class="dropdown-item" href="{{ route('dashboard.report.index') }}">Reportes</a></li>--}}

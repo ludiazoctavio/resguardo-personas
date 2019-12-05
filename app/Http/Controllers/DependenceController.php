@@ -14,7 +14,9 @@ class DependenceController extends Controller
      */
     public function index()
     {
-        return view('people.dependences.index');
+        return view('dependence.index', [
+            'dependences' => Dependence::all(),
+        ]);
     }
 
     /**
