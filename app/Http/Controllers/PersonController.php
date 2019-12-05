@@ -46,6 +46,7 @@ class PersonController extends Controller
             'cities' => \App\Catalogs\Address_city::all(),
             'states' => \App\Catalogs\Address_state::all(),
             'identification_types' => \App\Catalogs\Identification_type::all(),
+            'circumstances' => \App\Catalogs\Circumstance::all(),
         ]);
     }
 
