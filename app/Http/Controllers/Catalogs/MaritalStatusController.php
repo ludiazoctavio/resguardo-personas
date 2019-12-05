@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Scholarship;
+use App\Catalogs\Marital_status;
 use Illuminate\Http\Request;
 
-class ScholarshipController extends Controller
+class MaritalStatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class ScholarshipController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Scholarship  $scholarship
+     * @param  \App\Marital_status  $marital_status
      * @return \Illuminate\Http\Response
      */
-    public function show(Scholarship $scholarship)
+    public function show(Marital_status $marital_status)
     {
         //
     }
@@ -52,10 +52,10 @@ class ScholarshipController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Scholarship  $scholarship
+     * @param  \App\Marital_status  $marital_status
      * @return \Illuminate\Http\Response
      */
-    public function edit(Scholarship $scholarship)
+    public function edit(Marital_status $marital_status)
     {
         //
     }
@@ -64,10 +64,10 @@ class ScholarshipController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Scholarship  $scholarship
+     * @param  \App\Marital_status  $marital_status
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Scholarship $scholarship)
+    public function update(Request $request, Marital_status $marital_status)
     {
         //
     }
@@ -75,10 +75,10 @@ class ScholarshipController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Scholarship  $scholarship
+     * @param  \App\Marital_status  $marital_status
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Scholarship $scholarship)
+    public function destroy(Marital_status $marital_status)
     {
         //
     }

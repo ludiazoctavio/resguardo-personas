@@ -209,16 +209,6 @@ class PermissionsTableSeeder extends Seeder
             ),
             19 => 
             array (
-                'id' => 20,
-                'name' => 'delete-user',
-                'slug' => 'delete-user',
-                'description' => 'delete-user',
-                'role_id' => 1,
-                'created_at' => '2019-11-28 22:38:50',
-                'updated_at' => '2019-11-28 22:38:50',
-            ),
-            19 => 
-            array (
                 'id' => 21,
                 'name' => 'assign-role-user',
                 'slug' => 'assign-role-user',
@@ -247,8 +237,28 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2019-11-28 22:38:50',
                 'updated_at' => '2019-11-28 22:38:50',
             ),
+            22 => 
+            array (
+                'id' => 24,
+                'name' => 'index-search',
+                'slug' => 'index-search',
+                'description' => 'index-search',
+                'role_id' => 1,
+                'created_at' => '2019-12-04 14:26:13',
+                'updated_at' => '2019-12-04 14:26:13',
+            ),
+            23 => 
+            array (
+                'id' => 25,
+                'name' => 'view-search',
+                'slug' => 'view-search',
+                'description' => 'view-search',
+                'role_id' => 1,
+                'created_at' => '2019-12-04 14:28:03',
+                'updated_at' => '2019-12-04 14:28:03',
+            ),
         ));
         
-    
+        
     }
 }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Marital_status;
+use App\Catalogs\Occupation;
 use Illuminate\Http\Request;
 
-class MaritalStatusController extends Controller
+class OccupationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class MaritalStatusController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Marital_status  $marital_status
+     * @param  \App\Occupation  $occupation
      * @return \Illuminate\Http\Response
      */
-    public function show(Marital_status $marital_status)
+    public function show(Occupation $occupation)
     {
         //
     }
@@ -52,10 +52,10 @@ class MaritalStatusController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Marital_status  $marital_status
+     * @param  \App\Occupation  $occupation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Marital_status $marital_status)
+    public function edit(Occupation $occupation)
     {
         //
     }
@@ -64,10 +64,10 @@ class MaritalStatusController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Marital_status  $marital_status
+     * @param  \App\Occupation  $occupation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Marital_status $marital_status)
+    public function update(Request $request, Occupation $occupation)
     {
         //
     }
@@ -75,10 +75,10 @@ class MaritalStatusController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Marital_status  $marital_status
+     * @param  \App\Occupation  $occupation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Marital_status $marital_status)
+    public function destroy(Occupation $occupation)
     {
         //
     }

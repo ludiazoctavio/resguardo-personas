@@ -3,7 +3,17 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Roles
+        <div class="row">
+            <div class="col-4">
+                Roles
+            </div>
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+                <a href="{{ route('dashboard.role.create') }}">Nuevo rol +</a>
+            </div>
+        </div>
     </div>
     <div class="card-body p-0">
         <table class="table table-hover">

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Person_alias;
+use App\Catalogs\Address_state;
 use Illuminate\Http\Request;
 
-class PersonAliasController extends Controller
+class AddressStateController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PersonAliasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\person_alias  $person_alias
+     * @param  \App\Address_state  $address_state
      * @return \Illuminate\Http\Response
      */
-    public function show(Person_alias $person_alias)
+    public function show(Address_state $address_state)
     {
         //
     }
@@ -52,10 +52,10 @@ class PersonAliasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\person_alias  $person_alias
+     * @param  \App\Address_state  $address_state
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person_alias $person_alias)
+    public function edit(Address_state $address_state)
     {
         //
     }
@@ -64,10 +64,10 @@ class PersonAliasController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\person_alias  $person_alias
+     * @param  \App\Address_state  $address_state
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person_alias $person_alias)
+    public function update(Request $request, Address_state $address_state)
     {
         //
     }
@@ -75,10 +75,10 @@ class PersonAliasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\person_alias  $person_alias
+     * @param  \App\Address_state  $address_state
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person_alias $person_alias)
+    public function destroy(Address_state $address_state)
     {
         //
     }

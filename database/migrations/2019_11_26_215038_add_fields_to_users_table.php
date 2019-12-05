@@ -34,7 +34,7 @@ class AddFieldsToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn(['last_name_1','last_name_2','position','phone','phone_extension','dependence','ascription','address']);
+            $table->dropColumn(['last_name_1','last_name_2','position','phone','phone_extension','dependence_id','ascription_id','deactivate']);
         });
     }
 }

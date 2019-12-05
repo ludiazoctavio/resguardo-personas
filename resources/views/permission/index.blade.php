@@ -3,7 +3,17 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Permisos
+        <div class="row">
+            <div class="col-4">
+                Permisos
+            </div>
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+                <a href="{{ route('dashboard.permission.create') }}">Nuevo permiso +</a>
+            </div>
+        </div>
     </div>
     <div class="card-body p-0">
         <table class="table table-hover">

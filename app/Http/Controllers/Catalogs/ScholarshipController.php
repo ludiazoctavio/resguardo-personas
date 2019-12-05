@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Address_city;
+use App\Catalogs\Scholarship;
 use Illuminate\Http\Request;
 
-class AddressCityController extends Controller
+class ScholarshipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AddressCityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Address_city  $address_city
+     * @param  \App\Scholarship  $scholarship
      * @return \Illuminate\Http\Response
      */
-    public function show(Address_city $address_city)
+    public function show(Scholarship $scholarship)
     {
         //
     }
@@ -52,10 +52,10 @@ class AddressCityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Address_city  $address_city
+     * @param  \App\Scholarship  $scholarship
      * @return \Illuminate\Http\Response
      */
-    public function edit(Address_city $address_city)
+    public function edit(Scholarship $scholarship)
     {
         //
     }
@@ -64,10 +64,10 @@ class AddressCityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Address_city  $address_city
+     * @param  \App\Scholarship  $scholarship
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Address_city $address_city)
+    public function update(Request $request, Scholarship $scholarship)
     {
         //
     }
@@ -75,10 +75,10 @@ class AddressCityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Address_city  $address_city
+     * @param  \App\Scholarship  $scholarship
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Address_city $address_city)
+    public function destroy(Scholarship $scholarship)
     {
         //
     }

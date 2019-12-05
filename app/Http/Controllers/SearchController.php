@@ -2,19 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Person;
 use App\Search;
 use Illuminate\Http\Request;
 
 class SearchController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:' . config('app.admin_role'));
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $this->authorize('index', Search::class);
+        return view('search.locatel.index', [
+            'people' => Person::all(),
+        ]);
     }
 
     /**

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Identification_type;
+use App\Catalogs\Physical_health;
 use Illuminate\Http\Request;
 
-class IdentificationTypeController extends Controller
+class PhysicalHealthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class IdentificationTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Identification_type  $identification_type
+     * @param  \App\Physical_health  $physical_health
      * @return \Illuminate\Http\Response
      */
-    public function show(Identification_type $identification_type)
+    public function show(Physical_health $physical_health)
     {
         //
     }
@@ -52,10 +52,10 @@ class IdentificationTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Identification_type  $identification_type
+     * @param  \App\Physical_health  $physical_health
      * @return \Illuminate\Http\Response
      */
-    public function edit(Identification_type $identification_type)
+    public function edit(Physical_health $physical_health)
     {
         //
     }
@@ -64,10 +64,10 @@ class IdentificationTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Identification_type  $identification_type
+     * @param  \App\Physical_health  $physical_health
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Identification_type $identification_type)
+    public function update(Request $request, Physical_health $physical_health)
     {
         //
     }
@@ -75,10 +75,10 @@ class IdentificationTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Identification_type  $identification_type
+     * @param  \App\Physical_health  $physical_health
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Identification_type $identification_type)
+    public function destroy(Physical_health $physical_health)
     {
         //
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Relationship;
+use App\Catalogs\Address_city;
 use Illuminate\Http\Request;
 
-class RelationshipController extends Controller
+class AddressCityController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class RelationshipController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Relationship  $relationship
+     * @param  \App\Address_city  $address_city
      * @return \Illuminate\Http\Response
      */
-    public function show(Relationship $relationship)
+    public function show(Address_city $address_city)
     {
         //
     }
@@ -52,10 +52,10 @@ class RelationshipController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Relationship  $relationship
+     * @param  \App\Address_city  $address_city
      * @return \Illuminate\Http\Response
      */
-    public function edit(Relationship $relationship)
+    public function edit(Address_city $address_city)
     {
         //
     }
@@ -64,10 +64,10 @@ class RelationshipController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Relationship  $relationship
+     * @param  \App\Address_city  $address_city
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Relationship $relationship)
+    public function update(Request $request, Address_city $address_city)
     {
         //
     }
@@ -75,10 +75,10 @@ class RelationshipController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Relationship  $relationship
+     * @param  \App\Address_city  $address_city
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Relationship $relationship)
+    public function destroy(Address_city $address_city)
     {
         //
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Address_state;
+use App\Catalogs\Color;
 use Illuminate\Http\Request;
 
-class AddressStateController extends Controller
+class ColorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AddressStateController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Address_state  $address_state
+     * @param  \App\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function show(Address_state $address_state)
+    public function show(Color $color)
     {
         //
     }
@@ -52,10 +52,10 @@ class AddressStateController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Address_state  $address_state
+     * @param  \App\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function edit(Address_state $address_state)
+    public function edit(Color $color)
     {
         //
     }
@@ -64,10 +64,10 @@ class AddressStateController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Address_state  $address_state
+     * @param  \App\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Address_state $address_state)
+    public function update(Request $request, Color $color)
     {
         //
     }
@@ -75,10 +75,10 @@ class AddressStateController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Address_state  $address_state
+     * @param  \App\Color  $color
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Address_state $address_state)
+    public function destroy(Color $color)
     {
         //
     }

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Phone_type;
+use App\Catalogs\Relationship;
 use Illuminate\Http\Request;
 
-class PhoneTypeController extends Controller
+class RelationshipController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PhoneTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Phone_type  $phone_type
+     * @param  \App\Relationship  $relationship
      * @return \Illuminate\Http\Response
      */
-    public function show(Phone_type $phone_type)
+    public function show(Relationship $relationship)
     {
         //
     }
@@ -52,10 +52,10 @@ class PhoneTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Phone_type  $phone_type
+     * @param  \App\Relationship  $relationship
      * @return \Illuminate\Http\Response
      */
-    public function edit(Phone_type $phone_type)
+    public function edit(Relationship $relationship)
     {
         //
     }
@@ -64,10 +64,10 @@ class PhoneTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Phone_type  $phone_type
+     * @param  \App\Relationship  $relationship
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Phone_type $phone_type)
+    public function update(Request $request, Relationship $relationship)
     {
         //
     }
@@ -75,10 +75,10 @@ class PhoneTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Phone_type  $phone_type
+     * @param  \App\Relationship  $relationship
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Phone_type $phone_type)
+    public function destroy(Relationship $relationship)
     {
         //
     }

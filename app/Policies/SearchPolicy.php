@@ -6,9 +6,14 @@ use App\Search;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class SearhPolicy
+class SearchPolicy
 {
     use HandlesAuthorization;
+
+    public function index(User $user)
+    {
+        return $user->has_permission('index-search');
+    }
 
     /**
      * Determine whether the user can view any searches.
@@ -30,7 +35,7 @@ class SearhPolicy
      */
     public function view(User $user, Search $search)
     {
-        //
+        return $user->has_permission('view-search');
     }
 
     /**

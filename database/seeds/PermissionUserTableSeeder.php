@@ -369,6 +369,38 @@ class PermissionUserTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
+            44 => 
+            array (
+                'id' => 45,
+                'permission_id' => 24,
+                'user_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            45 => 
+            array (
+                'id' => 46,
+                'permission_id' => 25,
+                'user_id' => 1,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            46 => 
+            array (
+                'id' => 47,
+                'permission_id' => 24,
+                'user_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            47 => 
+            array (
+                'id' => 48,
+                'permission_id' => 25,
+                'user_id' => 2,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
         ));
         
         

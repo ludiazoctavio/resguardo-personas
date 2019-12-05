@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Catalogs;
 
-use App\Occupation;
+use App\Catalogs\Phone_type;
 use Illuminate\Http\Request;
 
-class OccupationController extends Controller
+class PhoneTypeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class OccupationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Occupation  $occupation
+     * @param  \App\Phone_type  $phone_type
      * @return \Illuminate\Http\Response
      */
-    public function show(Occupation $occupation)
+    public function show(Phone_type $phone_type)
     {
         //
     }
@@ -52,10 +52,10 @@ class OccupationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Occupation  $occupation
+     * @param  \App\Phone_type  $phone_type
      * @return \Illuminate\Http\Response
      */
-    public function edit(Occupation $occupation)
+    public function edit(Phone_type $phone_type)
     {
         //
     }
@@ -64,10 +64,10 @@ class OccupationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Occupation  $occupation
+     * @param  \App\Phone_type  $phone_type
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Occupation $occupation)
+    public function update(Request $request, Phone_type $phone_type)
     {
         //
     }
@@ -75,10 +75,10 @@ class OccupationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Occupation  $occupation
+     * @param  \App\Phone_type  $phone_type
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Occupation $occupation)
+    public function destroy(Phone_type $phone_type)
     {
         //
     }
