@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Catalogs;
 
-use App\Catalogs\Priority;
+use App\Catalogs\Heights;
 use Illuminate\Http\Request;
 
-class PriorityController extends Controller
+class HeightsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class PriorityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Priority  $priority
+     * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function show(Priority $priority)
+    public function show(Heights $heights)
     {
         //
     }
@@ -52,10 +52,10 @@ class PriorityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Priority  $priority
+     * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function edit(Priority $priority)
+    public function edit(Heights $heights)
     {
         //
     }
@@ -64,10 +64,10 @@ class PriorityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Priority  $priority
+     * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Priority $priority)
+    public function update(Request $request, Heights $heights)
     {
         //
     }
@@ -75,10 +75,10 @@ class PriorityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Priority  $priority
+     * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Priority $priority)
+    public function destroy(Heights $heights)
     {
         //
     }

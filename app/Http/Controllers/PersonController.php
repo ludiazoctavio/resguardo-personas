@@ -47,6 +47,7 @@ class PersonController extends Controller
             'states' => \App\Catalogs\Address_state::all(),
             'identification_types' => \App\Catalogs\Identification_type::all(),
             'circumstances' => \App\Catalogs\Circumstance::all(),
+            'heights' => \App\Catalogs\Heights::all(),
         ]);
     }
 
@@ -58,8 +59,9 @@ class PersonController extends Controller
      */
     public function store(Request $request, Person $person)
     {
-        $person = $person->store($request);
-        return redirect()->route('dashboard.person.show', $person);
+        #$person = $person->store($request);
+        alert()->success('El registro de la persona se realizó con éxito.','Folio -')->showConfirmButton();
+        return redirect()->route('dashboard.search.index', $person);
     }
 
     /**

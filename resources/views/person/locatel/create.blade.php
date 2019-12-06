@@ -9,7 +9,7 @@
                 <a class="nav-link" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="false">Datos generales</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-riport-tab" data-toggle="pill" href="#pills-riport" role="tab" aria-controls="pills-riport" aria-selected="false">Reporte de desaparición</a>
+                <a class="nav-link" id="pills-report-tab" data-toggle="pill" href="#pills-report" role="tab" aria-controls="pills-report" aria-selected="false">Reporte de desaparición</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="pills-half_affiliation-tab" data-toggle="pill" href="#pills-half_affiliation" role="tab" aria-controls="pills-half_affiliation" aria-selected="false">Media filiación</a>
@@ -31,13 +31,13 @@
             <div class="tab-content" id="pills-tabContent">
                 @include('person.locatel.sections.person_report')
                 @include('person.locatel.sections.general')
-                @include('person.locatel.sections.riport')
+                @include('person.locatel.sections.report')
                 @include('person.locatel.sections.half_affiliation')
                 @include('person.locatel.sections.particular_signs')
                 @include('person.locatel.sections.clothing')
                 @include('person.locatel.sections.accessories')
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-primary">Guardar registro</button>
         </form>
     </div>
 </div>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Catalog;
 
-use App\Catalog\Mental_health;
+use App\Catalogs\Mental_health;
 use Illuminate\Http\Request;
 
 class MentalHealthController extends Controller

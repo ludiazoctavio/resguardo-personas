@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="pills-riport" role="tabpanel" aria-labelledby="pills-riport-tab">
+<div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
     <div class="pb-3">
         <div class="form-row">
             <div class="form-group col-md-3">
