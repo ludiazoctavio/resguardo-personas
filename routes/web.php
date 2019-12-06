@@ -33,11 +33,13 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
 });
 
 //Rutas Locatel
-Route::group(['middleware' => ['auth'], 'as' => 'locatel'], function(){
+Route::group(['middleware' => ['auth'], 'as' => 'locatel.'], function(){
     //Route::resource('locatel/person/create', 'PersonController@locatel_create')->name('person.locatel_create');
 });
 
 //Rutas dependencia
-Route::group(['middleware' => ['auth'], 'as' => 'dependence'], function(){
-    //Route::resource('dependence/person/create', 'PersonController@dependence_create')->name('person.dependence_create');
+Route::group(['middleware' => ['auth'], 'as' => 'dependence.'], function(){
+    Route::resource('person_dependence', 'PersonDependenceController');
+    Route::get('person_dependence/identified/create', 'PersonDependenceController@create_identified')->name('person_dependence.create_identified');
+    Route::resource('search_dependence', 'SearchController');
 });
