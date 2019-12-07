@@ -19,5 +19,16 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionUserTableSeeder::class);
         $this->call(MentalHealthsTableSeeder::class);
         $this->call(GendersTableSeeder::class);
+        $this->call(PhoneTypesTableSeeder::class);
+        $this->call(NationalitiesTableSeeder::class);
+        $this->call(RelationshipsTableSeeder::class);
+        $this->call(DisabilitiesTableSeeder::class);
+        $this->call(IdentificationTypesTableSeeder::class);
+        $this->call(AddressCitiesTableSeeder::class);
+        $this->call(AddressStatesTableSeeder::class);
+        $this->call(PhysicalHealthsTableSeeder::class);
+        $this->call(MaritalStatusesTableSeeder::class);
+        $this->call(OccupationsTableSeeder::class);
+        $this->call(ScholarshipsTableSeeder::class);
     }
 }
