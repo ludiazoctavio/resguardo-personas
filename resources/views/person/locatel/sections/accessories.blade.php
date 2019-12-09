@@ -2,42 +2,42 @@
     <div class="py-3">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="occupation_id">Tipo de accesorio puesto:</label>
-                <select class="form-control @error('occupation_id') is-invalid @enderror" id="occupation_id" name="occupation_id">
+                <label for="accessory_id">Tipo de accesorio puesto:</label>
+                <select class="form-control @error('accessory_id') is-invalid @enderror" id="accessory_id" name="accessory_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($occupations as $occupation)
-                    <option value="{{$occupation->id}}">{{$occupation->name}}</option>
+                    @foreach ($accessories as $accessory)
+                    <option value="{{$accessory->id}}">{{$accessory->name}}</option>
                     @endforeach
                 </select>
-                @error('occupation_id')
+                @error('accessory_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="scholarship_id">Color 1:</label>
-                <select class="form-control @error('scholarship_id') is-invalid @enderror" id="scholarship_id" name="scholarship_id">
+                <label for="color_id">Color 1:</label>
+                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="color_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($scholarships as $scholarship)
-                    <option value="{{$scholarship->id}}">{{$scholarship->name}}</option>
+                    @foreach ($colors as $color)
+                    <option value="{{$color->id}}">{{$color->name}}</option>
                     @endforeach
                 </select>
-                @error('scholarship_id')
+                @error('color_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="marital_status_id">Color 2:</label>
-                <select class="form-control @error('marital_status_id') is-invalid @enderror" id="marital_status_id" name="marital_status_id">
+                <label for="color_id">Color 2:</label>
+                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="color_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($marital_statuses as $marital_status)
-                    <option value="{{$marital_status->id}}">{{$marital_status->name}}</option>
+                    @foreach ($colors as $color)
+                    <option value="{{$color->id}}">{{$color->name}}</option>
                     @endforeach
                 </select>
-                @error('marital_status_id')
+                @error('color_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
@@ -48,14 +48,14 @@
     <div class="py-3">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="occupation_id">Parte del cuerpo:</label>
-                <select class="form-control @error('occupation_id') is-invalid @enderror" id="occupation_id" name="occupation_id">
+                <label for="body_part_id">Parte del cuerpo:</label>
+                <select class="form-control @error('body_part_id') is-invalid @enderror" id="body_part_id" name="body_part_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($occupations as $occupation)
-                    <option value="{{$occupation->id}}">{{$occupation->name}}</option>
+                    @foreach ($body_parts as $body_part)
+                    <option value="{{$body_part->id}}">{{$body_part->name}}</option>
                     @endforeach
                 </select>
-                @error('occupation_id')
+                @error('body_part_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>

@@ -48,6 +48,12 @@ class PersonController extends Controller
             'identification_types' => \App\Catalogs\Identification_type::all(),
             'circumstances' => \App\Catalogs\Circumstance::all(),
             'heights' => \App\Catalogs\Heights::all(),
+            'signal_types' => \App\Catalogs\Signal_type::all(),
+            'body_parts' => \App\Catalogs\Body_part::all(),
+            'sizes' => \App\Catalogs\Size::all(),
+            'cloting_types' => \App\Catalogs\Clothing_type::all(),
+            'colors' => \App\Catalogs\Color::all(),
+            'accessories' => \App\Catalogs\Accessory::all(),
         ]);
     }
 

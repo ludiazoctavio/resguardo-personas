@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHalfAffiliationEyesTable extends Migration
+class CreateSignalTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateHalfAffiliationEyesTable extends Migration
      */
     public function up()
     {
-        Schema::create('half_affiliation_eyes', function (Blueprint $table) {
+        Schema::create('signal_types', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateHalfAffiliationEyesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('half_affiliation_eyes');
+        Schema::dropIfExists('signal_types');
     }
 }

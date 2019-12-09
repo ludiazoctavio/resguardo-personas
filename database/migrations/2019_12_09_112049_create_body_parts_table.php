@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateParticularSignsFeatureTable extends Migration
+class CreateBodyPartsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateParticularSignsFeatureTable extends Migration
      */
     public function up()
     {
-        Schema::create('particular_signs_feature', function (Blueprint $table) {
+        Schema::create('body_parts', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateParticularSignsFeatureTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('particular_signs_feature');
+        Schema::dropIfExists('body_parts');
     }
 }

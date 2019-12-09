@@ -6,10 +6,13 @@
         Búsqueda de persona no localizada:
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="false">Datos generales</a>
+                <a class="nav-link active" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Datos generales</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-report-tab" data-toggle="pill" href="#pills-report" role="tab" aria-controls="pills-report" aria-selected="false">Reporte de desaparición</a>
+                <a class="nav-link" id="pills-entry-tab" data-toggle="pill" href="#pills-entry" role="tab" aria-controls="pills-entry" aria-selected="false">Fecha, hora y motivo de ingreso</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="pills-egress-tab" data-toggle="pill" href="#pills-egress" role="tab" aria-controls="pills-egress" aria-selected="false">Fecha, hora y motivo de egreso</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="pills-half_affiliation-tab" data-toggle="pill" href="#pills-half_affiliation" role="tab" aria-controls="pills-half_affiliation" aria-selected="false">Media filiación</a>
@@ -29,15 +32,15 @@
         <form method="POST" class="" action="{{ route('dashboard.person.store') }}">
             @csrf
             <div class="tab-content" id="pills-tabContent">
-                @include('person.locatel.sections.person_report')
-                @include('person.locatel.sections.general')
-                @include('person.locatel.sections.report')
+                @include('person.dependence.sections.general')
+                @include('person.dependence.sections.entry')
+                @include('person.dependence.sections.egress')
                 @include('person.locatel.sections.half_affiliation')
                 @include('person.locatel.sections.particular_signs')
                 @include('person.locatel.sections.clothing')
                 @include('person.locatel.sections.accessories')
             </div>
-            <button type="submit" class="btn btn-primary">Guardar registro</button>
+            <button type="submit" class="btn btn-primary">Realizar registro</button>
         </form>
     </div>
 </div>

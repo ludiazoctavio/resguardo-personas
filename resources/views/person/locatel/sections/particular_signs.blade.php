@@ -2,42 +2,42 @@
     <div class="py-3">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="occupation_id">Tipo de seña:</label>
-                <select class="form-control @error('occupation_id') is-invalid @enderror" id="occupation_id" name="occupation_id">
+                <label for="signal_type_id">Tipo de seña:</label>
+                <select class="form-control @error('signal_type_id') is-invalid @enderror" id="signal_type_id" name="signal_type_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($occupations as $occupation)
-                    <option value="{{$occupation->id}}">{{$occupation->name}}</option>
+                    @foreach ($signal_types as $signal_type)
+                    <option value="{{$signal_type->id}}">{{$signal_type->name}}</option>
                     @endforeach
                 </select>
-                @error('occupation_id')
+                @error('signal_type_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="scholarship_id">Parte del cuerpo:</label>
-                <select class="form-control @error('scholarship_id') is-invalid @enderror" id="scholarship_id" name="scholarship_id">
+                <label for="body_part_id">Parte del cuerpo:</label>
+                <select class="form-control @error('body_part_id') is-invalid @enderror" id="body_part_id" name="body_part_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($scholarships as $scholarship)
-                    <option value="{{$scholarship->id}}">{{$scholarship->name}}</option>
+                    @foreach ($body_parts as $body_part)
+                    <option value="{{$body_part->id}}">{{$body_part->name}}</option>
                     @endforeach
                 </select>
-                @error('scholarship_id')
+                @error('body_part_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="marital_status_id">Tamaño:</label>
-                <select class="form-control @error('marital_status_id') is-invalid @enderror" id="marital_status_id" name="marital_status_id">
+                <label for="size_id">Tamaño:</label>
+                <select class="form-control @error('size_id') is-invalid @enderror" id="size_id" name="size_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($marital_statuses as $marital_status)
-                    <option value="{{$marital_status->id}}">{{$marital_status->name}}</option>
+                    @foreach ($sizes as $size)
+                    <option value="{{$size->id}}">{{$size->name}}</option>
                     @endforeach
                 </select>
-                @error('marital_status_id')
+                @error('size_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
@@ -59,12 +59,12 @@
     <div class="pb-3">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="image_half_affiliation">Agregar fotografía (si se cuenta con ella):</label>
+                <label for="image_particular_signs">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="image_particular_signs" name="image_particular_signs" lang="es">
                     <label class="custom-file-label" for="customFileLang">Selecciona un archivo JPG o PNG</label>
                 </div>
-                @error('image_half_affiliation')
+                @error('image_particular_signs')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>

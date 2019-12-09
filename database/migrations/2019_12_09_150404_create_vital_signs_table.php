@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHalfAffiliationHeightTypeTable extends Migration
+class CreateVitalSignsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateHalfAffiliationHeightTypeTable extends Migration
      */
     public function up()
     {
-        Schema::create('half_affiliation_height_type', function (Blueprint $table) {
+        Schema::create('vital_signs', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name',200)->unique(); //nombre 
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateHalfAffiliationHeightTypeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('half_affiliation_height_type');
+        Schema::dropIfExists('vital_signs');
     }
 }

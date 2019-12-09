@@ -34,20 +34,21 @@ class PersonDependenceController extends Controller
         $this->authorize('create', Person::class);
         return view('person.dependence.create', [
             'genders' => \App\Catalogs\Gender::all(),
-            'nationalities' => \App\Catalogs\Nationality::all(),
             'disabilities' => \App\Catalogs\Disability::all(),
-            'physical_healths' => \App\Catalogs\Physical_health::all(),
-            'mental_healths' => \App\Catalogs\Mental_health::all(),
-            'occupations' => \App\Catalogs\Occupation::all(),
-            'scholarships' => \App\Catalogs\Scholarship::all(),
-            'marital_statuses' => \App\Catalogs\Marital_status::all(),
-            'relationships' => \App\Catalogs\Relationship::all(),
             'phone_types' => \App\Catalogs\Phone_type::all(),
             'cities' => \App\Catalogs\Address_city::all(),
             'states' => \App\Catalogs\Address_state::all(),
             'identification_types' => \App\Catalogs\Identification_type::all(),
-            'circumstances' => \App\Catalogs\Circumstance::all(),
             'heights' => \App\Catalogs\Heights::all(),
+            'signal_types' => \App\Catalogs\Signal_type::all(),
+            'body_parts' => \App\Catalogs\Body_part::all(),
+            'sizes' => \App\Catalogs\Size::all(),
+            'cloting_types' => \App\Catalogs\Clothing_type::all(),
+            'colors' => \App\Catalogs\Color::all(),
+            'accessories' => \App\Catalogs\Accessory::all(),
+            'vital_signs' => \App\Catalogs\Vital_signs::all(),
+            'entry_types' => \App\Catalogs\Entry_type::all(),
+            'age_ranges' => \App\Catalogs\Age_range::all(),
         ]);
     }
 
@@ -58,18 +59,14 @@ class PersonDependenceController extends Controller
             'genders' => \App\Catalogs\Gender::all(),
             'nationalities' => \App\Catalogs\Nationality::all(),
             'disabilities' => \App\Catalogs\Disability::all(),
-            'physical_healths' => \App\Catalogs\Physical_health::all(),
-            'mental_healths' => \App\Catalogs\Mental_health::all(),
-            'occupations' => \App\Catalogs\Occupation::all(),
-            'scholarships' => \App\Catalogs\Scholarship::all(),
-            'marital_statuses' => \App\Catalogs\Marital_status::all(),
             'relationships' => \App\Catalogs\Relationship::all(),
             'phone_types' => \App\Catalogs\Phone_type::all(),
             'cities' => \App\Catalogs\Address_city::all(),
             'states' => \App\Catalogs\Address_state::all(),
             'identification_types' => \App\Catalogs\Identification_type::all(),
-            'circumstances' => \App\Catalogs\Circumstance::all(),
-            'heights' => \App\Catalogs\Heights::all(),
+            'priorities' => \App\Catalogs\Priority::all(),
+            'vital_signs' => \App\Catalogs\Vital_signs::all(),
+            'entry_types' => \App\Catalogs\Entry_type::all(),
         ]);
     }
 
@@ -79,11 +76,18 @@ class PersonDependenceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Person $person)
+    public function store_identified(Request $request, Person $person)
     {
         #$person = $person->store($request);
         alert()->success('El registro de la persona se realizó con éxito.','Folio -')->showConfirmButton();
-        return redirect()->route('dependence.search.index', $person);
+        return redirect()->route('dependence.search_dependence.index', $person);
+    }
+
+    public function store_(Request $request, Person $person)
+    {
+        #$person = $person->store($request);
+        alert()->success('El registro de la persona se realizó con éxito.','Folio -')->showConfirmButton();
+        return redirect()->route('dependence.search_dependence.index', $person);
     }
 
     /**
