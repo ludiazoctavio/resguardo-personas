@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PhysicalHealthsTableSeeder extends Seeder
+class ColorsTableSeeder extends Seeder
 {
 
     /**
@@ -14,13 +14,13 @@ class PhysicalHealthsTableSeeder extends Seeder
     {
         
 
-        \DB::table('physical_healths')->delete();
+        \DB::table('colors')->delete();
         
-        \DB::table('physical_healths')->insert(array (
+        \DB::table('colors')->insert(array (
             0 => 
             array (
                 'id' => 1,
-                'name' => 'NINGUNA',
+                'name' => 'AMARILLO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -28,7 +28,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'name' => 'EMBARAZO',
+                'name' => 'AZUL',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -36,7 +36,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'name' => 'DIABETES',
+                'name' => 'BEIGE',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -44,7 +44,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
-                'name' => 'CARDIOVASCULAR',
+                'name' => 'BLANCO ',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -52,7 +52,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
-                'name' => 'RESPIRATORIA',
+                'name' => 'CAFÉ',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -60,7 +60,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 6,
-                'name' => 'RENAL',
+                'name' => 'DORADO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -68,7 +68,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
-                'name' => 'CÁNCER',
+                'name' => 'GRIS',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -76,7 +76,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
-                'name' => 'VIH/SIDA',
+                'name' => 'GUINDA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -84,7 +84,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
-                'name' => 'OTRA CONDICIÓN CRÓNICA',
+                'name' => 'LILA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -92,7 +92,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
-                'name' => 'SANGRADO POR HERIDA',
+                'name' => 'MORADO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -100,7 +100,7 @@ class PhysicalHealthsTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
-                'name' => 'INFECCIÓN CORPORAL',
+                'name' => 'NARANJA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -108,7 +108,39 @@ class PhysicalHealthsTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
-                'name' => 'MAL ASEADO',
+                'name' => 'NEGRO',
+                'inactive' => false,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            12 => 
+            array (
+                'id' => 13,
+                'name' => 'PLATEADO',
+                'inactive' => false,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            13 => 
+            array (
+                'id' => 14,
+                'name' => 'ROJO',
+                'inactive' => false,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            14 => 
+            array (
+                'id' => 15,
+                'name' => 'ROSA',
+                'inactive' => false,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            15 => 
+            array (
+                'id' => 16,
+                'name' => 'VERDE',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,

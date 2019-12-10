@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RelationshipsTableSeeder extends Seeder
+class BodyPartsTableSeeder extends Seeder
 {
 
     /**
@@ -14,13 +14,13 @@ class RelationshipsTableSeeder extends Seeder
     {
         
 
-        \DB::table('relationships')->delete();
+        \DB::table('body_parts')->delete();
         
-        \DB::table('relationships')->insert(array (
+        \DB::table('body_parts')->insert(array (
             0 => 
             array (
                 'id' => 1,
-                'name' => 'ABUELA',
+                'name' => 'ABDOMEN',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -28,7 +28,7 @@ class RelationshipsTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'name' => 'ABUELO',
+                'name' => 'ANTEBRAZO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -36,7 +36,7 @@ class RelationshipsTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'name' => 'AHIJADA',
+                'name' => 'ANTEBRAZO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -44,7 +44,7 @@ class RelationshipsTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
-                'name' => 'AHIJADO',
+                'name' => 'BOCA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -52,7 +52,7 @@ class RelationshipsTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
-                'name' => 'ALUMNA',
+                'name' => 'BRAZO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -60,7 +60,7 @@ class RelationshipsTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 6,
-                'name' => 'ALUMNO',
+                'name' => 'BRAZO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -68,7 +68,7 @@ class RelationshipsTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
-                'name' => 'AMIGA',
+                'name' => 'CEJA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -76,7 +76,7 @@ class RelationshipsTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
-                'name' => 'AMIGO',
+                'name' => 'CODO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -84,7 +84,7 @@ class RelationshipsTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
-                'name' => 'BISABUELA',
+                'name' => 'CODO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -92,7 +92,7 @@ class RelationshipsTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
-                'name' => 'BISABUELO',
+                'name' => 'COSTADO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -100,7 +100,7 @@ class RelationshipsTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
-                'name' => 'BISNIETA',
+                'name' => 'COSTADO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -108,7 +108,7 @@ class RelationshipsTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
-                'name' => 'BISNIETO',
+                'name' => 'CUELLO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -116,7 +116,7 @@ class RelationshipsTableSeeder extends Seeder
             12 => 
             array (
                 'id' => 13,
-                'name' => 'CHOFER',
+                'name' => 'ESPALDA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -124,7 +124,7 @@ class RelationshipsTableSeeder extends Seeder
             13 => 
             array (
                 'id' => 14,
-                'name' => 'COMPAÑERA ',
+                'name' => 'FRENTE',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -132,7 +132,7 @@ class RelationshipsTableSeeder extends Seeder
             14 => 
             array (
                 'id' => 15,
-                'name' => 'COMPAÑERO',
+                'name' => 'GLUTEO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -140,7 +140,7 @@ class RelationshipsTableSeeder extends Seeder
             15 => 
             array (
                 'id' => 16,
-                'name' => 'CONCUBINA',
+                'name' => 'GLUTEO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -148,7 +148,7 @@ class RelationshipsTableSeeder extends Seeder
             16 => 
             array (
                 'id' => 17,
-                'name' => 'CONCUBINO',
+                'name' => 'MANO DERECHA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -156,7 +156,7 @@ class RelationshipsTableSeeder extends Seeder
             17 => 
             array (
                 'id' => 18,
-                'name' => 'CONCUÑA',
+                'name' => 'MANO IZQUIERDA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -164,7 +164,7 @@ class RelationshipsTableSeeder extends Seeder
             18 => 
             array (
                 'id' => 19,
-                'name' => 'CONCUÑO',
+                'name' => 'MANZANA DE ADÁN',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -172,7 +172,7 @@ class RelationshipsTableSeeder extends Seeder
             19 => 
             array (
                 'id' => 20,
-                'name' => 'CONSUEGRA',
+                'name' => 'MEJILLA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -180,7 +180,7 @@ class RelationshipsTableSeeder extends Seeder
             20 => 
             array (
                 'id' => 21,
-                'name' => 'CONSUEGRO',
+                'name' => 'MENTÓN O BARBILLA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -188,7 +188,7 @@ class RelationshipsTableSeeder extends Seeder
             21 => 
             array (
                 'id' => 22,
-                'name' => 'CONYUGUE',
+                'name' => 'MUSLO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -196,7 +196,7 @@ class RelationshipsTableSeeder extends Seeder
             22 => 
             array (
                 'id' => 23,
-                'name' => 'CUÑADA',
+                'name' => 'MUSLO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -204,7 +204,7 @@ class RelationshipsTableSeeder extends Seeder
             23 => 
             array (
                 'id' => 24,
-                'name' => 'CUÑADO',
+                'name' => 'NARIZ',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -212,7 +212,7 @@ class RelationshipsTableSeeder extends Seeder
             24 => 
             array (
                 'id' => 25,
-                'name' => 'EMPLEADO',
+                'name' => 'NUCA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -220,7 +220,7 @@ class RelationshipsTableSeeder extends Seeder
             25 => 
             array (
                 'id' => 26,
-                'name' => 'EXCONYUGUE',
+                'name' => 'OJO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -228,7 +228,7 @@ class RelationshipsTableSeeder extends Seeder
             26 => 
             array (
                 'id' => 27,
-                'name' => 'EXNOVIA',
+                'name' => 'OJO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -236,7 +236,7 @@ class RelationshipsTableSeeder extends Seeder
             27 => 
             array (
                 'id' => 28,
-                'name' => 'EXNOVIO',
+                'name' => 'OMBLIGO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -244,7 +244,7 @@ class RelationshipsTableSeeder extends Seeder
             28 => 
             array (
                 'id' => 29,
-                'name' => 'HERMANA',
+                'name' => 'OREJA DERECHA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -252,7 +252,7 @@ class RelationshipsTableSeeder extends Seeder
             29 => 
             array (
                 'id' => 30,
-                'name' => 'HERMANASTRA',
+                'name' => 'OREJA IZQUIERDA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -260,7 +260,7 @@ class RelationshipsTableSeeder extends Seeder
             30 => 
             array (
                 'id' => 31,
-                'name' => 'HERMANASTRO',
+                'name' => 'PECHO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -268,7 +268,7 @@ class RelationshipsTableSeeder extends Seeder
             31 => 
             array (
                 'id' => 32,
-                'name' => 'HERMANO',
+                'name' => 'PECHO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -276,7 +276,7 @@ class RelationshipsTableSeeder extends Seeder
             32 => 
             array (
                 'id' => 33,
-                'name' => 'HIJA',
+                'name' => 'PEZÓN DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -284,7 +284,7 @@ class RelationshipsTableSeeder extends Seeder
             33 => 
             array (
                 'id' => 34,
-                'name' => 'HIJO',
+                'name' => 'PEZÓN IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -292,7 +292,7 @@ class RelationshipsTableSeeder extends Seeder
             34 => 
             array (
                 'id' => 35,
-                'name' => 'HIJASTRA',
+                'name' => 'PIE DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -300,7 +300,7 @@ class RelationshipsTableSeeder extends Seeder
             35 => 
             array (
                 'id' => 36,
-                'name' => 'HIJASTRO',
+                'name' => 'PIE IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -308,7 +308,7 @@ class RelationshipsTableSeeder extends Seeder
             36 => 
             array (
                 'id' => 37,
-                'name' => 'MADRASTRA',
+                'name' => 'PIERNA DERECHA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -316,7 +316,7 @@ class RelationshipsTableSeeder extends Seeder
             37 => 
             array (
                 'id' => 38,
-                'name' => 'MADRE',
+                'name' => 'PIERNA IZQUIERDA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -324,7 +324,7 @@ class RelationshipsTableSeeder extends Seeder
             38 => 
             array (
                 'id' => 39,
-                'name' => 'MADRINA',
+                'name' => 'POMULO DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -332,7 +332,7 @@ class RelationshipsTableSeeder extends Seeder
             39 => 
             array (
                 'id' => 40,
-                'name' => 'MAESTRA',
+                'name' => 'POMULO IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -340,7 +340,7 @@ class RelationshipsTableSeeder extends Seeder
             40 => 
             array (
                 'id' => 41,
-                'name' => 'MAESTRO',
+                'name' => 'RODILLA DERECHA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -348,7 +348,7 @@ class RelationshipsTableSeeder extends Seeder
             41 => 
             array (
                 'id' => 42,
-                'name' => 'NIETA',
+                'name' => 'RODILLA IZQUIERDA',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -356,7 +356,7 @@ class RelationshipsTableSeeder extends Seeder
             42 => 
             array (
                 'id' => 43,
-                'name' => 'NIETO',
+                'name' => 'SIEN DERECHO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,
@@ -364,191 +364,7 @@ class RelationshipsTableSeeder extends Seeder
             43 => 
             array (
                 'id' => 44,
-                'name' => 'NOVIA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            44 => 
-            array (
-                'id' => 45,
-                'name' => 'NOVIO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            45 => 
-            array (
-                'id' => 46,
-                'name' => 'NUERA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            46 => 
-            array (
-                'id' => 47,
-                'name' => 'OTRO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            47 => 
-            array (
-                'id' => 48,
-                'name' => 'PADRASTRO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            48 => 
-            array (
-                'id' => 49,
-                'name' => 'PADRE',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            49 => 
-            array (
-                'id' => 50,
-                'name' => 'PADRINO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            50 => 
-            array (
-                'id' => 51,
-                'name' => 'PAREJA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            51 => 
-            array (
-                'id' => 52,
-                'name' => 'PATRON',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            52 => 
-            array (
-                'id' => 53,
-                'name' => 'PATRONA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            53 => 
-            array (
-                'id' => 54,
-                'name' => 'PRIMA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            54 => 
-            array (
-                'id' => 55,
-                'name' => 'PRIMO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            55 => 
-            array (
-                'id' => 56,
-                'name' => 'SECRETARIA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            56 => 
-            array (
-                'id' => 57,
-                'name' => 'SOBRINA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            57 => 
-            array (
-                'id' => 58,
-                'name' => 'SOBRINA NIETA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            58 => 
-            array (
-                'id' => 59,
-                'name' => 'SOBRINO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            59 => 
-            array (
-                'id' => 60,
-                'name' => 'SOBRINO NIETO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            60 => 
-            array (
-                'id' => 61,
-                'name' => 'SUEGRA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            61 => 
-            array (
-                'id' => 62,
-                'name' => 'SUEGRO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            62 => 
-            array (
-                'id' => 63,
-                'name' => 'TÍO ',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            63 => 
-            array (
-                'id' => 64,
-                'name' => 'TÍA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            64 => 
-            array (
-                'id' => 65,
-                'name' => 'VECINA',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            65 => 
-            array (
-                'id' => 66,
-                'name' => 'VECINO',
-                'inactive' => false,
-                'created_at' => NULL,
-                'updated_at' => NULL,
-            ),
-            66 => 
-            array (
-                'id' => 67,
-                'name' => 'YERNO',
+                'name' => 'SIEN IZQUIERDO',
                 'inactive' => false,
                 'created_at' => NULL,
                 'updated_at' => NULL,

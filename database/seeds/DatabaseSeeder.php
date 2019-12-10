@@ -31,5 +31,11 @@ class DatabaseSeeder extends Seeder
         $this->call(OccupationsTableSeeder::class);
         $this->call(ScholarshipsTableSeeder::class);
         $this->call(SizesTableSeeder::class);
+        $this->call(BodyPartsTableSeeder::class);
+        $this->call(SignalTypesTableSeeder::class);
+        $this->call(ColorsTableSeeder::class);
+        $this->call(ClothingTypesTableSeeder::class);
+        $this->call(AccessoriesTableSeeder::class);
+        $this->call(AgeRangesTableSeeder::class);
     }
 }
