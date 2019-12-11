@@ -14,9 +14,6 @@
             <li class="nav-item">
                 <a class="nav-link" id="pills-entry-tab" data-toggle="pill" href="#pills-entry" role="tab" aria-controls="pills-entry" aria-selected="false">Fecha, hora y motivo de ingreso</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-egress-tab" data-toggle="pill" href="#pills-egress" role="tab" aria-controls="pills-egress" aria-selected="false">Fecha, hora y motivo de egreso</a>
-            </li>
         </ul>
     </div>
     <div class="card-body">
@@ -26,7 +23,6 @@
                 @include('person.dependence.identified.sections.general')
                 @include('person.dependence.identified.sections.identifications')
                 @include('person.dependence.sections.entry')
-                @include('person.dependence.sections.egress')
             </div>
             <button type="submit" class="btn btn-primary">Realizar registro</button>
         </form>

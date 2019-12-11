@@ -3,7 +3,9 @@
 namespace App;
 
 use Carbon\Carbon;
+use App\Egress;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
@@ -13,6 +15,27 @@ class Person extends Model
     ];
 
     //Relaciones
+    public function entry()
+    {
+        return $this->hasOne('App\Entry');
+    }
+
+    public function egress()
+    {
+        return $this->hasOne('App\Egress');
+    }
+
+    public function person_report()
+    {
+        return $this->hasOne('App\Person_report');
+    }
+
+    public function disappearance_report()
+    {
+        return $this->hasOne('App\DisappearanceReport');
+    }
+
+    //Relaciones Catálogos
     public function type_register()
     {
         return $this->hasOne('App\Catalogs\TypeRegister', 'id', 'type_register_id');
@@ -31,6 +54,11 @@ class Person extends Model
     public function age_range()
     {
         return $this->hasOne('App\Catalogs\Age_range', 'id', 'age_range_id');
+    }
+
+    public function height()
+    {
+        return $this->hasOne('App\Catalogs\Height', 'id', 'height_id');
     }
 
     public function gender()
@@ -75,31 +103,59 @@ class Person extends Model
     public function store($request)
     {
         $person = self::create($request->person + [
-            'folio' => '1219-'.rand(1,9999),
+            'folio' => $this->generate_folio(),
             'type_register_id' => 1,
+            'dependence_id' => Auth::user()->dependence->id,
         ]);
+
+        $person_report = $person->person_report()->create($request->person_report + [
+            'person_id' => $person->id,
+        ]);
+
+        $disappearance_report = $person->disappearance_report()->create($request->disappearance_report + [
+            'person_id' => $person->id,
+        ]);
+
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
     }
 
+
     public function store_dependence($request)
     {
         //dd($request->person);
-        $date = Carbon::now();
-        $folio = $date;
-        //dd($folio);
         $person = self::create($request->person + [
-            'folio' => '1219-'.rand(1,9999),
+            'folio' => $this->generate_folio(),
             'type_register_id' => 2,
         ]);
+
+        $entry = $person->entry()->create($request->entry + [
+            'person_id' => $person->id,
+        ]);
+
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
     }
+
 
     //Recuperacion de informacion
 
     public function getFullName()
     {
         return "{$this->first_name} {$this->last_name_1} {$this->last_name_2}";
+    }
+
+
+    //Otras
+    public function generate_folio()
+    {
+        $date = Carbon::now()->format('dmy');
+        $folio = $date.'-'.str_pad(rand(1,9999), 4, "0", STR_PAD_LEFT);
+        $folio_exists = Person::where('folio', '=', $folio)->get();
+        if ($folio_exists->isNotEmpty()) {
+            return $this->generate_folio();
+        }else {
+            return $folio;
+        }
     }
 }

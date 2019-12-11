@@ -12,9 +12,6 @@
                 <a class="nav-link" id="pills-entry-tab" data-toggle="pill" href="#pills-entry" role="tab" aria-controls="pills-entry" aria-selected="false">Fecha, hora y motivo de ingreso</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pills-egress-tab" data-toggle="pill" href="#pills-egress" role="tab" aria-controls="pills-egress" aria-selected="false">Fecha, hora y motivo de egreso</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" id="pills-half_affiliation-tab" data-toggle="pill" href="#pills-half_affiliation" role="tab" aria-controls="pills-half_affiliation" aria-selected="false">Media filiación</a>
             </li>
             <li class="nav-item">
@@ -34,7 +31,6 @@
             <div class="tab-content" id="pills-tabContent">
                 @include('person.dependence.sections.general')
                 @include('person.dependence.sections.entry')
-                @include('person.dependence.sections.egress')
                 @include('person.locatel.sections.half_affiliation')
                 @include('person.locatel.sections.particular_signs')
                 @include('person.locatel.sections.clothing')

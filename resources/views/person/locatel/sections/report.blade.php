@@ -87,7 +87,7 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="acts">¿Podría describirme brevemente cómo se dieron los hechos?</label>
-                <textarea class="form-control @error('acts') is-invalid @enderror" id="acts" name="acts" rows="3" placeholder="Escribe la descripción">{{ old('acts') }}</textarea>
+                <textarea class="form-control @error('acts') is-invalid @enderror" id="acts" name="disappearance_report[description]" rows="3" placeholder="Escribe la descripción">{{ old('acts') }}</textarea>
                 @error('acts')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -98,7 +98,7 @@
         <div class="form-row">
             <div class="form-group col-md-8">
                 <label for="circumstance_id">Selecciona alguna circunstancia del catálogo según la descripción</label>
-                <select class="form-control @error('circumstance_id') is-invalid @enderror" id="circumstance_id" name="circumstance_id">
+                <select class="form-control @error('circumstance_id') is-invalid @enderror" id="circumstance_id" name="disappearance_report[circumstance_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($circumstances as $circumstance)
                     <option value="{{$circumstance->id}}">{{$circumstance->name}}</option>

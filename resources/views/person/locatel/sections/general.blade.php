@@ -113,7 +113,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="time">Hora de desaparición:</label>
-                <input type="time" class="form-control @error('time') is-invalid @enderror" id="time" name="time" value="{{ old('time') }}">
+                <input type="time" class="form-control @error('time') is-invalid @enderror" id="time" name="disappearance_report[time]" value="{{ old('time') }}">
                 @error('time')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -122,7 +122,7 @@
             </div>
             <div class="form-group required col-md-4">
                 <label for="date">Fecha de desaparición:</label>
-                <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date') }}" required>
+                <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="disappearance_report[date]" value="{{ old('date') }}" required>
                 @error('date')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -135,7 +135,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="phone">Teléfono celular:</label>
-                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}" placeholder="5555555555">
+                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[phone]" value="{{ old('phone') }}" placeholder="5555555555">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -148,7 +148,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="disability_id">Tipo de discapacidad:</label>
-                <select class="form-control @error('disability_id') is-invalid @enderror" id="disability_id" name="disability_id">
+                <select class="form-control @error('disability_id') is-invalid @enderror" id="disability_id" name="person[disability_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($disabilities as $disability)
                     <option value="{{$disability->id}}">{{$disability->name}}</option>
@@ -162,7 +162,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="physical_health_id">Condiciones de salud física:</label>
-                <select class="form-control @error('physical_health_id') is-invalid @enderror" id="physical_health_id" name="physical_health_id">
+                <select class="form-control @error('physical_health_id') is-invalid @enderror" id="physical_health_id" name="person[physical_health_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($physical_healths as $physical_health)
                     <option value="{{$physical_health->id}}">{{$physical_health->name}}</option>
@@ -176,7 +176,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="mental_health_id">Condiciones de salud mental:</label>
-                <select class="form-control @error('mental_health_id') is-invalid @enderror" id="mental_health_id" name="mental_health_id">
+                <select class="form-control @error('mental_health_id') is-invalid @enderror" id="mental_health_id" name="person[mental_health_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($mental_healths as $mental_health)
                     <option value="{{$mental_health->id}}">{{$mental_health->name}}</option>
@@ -194,7 +194,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="occupation_id">Ocupación:</label>
-                <select class="form-control @error('occupation_id') is-invalid @enderror" id="occupation_id" name="occupation_id">
+                <select class="form-control @error('occupation_id') is-invalid @enderror" id="occupation_id" name="person[occupation_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($occupations as $occupation)
                     <option value="{{$occupation->id}}">{{$occupation->name}}</option>
@@ -208,7 +208,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="scholarship_id">Escolaridad:</label>
-                <select class="form-control @error('scholarship_id') is-invalid @enderror" id="scholarship_id" name="scholarship_id">
+                <select class="form-control @error('scholarship_id') is-invalid @enderror" id="scholarship_id" name="person[scholarship_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($scholarships as $scholarship)
                     <option value="{{$scholarship->id}}">{{$scholarship->name}}</option>
@@ -222,7 +222,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="marital_status_id">Estado civil:</label>
-                <select class="form-control @error('marital_status_id') is-invalid @enderror" id="marital_status_id" name="marital_status_id">
+                <select class="form-control @error('marital_status_id') is-invalid @enderror" id="marital_status_id" name="person[marital_status_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($marital_statuses as $marital_status)
                     <option value="{{$marital_status->id}}">{{$marital_status->name}}</option>

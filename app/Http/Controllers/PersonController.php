@@ -22,7 +22,7 @@ class PersonController extends Controller
     {
         $this->authorize('index', Person::class);
         return view('person.index', [
-            'people' => Person::where('type_register_id', '==', 1)->get(),
+            'people' => Person::where('type_register_id', '=', 1)->get(),
         ]);
     }
 

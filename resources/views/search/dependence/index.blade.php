@@ -39,8 +39,8 @@
                     <th scope="row"><a href="#">{{$item->folio}}</a></th>
                     <td>@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
                     <td>{{$item->getFullName()}}</td>
-                    <td>{{$item->time}}</td>
-                    <td>{{$item->date}}</td>
+                    <td>{{$item->entry->time}}</td>
+                    <td>{{$item->entry->date}}</td>
                     <td>{{$item->gender->name}}</td>
                     <td>Falta estatus</td>
                     <td>@if(is_null($item->priority))@else{{$item->priority->name}}@endif</td>

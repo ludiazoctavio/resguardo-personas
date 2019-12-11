@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEgressesTable extends Migration
+class CreateEntriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,13 @@ class CreateEgressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('egresses', function (Blueprint $table) {
+        Schema::create('entries', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('date');
+            $table->time('time', 0);
+            $table->text('description');
+            $table->unsignedInteger('person_id');
+            $table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +31,6 @@ class CreateEgressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('egresses');
+        Schema::dropIfExists('entries');
     }
 }

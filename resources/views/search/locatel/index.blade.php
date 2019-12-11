@@ -37,8 +37,8 @@
                     <th scope="row"><a href="#">{{$item->folio}}</a></th>
                     <td>@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
                     <td>{{$item->getFullName()}}</td>
-                    <td>{{$item->time}}</td>
-                    <td>{{$item->date}}</td>
+                    <td>{{$item->disappearance_report->time}}</td>
+                    <td>{{$item->disappearance_report->date}}</td>
                     <td>{{$item->gender->name}}</td>
                     <td><a href="#">Editar</a></td>
                 </tr>

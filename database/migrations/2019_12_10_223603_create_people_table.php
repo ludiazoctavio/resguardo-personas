@@ -14,9 +14,9 @@ class CreatePeopleTable extends Migration
     public function up()
     {
         Schema::create('people', function (Blueprint $table) {
+            $table->index(['id', 'folio']);
             $table->bigIncrements('id');
-            //$table->string('folio',11)->unique(); //folio
-            $table->string('folio',11)->default(null)->nullable(true); //folio
+            $table->string('folio',11)->unique(); //folio
             $table->unsignedInteger('type_register_id')->default(null)->nullable(true); //Tipo de registro
             $table->foreign('type_register_id')->references('id')->on('type_registers')->onUpdate('cascade');
             $table->unsignedInteger('dependence_id')->default(null)->nullable(true); //Dependencia de registro
@@ -28,6 +28,8 @@ class CreatePeopleTable extends Migration
             $table->foreign('age_id')->references('id')->on('ages')->onUpdate('cascade');
             $table->unsignedInteger('age_range_id')->default(null)->nullable(true); //rango de edad
             $table->foreign('age_range_id')->references('id')->on('age_ranges')->onUpdate('cascade');
+            $table->unsignedInteger('height_id')->default(null)->nullable(true); //altura
+            $table->foreign('height_id')->references('id')->on('heights')->onUpdate('cascade');
             $table->unsignedInteger('gender_id')->default(null)->nullable(true); //genero
             $table->foreign('gender_id')->references('id')->on('genders')->onUpdate('cascade');
             $table->unsignedInteger('nationality_id')->default(null)->nullable(true); //nacionalidad

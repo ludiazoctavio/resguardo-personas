@@ -474,7 +474,7 @@
                 </div>
                 <div class="card-body">
                     <div class="form-group">
-                        <select class="form-control @error('height_id') is-invalid @enderror" id="height_id" name="height_id">
+                        <select class="form-control @error('height_id') is-invalid @enderror" id="height_id" name="person[height_id]">
                             <option value="" disabled="" selected="">Selecciona</option>
                             @foreach ($heights as $height)
                             <option value="{{$height->id}}">{{$height->name}}</option>

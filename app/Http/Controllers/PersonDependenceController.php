@@ -20,7 +20,7 @@ class PersonDependenceController extends Controller
     {
         $this->authorize('index', Person::class);
         return view('person.index', [
-            'people' => Person::where('type_register_id', '==', 2)->get(),
+            'people' => Person::where('type_register_id', '=', 2)->get(),
         ]);
     }
 
@@ -75,13 +75,13 @@ class PersonDependenceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store_identified(Request $request, Person $person)
+    public function store(Request $request, Person $person)
     {
         $person = $person->store_dependence($request);
         return redirect()->route('dependence.search_dependence.index');
     }
 
-    public function store(Request $request, Person $person)
+    public function store_identified(Request $request, Person $person)
     {
         $person = $person->store_dependence($request);
         return redirect()->route('dependence.search_dependence.index');

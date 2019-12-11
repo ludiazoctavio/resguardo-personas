@@ -21,7 +21,7 @@
         <div class="form-row">
             <div class="form-group required col-md-4">
                 <label for="first_name">Nombre(s):</label>
-                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="first_name" value="{{ old('first_name') }}" placeholder="Escribe el nombre(s)" required>
+                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="person_report[first_name]" value="{{ old('first_name') }}" placeholder="Escribe el nombre(s)" required>
                 @error('first_name')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -30,7 +30,7 @@
             </div>
             <div class="form-group required col-md-4">
                 <label for="last_name_1">Primer apellido:</label>
-                <input type="text" class="form-control @error('last_name_1') is-invalid @enderror" id="last_name_1" name="last_name_1" value="{{ old('last_name_1') }}" placeholder="Escribe el primer apellido" required>
+                <input type="text" class="form-control @error('last_name_1') is-invalid @enderror" id="last_name_1" name="person_report[last_name_1]" value="{{ old('last_name_1') }}" placeholder="Escribe el primer apellido" required>
                 @error('last_name_1')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="last_name_2">Segundo apellido:</label>
-                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="last_name_2" name="last_name_2" value="{{ old('last_name_2') }}" placeholder="Escribe el segundo apellido">
+                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="last_name_2" name="person_report[last_name_2]" value="{{ old('last_name_2') }}" placeholder="Escribe el segundo apellido">
                 @error('last_name_2')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -50,7 +50,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="age_id">Edad:</label>
-                <select class="form-control @error('age_id') is-invalid @enderror" id="age_id" name="age_id">
+                <select class="form-control @error('age_id') is-invalid @enderror" id="age_id" name="person_report[age_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($ages as $age)
                     <option value="{{$age->id}}">{{$age->name}}</option>
@@ -64,7 +64,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="gender_id">Sexo:</label>
-                <select class="form-control @error('gender_id') is-invalid @enderror" id="gender_id" name="gender_id">
+                <select class="form-control @error('gender_id') is-invalid @enderror" id="gender_id" name="person_report[gender_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($genders as $gender)
                     <option value="{{$gender->id}}">{{$gender->name}}</option>
@@ -78,7 +78,7 @@
             </div>
             <div class="form-group required col-md-3">
                 <label for="relationship_id">Parentesco:</label>
-                <select class="form-control @error('relationship_id') is-invalid @enderror" id="relationship_id" name="relationship_id" required>
+                <select class="form-control @error('relationship_id') is-invalid @enderror" id="relationship_id" name="person_report[relationship_id]" required>
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($relationships as $relationship)
                     <option value="{{$relationship->id}}">{{$relationship->name}}</option>
@@ -92,7 +92,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="nationality_id">Nacionalidad:</label>
-                <select class="form-control @error('nationality_id') is-invalid @enderror" id="nationality_id" name="nationality_id">
+                <select class="form-control @error('nationality_id') is-invalid @enderror" id="nationality_id" name="person_report[nationality_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($nationalities as $nationality)
                     <option value="{{$nationality->id}}">{{$nationality->name}}</option>
@@ -110,7 +110,7 @@
         <div class="form-row">
             <div class="form-group required col-md-4">
                 <label for="email">Correo electrónico:</label>
-                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}" placeholder="Correo electrónico">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="person_report[email]" value="{{ old('email') }}" placeholder="Correo electrónico">
                 @error('email')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

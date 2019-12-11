@@ -3,7 +3,7 @@
         <div class="form-row">
             <div class="form-group required col-md-4">
                 <label for="egress_date">Fecha de egreso:</label>
-                <input type="date" class="form-control @error('egress_date') is-invalid @enderror" id="egress_date" name="egress_date" value="{{ old('egress_date') }}" required>
+                <input type="date" class="form-control @error('egress_date') is-invalid @enderror" id="egress_date" name="egress[date]" value="{{ old('egress_date') }}" required>
                 @error('egress_date')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -12,7 +12,7 @@
             </div>
             <div class="form-group required col-md-4">
                 <label for="egress_time">Hora de egreso:</label>
-                <input type="time" class="form-control @error('egress_time') is-invalid @enderror" id="egress_time" name="egress_time" value="{{ old('egress_time') }}" required>
+                <input type="time" class="form-control @error('egress_time') is-invalid @enderror" id="egress_time" name="egress[time]" value="{{ old('egress_time') }}" required>
                 @error('egress_time')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -23,7 +23,7 @@
         <div class="form-row">
             <div class="form-group required col-md-12">
                 <label for="reason_egress">Motivo de egreso:</label>
-                <textarea class="form-control @error('reason_egress') is-invalid @enderror" id="reason_egress" name="reason_egress" rows="3" placeholder="Describe el motivo" required>{{ old('reason_egress') }}</textarea>
+                <textarea class="form-control @error('reason_egress') is-invalid @enderror" id="reason_egress" name="egress[description]" rows="3" placeholder="Describe el motivo" required>{{ old('reason_egress') }}</textarea>
                 @error('reason_egress')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

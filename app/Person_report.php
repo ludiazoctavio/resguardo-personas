@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Person_report extends Model
 {
     protected $fillable = [
-        'first_name', 'last_name_1', 'last_name_2', 'age', 'age_range_id', 'gender_id', 'nationality_id', 'person_id'
+        'first_name', 'last_name_1', 'last_name_2', 'age_id', 'gender_id', 'relationship_id', 'nationality_id', 'person_id'
     ];
 
     //Relaciones
-    public function age_range()
+    public function age()
     {
-        return $this->hasOne('App\Catalogs\Age_range', 'id', 'age_range_id');
+        return $this->hasOne('App\Catalogs\Age', 'id', 'age_id');
     }
 
     public function gender()

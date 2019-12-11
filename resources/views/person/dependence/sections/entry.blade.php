@@ -3,7 +3,7 @@
         <div class="form-row">
             <div class="form-group required col-md-4">
                 <label for="entry_date">Fecha de ingreso:</label>
-                <input type="date" class="form-control @error('entry_date') is-invalid @enderror" id="entry_date" name="entry_date" value="{{ old('entry_date') }}" required>
+                <input type="date" class="form-control @error('entry_date') is-invalid @enderror" id="entry_date" name="entry[date]" value="{{ old('entry_date') }}" required>
                 @error('entry_date')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -12,7 +12,7 @@
             </div>
             <div class="form-group required col-md-4">
                 <label for="entry_time">Hora de ingreso:</label>
-                <input type="time" class="form-control @error('entry_time') is-invalid @enderror" id="entry_time" name="entry_time" value="{{ old('entry_time') }}" required>
+                <input type="time" class="form-control @error('entry_time') is-invalid @enderror" id="entry_time" name="entry[time]" value="{{ old('entry_time') }}" required>
                 @error('entry_time')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -23,7 +23,7 @@
         <div class="form-row">
             <div class="form-group required col-md-12">
                 <label for="reason_entry">Motivo de ingreso:</label>
-                <textarea class="form-control @error('reason_entry') is-invalid @enderror" id="reason_entry" name="reason_entry" rows="3" placeholder="Describe el motivo" required>{{ old('reason_entry') }}</textarea>
+                <textarea class="form-control @error('reason_entry') is-invalid @enderror" id="reason_entry" name="entry[description]" rows="3" placeholder="Describe el motivo" required>{{ old('reason_entry') }}</textarea>
                 @error('reason_entry')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
