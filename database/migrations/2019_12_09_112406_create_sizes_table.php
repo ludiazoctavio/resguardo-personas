@@ -16,7 +16,7 @@ class CreateSizesTable extends Migration
         Schema::create('sizes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',200)->unique(); //nombre 
-            $table->boolean('inactive')->default(false);; //inactiva
+            $table->boolean('inactive')->default(false); //inactiva
             $table->timestamps();
         });
     }

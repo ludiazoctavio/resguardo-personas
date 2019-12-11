@@ -3,7 +3,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="age_range_id">Edad aproximada:</label>
-                    <select class="form-control @error('age_range_id') is-invalid @enderror" id="age_range_id" name="age_range_id">
+                    <select class="form-control @error('age_range_id') is-invalid @enderror" id="age_range_id" name="person[age_range_id]">
                         <option value="" disabled="" selected="">Selecciona</option>
                         @foreach ($age_ranges as $age_range)
                         <option value="{{$age_range->id}}">{{$age_range->name}}</option>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group required col-md-4">
                     <label for="gender_id">Sexo:</label>
-                    <select class="form-control @error('gender_id') is-invalid @enderror" id="gender_id" name="gender_id" required>
+                    <select class="form-control @error('gender_id') is-invalid @enderror" id="gender_id" name="person[gender_id]" required>
                         <option value="" disabled="" selected="">Selecciona</option>
                         @foreach ($genders as $gender)
                         <option value="{{$gender->id}}">{{$gender->name}}</option>

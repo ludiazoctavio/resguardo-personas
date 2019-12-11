@@ -16,7 +16,7 @@ class CreateEntryTypesTable extends Migration
         Schema::create('entry_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',200)->unique(); //nombre 
-            $table->boolean('inactive')->default(false);; //inactiva
+            $table->boolean('inactive')->default(false); //inactiva
             $table->timestamps();
         });
     }

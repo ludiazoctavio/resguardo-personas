@@ -20,7 +20,10 @@
                 <div class="col-3">
                     <nav class="nav flex-column lateral-menu">
                         {{-- Menú lateral --}}
+                        {{auth()->user()->has_role(config('Superadmin'))}}
+                        @if(auth()->user()->has_role(1))
                         @include('layouts.menu.superadmin')
+                        @endif
                     </nav>
                 </div>
                 <div class="col-9">

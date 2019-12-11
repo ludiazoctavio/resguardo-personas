@@ -31,22 +31,6 @@
                 @enderror
             </div>
         </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="entry_type_id">Ingreso por:</label>
-                <select class="form-control @error('entry_type_id') is-invalid @enderror" id="entry_type_id" name="entry_type_id">
-                    <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($entry_types as $entry_type)
-                    <option value="{{$entry_type->id}}">{{$entry_type->name}}</option>
-                    @endforeach
-                </select>
-                @error('entry_type_id')
-                    <div class="invalid-feedback active" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </div>
-                @enderror
-            </div>
-        </div>
     </div>
     <div class="border-top py-3">
         <h5>Persona acompañante</h5>

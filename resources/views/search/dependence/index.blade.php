@@ -10,37 +10,41 @@
                 <input type="text" class="form-control" id="name" name="name" placeholder="Buscar por nombre">
                 <button type="submit" class="btn btn-primary ml-2">Q</button>
             </form>
-            <div class="col-4">
+            {{--<div class="col-4">
                 <form method="POST" class="col-8 d-flex justify-content-lg-between" action="">
                     @csrf
                     <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ old('date') }}">
                 </form>
-            </div>
+            </div>--}}
         </div>
     </div>
     <div class="card-body p-0">
         <table class="table table-hover">
             <thead class="thead-light">
             <tr>
-                <th scope="col"></th>
+                <th scope="col">Folio</th>
                 <th scope="col">Edad</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Hora de desaparición</th>
-                <th scope="col">Fecha de desaparición</th>
+                <th scope="col">Hora de ingreso</th>
+                <th scope="col">Fecha de ingreso</th>
                 <th scope="col">Sexo</th>
+                <th scope="col">Estatus</th>
+                <th scope="col">Prioridad</th>
                 <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
                 @foreach ($people as $item)
                 <tr>
-                    <th scope="row"><a href="{{ route('dashboard.person.show', $item)}}">{{$item->folio}}</a></th>
-                    <td>{{$item->age}}</td>
-                    <td>{{$item->first_name}}</td>
+                    <th scope="row"><a href="#">{{$item->folio}}</a></th>
+                    <td>@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
+                    <td>{{$item->getFullName()}}</td>
                     <td>{{$item->time}}</td>
                     <td>{{$item->date}}</td>
-                    <td>{{$item->gender}}</td>
-                    <td><a href="{{ route('dashboard.people.edit', $item)}}">Editar</a></td>
+                    <td>{{$item->gender->name}}</td>
+                    <td>Falta estatus</td>
+                    <td>@if(is_null($item->priority))@else{{$item->priority->name}}@endif</td>
+                    <td><a href="#">Editar</a></td>
                 </tr>
                 @endforeach
             </tbody>

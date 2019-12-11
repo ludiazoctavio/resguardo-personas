@@ -49,9 +49,14 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-3">
-                <label for="age">Edad:</label>
-                <input type="number" class="form-control @error('age') is-invalid @enderror" id="age" name="age" value="{{ old('age') }}" placeholder="Escribe la edad">
-                @error('age')
+                <label for="age_id">Edad:</label>
+                <select class="form-control @error('age_id') is-invalid @enderror" id="age_id" name="age_id">
+                    <option value="" disabled="" selected="">Selecciona</option>
+                    @foreach ($ages as $age)
+                    <option value="{{$age->id}}">{{$age->name}}</option>
+                    @endforeach
+                </select>
+                @error('age_id')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>

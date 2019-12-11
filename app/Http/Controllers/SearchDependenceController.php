@@ -21,7 +21,7 @@ class SearchDependenceController extends Controller
     {
         $this->authorize('index', Search::class);
         return view('search.dependence.index', [
-            'people' => Person::all(),
+            'people' => Person::where('type_register_id', '=', 2)->get(),
         ]);
     }
 

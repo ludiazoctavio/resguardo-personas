@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Person;
+use App\Http\Requests\Person\StoreRequest;
+use App\Http\Requests\Person\UpdateRequest;
 use Illuminate\Http\Request;
 
 class PersonController extends Controller
@@ -20,7 +22,7 @@ class PersonController extends Controller
     {
         $this->authorize('index', Person::class);
         return view('person.index', [
-            'people' => Person::all(),
+            'people' => Person::where('type_register_id', '==', 1)->get(),
         ]);
     }
 
@@ -34,6 +36,7 @@ class PersonController extends Controller
         $this->authorize('create', Person::class);
         return view('person.locatel.create', [
             'genders' => \App\Catalogs\Gender::all(),
+            'ages' => \App\Catalogs\Age::all(),
             'nationalities' => \App\Catalogs\Nationality::all(),
             'disabilities' => \App\Catalogs\Disability::all(),
             'physical_healths' => \App\Catalogs\Physical_health::all(),
@@ -63,11 +66,10 @@ class PersonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Person $person)
-    {
-        #$person = $person->store($request);
-        alert()->success('El registro de la persona se realizó con éxito.','Folio -')->showConfirmButton();
-        return redirect()->route('dashboard.search.index', $person);
+    public function store(StoreRequest $request, Person $person)
+    {   
+        $person = $person->store($request);
+        return redirect()->route('dashboard.search.index');
     }
 
     /**

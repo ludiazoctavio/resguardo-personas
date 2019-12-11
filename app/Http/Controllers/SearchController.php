@@ -21,7 +21,7 @@ class SearchController extends Controller
     {
         $this->authorize('index', Search::class);
         return view('search.locatel.index', [
-            'people' => Person::all(),
+            'people' => Person::where('type_register_id', '=', 1)->get(),
         ]);
     }
 

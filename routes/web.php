@@ -42,5 +42,5 @@ Route::group(['middleware' => ['auth'], 'as' => 'dependence.'], function(){
     Route::resource('person_dependence', 'PersonDependenceController');
     Route::get('person_dependence/identified/create', 'PersonDependenceController@create_identified')->name('person_dependence.create_identified');
     Route::post('person_dependence/identified/store', 'PersonDependenceController@store_identified')->name('person_dependence.store_identified');
-    Route::resource('search_dependence', 'SearchController');
+    Route::resource('search_dependence', 'SearchDependenceController');
 });

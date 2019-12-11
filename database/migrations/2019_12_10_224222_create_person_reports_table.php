@@ -18,7 +18,8 @@ class CreatePersonReportsTable extends Migration
             $table->string('first_name'); //nombres
             $table->string('last_name_1'); //primer apellido
             $table->string('last_name_2'); //segundo apellido
-            $table->integer('age')->default(null)->nullable(true); //edad
+            $table->unsignedInteger('age_id')->default(null)->nullable(true); //edad
+            $table->foreign('age_id')->references('id')->on('ages')->onUpdate('cascade');
             $table->unsignedInteger('gender_id')->default(null)->nullable(true); //genero
             $table->foreign('gender_id')->references('id')->on('genders')->onUpdate('cascade');
             $table->unsignedInteger('nationality_id')->default(null)->nullable(true); //nacionalidad

@@ -37,5 +37,11 @@ class DatabaseSeeder extends Seeder
         $this->call(ClothingTypesTableSeeder::class);
         $this->call(AccessoriesTableSeeder::class);
         $this->call(AgeRangesTableSeeder::class);
+        $this->call(HeightsTableSeeder::class);
+        $this->call(AgesTableSeeder::class);
+        $this->call(VitalSignsTableSeeder::class);
+        $this->call(PrioritiesTableSeeder::class);
+        $this->call(CircumstancesTableSeeder::class);
+        $this->call(TypeRegistersTableSeeder::class);
     }
 }

@@ -29,7 +29,7 @@
         </ul>
     </div>
     <div class="card-body">
-        <form method="POST" class="" action="{{ route('dashboard.person.store') }}">
+        <form method="POST" class="" action="{{ route('dependence.person_dependence.store_identified') }}">
             @csrf
             <div class="tab-content" id="pills-tabContent">
                 @include('person.dependence.sections.general')

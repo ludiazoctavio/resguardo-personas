@@ -20,7 +20,7 @@ class PersonDependenceController extends Controller
     {
         $this->authorize('index', Person::class);
         return view('person.index', [
-            'people' => Person::all(),
+            'people' => Person::where('type_register_id', '==', 2)->get(),
         ]);
     }
 
@@ -47,7 +47,6 @@ class PersonDependenceController extends Controller
             'colors' => \App\Catalogs\Color::all(),
             'accessories' => \App\Catalogs\Accessory::all(),
             'vital_signs' => \App\Catalogs\Vital_signs::all(),
-            'entry_types' => \App\Catalogs\Entry_type::all(),
             'age_ranges' => \App\Catalogs\Age_range::all(),
         ]);
     }
@@ -66,7 +65,7 @@ class PersonDependenceController extends Controller
             'identification_types' => \App\Catalogs\Identification_type::all(),
             'priorities' => \App\Catalogs\Priority::all(),
             'vital_signs' => \App\Catalogs\Vital_signs::all(),
-            'entry_types' => \App\Catalogs\Entry_type::all(),
+            'ages' => \App\Catalogs\Age::all(),
         ]);
     }
 
@@ -78,16 +77,14 @@ class PersonDependenceController extends Controller
      */
     public function store_identified(Request $request, Person $person)
     {
-        #$person = $person->store($request);
-        alert()->success('El registro de la persona se realizó con éxito.','Folio -')->showConfirmButton();
-        return redirect()->route('dependence.search_dependence.index', $person);
+        $person = $person->store_dependence($request);
+        return redirect()->route('dependence.search_dependence.index');
     }
 
-    public function store_(Request $request, Person $person)
+    public function store(Request $request, Person $person)
     {
-        #$person = $person->store($request);
-        alert()->success('El registro de la persona se realizó con éxito.','Folio -')->showConfirmButton();
-        return redirect()->route('dependence.search_dependence.index', $person);
+        $person = $person->store_dependence($request);
+        return redirect()->route('dependence.search_dependence.index');
     }
 
     /**

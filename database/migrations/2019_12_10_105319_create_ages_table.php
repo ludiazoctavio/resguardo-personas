@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVitalSignsTable extends Migration
+class CreateAgesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateVitalSignsTable extends Migration
      */
     public function up()
     {
-        Schema::create('vital_signs', function (Blueprint $table) {
+        Schema::create('ages', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',200)->unique(); //nombre 
-            $table->boolean('inactive')->default(false); //inactiva
+            $table->boolean('inactive')->default(false);; //inactiva
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateVitalSignsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('vital_signs');
+        Schema::dropIfExists('ages');
     }
 }

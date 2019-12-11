@@ -34,13 +34,13 @@
             <tbody>
                 @foreach ($people as $item)
                 <tr>
-                    <th scope="row"><a href="{{ route('dashboard.person.show', $item)}}">{{$item->folio}}</a></th>
-                    <td>{{$item->age}}</td>
-                    <td>{{$item->first_name}}</td>
+                    <th scope="row"><a href="#">{{$item->folio}}</a></th>
+                    <td>@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
+                    <td>{{$item->getFullName()}}</td>
                     <td>{{$item->time}}</td>
                     <td>{{$item->date}}</td>
-                    <td>{{$item->gender}}</td>
-                    <td><a href="{{ route('dashboard.people.edit', $item)}}">Editar</a></td>
+                    <td>{{$item->gender->name}}</td>
+                    <td><a href="#">Editar</a></td>
                 </tr>
                 @endforeach
             </tbody>
