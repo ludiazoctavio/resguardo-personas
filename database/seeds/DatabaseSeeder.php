@@ -43,5 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PrioritiesTableSeeder::class);
         $this->call(CircumstancesTableSeeder::class);
         $this->call(TypeRegistersTableSeeder::class);
+        $this->call(HalfAffiliationTypesTableSeeder::class);
+        $this->call(HalfAffiliationOptionsTableSeeder::class);
     }
 }
