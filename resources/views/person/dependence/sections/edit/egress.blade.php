@@ -1,20 +1,20 @@
 <div class="tab-pane fade" id="pills-egress" role="tabpanel" aria-labelledby="pills-egress-tab">
     <div class="py-3">
         <div class="form-row">
-            <div class="form-group required col-md-4">
+            <div class="form-group col-md-4">
                 <label for="egress_date">Fecha de egreso:</label>
                 <input type="date" class="form-control @error('egress_date') is-invalid @enderror" id="egress_date" name="egress[date]"
-                    value="@if(is_null($person->egress)){{ old('egress_time') }}@else{{ old('egress_time', $person->egress->date) }}@endif" required>
+                    value="@if(is_null($person->egress)){{ old('egress_time') }}@else{{ old('egress_time', $person->egress->date) }}@endif">
                 @error('egress_date')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
-            <div class="form-group required col-md-4">
+            <div class="form-group col-md-4">
                 <label for="egress_time">Hora de egreso:</label>
                 <input type="time" class="form-control @error('egress_time') is-invalid @enderror" id="egress_time" name="egress[time]"
-                    value="@if(is_null($person->egress)){{ old('egress_time') }}@else{{ old('egress_time', $person->egress->time) }}@endif" required>
+                    value="@if(is_null($person->egress)){{ old('egress_time') }}@else{{ old('egress_time', $person->egress->time) }}@endif">
                 @error('egress_time')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -23,10 +23,10 @@
             </div>
         </div>
         <div class="form-row">
-            <div class="form-group required col-md-12">
+            <div class="form-group col-md-12">
                 <label for="reason_egress">Motivo de egreso:</label>
                 <textarea class="form-control @error('reason_egress') is-invalid @enderror" id="reason_egress" name="egress[description]"
-                    rows="3" placeholder="Describe el motivo" required>@if(is_null($person->egress)){{ old('egress_time') }}@else{{ old('egress_time', $person->egress->description) }}@endif</textarea>
+                    rows="3" placeholder="Describe el motivo">@if(is_null($person->egress)){{ old('egress_time') }}@else{{ old('egress_time', $person->egress->description) }}@endif</textarea>
                 @error('reason_egress')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

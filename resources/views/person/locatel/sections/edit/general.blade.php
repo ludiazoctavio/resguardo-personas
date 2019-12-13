@@ -158,8 +158,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="phone">Teléfono celular:</label>
-                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[cell_phone]"
-                    value="{{ old('phone', $person->disappearance_report->cell_pone) }}">
+                <input type="text" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[cell_phone]"
+                    value="{{ old('phone', $person->disappearance_report->cell_phone) }}">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -193,9 +193,15 @@
             <div class="form-group col-md-4">
                 <label for="physical_health_id">Condiciones de salud física:</label>
                 <select class="form-control @error('physical_health_id') is-invalid @enderror" id="physical_health_id" name="person[physical_health_id]">
+                    @if (is_null($person->physical_health))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($physical_healths as $physical_health)
+                    @if (old('person[physical_health_id]', $person->physical_health_id) == $physical_health->id)
+                    <option value="{{$physical_health->id}}" selected="">{{$physical_health->name}}</option>
+                    @else
                     <option value="{{$physical_health->id}}">{{$physical_health->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('physical_health_id')
@@ -207,9 +213,15 @@
             <div class="form-group col-md-4">
                 <label for="mental_health_id">Condiciones de salud mental:</label>
                 <select class="form-control @error('mental_health_id') is-invalid @enderror" id="mental_health_id" name="person[mental_health_id]">
+                    @if (is_null($person->mental_health))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($mental_healths as $mental_health)
+                    @if (old('person[mental_health_id]', $person->mental_health_id) == $mental_health->id)
+                    <option value="{{$mental_health->id}}" selected="">{{$mental_health->name}}</option>
+                    @else
                     <option value="{{$mental_health->id}}">{{$mental_health->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('mental_health_id')
@@ -225,9 +237,15 @@
             <div class="form-group col-md-4">
                 <label for="occupation_id">Ocupación:</label>
                 <select class="form-control @error('occupation_id') is-invalid @enderror" id="occupation_id" name="person[occupation_id]">
+                    @if (is_null($person->occupation))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($occupations as $occupation)
+                    @if (old('person[occupation_id]', $person->occupation_id) == $occupation->id)
+                    <option value="{{$occupation->id}}" selected="">{{$occupation->name}}</option>
+                    @else
                     <option value="{{$occupation->id}}">{{$occupation->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('occupation_id')
@@ -239,9 +257,15 @@
             <div class="form-group col-md-4">
                 <label for="scholarship_id">Escolaridad:</label>
                 <select class="form-control @error('scholarship_id') is-invalid @enderror" id="scholarship_id" name="person[scholarship_id]">
+                    @if (is_null($person->scholarship))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($scholarships as $scholarship)
+                    @if (old('person[scholarship_id]', $person->scholarship_id) == $scholarship->id)
+                    <option value="{{$scholarship->id}}" selected="">{{$scholarship->name}}</option>
+                    @else
                     <option value="{{$scholarship->id}}">{{$scholarship->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('scholarship_id')
@@ -253,9 +277,15 @@
             <div class="form-group col-md-4">
                 <label for="marital_status_id">Estado civil:</label>
                 <select class="form-control @error('marital_status_id') is-invalid @enderror" id="marital_status_id" name="person[marital_status_id]">
+                    @if (is_null($person->marital_status))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($marital_statuses as $marital_status)
+                    @if (old('person[marital_status_id]', $person->marital_status_id) == $marital_status->id)
+                    <option value="{{$marital_status->id}}" selected="">{{$marital_status->name}}</option>
+                    @else
                     <option value="{{$marital_status->id}}">{{$marital_status->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('marital_status_id')

@@ -144,9 +144,8 @@ class PersonDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateRequest $request, Person $person_dependence)
+    public function update(Request $request, Person $person_dependence)
     {
-        dd($person_dependence);
         $person_dependence->my_update_dependence($request);
         return redirect()->route('dependence.search_dependence.index');
     }

@@ -23,6 +23,8 @@ class CreateDisappearanceReportsTable extends Migration
             $table->foreign('circumstance_id')->references('id')->on('circumstances')->onUpdate('cascade');
             $table->unsignedInteger('person_id');
             $table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedInteger('address_id')->default(null)->nullable(true); //Direccion
+            $table->foreign('address_id')->references('id')->on('addresses')->onUpdate('cascade');
             $table->timestamps();
         });
     }

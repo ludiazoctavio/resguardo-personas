@@ -1,20 +1,20 @@
 <div class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
     <div class="pb-3">
         <div class="form-row">
-            <div class="form-group required col-md-4">
+            <div class="form-group col-md-4">
                 <label for="first_name">Nombre(s):</label>
                 <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="person[first_name]"
-                    value="{{ old('first_name', $person->first_name) }}" placeholder="Escribe el nombre(s)" required>
+                    value="{{ old('first_name', $person->first_name) }}" placeholder="Escribe el nombre(s)">
                 @error('first_name')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
-            <div class="form-group required col-md-4">
+            <div class="form-group col-md-4">
                 <label for="last_name_1">Primer apellido:</label>
                 <input type="text" class="form-control @error('last_name_1') is-invalid @enderror" id="last_name_1" name="person[last_name_1]"
-                    value="{{ old('last_name_1', $person->last_name_1) }}" placeholder="Escribe el primer apellido" required>
+                    value="{{ old('last_name_1', $person->last_name_1) }}" placeholder="Escribe el primer apellido">
                 @error('last_name_1')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

@@ -58,6 +58,7 @@ class PersonDependencePolicy
      */
     public function update(User $user, Person $person)
     {
+        dd($user);
         return $user->has_permission('update-person');
     }
 

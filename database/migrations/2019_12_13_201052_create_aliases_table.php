@@ -15,6 +15,9 @@ class CreateAliasesTable extends Migration
     {
         Schema::create('aliases', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('alias',200);
+            $table->unsignedInteger('person_id');
+            $table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

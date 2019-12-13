@@ -48,7 +48,9 @@ class CreatePeopleTable extends Migration
             $table->foreign('marital_status_id')->references('id')->on('marital_statuses')->onUpdate('cascade');
             $table->unsignedInteger('priority_id')->default(null)->nullable(true); //semaforo prioridad
             $table->foreign('priority_id')->references('id')->on('priorities')->onUpdate('cascade');
-            $table->boolean('confidential')->default(false); //confidencial
+            $table->boolean('confidential')->default(true); //confidencial
+            $table->boolean('authorization')->default(false); //Autorización
+            $table->boolean('public')->default(false); //Informacion pública
             $table->boolean('closed')->default(false); //cerrado
             $table->unsignedInteger('user_id'); //user
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');

@@ -13,7 +13,7 @@ class Person extends Model
     protected $fillable = [
         'folio', 'type_register_id', 'dependence_id', 'first_name', 'last_name_1', 'last_name_2', 'age_id', 'age_range_id',
         'gender_id', 'nationality_id', 'disability_id', 'physical_health_id', 'mental_health_id', 'occupation_id', 'height_id',
-        'scholarship_id', 'marital_status_id', 'priority_id', 'confidential', 'closed', 'user_id'
+        'scholarship_id', 'marital_status_id', 'priority_id', 'confidential', 'authorization', 'public', 'closed', 'user_id'
     ];
 
     //Relaciones
@@ -45,6 +45,11 @@ class Person extends Model
     public function half_affiliation()
     {
         return $this->hasOne('App\HalfAffiliation');
+    }
+
+    public function aliases()
+    {
+        return $this->hasMany('App\Alias');
     }
 
     //Relaciones Catálogos
@@ -155,6 +160,8 @@ class Person extends Model
             'user_id' => Auth::id(),
         ]);
 
+        //$person->save_aliases($request->aliases);
+
         $person->entry()->create($request->entry + [
             'person_id' => $person->id,
         ]);
@@ -183,12 +190,17 @@ class Person extends Model
 
     public function my_update_dependence($request)
     {
-        dd($request);
         self::update($request->person);
 
         self::entry()->update($request->entry);
+
+        if (!empty($this->egress)) {
+            self::egress()->update($request->egress);
+        } elseif ($request->egress['date']) {
+            self::egress()->create($request->egress);
+        }
         
-        alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio ')->showConfirmButton();
+        alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
     }
 
 
@@ -199,6 +211,15 @@ class Person extends Model
         return "{$this->first_name} {$this->last_name_1} {$this->last_name_2}";
     }
 
+    //Validacion
+    public function has_alias($id)
+    {
+        foreach ($this->aliases as $alias) {
+            dd($this);
+            //if($alias->id == $id || $role->slug == $id) return true;
+        }
+        return false;
+    }
 
     //Otras
     public function generate_folio()
@@ -210,6 +231,15 @@ class Person extends Model
             return $this->generate_folio();
         }else {
             return $folio;
+        }
+    }
+
+    public function save_aliases(array $aliases)
+    {
+        foreach ($aliases as $alias) {
+            if(!$this->has_alias($alias)){
+                $this->aliases()->create($alias);
+            }
         }
     }
 }
