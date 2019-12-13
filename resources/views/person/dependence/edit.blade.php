@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Búsqueda de persona no localizada:
+        Actualización de persona:
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Datos generales</a>
@@ -29,18 +29,19 @@
         </ul>
     </div>
     <div class="card-body">
-        <form method="POST" class="" action="{{ route('dependence.person_dependence.store_identified') }}">
+        <form method="POST" class="" action="{{ route('dependence.person_dependence.update', $person) }}">
+            @method('PUT')
             @csrf
             <div class="tab-content" id="pills-tabContent">
-                @include('person.dependence.sections.general')
-                @include('person.dependence.sections.entry')
-                @include('person.dependence.sections.egress')
-                @include('person.locatel.sections.half_affiliation')
-                @include('person.locatel.sections.particular_signs')
-                @include('person.locatel.sections.clothing')
-                @include('person.locatel.sections.accessories')
+                @include('person.dependence.sections.edit.general')
+                @include('person.dependence.sections.edit.entry')
+                @include('person.dependence.sections.edit.egress')
+                @include('person.locatel.sections.edit.half_affiliation')
+                @include('person.locatel.sections.edit.particular_signs')
+                @include('person.locatel.sections.edit.clothing')
+                @include('person.locatel.sections.edit.accessories')
             </div>
-            <button type="submit" class="btn btn-primary">Realizar registro</button>
+            <button type="submit" class="btn btn-primary">Actualizar registro</button>
         </form>
     </div>
 </div>

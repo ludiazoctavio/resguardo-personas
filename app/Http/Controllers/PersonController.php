@@ -50,13 +50,14 @@ class PersonController extends Controller
             'states' => \App\Catalogs\Address_state::all(),
             'identification_types' => \App\Catalogs\Identification_type::all(),
             'circumstances' => \App\Catalogs\Circumstance::all(),
-            'heights' => \App\Catalogs\Heights::all(),
+            'heights' => \App\Catalogs\Height::all(),
             'signal_types' => \App\Catalogs\Signal_type::all(),
             'body_parts' => \App\Catalogs\Body_part::all(),
             'sizes' => \App\Catalogs\Size::all(),
             'cloting_types' => \App\Catalogs\Clothing_type::all(),
             'colors' => \App\Catalogs\Color::all(),
             'accessories' => \App\Catalogs\Accessory::all(),
+            'half_affiliations' => \App\HalfAffiliationType::all(),
         ]);
     }
 
@@ -95,8 +96,31 @@ class PersonController extends Controller
     public function edit(Person $person)
     {
         $this->authorize('update', $person);
-        return view('person.edit', [
-            'person' =>$person,
+        return view('person.locatel.edit', [
+            'person' => $person,
+            'genders' => \App\Catalogs\Gender::all(),
+            'ages' => \App\Catalogs\Age::all(),
+            'nationalities' => \App\Catalogs\Nationality::all(),
+            'disabilities' => \App\Catalogs\Disability::all(),
+            'physical_healths' => \App\Catalogs\Physical_health::all(),
+            'mental_healths' => \App\Catalogs\Mental_health::all(),
+            'occupations' => \App\Catalogs\Occupation::all(),
+            'scholarships' => \App\Catalogs\Scholarship::all(),
+            'marital_statuses' => \App\Catalogs\Marital_status::all(),
+            'relationships' => \App\Catalogs\Relationship::all(),
+            'phone_types' => \App\Catalogs\Phone_type::all(),
+            'cities' => \App\Catalogs\Address_city::all(),
+            'states' => \App\Catalogs\Address_state::all(),
+            'identification_types' => \App\Catalogs\Identification_type::all(),
+            'circumstances' => \App\Catalogs\Circumstance::all(),
+            'heights' => \App\Catalogs\Height::all(),
+            'signal_types' => \App\Catalogs\Signal_type::all(),
+            'body_parts' => \App\Catalogs\Body_part::all(),
+            'sizes' => \App\Catalogs\Size::all(),
+            'cloting_types' => \App\Catalogs\Clothing_type::all(),
+            'colors' => \App\Catalogs\Color::all(),
+            'accessories' => \App\Catalogs\Accessory::all(),
+            'half_affiliations' => \App\HalfAffiliationType::all(),
         ]);
     }
 
@@ -107,7 +131,7 @@ class PersonController extends Controller
      * @param  \App\Person  $person
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(UpdateRequest $request, Person $person)
     {
         $person->my_update($request);
         return redirect()->route('dashboard.person.show', $person);

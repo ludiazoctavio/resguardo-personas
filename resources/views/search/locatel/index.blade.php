@@ -40,7 +40,7 @@
                     <td>{{$item->disappearance_report->time}}</td>
                     <td>{{$item->disappearance_report->date}}</td>
                     <td>{{$item->gender->name}}</td>
-                    <td><a href="#">Editar</a></td>
+                    <td><a href="{{ route('dashboard.person.edit', $item)}}">Editar</a></td>
                 </tr>
                 @endforeach
             </tbody>

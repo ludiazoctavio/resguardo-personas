@@ -17,8 +17,8 @@ class CreateHalfAffiliationOptionsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name',200); //nombre 
             $table->boolean('inactive')->default(false);; //inactiva
-            $table->unsignedInteger('type_id');
-            $table->foreign('type_id')->references('id')->on('half_affiliation_types')->onUpdate('cascade')->onDelete('cascade');
+            $table->unsignedInteger('half_affiliation_type_id');
+            $table->foreign('half_affiliation_type_id')->references('id')->on('half_affiliation_types')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -50,6 +50,8 @@ class CreatePeopleTable extends Migration
             $table->foreign('priority_id')->references('id')->on('priorities')->onUpdate('cascade');
             $table->boolean('confidential')->default(false); //confidencial
             $table->boolean('closed')->default(false); //cerrado
+            $table->unsignedInteger('user_id'); //user
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->timestamps();
         });
     }

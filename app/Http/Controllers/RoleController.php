@@ -74,7 +74,7 @@ class RoleController extends Controller
     {
         $this->authorize('update', $role);
         return view('role.edit', [
-            'role' =>$role,
+            'role' => $role,
         ]);
     }
 

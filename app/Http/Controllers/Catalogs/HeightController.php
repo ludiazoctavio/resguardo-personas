@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Catalogs;
 
-use App\Catalogs\Heights;
+use App\Catalogs\Height;
 use Illuminate\Http\Request;
 
-class HeightsController extends Controller
+class HeightController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -44,7 +44,7 @@ class HeightsController extends Controller
      * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function show(Heights $heights)
+    public function show(Height $heights)
     {
         //
     }
@@ -55,7 +55,7 @@ class HeightsController extends Controller
      * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function edit(Heights $heights)
+    public function edit(Height $heights)
     {
         //
     }
@@ -67,7 +67,7 @@ class HeightsController extends Controller
      * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Heights $heights)
+    public function update(Request $request, Height $heights)
     {
         //
     }
@@ -78,7 +78,7 @@ class HeightsController extends Controller
      * @param  \App\Heights  $heights
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Heights $heights)
+    public function destroy(Height $heights)
     {
         //
     }

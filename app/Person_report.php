@@ -20,4 +20,9 @@ class Person_report extends Model
     {
         return $this->hasOne('App\Catalogs\Gender', 'id', 'gender_id');
     }
+
+    public function nationality()
+    {
+        return $this->hasOne('App\Catalogs\Nationality', 'id', 'nationality_id');
+    }
 }

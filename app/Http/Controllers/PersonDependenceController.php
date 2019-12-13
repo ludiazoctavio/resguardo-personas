@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Person;
+use App\Http\Requests\Person\StoreRequest;
+use App\Http\Requests\Person\UpdateRequest;
 use Illuminate\Http\Request;
 
 class PersonDependenceController extends Controller
@@ -39,7 +41,7 @@ class PersonDependenceController extends Controller
             'cities' => \App\Catalogs\Address_city::all(),
             'states' => \App\Catalogs\Address_state::all(),
             'identification_types' => \App\Catalogs\Identification_type::all(),
-            'heights' => \App\Catalogs\Heights::all(),
+            'heights' => \App\Catalogs\Height::all(),
             'signal_types' => \App\Catalogs\Signal_type::all(),
             'body_parts' => \App\Catalogs\Body_part::all(),
             'sizes' => \App\Catalogs\Size::all(),
@@ -48,6 +50,7 @@ class PersonDependenceController extends Controller
             'accessories' => \App\Catalogs\Accessory::all(),
             'vital_signs' => \App\Catalogs\Vital_signs::all(),
             'age_ranges' => \App\Catalogs\Age_range::all(),
+            'half_affiliations' => \App\HalfAffiliationType::all(),
         ]);
     }
 
@@ -75,7 +78,7 @@ class PersonDependenceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Person $person)
+    public function store(StoreRequest $request, Person $person)
     {
         $person = $person->store_dependence($request);
         return redirect()->route('dependence.search_dependence.index');
@@ -93,11 +96,11 @@ class PersonDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Person $person)
+    public function show(Person $person_dependence)
     {
-        $this->authorize('view', $person);
+        $this->authorize('view', $person_dependence);
         return view('person.dependence.show', [
-            'person' =>$person,
+            'person' => $person_dependence,
         ]);
     }
 
@@ -107,11 +110,30 @@ class PersonDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Person $person)
+    public function edit(Person $person_dependence)
     {
-        $this->authorize('update', $person);
-        return view('person.edit', [
-            'person' =>$person,
+        $this->authorize('update', $person_dependence);
+        return view('person.dependence.edit', [
+            'person' => $person_dependence,
+            'genders' => \App\Catalogs\Gender::all(),
+            'nationalities' => \App\Catalogs\Nationality::all(),
+            'disabilities' => \App\Catalogs\Disability::all(),
+            'phone_types' => \App\Catalogs\Phone_type::all(),
+            'cities' => \App\Catalogs\Address_city::all(),
+            'states' => \App\Catalogs\Address_state::all(),
+            'identification_types' => \App\Catalogs\Identification_type::all(),
+            'priorities' => \App\Catalogs\Priority::all(),
+            'heights' => \App\Catalogs\Height::all(),
+            'signal_types' => \App\Catalogs\Signal_type::all(),
+            'body_parts' => \App\Catalogs\Body_part::all(),
+            'sizes' => \App\Catalogs\Size::all(),
+            'cloting_types' => \App\Catalogs\Clothing_type::all(),
+            'colors' => \App\Catalogs\Color::all(),
+            'accessories' => \App\Catalogs\Accessory::all(),
+            'vital_signs' => \App\Catalogs\Vital_signs::all(),
+            'ages' => \App\Catalogs\Age::all(),
+            'age_ranges' => \App\Catalogs\Age_range::all(),
+            'half_affiliations' => \App\HalfAffiliationType::all(),
         ]);
     }
 
@@ -122,10 +144,10 @@ class PersonDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Person $person)
+    public function update(UpdateRequest $request, Person $person_dependence)
     {
-        $person->my_update($request);
-        return redirect()->route('dependence.person.show', $person);
+        $person_dependence->my_update($request);
+        return redirect()->route('dependence.person.show', $person_dependence);
     }
 
     /**
@@ -134,10 +156,10 @@ class PersonDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Person $person)
+    public function destroy(Person $person_dependence)
     {
-        $this->authorize('delete', $person);
-        $person->delete();
+        $this->authorize('delete', $person_dependence);
+        $person_dependence->delete();
         alert()->success('Persona eliminada')->showConfirmButton();
         return redirect()->route('dependence.person.index');
     }

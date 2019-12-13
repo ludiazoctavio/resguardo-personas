@@ -1,3 +1,4 @@
+{{$person->half_affiliation}}
 <div class="tab-pane fade" id="pills-half_affiliation" role="tabpanel" aria-labelledby="pills-half_affiliation-tab">
     <div class="row my-4">
         @foreach ($half_affiliations as $type)
@@ -25,10 +26,17 @@
                 <div class="card-body">
                     <div class="form-group">
                         <select class="form-control @error('height_id') is-invalid @enderror" id="height_id" name="person[height_id]">
+                            @if (is_null($person->height))
                             <option value="" disabled="" selected="">Selecciona</option>
+                            @endif
                             @foreach ($heights as $height)
+                            @if (old('person[height_id]', $person->height_id) == $height->id)
+                            <option value="{{$height->id}}" selected="">{{$height->name}}</option>
+                            @else
                             <option value="{{$height->id}}">{{$height->name}}</option>
+                            @endif
                             @endforeach
+
                         </select>
                         @error('height_id')
                             <div class="invalid-feedback active" role="alert">
