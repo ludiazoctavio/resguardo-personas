@@ -1,4 +1,3 @@
-{{$person}}
 <div class="tab-pane fade" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
     <div class="pb-3">
         <div class="form-row">
@@ -48,7 +47,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="last_name_2">Segundo apellido:</label>
-                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="last_name_2" name="person[last_name_2]" value="{{ old('last_name_2') }}" placeholder="Escribe el segundo apellido">
+                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="last_name_2" name="person[last_name_2]"
+                    value="{{ old('last_name_2', $person->last_name_2) }}" placeholder="Escribe el segundo apellido">
                 @error('last_name_2')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -71,9 +71,15 @@
             <div class="form-group col-md-4">
                 <label for="age_id">Edad:</label>
                 <select class="form-control @error('age_id') is-invalid @enderror" id="age_id" name="person[age_id]">
+                    @if (is_null($person->age))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($ages as $age)
+                    @if (old('person[age_id]', $person->age_id) == $age->id)
+                    <option value="{{$age->id}}" selected="">{{$age->name}}</option>
+                    @else
                     <option value="{{$age->id}}">{{$age->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('age_id')
@@ -85,9 +91,15 @@
             <div class="form-group required col-md-4">
                 <label for="gender_id">Sexo:</label>
                 <select class="form-control @error('gender_id') is-invalid @enderror" id="gender_id" name="person[gender_id]" required>
+                    @if (is_null($person->gender))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($genders as $gender)
+                    @if (old('person[gender_id]', $person->gender_id) == $gender->id)
+                    <option value="{{$gender->id}}" selected="">{{$gender->name}}</option>
+                    @else
                     <option value="{{$gender->id}}">{{$gender->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('gender_id')
@@ -99,9 +111,15 @@
             <div class="form-group required col-md-4">
                 <label for="nationality_id">Nacionalidad:</label>
                 <select class="form-control @error('nationality_id') is-invalid @enderror" id="nationality_id" name="person[nationality_id]" required>
+                    @if (is_null($person->nationality))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($nationalities as $nationality)
+                    @if (old('person[nationality_id]', $person->nationality_id) == $nationality->id)
+                    <option value="{{$nationality->id}}" selected="">{{$nationality->name}}</option>
+                    @else
                     <option value="{{$nationality->id}}">{{$nationality->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('nationality_id')
@@ -116,7 +134,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="time">Hora de desaparición:</label>
-                <input type="time" class="form-control @error('time') is-invalid @enderror" id="time" name="disappearance_report[time]" value="{{ old('time') }}">
+                <input type="time" class="form-control @error('time') is-invalid @enderror" id="time" name="disappearance_report[time]"
+                    value="{{ old('time', $person->disappearance_report->time) }}">
                 @error('time')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -125,7 +144,8 @@
             </div>
             <div class="form-group required col-md-4">
                 <label for="date">Fecha de desaparición:</label>
-                <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="disappearance_report[date]" value="{{ old('date') }}" required>
+                <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="disappearance_report[date]"
+                    value="{{ old('date', $person->disappearance_report->date) }}" required>
                 @error('date')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -138,7 +158,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="phone">Teléfono celular:</label>
-                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[phone]" value="{{ old('phone') }}" placeholder="5555555555">
+                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[cell_phone]"
+                    value="{{ old('phone', $person->disappearance_report->cell_pone) }}">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -152,9 +173,15 @@
             <div class="form-group col-md-4">
                 <label for="disability_id">Tipo de discapacidad:</label>
                 <select class="form-control @error('disability_id') is-invalid @enderror" id="disability_id" name="person[disability_id]">
+                    @if (is_null($person->disability))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($disabilities as $disability)
+                    @if (old('person[disability_id]', $person->disability_id) == $disability->id)
+                    <option value="{{$disability->id}}" selected="">{{$disability->name}}</option>
+                    @else
                     <option value="{{$disability->id}}">{{$disability->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('disability_id')

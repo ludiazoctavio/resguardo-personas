@@ -1,4 +1,3 @@
-{{$person->half_affiliation}}
 <div class="tab-pane fade" id="pills-half_affiliation" role="tabpanel" aria-labelledby="pills-half_affiliation-tab">
     <div class="row my-4">
         @foreach ($half_affiliations as $type)
@@ -10,7 +9,8 @@
                 <div class="card-body">
                     @foreach ($type->halfaffiliationoptions as $option)
                     <div class="custom-control custom-radio">
-                        <input type="radio" id="type_{{$type->id}}_option_{{$option->id}}" name="half_affiliation[half_affiliation_type_{{$type->id}}_id]" value="{{$option->id}}" class="custom-control-input">
+                        <input type="radio" id="type_{{$type->id}}_option_{{$option->id}}"
+                            name="half_affiliation_type_{{$type->id}}_id" value="{{$option->id}}" class="custom-control-input">
                         <label class="custom-control-label" for="type_{{$type->id}}_option_{{$option->id}}">{{$option->name}}</label>
                     </div>
                     @endforeach
@@ -65,3 +65,15 @@
         </div>
     </div>
 </div>
+@section('extra_script')
+<script>
+    var half_affiliation = {!! json_encode($person->half_affiliation) !!};
+    window.addEventListener("DOMContentLoaded", function(){
+        $.each(half_affiliation, function( index, value ) {
+            if (index.includes("half_affiliation_type_")) {
+                $("input[name="+index+"][value=" + value + "]").prop('checked', true);
+            }
+        });
+    });
+</script>
+@endsection

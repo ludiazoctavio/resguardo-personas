@@ -1,4 +1,3 @@
-{{$person}}
 <div class="tab-pane fade show active" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
     <div class="pb-3">
         <div class="form-row">
@@ -149,9 +148,15 @@
             <div class="form-group col-md-4">
                 <label for="priority_id">Prioridad:</label>
                 <select class="form-control @error('priority_id') is-invalid @enderror" id="priority_id" name="person[priority_id]">
+                    @if (is_null($person->priority))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($priorities as $priority)
+                    @if (old('person[priority_id]', $person->priority_id) == $priority->id)
+                    <option value="{{$priority->id}}" style="color: {{$priority->color}};" selected="">{{$priority->name}}</option>
+                    @else
                     <option value="{{$priority->id}}" style="color: {{$priority->color}};">{{$priority->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('priority_id')

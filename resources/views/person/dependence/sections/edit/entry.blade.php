@@ -3,7 +3,8 @@
         <div class="form-row">
             <div class="form-group required col-md-4">
                 <label for="entry_date">Fecha de ingreso:</label>
-                <input type="date" class="form-control @error('entry_date') is-invalid @enderror" id="entry_date" name="entry[date]" value="{{ old('entry_date') }}" required>
+                <input type="date" class="form-control @error('entry_date') is-invalid @enderror" id="entry_date" name="entry[date]"
+                    value="{{ old('entry_date', $person->entry->date) }}" required>
                 @error('entry_date')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -12,7 +13,8 @@
             </div>
             <div class="form-group required col-md-4">
                 <label for="entry_time">Hora de ingreso:</label>
-                <input type="time" class="form-control @error('entry_time') is-invalid @enderror" id="entry_time" name="entry[time]" value="{{ old('entry_time') }}" required>
+                <input type="time" class="form-control @error('entry_time') is-invalid @enderror" id="entry_time" name="entry[time]"
+                    value="{{ old('entry_time', $person->entry->time) }}" required>
                 @error('entry_time')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -23,7 +25,8 @@
         <div class="form-row">
             <div class="form-group required col-md-12">
                 <label for="reason_entry">Motivo de ingreso:</label>
-                <textarea class="form-control @error('reason_entry') is-invalid @enderror" id="reason_entry" name="entry[description]" rows="3" placeholder="Describe el motivo" required>{{ old('reason_entry') }}</textarea>
+                <textarea class="form-control @error('reason_entry') is-invalid @enderror" id="reason_entry" name="entry[description]"
+                    rows="3" placeholder="Describe el motivo" required>{{ old('reason_entry', $person->entry->description) }}</textarea>
                 @error('reason_entry')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -37,7 +40,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="accompanying_first_name">Nombre(s):</label>
-                <input type="text" class="form-control @error('accompanying_first_name') is-invalid @enderror" id="accompanying_first_name" name="accompanying_first_name" value="{{ old('accompanying_first_name') }}" placeholder="Escribe el nombre(s)">
+                <input type="text" class="form-control @error('accompanying_first_name') is-invalid @enderror" id="accompanying_first_name"
+                    name="accompanying_first_name" value="{{ old('accompanying_first_name') }}" placeholder="Escribe el nombre(s)">
                 @error('accompanying_first_name')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -46,7 +50,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="accompanying_last_name_1">Primer apellido:</label>
-                <input type="text" class="form-control @error('accompanying_last_name_1') is-invalid @enderror" id="accompanying_last_name_1" name="accompanying_last_name_1" value="{{ old('accompanying_last_name_1') }}" placeholder="Escribe el primer apellido">
+                <input type="text" class="form-control @error('accompanying_last_name_1') is-invalid @enderror" id="accompanying_last_name_1"
+                    name="accompanying_last_name_1" value="{{ old('accompanying_last_name_1') }}" placeholder="Escribe el primer apellido">
                 @error('accompanying_last_name_1')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -55,7 +60,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="accompanying_last_name_2">Segundo apellido:</label>
-                <input type="text" class="form-control @error('accompanying_last_name_2') is-invalid @enderror" id="accompanying_last_name_2" name="accompanying_last_name_2" value="{{ old('accompanying_last_name_2') }}" placeholder="Escribe el segundo apellido">
+                <input type="text" class="form-control @error('accompanying_last_name_2') is-invalid @enderror" id="accompanying_last_name_2"
+                    name="accompanying_last_name_2" value="{{ old('accompanying_last_name_2') }}" placeholder="Escribe el segundo apellido">
                 @error('accompanying_last_name_2')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -66,7 +72,8 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="accompanying_alias">Responde al nombre de:</label>
-                <input type="text" class="form-control @error('accompanying_alias') is-invalid @enderror" id="accompanying_alias" name="accompanying_alias" value="{{ old('accompanying_alias') }}" placeholder="Especifica el apodo o alias con el que responde la persona">
+                <input type="text" class="form-control @error('accompanying_alias') is-invalid @enderror" id="accompanying_alias"
+                    name="accompanying_alias" value="{{ old('accompanying_alias') }}" placeholder="Especifica el apodo o alias con el que responde la persona">
                 @error('accompanying_alias')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -77,7 +84,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="accompanying_identification_type_id">Documento con el que se identifica:</label>
-                <select class="form-control @error('accompanying_identification_type_id') is-invalid @enderror" id="accompanying_identification_type_id" name="accompanying_identification_type_id">
+                <select class="form-control @error('accompanying_identification_type_id') is-invalid @enderror" id="accompanying_identification_type_id"
+                    name="accompanying_identification_type_id">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($identification_types as $identification_type)
                     <option value="{{$identification_type->id}}">{{$identification_type->name}}</option>
@@ -91,7 +99,8 @@
             </div>
             <div class="form-group col-md-8">
                 <label for="accompanying_number_identification">Número o folio de la identificación:</label>
-                <input type="text" class="form-control @error('accompanying_number_identification') is-invalid @enderror" id="accompanying_number_identification" name="accompanying_number_identification" value="{{ old('accompanying_number_identification') }}" placeholder="Escribe el número o folio ">
+                <input type="text" class="form-control @error('accompanying_number_identification') is-invalid @enderror" id="accompanying_number_identification"
+                    name="accompanying_number_identification" value="{{ old('accompanying_number_identification') }}" placeholder="Escribe el número o folio ">
                 @error('accompanying_number_identification')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -119,7 +128,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="accompanying_street">Calle:</label>
-                <input type="text" class="form-control @error('accompanying_street') is-invalid @enderror" id="accompanying_street" name="accompanying_street" value="{{ old('accompanying_street') }}" placeholder="Escribe la calle">
+                <input type="text" class="form-control @error('accompanying_street') is-invalid @enderror" id="accompanying_street" name="accompanying_street"
+                    value="{{ old('accompanying_street') }}" placeholder="Escribe la calle">
                 @error('accompanying_street')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -128,7 +138,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="accompanying_number">No. exterior:</label>
-                <input type="text" class="form-control @error('accompanying_number') is-invalid @enderror" id="accompanying_number" name="accompanying_number" value="{{ old('accompanying_number') }}" placeholder="Escribe el número exterior">
+                <input type="text" class="form-control @error('accompanying_number') is-invalid @enderror" id="accompanying_number" name="accompanying_number"
+                    value="{{ old('accompanying_number') }}" placeholder="Escribe el número exterior">
                 @error('accompanying_number')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -137,7 +148,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="accompanying_outdoor_number">No. interior:</label>
-                <input type="text" class="form-control @error('accompanying_outdoor_number') is-invalid @enderror" id="accompanying_outdoor_number" name="accompanying_outdoor_number" value="{{ old('accompanying_outdoor_number') }}" placeholder="Escribe el número interior">
+                <input type="text" class="form-control @error('accompanying_outdoor_number') is-invalid @enderror" id="accompanying_outdoor_number" name="accompanying_outdoor_number"
+                    value="{{ old('accompanying_outdoor_number') }}" placeholder="Escribe el número interior">
                 @error('accompanying_outdoor_number')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -148,7 +160,8 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="accompanying_pc">Código postal:</label>
-                <input type="text" class="form-control @error('accompanying_pc') is-invalid @enderror" id="accompanying_pc" name="accompanying_pc" value="{{ old('accompanying_pc') }}">
+                <input type="text" class="form-control @error('accompanying_pc') is-invalid @enderror" id="accompanying_pc" name="accompanying_pc"
+                    value="{{ old('accompanying_pc') }}">
                 @error('accompanying_pc')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -157,7 +170,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="accompanying_suburb">Colonia:</label>
-                <input type="text" class="form-control @error('accompanying_suburb') is-invalid @enderror" id="accompanying_suburb" name="accompanying_suburb" value="{{ old('accompanying_suburb') }}">
+                <input type="text" class="form-control @error('accompanying_suburb') is-invalid @enderror" id="accompanying_suburb" name="accompanying_suburb"
+                    value="{{ old('accompanying_suburb') }}">
                 @error('accompanying_suburb')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

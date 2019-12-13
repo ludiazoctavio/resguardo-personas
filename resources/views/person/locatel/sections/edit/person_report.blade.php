@@ -1,4 +1,3 @@
-{{$person->person_report}}
 <div class="tab-pane fade show active" id="pills-person_report" role="tabpanel" aria-labelledby="pills-person_report-tab">
     <div class="pb-3">
         <div class="form-row">
