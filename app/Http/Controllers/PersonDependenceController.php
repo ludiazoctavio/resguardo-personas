@@ -146,8 +146,9 @@ class PersonDependenceController extends Controller
      */
     public function update(UpdateRequest $request, Person $person_dependence)
     {
-        $person_dependence->my_update($request);
-        return redirect()->route('dependence.person.show', $person_dependence);
+        dd($person_dependence);
+        $person_dependence->my_update_dependence($request);
+        return redirect()->route('dependence.search_dependence.index');
     }
 
     /**

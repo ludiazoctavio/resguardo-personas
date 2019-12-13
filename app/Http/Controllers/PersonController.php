@@ -134,7 +134,7 @@ class PersonController extends Controller
     public function update(UpdateRequest $request, Person $person)
     {
         $person->my_update($request);
-        return redirect()->route('dashboard.person.show', $person);
+        return redirect()->route('dashboard.search.index');
     }
 
     /**

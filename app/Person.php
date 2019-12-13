@@ -128,19 +128,17 @@ class Person extends Model
             'user_id' => Auth::id(),
         ]);
 
-        $person_report = $person->person_report()->create($request->person_report + [
+        $person->person_report()->create($request->person_report + [
             'person_id' => $person->id,
         ]);
 
-        $disappearance_report = $person->disappearance_report()->create($request->disappearance_report + [
+        $person->disappearance_report()->create($request->disappearance_report + [
             'person_id' => $person->id,
         ]);
 
-        if (!empty($request->half_affiliation)) {
-            $half_affiliation = $person->half_affiliation()->create($request->half_affiliation + [
-                'person_id' => $person->id,
-            ]);
-        }
+        $person->half_affiliation()->create($request->half_affiliation + [
+            'person_id' => $person->id,
+        ]);
 
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
@@ -157,17 +155,40 @@ class Person extends Model
             'user_id' => Auth::id(),
         ]);
 
-        $entry = $person->entry()->create($request->entry + [
+        $person->entry()->create($request->entry + [
             'person_id' => $person->id,
         ]);
 
         if (!empty($request->half_affiliation)) {
-            $half_affiliation = $person->half_affiliation()->create($request->half_affiliation + [
+            $person->half_affiliation()->create($request->half_affiliation + [
                 'person_id' => $person->id,
             ]);
         }
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
+    }
+
+    public function my_update($request)
+    {
+        self::update($request->person);
+
+        self::person_report()->update($request->person_report);
+
+        self::disappearance_report()->update($request->disappearance_report);
+
+        self::half_affiliation()->update($request->half_affiliation);
+
+        alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
+    }
+
+    public function my_update_dependence($request)
+    {
+        dd($request);
+        self::update($request->person);
+
+        self::entry()->update($request->entry);
+        
+        alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio ')->showConfirmButton();
     }
 
 

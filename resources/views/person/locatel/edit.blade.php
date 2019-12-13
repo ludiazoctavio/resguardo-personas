@@ -27,6 +27,7 @@
     </div>
     <div class="card-body">
         <form method="POST" class="" action="{{ route('dashboard.person.update', $person) }}">
+            @method('PUT')
             @csrf
             <div class="tab-content" id="pills-tabContent">
                 @include('person.locatel.sections.edit.person_report')
