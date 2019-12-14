@@ -140,10 +140,11 @@ class Person extends Model
         $person->disappearance_report()->create($request->disappearance_report + [
             'person_id' => $person->id,
         ]);
-
-        $person->half_affiliation()->create($request->half_affiliation + [
-            'person_id' => $person->id,
-        ]);
+        if (!empty($request->half_affiliation)) {
+            $person->half_affiliation()->create($request->half_affiliation + [
+                'person_id' => $person->id,
+            ]);
+        }
 
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
