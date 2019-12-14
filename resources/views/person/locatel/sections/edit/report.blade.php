@@ -1,4 +1,5 @@
 <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
+    <h6>¿Dónde lo vio por última vez?</h6>
     <div class="pb-3">
         <div class="form-row">
             <div class="form-group col-md-3">

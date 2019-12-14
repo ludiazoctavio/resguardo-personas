@@ -3,7 +3,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        Editar persona:
+        <h5>{{ $person->folio }}</h5>
         <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
             <li class="nav-item">
                 <a class="nav-link" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="false">Datos generales</a>
@@ -42,4 +42,16 @@
         </form>
     </div>
 </div>
+@endsection
+@section('extra_script')
+<script type="text/javascript">
+    $(function() {
+        $('input[type=text]').keyup(function() {
+            this.value = this.value.toLocaleUpperCase();
+        });
+        $('textarea').keyup(function() {
+            this.value = this.value.toLocaleUpperCase();
+        });
+    });
+</script>
 @endsection
