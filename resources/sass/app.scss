@@ -26,12 +26,12 @@
     min-height: 100%;
     position: relative;
   }
-  
+
   .body-custom {
     margin: 0;
     margin-bottom: 10rem;
   }
-  
+
   @media (min-width: 768px) {
     .body-custom {
       margin-bottom: 7rem;
@@ -73,7 +73,7 @@
     margin: 0;
 }
 .lateral-menu {
-    
+
 }
 .form-group label {
     color:#009288;
@@ -82,3 +82,11 @@
     content:"*";
     color:#009288;
   }
+
+.btn-cdmx, btn-cdmx:hover {
+    color: #fff;
+    background-color: #00b140;
+    border-color: #00b140;
+}
+// CUSTOM TABLE
+@import 'custom_table/table';
