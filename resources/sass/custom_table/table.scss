@@ -1,0 +1,110 @@
+#tableSearch{
+    width: 100%;
+    margin: 0 auto;
+    clear: both;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+.table td, .table th {
+    padding: .5rem;
+    vertical-align: middle;
+}
+.table thead {
+    background: #009288 !important;
+    color: #fff !important;
+}
+.table td{
+    font-size: 0.7rem;
+    font-family: "Metropolis", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #5d5d5d;
+}
+.table td{
+    height: 30px !important;
+    vertical-align: middle !important;
+}
+.table tbody tr:nth-child(2n){
+    background-color: #fefefe !important;
+}
+.table-hover tbody tr:nth-child(2n):hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075) !important;
+}
+table.dataTable thead > tr > th.sorting_asc, table.dataTable thead > tr > th.sorting_desc, table.dataTable thead > tr > th.sorting, table.dataTable thead > tr > td.sorting_asc, table.dataTable thead > tr > td.sorting_desc, table.dataTable thead > tr > td.sorting {
+    padding-right: 1.1rem !important;
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+}
+/* dataTables CSS modification & positioning */
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc_disabled:before {
+    right: 0 !important;
+    content: "" !important;
+}
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:after {
+    right: 0 !important;
+    content: "" !important;
+}
+
+table.dataTable thead th {
+    position: relative;
+    background-image: none !important;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+table.dataTable thead th.sorting:after,
+table.dataTable thead th.sorting_asc:after,
+table.dataTable thead th.sorting_desc:after {
+    position: absolute !important;
+    top: 12px !important;
+    right: 7px !important;
+    display: block !important;
+    font-size: 14px !important;
+    font-family: FontAwesome !important;
+    opacity: 0.6;
+}
+table.dataTable thead th.sorting:after {
+    content: "\f0dc" !important;
+    color: #fff !important;
+    font-size: 0.8em !important;
+    padding-top: 0.12em !important;
+    font-size: 14px !important;
+    opacity: 0.6;
+}
+table.dataTable thead th.sorting_asc:after {
+    color: #fff !important;
+    content: "\f0de" !important
+}
+table.dataTable thead th.sorting_desc:after {
+    color: #fff !important;
+    content: "\f0dd" !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    color: #ffffff !important;
+    border: 1px solid #00b140;
+    background: #00b140 !important;
+    border-radius: 8px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    border-radius: 8px;
+    color: #666 !important;
+    border: 1px solid #666;
+    background: #fff !important;
+}
+.fa-chevron-right::before, .fa-chevron-left::before {
+    top: 1px;
+    position: relative;
+}
+table.dataTable thead th {
+    border-bottom: unset !important;
+}
+table.dataTable.no-footer {
+    border-bottom: 1px solid #b7b7b7 !important;
+}

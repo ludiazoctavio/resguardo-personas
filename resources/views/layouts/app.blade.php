@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name', 'Gobierno de la Ciudad de México') }}</title>
-    <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    @yield('extra_head')
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     {{-- extra_head --}}
-    @yield('extra_head')
 </head>
 <body class="body-custom">
     @include('layouts.includes.header')
@@ -36,6 +35,7 @@
         </main>
     </div>
     @include('layouts.includes.footer')
+    <script src="{{ asset('js/app.js') }}"></script>
     @include('sweetalert::alert')
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     {{-- extra_script --}}
