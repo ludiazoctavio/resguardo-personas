@@ -101,6 +101,25 @@ class PersonDependenceController extends Controller
         $this->authorize('view', $person_dependence);
         return view('person.dependence.show', [
             'person' => $person_dependence,
+            'genders' => \App\Catalogs\Gender::all(),
+            'nationalities' => \App\Catalogs\Nationality::all(),
+            'disabilities' => \App\Catalogs\Disability::all(),
+            'phone_types' => \App\Catalogs\Phone_type::all(),
+            'cities' => \App\Catalogs\Address_city::all(),
+            'states' => \App\Catalogs\Address_state::all(),
+            'identification_types' => \App\Catalogs\Identification_type::all(),
+            'priorities' => \App\Catalogs\Priority::all(),
+            'heights' => \App\Catalogs\Height::all(),
+            'signal_types' => \App\Catalogs\Signal_type::all(),
+            'body_parts' => \App\Catalogs\Body_part::all(),
+            'sizes' => \App\Catalogs\Size::all(),
+            'cloting_types' => \App\Catalogs\Clothing_type::all(),
+            'colors' => \App\Catalogs\Color::all(),
+            'accessories' => \App\Catalogs\Accessory::all(),
+            'vital_signs' => \App\Catalogs\Vital_signs::all(),
+            'ages' => \App\Catalogs\Age::all(),
+            'age_ranges' => \App\Catalogs\Age_range::all(),
+            'half_affiliations' => \App\HalfAffiliationType::all(),
         ]);
     }
 

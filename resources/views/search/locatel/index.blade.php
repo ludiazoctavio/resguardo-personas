@@ -20,32 +20,67 @@
         </div>
     </div>
     <div class="card-body p-0">
-        <table class="table table-hover" id="tableSearch" style="width:100%;">
-            <thead class="">
-            <tr>
-                <th scope="col">Folio</th>
-                <th scope="col">Edad</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Hora de desaparición</th>
-                <th scope="col">Fecha de desaparición</th>
-                <th scope="col">Sexo</th>
-                <th scope="col"></th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach ($people as $item)
+        <div class="table-responsive">
+            <table class="table table-hover" id="tableSearch" style="width:100%;">
+                <thead class="">
                 <tr>
-                    <th scope="row"><a href="#">{{$item->folio}}</a></th>
-                    <td class="text-center">@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
-                    <td class="text-center">{{$item->getFullName()}}</td>
-                    <td class="text-center">{{$item->disappearance_report->time}}</td>
-                    <td class="text-center">{{$item->disappearance_report->date}}</td>
-                    <td class="text-center">{{$item->gender->name}}</td>
-                    <td class="text-center"><a href="{{ route('dashboard.person.edit', $item)}}">Editar</a></td>
+                    <th scope="col">Folio</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Hora de desaparición</th>
+                    <th scope="col">Fecha de desaparición</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col"></th>
                 </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($people as $item)
+                    <tr>
+                        <th scope="row"><a href="#">{{$item->folio}}</a></th>
+                        <td class="text-center">@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
+                        <td class="text-center">{{$item->getFullName()}}</td>
+                        <td class="text-center">{{$item->disappearance_report->time}}</td>
+                        <td class="text-center">{{$item->disappearance_report->date}}</td>
+                        <td class="text-center">{{$item->gender->name}}</td>
+                        <td class="text-center"><a href="{{ route('dashboard.person.edit', $item)}}">Editar</a></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="table-responsive mt-3">
+            <h5 class="p-2">Resguardo</h5>
+            <table class="table table-hover" id="tableSearch2" style="width:100%;">
+                <thead class="">
+                <tr>
+                    <th scope="col">Folio</th>
+                    <th scope="col">Edad</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Hora de ingreso</th>
+                    <th scope="col">Fecha de ingreso</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">Estatus</th>
+                    <th scope="col">Prioridad</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach ($people_dependence as $item)
+                    <tr>
+                        <th scope="row"><a href="#">{{$item->folio}}</a></th>
+                        <td>@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
+                        <td>{{$item->getFullName()}}</td>
+                        <td>{{$item->entry->time}}</td>
+                        <td>{{$item->entry->date}}</td>
+                        <td>{{$item->gender->name}}</td>
+                        <td>Falta estatus</td>
+                        <td>@if(is_null($item->priority))@else{{$item->priority->name}}@endif</td>
+                    <td><a href="{{ route('dependence.person_dependence.show', $item)}}">Ver</a></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 @endsection
@@ -81,12 +116,41 @@
                     targets: "no-sort"
                 }]
             });
+            _table = $('#tableSearch2').DataTable({
+                "pageLength": 3,
+                "responsive": true,
+                "bFilter": false,
+                "lengthChange": false,
+                "bSort" : true,
+                "info": false,
+                "stripeClasses": [],
+                "order": [[0,"desc"]],
+                'language': {
+                    'lengthMenu': 'Mostrar _MENU_ registros.',
+                    'zeroRecords': 'No se encontraron resultados',
+                    'info': 'Mostrar pagina _PAGE_ de _PAGES_',
+                    'infoEmpty': 'Ningún dato disponible en esta tabla',
+                    'infoFiltered': '(filtrado de un total de _MAX_ registros)',
+                    'sSearch': 'Buscar:',
+                    'oPaginate': {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "<i class='fa fa-chevron-right'></i>",
+                        "sPrevious": "<i class='fa fa-chevron-left'></i>"
+                    },
+                },
+                columnDefs: [{
+                    orderable: false,
+                    targets: "no-sort"
+                }]
+            });
         });
     </script>
     <script type="text/javascript">
         $(function() {
             $('input[type=text]').keyup(function() {
                 this.value = this.value.toLocaleUpperCase();
+            });
         });
     </script>
 @endsection

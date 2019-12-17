@@ -3,9 +3,9 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="custom-control custom-checkbox pl-5">
-                    <input type="checkbox" class="custom-control-input" id="accept" value="" name="accept">
+                    <input type="checkbox" class="custom-control-input" id="accept" value="true" name="person[authorization]" @if ($person->authorization) checked @endif>
                     <label class="custom-control-label" for="accept">Autoriza que la información proporcionada sea utilizada exclusivamente para la búsqueda e identificación de la persona desaparecida o no localizada</label>
-                    @error('accept')
+                    @error('person[authorization]')
                         <div class="invalid-feedback active" role="alert">
                             <strong>{{ $message }}</strong>
                         </div>
@@ -14,9 +14,9 @@
             </div>
             <div class="form-group col-md-6">
                 <div class="custom-control custom-checkbox pl-5">
-                    <input type="checkbox" class="custom-control-input" id="accept_public" value="" name="accept_public">
+                    <input type="checkbox" class="custom-control-input" id="accept_public" value="true" name="person[public]" @if ($person->public) checked @endif>
                     <label class="custom-control-label" for="accept_public">Autoriza que la información proporcionada sea pública</label>
-                    @error('accept_public')
+                    @error('person[public]')
                         <div class="invalid-feedback active" role="alert">
                             <strong>{{ $message }}</strong>
                         </div>

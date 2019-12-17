@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Person;
 use App\Search;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SearchDependenceController extends Controller
@@ -20,6 +21,8 @@ class SearchDependenceController extends Controller
     public function index(Request $request)
     {
         $qs = Person::where('type_register_id', '=', 2);
+        $qs->where('dependence_id', '=', Auth::user()->dependence->id);
+
         if(count($request->all()) > 0){
             if ($request->folio){
                 $qs = $qs->where('folio' , 'like', '%'.$request->folio.'%');

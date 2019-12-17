@@ -1,3 +1,13 @@
+@section('extra_head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js" integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
+<style type="text/css">
+    #map {
+    height: 350px;
+    width: 100%;
+    }
+</style>
+@endsection
 <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
     <h6>¿Dónde lo vio por última vez?</h6>
     <div class="pb-3">
@@ -81,14 +91,16 @@
             </div>
         </div>
         <h6>Para una referencia más exacta, usa el siguiente mapa:</h6>
-        <div id="map">Aquí va el mapa</div>
+        <div class="flex-container">
+            <div id="map"></div>
+        </div>
     </div>
     <div class="border-top py-3">
         <h5>Hechos</h5>
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="acts">¿Podría describirme brevemente cómo se dieron los hechos?</label>
-                <textarea class="form-control @error('acts') is-invalid @enderror" id="acts" name="disappearance_report[description]" rows="3" placeholder="Escribe la descripción">{{ old('acts') }}</textarea>
+                <textarea class="form-control @error('acts') is-invalid @enderror" id="acts" name="disappearance_report[description]" rows="3" placeholder="Escribe la descripción">{{ old('disappearance_report[description]', $person->disappearance_report->description) }}</textarea>
                 @error('acts')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -100,9 +112,15 @@
             <div class="form-group col-md-8">
                 <label for="circumstance_id">Selecciona alguna circunstancia del catálogo según la descripción</label>
                 <select class="form-control @error('circumstance_id') is-invalid @enderror" id="circumstance_id" name="disappearance_report[circumstance_id]">
+                    @if (is_null($person->disappearance_report->circumstance))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($circumstances as $circumstance)
+                    @if (old('disappearance_report[circumstance_id]', $person->disappearance_report->circumstance_id) == $circumstance->id)
+                    <option value="{{$circumstance->id}}" selected="">{{$circumstance->name}}</option>
+                    @else
                     <option value="{{$circumstance->id}}">{{$circumstance->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('circumstance_id')
@@ -114,3 +132,38 @@
         </div>
     </div>
 </div>
+@section('extra_script')
+<script type="text/javascript">
+    var map = L.map('map').setView([19.4325, -99.1332], 13);
+    var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var myMarker = L.marker([19.4325, -99.1332], {title: "xxxNamexxx", alt: "xxxlatlngxxx", draggable: true})
+		.addTo(map)
+		.on('dragend', function() {
+			var coord = String(myMarker.getLatLng()).split(',');
+			console.log(coord);
+			var lat = coord[0].split('(');
+			console.log(lat);
+			var lng = coord[1].split(')');
+			console.log(lng);
+			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+			console.log(lat[1]);
+			console.log(lng[0]);
+			document.getElementById("id_latitude").value = lat[1];
+			document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
+		});
+</script>
+<script>
+$('#pills-report-tab').click(function (e) {
+    //e.preventDefault();
+    //$(this).tab('show');
+    setTimeout(
+        function()
+        {
+            map.invalidateSize();
+        }, 300);
+});
+</script>
+@endsection

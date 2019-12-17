@@ -4,11 +4,11 @@
             <div class="form-group col-md-6">
                 <label for="anonymous">*Anónimo:</label>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input">
+                    <input type="radio" id="customRadioInline1" name="person_report[confidential]" value="true" class="custom-control-input" checked>
                     <label class="custom-control-label" for="customRadioInline1">Sí</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
+                    <input type="radio" id="customRadioInline2" name="person_report[confidential]" value="false" class="custom-control-input">
                     <label class="custom-control-label" for="customRadioInline2">No</label>
                 </div>
                 @error('accept')
@@ -108,7 +108,7 @@
     </div>
     <div class="border-top py-3">
         <div class="form-row">
-            <div class="form-group required col-md-4">
+            <div class="form-group col-md-4">
                 <label for="email">Correo electrónico:</label>
                 <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="person_report[email]" value="{{ old('email') }}" placeholder="Correo electrónico">
                 @error('email')

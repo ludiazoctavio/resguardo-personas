@@ -1,3 +1,13 @@
+@section('extra_head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js" integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
+<style type="text/css">
+    #map {
+    height: 350px;
+    width: 100%;
+    }
+</style>
+@endsection
 <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
     <h6>¿Dónde lo vio por última vez?</h6>
     <div class="pb-3">
@@ -81,7 +91,9 @@
             </div>
         </div>
         <h6>Para una referencia más exacta, usa el siguiente mapa:</h6>
-        <div id="map">Aquí va el mapa</div>
+        <div class="flex-container">
+            <div id="map"></div>
+        </div>
     </div>
     <div class="border-top py-3">
         <h5>Hechos</h5>
@@ -114,3 +126,38 @@
         </div>
     </div>
 </div>
+@section('extra_script')
+<script type="text/javascript">
+    var map = L.map('map').setView([19.4325, -99.1332], 13);
+    var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var myMarker = L.marker([19.4325, -99.1332], {title: "xxxNamexxx", alt: "xxxlatlngxxx", draggable: true})
+		.addTo(map)
+		.on('dragend', function() {
+			var coord = String(myMarker.getLatLng()).split(',');
+			console.log(coord);
+			var lat = coord[0].split('(');
+			console.log(lat);
+			var lng = coord[1].split(')');
+			console.log(lng);
+			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+			console.log(lat[1]);
+			console.log(lng[0]);
+			document.getElementById("id_latitude").value = lat[1];
+			document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
+		});
+</script>
+<script>
+$('#pills-report-tab').click(function (e) {
+    //e.preventDefault();
+    //$(this).tab('show');
+    setTimeout(
+        function()
+        {
+            map.invalidateSize();
+        }, 300);
+});
+</script>
+@endsection

@@ -21,9 +21,18 @@
                 <div class="col-3">
                     <nav class="nav flex-column lateral-menu">
                         {{-- Menú lateral --}}
-                        {{auth()->user()->has_role(config('Superadmin'))}}
                         @if(auth()->user()->has_role(1))
                         @include('layouts.menu.superadmin')
+                        @elseif(auth()->user()->has_role(2))
+                        @include('layouts.menu.admin_locatel')
+                        @elseif(auth()->user()->has_role(3))
+                        @include('layouts.menu.sup_locatel')
+                        @elseif(auth()->user()->has_role(4))
+                        @include('layouts.menu.o_locatel')
+                        @elseif(auth()->user()->has_role(5))
+                        @include('layouts.menu.admin_dep')
+                        @elseif(auth()->user()->has_role(6))
+                        @include('layouts.menu.admin_dep')
                         @endif
                     </nav>
                 </div>

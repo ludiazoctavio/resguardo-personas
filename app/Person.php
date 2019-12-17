@@ -60,7 +60,7 @@ class Person extends Model
 
     public function dependence()
     {
-        return $this->hasOne('App\Catalogs\Dependence', 'id', 'dependence_id');
+        return $this->hasOne('App\Dependence', 'id', 'dependence_id');
     }
 
     public function age()

@@ -15,8 +15,8 @@ Auth::routes();
 
 //Dashboard
 Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
-    Route::get('/', function(){ return view('home'); });
-    Route::get('admin','AdminController@show')->name('admin.show');
+    //Route::get('/', function(){ return view('home'); });
+    Route::get('/','AdminController@show')->name('admin.show');
     Route::resource('user', 'UserController');
     Route::get('user_import','UserController@import')->name('user_import');
     Route::post('user_make_import','UserController@make_import')->name('user_make_import');
