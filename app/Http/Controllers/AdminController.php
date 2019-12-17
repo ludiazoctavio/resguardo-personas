@@ -6,10 +6,6 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function __construct()
-    {
-	    $this->middleware('role:' . config('app.admin_role'));
-    }
 
     public function show()
     {
@@ -17,7 +13,7 @@ class AdminController extends Controller
         if($auth->has_role(config('app.admin_role'))){
             return redirect()->route('dashboard.search.index');
         }elseif($auth->has_role(2)){
-            return redirect()->route('dashboard.users.index');
+            return redirect()->route('dashboard.user.index');
         }elseif($auth->has_role(3)){
             return redirect()->route('dashboard.search.index');
         }elseif($auth->has_role(4)){
@@ -29,4 +25,5 @@ class AdminController extends Controller
         }
         return view('home');
     }
+    
 }

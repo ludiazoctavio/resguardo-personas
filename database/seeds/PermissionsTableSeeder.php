@@ -257,8 +257,496 @@ class PermissionsTableSeeder extends Seeder
                 'created_at' => '2019-12-04 14:28:03',
                 'updated_at' => '2019-12-04 14:28:03',
             ),
+            24 => 
+            array (
+                'id' => 26,
+                'name' => 'index-person',
+                'slug' => 'index-person',
+                'description' => 'index-person',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            25 => 
+            array (
+                'id' => 27,
+                'name' => 'create-person',
+                'slug' => 'create-person',
+                'description' => 'create-person',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            26 => 
+            array (
+                'id' => 28,
+                'name' => 'view-person',
+                'slug' => 'view-person',
+                'description' => 'view-person',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            27 => 
+            array (
+                'id' => 29,
+                'name' => 'update-person',
+                'slug' => 'update-person',
+                'description' => 'update-person',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            28 => 
+            array (
+                'id' => 30,
+                'name' => 'delete-person',
+                'slug' => 'delete-person',
+                'description' => 'delete-person',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            29 => 
+            array (
+                'id' => 31,
+                'name' => 'index-user',
+                'slug' => 'index-user',
+                'description' => 'index-user',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            30 => 
+            array (
+                'id' => 32,
+                'name' => 'create-user',
+                'slug' => 'create-user',
+                'description' => 'create-user',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            31 => 
+            array (
+                'id' => 33,
+                'name' => 'view-user',
+                'slug' => 'view-user',
+                'description' => 'view-user',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            32 => 
+            array (
+                'id' => 34,
+                'name' => 'update-user',
+                'slug' => 'update-user',
+                'description' => 'update-user',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            33 => 
+            array (
+                'id' => 35,
+                'name' => 'assign-role-user',
+                'slug' => 'assign-role-user',
+                'description' => 'assign-role-user',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            34 => 
+            array (
+                'id' => 36,
+                'name' => 'assign-permission-user',
+                'slug' => 'assign-permission-user',
+                'description' => 'assign-permission-user',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            35 => 
+            array (
+                'id' => 37,
+                'name' => 'import-user',
+                'slug' => 'import-user',
+                'description' => 'import-user',
+                'role_id' => 2,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            36 => 
+            array (
+                'id' => 38,
+                'name' => 'index-search',
+                'slug' => 'index-search',
+                'description' => 'index-search',
+                'role_id' => 2,
+                'created_at' => '2019-12-04 14:26:13',
+                'updated_at' => '2019-12-04 14:26:13',
+            ),
+            37 => 
+            array (
+                'id' => 39,
+                'name' => 'view-search',
+                'slug' => 'view-search',
+                'description' => 'view-search',
+                'role_id' => 2,
+                'created_at' => '2019-12-04 14:28:03',
+                'updated_at' => '2019-12-04 14:28:03',
+            ),
+            38 => 
+            array (
+                'id' => 40,
+                'name' => 'index-person',
+                'slug' => 'index-person',
+                'description' => 'index-person',
+                'role_id' => 3,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            39 => 
+            array (
+                'id' => 41,
+                'name' => 'create-person',
+                'slug' => 'create-person',
+                'description' => 'create-person',
+                'role_id' => 3,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            40 => 
+            array (
+                'id' => 42,
+                'name' => 'view-person',
+                'slug' => 'view-person',
+                'description' => 'view-person',
+                'role_id' => 3,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            41 => 
+            array (
+                'id' => 43,
+                'name' => 'update-person',
+                'slug' => 'update-person',
+                'description' => 'update-person',
+                'role_id' => 3,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            42 => 
+            array (
+                'id' => 44,
+                'name' => 'delete-person',
+                'slug' => 'delete-person',
+                'description' => 'delete-person',
+                'role_id' => 3,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            43 => 
+            array (
+                'id' => 45,
+                'name' => 'index-search',
+                'slug' => 'index-search',
+                'description' => 'index-search',
+                'role_id' => 3,
+                'created_at' => '2019-12-04 14:26:13',
+                'updated_at' => '2019-12-04 14:26:13',
+            ),
+            44 => 
+            array (
+                'id' => 46,
+                'name' => 'view-search',
+                'slug' => 'view-search',
+                'description' => 'view-search',
+                'role_id' => 2,
+                'created_at' => '2019-12-04 14:28:03',
+                'updated_at' => '2019-12-04 14:28:03',
+            ),
+            45 => 
+            array (
+                'id' => 47,
+                'name' => 'index-person',
+                'slug' => 'index-person',
+                'description' => 'index-person',
+                'role_id' => 4,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            46 => 
+            array (
+                'id' => 48,
+                'name' => 'create-person',
+                'slug' => 'create-person',
+                'description' => 'create-person',
+                'role_id' => 4,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            47 => 
+            array (
+                'id' => 49,
+                'name' => 'view-person',
+                'slug' => 'view-person',
+                'description' => 'view-person',
+                'role_id' => 4,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            48 => 
+            array (
+                'id' => 50,
+                'name' => 'update-person',
+                'slug' => 'update-person',
+                'description' => 'update-person',
+                'role_id' => 4,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            49 => 
+            array (
+                'id' => 51,
+                'name' => 'delete-person',
+                'slug' => 'delete-person',
+                'description' => 'delete-person',
+                'role_id' => 4,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            50 => 
+            array (
+                'id' => 52,
+                'name' => 'index-search',
+                'slug' => 'index-search',
+                'description' => 'index-search',
+                'role_id' => 4,
+                'created_at' => '2019-12-04 14:26:13',
+                'updated_at' => '2019-12-04 14:26:13',
+            ),
+            51 => 
+            array (
+                'id' => 53,
+                'name' => 'view-search',
+                'slug' => 'view-search',
+                'description' => 'view-search',
+                'role_id' => 4,
+                'created_at' => '2019-12-04 14:28:03',
+                'updated_at' => '2019-12-04 14:28:03',
+            ),
+            52 => 
+            array (
+                'id' => 54,
+                'name' => 'index-person',
+                'slug' => 'index-person',
+                'description' => 'index-person',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            53 => 
+            array (
+                'id' => 55,
+                'name' => 'create-person',
+                'slug' => 'create-person',
+                'description' => 'create-person',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            54 => 
+            array (
+                'id' => 56,
+                'name' => 'view-person',
+                'slug' => 'view-person',
+                'description' => 'view-person',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            55 => 
+            array (
+                'id' => 57,
+                'name' => 'update-person',
+                'slug' => 'update-person',
+                'description' => 'update-person',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            56 => 
+            array (
+                'id' => 58,
+                'name' => 'delete-person',
+                'slug' => 'delete-person',
+                'description' => 'delete-person',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            57 => 
+            array (
+                'id' => 59,
+                'name' => 'index-user',
+                'slug' => 'index-user',
+                'description' => 'index-user',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            58 => 
+            array (
+                'id' => 60,
+                'name' => 'create-user',
+                'slug' => 'create-user',
+                'description' => 'create-user',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            59 => 
+            array (
+                'id' => 61,
+                'name' => 'view-user',
+                'slug' => 'view-user',
+                'description' => 'view-user',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            60 => 
+            array (
+                'id' => 62,
+                'name' => 'update-user',
+                'slug' => 'update-user',
+                'description' => 'update-user',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            61 => 
+            array (
+                'id' => 63,
+                'name' => 'assign-role-user',
+                'slug' => 'assign-role-user',
+                'description' => 'assign-role-user',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            62 => 
+            array (
+                'id' => 64,
+                'name' => 'assign-permission-user',
+                'slug' => 'assign-permission-user',
+                'description' => 'assign-permission-user',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            63 => 
+            array (
+                'id' => 65,
+                'name' => 'import-user',
+                'slug' => 'import-user',
+                'description' => 'import-user',
+                'role_id' => 5,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            64 => 
+            array (
+                'id' => 66,
+                'name' => 'index-search',
+                'slug' => 'index-search',
+                'description' => 'index-search',
+                'role_id' => 5,
+                'created_at' => '2019-12-04 14:26:13',
+                'updated_at' => '2019-12-04 14:26:13',
+            ),
+            65 => 
+            array (
+                'id' => 67,
+                'name' => 'view-search',
+                'slug' => 'view-search',
+                'description' => 'view-search',
+                'role_id' => 5,
+                'created_at' => '2019-12-04 14:28:03',
+                'updated_at' => '2019-12-04 14:28:03',
+            ),
+            66 => 
+            array (
+                'id' => 68,
+                'name' => 'index-person',
+                'slug' => 'index-person',
+                'description' => 'index-person',
+                'role_id' => 6,
+                'created_at' => '2019-11-28 21:35:54',
+                'updated_at' => '2019-11-28 21:35:54',
+            ),
+            67 => 
+            array (
+                'id' => 69,
+                'name' => 'create-person',
+                'slug' => 'create-person',
+                'description' => 'create-person',
+                'role_id' => 6,
+                'created_at' => '2019-11-28 22:05:28',
+                'updated_at' => '2019-11-28 22:05:28',
+            ),
+            68 => 
+            array (
+                'id' => 70,
+                'name' => 'view-person',
+                'slug' => 'view-person',
+                'description' => 'view-person',
+                'role_id' => 6,
+                'created_at' => '2019-11-28 22:38:07',
+                'updated_at' => '2019-11-28 22:38:07',
+            ),
+            69 => 
+            array (
+                'id' => 71,
+                'name' => 'update-person',
+                'slug' => 'update-person',
+                'description' => 'update-person',
+                'role_id' => 6,
+                'created_at' => '2019-11-28 22:38:34',
+                'updated_at' => '2019-11-28 22:38:34',
+            ),
+            70 => 
+            array (
+                'id' => 72,
+                'name' => 'delete-person',
+                'slug' => 'delete-person',
+                'description' => 'delete-person',
+                'role_id' => 6,
+                'created_at' => '2019-11-28 22:38:50',
+                'updated_at' => '2019-11-28 22:38:50',
+            ),
+            71 => 
+            array (
+                'id' => 73,
+                'name' => 'index-search',
+                'slug' => 'index-search',
+                'description' => 'index-search',
+                'role_id' => 6,
+                'created_at' => '2019-12-04 14:26:13',
+                'updated_at' => '2019-12-04 14:26:13',
+            ),
+            72 => 
+            array (
+                'id' => 74,
+                'name' => 'view-search',
+                'slug' => 'view-search',
+                'description' => 'view-search',
+                'role_id' => 6,
+                'created_at' => '2019-12-04 14:28:03',
+                'updated_at' => '2019-12-04 14:28:03',
+            ),
         ));
-        
-        
     }
 }

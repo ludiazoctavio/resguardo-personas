@@ -27,7 +27,6 @@ class UpdateRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'last_name_1' => 'required|string|max:255',
-            'last_name_2' => 'required|string|max:255',
             'position' => 'required|string|max:255',
             'phone' => 'required|numeric',
             'dependence_id' => 'required|numeric',
@@ -45,9 +44,6 @@ class UpdateRequest extends FormRequest
             'last_name_1.required' => 'El campo es requerido',
             'last_name_1.string' => 'El valor no es correcto',
             'last_name_1.max' => 'Solo se permiten 255 caracteres',
-            'last_name_2.required' => 'El campo es requerido',
-            'last_name_2.string' => 'El valor no es correcto',
-            'last_name_2.max' => 'Solo se permiten 255 caracteres',
             'position.required' => 'El campo es requerido',
             'position.string' => 'El valor no es correcto',
             'position.max' => 'Solo se permiten 255 caracteres',
