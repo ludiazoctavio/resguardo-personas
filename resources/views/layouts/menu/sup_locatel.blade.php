@@ -1,3 +1,3 @@
-<a class="nav-link active" href="#">REGISTRO POR PERSONA IDENTIFICADA</a>
-<a class="nav-link" href="#">REGISTRO POR PERSONA NO IDENTIFICADA</a>
-<a class="nav-link" href="#">BÚSQUEDA DE REGISTROS</a>
+<li><a class="dropdown-item {!! active_class(route('dashboard.search.index')) !!}" href="{{ route('dashboard.search.index') }}">BÚSQUEDA POR PERSONA
+    NO LOCALIZADA</a></li>
+<li><a class="dropdown-item {!! active_class(route('dependence.search_dependence.index')) !!}" href="{{ route('dependence.search_dependence.index') }}">BÚSQUEDA DE REGISTROS</a></li>

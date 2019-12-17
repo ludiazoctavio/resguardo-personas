@@ -463,7 +463,7 @@ class PermissionsTableSeeder extends Seeder
                 'name' => 'view-search',
                 'slug' => 'view-search',
                 'description' => 'view-search',
-                'role_id' => 2,
+                'role_id' => 3,
                 'created_at' => '2019-12-04 14:28:03',
                 'updated_at' => '2019-12-04 14:28:03',
             ),

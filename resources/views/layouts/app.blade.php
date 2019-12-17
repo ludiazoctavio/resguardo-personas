@@ -32,7 +32,7 @@
                         @elseif(auth()->user()->has_role(5))
                         @include('layouts.menu.admin_dep')
                         @elseif(auth()->user()->has_role(6))
-                        @include('layouts.menu.admin_dep')
+                        @include('layouts.menu.a_dep')
                         @endif
                     </nav>
                 </div>

@@ -20,7 +20,7 @@
                 <thead class="thead-light">
                 <tr>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Carga</th>
+                    <th scope="col">Cargo</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Correo electrónico</th>
                     <th scope="col"></th>
@@ -29,8 +29,8 @@
                 <tbody>
                     @foreach ($users as $item)
                     <tr>
-                        <th scope="row"><a href="{{ route('dashboard.user_dependence.show', $item)}}">{{$item->name}}</a></th>
-                        <td>{{$item->email}}</td>
+                        <th scope="row"><a href="{{ route('dashboard.user_dependence.show', $item)}}">{{$item->getFullNameAttribute()}}</a></th>
+                        <td>{{$item->position}}</td>
                         <td>{{$item->phone}}@if($item->phone_extencion) - {{$item->phone_extencion}}@endif</td>
                         <td>{{$item->email}}</td>
                         <td><a href="{{ route('dependence.user_dependence.edit', $item)}}">Editar</a></td>
