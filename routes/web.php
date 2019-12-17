@@ -39,6 +39,7 @@ Route::group(['middleware' => ['auth'], 'as' => 'locatel.'], function(){
 
 //Rutas dependencia
 Route::group(['middleware' => ['auth'], 'as' => 'dependence.'], function(){
+    Route::resource('user_dependence', 'UserDependenceController');
     Route::resource('person_dependence', 'PersonDependenceController');
     Route::get('person_dependence/identified/create', 'PersonDependenceController@create_identified')->name('person_dependence.create_identified');
     Route::post('person_dependence/identified/store', 'PersonDependenceController@store_identified')->name('person_dependence.store_identified');

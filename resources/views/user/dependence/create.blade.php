@@ -68,20 +68,6 @@
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group required required col-md-4">
-                        <label for="dependence_id">Dependencia</label>
-                        <select class="form-control @error('dependence_id') is-invalid @enderror" id="dependence_id" name="dependence_id">
-                            <option value="" disabled="" selected="">Selecciona un dependencia</option>
-                            @foreach ($dependences as $dependence)
-                            <option value="{{$dependence->id}}">{{$dependence->name}}</option>
-                            @endforeach
-                        </select>
-                        @error('dependence_id')
-                            <div class="invalid-feedback active" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </div>
-                        @enderror
-                    </div>
                     {{--<div class="form-group col-md-4">
                         <label for="ascription">Área de adscripción</label>
                         

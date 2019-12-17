@@ -11,15 +11,7 @@
                     <button type="submit" class="btn btn-primary ml-2">Q</button>
                 </form>
                 <div class="col-4">
-                    <select class="form-control @error('dependence_id') is-invalid @enderror" id="dependence_id" name="dependence_id">
-                        <option value="" disabled="" selected="">Selecciona un dependencia</option>
-                        @foreach ($dependences as $dependence)
-                        <option value="{{$dependence->id}}">{{$dependence->name}}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-4">
-                    <a href="{{ route('dashboard.user.create') }}">Nuevo usuario +</a>
+                    <a href="{{ route('dependence.user_dependence.create') }}">Nuevo usuario +</a>
                 </div>
             </div>
         </div>
@@ -29,7 +21,6 @@
                 <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Carga</th>
-                    <th scope="col">Dependencia</th>
                     <th scope="col">Teléfono</th>
                     <th scope="col">Correo electrónico</th>
                     <th scope="col"></th>
@@ -38,12 +29,11 @@
                 <tbody>
                     @foreach ($users as $item)
                     <tr>
-                        <th scope="row"><a href="{{ route('dashboard.user.show', $item)}}">{{$item->name}}</a></th>
+                        <th scope="row"><a href="{{ route('dashboard.user_dependence.show', $item)}}">{{$item->name}}</a></th>
                         <td>{{$item->email}}</td>
-                        <td>{{$item->dependence->name}}</td>
                         <td>{{$item->phone}}@if($item->phone_extencion) - {{$item->phone_extencion}}@endif</td>
                         <td>{{$item->email}}</td>
-                        <td><a href="{{ route('dashboard.user.edit', $item)}}">Editar</a></td>
+                        <td><a href="{{ route('dependence.user_dependence.edit', $item)}}">Editar</a></td>
                     </tr>
                     @endforeach
                 </tbody>
