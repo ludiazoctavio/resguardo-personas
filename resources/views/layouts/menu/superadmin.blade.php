@@ -4,7 +4,7 @@
 <li><a class="dropdown-item {!! active_class(route('dashboard.user.index')) !!}" href="{{ route('dashboard.user.index') }}">Usuarios</a></li>
 <li><a class="dropdown-item {!! active_class(route('dashboard.dependence.index')) !!}" href="{{ route('dashboard.dependence.index') }}">Dependencias</a></li>
 <li><a class="dropdown-item {!! active_class(route('dashboard.person.create')) !!}" href="{{ route('dashboard.person.create') }}">
-        REGISTRO POR PERSONANO LOCALIZADA
+        REGISTRO POR PERSONA NO LOCALIZADA
     </a>
     <ul class="nav nav-pills" role="tablist">
         <li><a class="nav-link" id="pills-person_report-tab" data-toggle="pill" href="#pills-person_report" role="tab" aria-controls="pills-person_report" aria-selected="false">Datos de la persona que reporta</a></li>

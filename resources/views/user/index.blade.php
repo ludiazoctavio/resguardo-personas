@@ -30,30 +30,32 @@
             </div>
         </div>
         <div class="card-body p-0">
-            <table class="table table-hover" id="tableSearch" style="width:100%;">
-                <thead class="thead-light">
-                <tr>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Cargo</th>
-                    <th scope="col">Dependencia</th>
-                    <th scope="col">Teléfono</th>
-                    <th scope="col">Correo electrónico</th>
-                    <th scope="col"></th>
-                </tr>
-                </thead>
-                <tbody>
-                    @foreach ($users as $item)
+            <div class="table-responsive">
+                <table class="table table-hover" id="tableSearch" style="width:100%;">
+                    <thead class="thead-light">
                     <tr>
-                        <th scope="row"><a href="{{ route('dashboard.user.show', $item)}}">{{$item->getFullNameAttribute()}}</a></th>
-                        <td>{{$item->position}}</td>
-                        <td>{{$item->dependence->name}}</td>
-                        <td>{{$item->phone}}@if($item->phone_extencion) - {{$item->phone_extencion}}@endif</td>
-                        <td>{{$item->email}}</td>
-                        <td><a href="{{ route('dashboard.user.edit', $item)}}">Editar</a></td>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Dependencia</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Correo electrónico</th>
+                        <th scope="col"></th>
                     </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $item)
+                        <tr>
+                            <th scope="row"><a href="{{ route('dashboard.user.show', $item)}}">{{$item->getFullNameAttribute()}}</a></th>
+                            <td>{{$item->position}}</td>
+                            <td>{{$item->dependence->name}}</td>
+                            <td>{{$item->phone}}@if($item->phone_extencion) - {{$item->phone_extencion}}@endif</td>
+                            <td>{{$item->email}}</td>
+                            <td><a href="{{ route('dashboard.user.edit', $item)}}">Editar</a></td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>
@@ -63,7 +65,7 @@
         var _table;
         $(document).ready(function() {
             _table = $('#tableSearch').DataTable({
-                "pageLength": 3,
+                "pageLength": 10,
                 "responsive": true,
                 "bFilter": false,
                 "lengthChange": false,
