@@ -103,7 +103,7 @@
             <div class="form-group col-md-6">
                 <label for="accompanying_image_identification">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="accompanying_image_identification" name="accompanying_image_identification" lang="es">
+                    <input type="file" class="custom-file-input" id="accompanying_image_identification" name="accompanying_image_identification" accept="image/*" lang="es">
                     <label class="custom-file-label" for="accompanying_image_identification">Selecciona un archivo JPG o PNG</label>
                 </div>
                 @error('accompanying_image_identification')

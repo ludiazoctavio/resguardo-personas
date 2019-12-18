@@ -151,7 +151,7 @@
             <div class="form-group col-md-6">
                 <label for="image_general">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image_general" name="image_general" lang="es">
+                    <input type="file" class="custom-file-input" id="image_general" name="image_general" accept="image/*" lang="es">
                     <label class="custom-file-label" for="image_general">Selecciona un archivo JPG o PNG</label>
                 </div>
                 @error('image_general')

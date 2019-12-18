@@ -53,7 +53,7 @@
             <div class="form-group col-md-6">
                 <label for="image_half_affiliation">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image_half_affiliation" name="image_half_affiliation" lang="es">
+                    <input type="file" class="custom-file-input" id="image_half_affiliation" name="image_half_affiliation" accept="image/*" lang="es">
                     <label class="custom-file-label" for="customFileLang">Selecciona un archivo JPG o PNG</label>
                 </div>
                 @error('image_half_affiliation')
