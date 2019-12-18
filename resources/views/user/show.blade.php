@@ -1,61 +1,67 @@
-@extends('layouts.app')
-
+@extends('layouts.app_fluid')
+@section('pleca_menu')
+<li class="nav-item">
+    <a href="{{ route('dashboard.user.index') }}" class="nav-link active">Usuarios</a>
+</li>
+<li class="nav-item">
+    <a href="#" class="nav-link">Estadísticas</a>
+</li>
+@endsection
 @section('content')
-<div class="row m-0">
-    <div class="col-9">
-        <div class="card">
-            <div class="card-header">
-                Usuario
-            </div>
-            <div class="card-body">
-                <h5 class="card-title"><strong>Nombre: </strong>{{$user->name}}</h5>
-                <p class="card-text"><strong>Email: </strong>{{$user->email}}</p>
-                <h6><strong>Roles asignados</strong></h6>
-                <ul class="list-group list-group-flush">
-                    @foreach ($user->roles as $role)
-                    <li class="list-group-item">{{$role->name}}</li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="card-footer text-muted">
-                <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
+<div class="container">
+    <div class="row m-0">
+        <div class="col-9">
+            <div class="card">
+                <div class="card-header">
+                    Usuario
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Nombre: </strong>{{$user->name}}</h5>
+                    <p class="card-text"><strong>Email: </strong>{{$user->email}}</p>
+                    <h6><strong>Roles asignados</strong></h6>
+                    <ul class="list-group list-group-flush">
+                        @foreach ($user->roles as $role)
+                        <li class="list-group-item">{{$role->name}}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
+        <div class="col-3">
+            @include('user.includes.menu')
+        </div>
     </div>
-    <div class="col-3">
-        @include('user.includes.menu')
-    </div>
-</div>
-{{-- <div class="card mt-5">
-    <div class="card-header">
-        Permisos
-    </div>
-    <div class="card-body p-0">
-        <table class="table table-hover">
-            <thead class="thead-light">
-            <tr>
-                <th scope="col">Nombre</th>
-                <th scope="col">Descripcion</th>
-            </tr>
-            </thead>
-            <tbody>
-                @foreach ($permissions as $item)
+    {{-- <div class="card mt-5">
+        <div class="card-header">
+            Permisos
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-hover">
+                <thead class="thead-light">
                 <tr>
-                    <th scope="row"><a href="{{ route('dashboard.permission.show', $item) }}">{{$item->name}}</a></th>
-                    <td>{{$item->description}}</td>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Descripcion</th>
                 </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
-    <div class="card-footer text-muted">
+                </thead>
+                <tbody>
+                    @foreach ($permissions as $item)
+                    <tr>
+                        <th scope="row"><a href="{{ route('dashboard.permission.show', $item) }}">{{$item->name}}</a></th>
+                        <td>{{$item->description}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-muted">
 
-    </div>
-</div> --}}
-<form method="POST" action="{{ route('dashboard.user.destroy', $user) }}" name="delete_form">
-    @method('DELETE')
-    @csrf
-</form>
+        </div>
+    </div> --}}
+    <form method="POST" action="{{ route('dashboard.user.destroy', $user) }}" name="delete_form">
+        @method('DELETE')
+        @csrf
+    </form>
+</div>
 @endsection
 @section('extra_script')
 <script>

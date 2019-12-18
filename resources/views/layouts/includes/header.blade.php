@@ -39,22 +39,14 @@
 </header>
 <div class="pleca" id="pleca">
     <div class="container">
-        <ul class="nav justify-content-end">
+        <ul class="nav mr-auto justify-content-end">
             @auth
-            <li class="nav-item">
-            
-            </li>
-            <li class="nav-item">
-            
-            </li>
-            <li class="nav-item">
-            
-            </li>
+            @yield('pleca_menu')
             @endauth
         </ul>
     </div>
 </div>
-<!--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+{{--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'Laravel') }}
@@ -95,4 +87,4 @@
             </ul>
         </div>
     </div>
-</nav>-->
+</nav>--}}

@@ -8,5 +8,5 @@
     <a href="#" class="list-group-item list-group-item-action">Cambiar contraseña</a>
     <a href="{{ route('dashboard.user.assign_role', $user) }}" class="list-group-item list-group-item-action">Asignar roles</a>
     <a href="{{ route('dashboard.user.assign_permission', $user) }}" class="list-group-item list-group-item-action">Asignar permissos</a>
-    <a href="#" class="list-group-item list-group-item-action disabled">#####</a>
+    <a href="#" class="list-group-item list-group-item-action text-white bg-danger" onclick="send_form()">Eliminar</a>
 </div>
