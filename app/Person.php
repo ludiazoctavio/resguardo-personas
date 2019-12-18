@@ -172,6 +172,7 @@ class Person extends Model
                 'person_id' => $person->id,
             ]);
         }
+        
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
     }
@@ -183,8 +184,9 @@ class Person extends Model
         self::person_report()->update($request->person_report);
 
         self::disappearance_report()->update($request->disappearance_report);
-
-        self::half_affiliation()->update($request->half_affiliation);
+        if (!empty($request->half_affiliation)) {
+            self::half_affiliation()->update($request->half_affiliation);
+        }
 
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
     }
