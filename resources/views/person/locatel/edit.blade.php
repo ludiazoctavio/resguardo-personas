@@ -54,4 +54,5 @@
         });
     });
 </script>
+@yield('sub_script')
 @endsection

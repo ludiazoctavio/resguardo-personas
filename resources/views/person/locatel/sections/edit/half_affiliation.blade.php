@@ -65,7 +65,7 @@
         </div>
     </div>
 </div>
-@section('extra_script')
+@section('sub_script')
 <script>
     var half_affiliation = {!! json_encode($person->half_affiliation) !!};
     window.addEventListener("DOMContentLoaded", function(){

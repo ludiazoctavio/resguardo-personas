@@ -29,3 +29,16 @@
     </div>
 </div>
 @endsection
+@section('extra_script')
+<script type="text/javascript">
+    $(function() {
+        $('input[type=text]').keyup(function() {
+            this.value = this.value.toLocaleUpperCase();
+        });
+        $('textarea').keyup(function() {
+            this.value = this.value.toLocaleUpperCase();
+        });
+    });
+</script>
+@yield('sub_script')
+@endsection

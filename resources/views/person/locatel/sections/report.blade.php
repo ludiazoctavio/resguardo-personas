@@ -126,7 +126,7 @@
         </div>
     </div>
 </div>
-@section('extra_script')
+@section('sub_script')
 <script type="text/javascript">
     var map = L.map('map').setView([19.4325, -99.1332], 13);
     var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

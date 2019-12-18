@@ -30,4 +30,14 @@ class Person_report extends Model
     {
         return $this->hasOne('App\Catalogs\Relationship', 'id', 'relationship_id');
     }
+
+    public function phones()
+    {
+        return $this->hasMany('App\Phone');
+    }
+    
+    public function addresses()
+    {
+        return $this->hasMany('App\Address');
+    }
 }

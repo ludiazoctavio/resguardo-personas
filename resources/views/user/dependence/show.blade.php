@@ -62,7 +62,7 @@
     function send_form()
     {
         swal({
-            title:"¿Deseas eliminar este el usuario?",
+            title:"¿Deseas eliminar el usuario?",
             text:"Esta acción no se puede deshacer",
             icon:"warning",
             buttons: {

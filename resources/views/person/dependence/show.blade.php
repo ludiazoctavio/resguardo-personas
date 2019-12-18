@@ -42,6 +42,8 @@
         </form>
     </div>
 </div>
+@endsection
+@section('extra_script')
 <script type="text/javascript">
     window.addEventListener("DOMContentLoaded", function(){
         $('#form-sow input[type=text]').attr('disabled', true);
@@ -49,4 +51,5 @@
         $('#form-sow select').attr("disabled", true);
     });
 </script>
+@yield('sub_script')
 @endsection

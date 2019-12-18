@@ -15,6 +15,9 @@ class CreatePhonesTable extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('phone'); //Teléfono celular
+            $table->unsignedInteger('phone_type_id')->default(null)->nullable(true); //circunstancia
+            $table->foreign('phone_type_id')->references('id')->on('phone_types')->onUpdate('cascade');
             $table->timestamps();
         });
     }
