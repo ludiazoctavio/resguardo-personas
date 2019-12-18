@@ -146,7 +146,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="phone">Teléfono:</label>
-                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}" placeholder="5555555555">
+                <input type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}" placeholder="5555555555">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

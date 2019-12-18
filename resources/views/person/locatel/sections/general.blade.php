@@ -134,8 +134,8 @@
     <div class="border-top py-3">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="phone">Teléfono celular:</label>
-                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[phone]" value="{{ old('phone') }}" placeholder="5555555555">
+                <label for="tel">Teléfono celular:</label>
+                <input type="number" pattern="[0-9]{10}" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[phone]" value="{{ old('phone') }}" placeholder="5555555555">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

@@ -158,7 +158,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="phone">Teléfono celular:</label>
-                <input type="number" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[cell_phone]"
+                <input type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="disappearance_report[cell_phone]"
                     value="{{ old('phone', $person->disappearance_report->cell_phone) }}">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
