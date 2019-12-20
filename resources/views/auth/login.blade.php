@@ -2,11 +2,13 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-4">imagen</div>
-        <div class="col-8">
-            <div>Plataforma de Registro de Personas</div>
-            <div>bajo el resguardo del Gobierno de la Ciudad de México</div>
+    <div class="row pb-4">
+        <div class="col-4">
+            <img class="float-right" src="/images/logo_app.png" alt="">
+        </div>
+        <div class="col-8 pt-2" style="font-size:1.2rem; font-weight:bold;">
+            <div style="color:#00b140;">Plataforma de Registro de Personas</div>
+            <div style="color:#5d5d5d;">bajo el resguardo del Gobierno de la Ciudad de México</div>
         </div>
     </div>
 </div>

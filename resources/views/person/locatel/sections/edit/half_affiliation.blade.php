@@ -2,7 +2,7 @@
     <div class="row my-4">
         @foreach ($half_affiliations as $type)
         <div class="col-sm-4 my-3">
-            <div class="card">
+            <div class="card card-half">
                 <div class="card-header">
                     {{$type->name}}
                 </div>
@@ -19,7 +19,7 @@
         </div>
         @endforeach
         <div class="col-sm-4 my-3">
-            <div class="card">
+            <div class="card card-half">
                 <div class="card-header">
                     Altura en centimetros
                 </div>
