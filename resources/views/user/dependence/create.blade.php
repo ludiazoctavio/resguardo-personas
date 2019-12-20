@@ -1,10 +1,14 @@
 @extends('layouts.app_fluid')
-
+@section('pleca_menu')
+<li class="nav-item">
+    <a href="{{ route('dependence.user_dependence.index') }}" class="nav-link active">Usuarios</a>
+</li>
+@endsection
 @section('content')
 <div class="container">
     <div class="card">
         <div class="card-header">
-            Nuevo usuario
+            <h5>Nuevo usuario</h5>
         </div>
         <div class="card-body">
             <form method="POST" class="" action="{{ route('dependence.user_dependence.store') }}">

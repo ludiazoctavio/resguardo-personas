@@ -39,6 +39,7 @@
   }
   body {
     font-family: "Metropolis", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: white;
   }
 
 .imagen-encabezado {
@@ -83,10 +84,78 @@
     color:#009288;
   }
 
-.btn-cdmx, btn-cdmx:hover {
+.btn-primary, .btn-primary:hover, .btn-cdmx, btn-cdmx:hover {
     color: #fff;
     background-color: #00b140;
     border-color: #00b140;
 }
+header a {
+  color: #00b140;
+}
+header h6 {
+  font-size: 0.7rem;
+  color: #0f4c42;
+}
+.card-header {
+  background-color: transparent;
+  border: none;
+}
+.card {
+  border: none;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+  border-color:#c1c7d0;
+  background-color:#c1c7d0;
+}
+a {
+  color: #888888;
+}
+a:hover {
+  color: #505050;
+}
+a active {
+  color: #00b140;
+}
+.card-header strong {
+  color: #5d5d5d;
+}
+.card-header .nav-link {
+  padding: 0rem 0.5rem;
+}
+.card-header h5 {
+  color: 0f4c42;
+}
+.card-body h5 {
+  color: 0f4c42;
+}
+.card-header .nav-link.active {
+  color: #00b140;
+  background-color: transparent;
+}
+.lateral-menu .dropdown-item {
+  padding: 0.5rem 1rem;
+  color: #888888;
+  background-color: transparent;
+  border-left: 2px solid #969696;
+}
+.lateral-menu .dropdown-item.active, .lateral-menu .dropdown-item:active {
+  color: #505050;
+  font-weight: bold;
+  background-color: transparent;
+  border-left: 2px solid #00b140;
+}
+.fa-pencil {
+  color:#00b140;
+  font-size: 16px;
+}
+.card-header a {
+  color:#009288;
+}
+.fa-plus-circle {
+  font-size: 16px;
+}
+.pleca .nav-item.active {
+  color: #00b140;
+} 
 // CUSTOM TABLE
 @import 'custom_table/table';

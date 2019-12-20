@@ -85,9 +85,9 @@
                     </div>
                 @enderror
             </div>
-            <div class="form-group required col-md-4">
+            <div class="form-group col-md-4">
                 <label for="nationality_id">Nacionalidad:</label>
-                <select class="form-control @error('nationality_id') is-invalid @enderror" id="nationality_id" name="person[nationality_id]" required>
+                <select class="form-control @error('nationality_id') is-invalid @enderror" id="nationality_id" name="person[nationality_id]">
                     @if (is_null($person->nationality))
                     <option value="" disabled="" selected="">Selecciona</option>
                     @endif

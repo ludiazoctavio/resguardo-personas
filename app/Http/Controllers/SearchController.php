@@ -20,7 +20,7 @@ class SearchController extends Controller
      */
     public function index(Request $request)
     {
-        $qs = Person::all();
+        $qs = Person::where('type_register_id', '=', 1);
         if(count($request->all()) > 0){
             if ($request->folio){
                 $qs = $qs->where('folio' , 'like', '%'.$request->folio.'%');
@@ -53,8 +53,7 @@ class SearchController extends Controller
         }
         $this->authorize('index', Search::class);
         return view('search.locatel.index', [
-            'people' => $qs->where('type_register_id', '=', 1),
-            'people_dependence' => $qs->where('type_register_id', '=', 2),
+            'people' => $qs->get(),
         ]);
     }
 

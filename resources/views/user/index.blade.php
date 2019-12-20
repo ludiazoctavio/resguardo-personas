@@ -25,7 +25,7 @@
                     </select>
                 </div>
                 <div class="col-4">
-                    <a href="{{ route('dashboard.user.create') }}">Nuevo usuario +</a>
+                    <a class="float-right mt-2" href="{{ route('dashboard.user.create') }}">Nuevo usuario <i class="fa fa-plus-circle"></i></a>
                 </div>
             </div>
         </div>
@@ -50,7 +50,7 @@
                             <td>{{$item->dependence->name}}</td>
                             <td>{{$item->phone}}@if($item->phone_extencion) - {{$item->phone_extencion}}@endif</td>
                             <td>{{$item->email}}</td>
-                            <td><a href="{{ route('dashboard.user.edit', $item)}}">Editar</a></td>
+                            <td><a href="{{ route('dashboard.user.edit', $item)}}"><i class="fa fa-pencil"></i></a></td>
                         </tr>
                         @endforeach
                     </tbody>

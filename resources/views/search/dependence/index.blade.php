@@ -44,7 +44,7 @@
                         <td>{{$item->gender->name}}</td>
                         <td>Falta estatus</td>
                         <td>@if(is_null($item->priority))@else{{$item->priority->name}}@endif</td>
-                    <td><a href="{{ route('dependence.person_dependence.edit', $item)}}">Editar</a></td>
+                        <td><a href="{{ route('dependence.person_dependence.edit', $item)}}"><i class="fa fa-pencil"></i></a></td>
                     </tr>
                     @endforeach
                 </tbody>

@@ -1,5 +1,9 @@
 @extends('layouts.app_fluid')
-
+@section('pleca_menu')
+<li class="nav-item">
+    <a href="{{ route('dependence.user_dependence.index') }}" class="nav-link active">Usuarios</a>
+</li>
+@endsection
 @section('content')
 <div class="container">
     <div class="card">

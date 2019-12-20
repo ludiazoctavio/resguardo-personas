@@ -18,9 +18,6 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="card-footer text-muted">
-                    <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
-                </div>
             </div>
         </div>
         <div class="col-3">

@@ -17,7 +17,7 @@
                 @else
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->getFullNameAttribute() }} <span class="caret"></span>
+                            <i class="fa fa-user" style="font-size:20px;"></i> {{ Auth::user()->getFullNameAttribute() }} <span class="caret"></span>
                         </a>
                         <h6>{{ Auth::user()->dependence->name }}</h6>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
