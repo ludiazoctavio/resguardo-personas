@@ -40,6 +40,10 @@ Route::group(['middleware' => ['auth'], 'as' => 'locatel.'], function(){
 //Rutas dependencia
 Route::group(['middleware' => ['auth'], 'as' => 'dependence.'], function(){
     Route::resource('user_dependence', 'UserDependenceController');
+    Route::get('user_dependence/{user_dependence}/assign_role', 'UserDependenceController@assign_role')->name('user_dependence.assign_role');
+    Route::post('user_dependence/{user_dependence}/role_assignment', 'UserDependenceController@role_assignment')->name('user_dependence.role_assignment');
+    Route::get('user_dependence/{user_dependence}/assign_permission', 'UserDependenceController@assign_permission')->name('user_dependence.assign_permission');
+    Route::post('user_dependence/{user_dependence}/permission_assignment', 'UserDependenceController@permission_assignment')->name('user_dependence.permission_assignment');
     Route::resource('person_dependence', 'PersonDependenceController');
     Route::get('person_dependence/identified/create', 'PersonDependenceController@create_identified')->name('person_dependence.create_identified');
     Route::post('person_dependence/identified/store', 'PersonDependenceController@store_identified')->name('person_dependence.store_identified');

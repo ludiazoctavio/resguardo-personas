@@ -31,7 +31,7 @@ class UserDependenceController extends Controller
     {
         $this->authorize('index', User::class);
         return view('user.dependence.index', [
-            'users' => User::where('dependence_id', '=', Auth::user()->dependence->id),
+            'users' => User::where('dependence_id', '=', Auth::user()->dependence->id)->get(),
         ]);
     }
 
@@ -54,9 +54,10 @@ class UserDependenceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRequest $request, User $user)
     {
-        //
+        $user = $user->store_dependence($request);
+        return redirect()->route('dependence.user_dependence.index');
     }
 
     /**
@@ -65,9 +66,12 @@ class UserDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $user_dependence)
     {
-        //
+        $this->authorize('view', $user_dependence);
+        return view('user.dependence.show', [
+            'user' =>$user_dependence,
+        ]);
     }
 
     /**
@@ -76,9 +80,12 @@ class UserDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user_dependence)
     {
-        //
+        $this->authorize('update', $user_dependence);
+        return view('user.dependence.edit', [
+            'user' => $user_dependence,
+        ]);
     }
 
     /**
@@ -88,9 +95,10 @@ class UserDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateRequest $request, User $user_dependence)
     {
-        //
+        $user_dependence->my_update($request);
+        return redirect()->route('dependence.user_dependence.index');
     }
 
     /**
@@ -99,8 +107,60 @@ class UserDependenceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(User $user_dependence)
     {
-        //
+        $this->authorize('delete', $user_dependence);
+        $user_dependence->delete();
+        alert()->success('Éxito','Usuario eliminado', 'succes')->showConfirmButton();
+        return redirect()->route('dependence.user_dependence.index');
+    }
+
+    /**
+     * Formulario rol.
+     *
+    */
+    public function assign_role(User $user_dependence)
+    {
+        $this->authorize('assign_role', $user_dependence);
+        return view('user.dependence.assign_role', [
+            'user' => $user_dependence,
+            'roles' => Role::whereIn('id', [5,6])->get(),
+        ]);
+    }
+
+    /**
+     * Asignar rol.
+     *
+    */
+    public function role_assignment(Request $request, User $user_dependence)
+    {
+        $this->authorize('assign_role', $user_dependence);
+        $user_dependence->role_assignment($request);
+        return redirect()->route('dependence.user_dependence.show', $user_dependence);
+    }
+
+    /**
+     * Formulario permisos.
+     *
+    */
+    public function assign_permission(User $user_dependence)
+    {
+        $this->authorize('assign_permission', $user_dependence);
+        return view('user.dependence.assign_permission', [
+            'user' => $user_dependence,
+            'roles' => $user_dependence->roles,
+        ]);
+    }
+
+    /**
+     * Asignar permisos.
+     *
+    */
+    public function permission_assignment(Request $request, User $user_dependence)
+    {
+        $this->authorize('assign_permission', $user_dependence);
+        $user_dependence->permissions()->sync($request->permissions);    
+        alert()->success('Éxito','Permisos asignados', 'succes')->showConfirmButton();
+        return redirect()->route('dependence.user_dependence.show', $user_dependence);
     }
 }

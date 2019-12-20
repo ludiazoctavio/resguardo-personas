@@ -13,7 +13,12 @@ class UpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        $user = $this->route('user');
+        if(!is_null($this->route('user'))){
+            $user = $this->route('user');
+        }
+        else{
+            $user = $this->route('user_dependence');
+        }
         return $this->user()->can('update', $user);
     }
 
@@ -24,14 +29,18 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
+        if(!is_null($this->route('user'))){
+            $user = $this->route('user');
+        }
+        else{
+            $user = $this->route('user_dependence');
+        }
         return [
             'name' => 'required|string|max:255',
             'last_name_1' => 'required|string|max:255',
             'position' => 'required|string|max:255',
-            'phone' => 'required|numeric',
-            'dependence_id' => 'required|numeric',
-            'ascription_id' => 'numeric',
-            'email' => 'required|string|email|unique:users,email,' . $this->route('user')->id . '|max:255',
+            'phone' => 'required',
+            'email' => 'required|string|email|unique:users,email,' . $user->id . '|max:255',
         ];
     }
 
@@ -48,10 +57,6 @@ class UpdateRequest extends FormRequest
             'position.string' => 'El valor no es correcto',
             'position.max' => 'Solo se permiten 255 caracteres',
             'phone.required' => 'El campo es requerido',
-            'phone.numeric' => 'Solo se permiten números',
-            'dependence_id.required' => 'El campo es requerido',
-            'dependence_id.numeric' => 'El valor no es correcto',
-            'ascription_id.numeric' => 'El valor no es correcto',
             'email.required' => 'El campo es requerido',
             'email.string' => 'El valor no es correcto',
             'email.max' => 'Solo se permiten 255 caracteres',

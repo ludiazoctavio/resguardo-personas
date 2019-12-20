@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -59,6 +61,18 @@ class User extends Authenticatable
     public function store($request)
     {
         $user = self::create($request->all());
+        $user->update(['password' => Hash::make($request->password)]);
+        $roles = [$request->role];
+        $user->role_assignment(null, $roles);
+        alert()->success('Éxito','El usuario se a guardado', 'succes')->showConfirmButton();
+        return $user;
+    }
+
+    public function store_dependence($request)
+    {
+        $user = self::create($request->all() + [
+            'dependence_id' => Auth::user()->dependence->id,
+        ]);
         $user->update(['password' => Hash::make($request->password)]);
         $roles = [$request->role];
         $user->role_assignment(null, $roles);

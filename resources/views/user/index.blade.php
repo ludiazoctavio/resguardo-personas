@@ -32,7 +32,7 @@
         <div class="card-body p-0">
             <div class="table-responsive">
                 <table class="table table-hover" id="tableSearch" style="width:100%;">
-                    <thead class="thead-light">
+                    <thead class="">
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Cargo</th>

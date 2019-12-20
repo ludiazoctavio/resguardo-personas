@@ -16,7 +16,7 @@
                     Usuario
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title"><strong>Nombre: </strong>{{$user->name}}</h5>
+                    <h5 class="card-title"><strong>Nombre: </strong>{{$user->getFullNameAttribute()}}</h5>
                     <p class="card-text"><strong>Email: </strong>{{$user->email}}</p>
                     <h6><strong>Roles asignados</strong></h6>
                     <ul class="list-group list-group-flush">

@@ -1,29 +1,31 @@
-@extends('layouts.app')
+@extends('layouts.app_fluid')
 
 @section('content')
-<div class="row m-0">
-    <div class="col-9">
-        <div class="card">
-            <div class="card-header">
-                Usuario
-            </div>
-            <div class="card-body">
-                <h5 class="card-title"><strong>Nombre: </strong>{{$user->name}}</h5>
-                <p class="card-text"><strong>Email: </strong>{{$user->email}}</p>
-                <h6><strong>Roles asignados</strong></h6>
-                <ul class="list-group list-group-flush">
-                    @foreach ($user->roles as $role)
-                    <li class="list-group-item">{{$role->name}}</li>
-                    @endforeach
-                </ul>
-            </div>
-            <div class="card-footer text-muted">
-                <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
+<div class="container">
+    <div class="row m-0">
+        <div class="col-9">
+            <div class="card">
+                <div class="card-header">
+                    Usuario
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Nombre: </strong>{{$user->getFullNameAttribute()}}</h5>
+                    <p class="card-text"><strong>Email: </strong>{{$user->email}}</p>
+                    <h6><strong>Roles asignados</strong></h6>
+                    <ul class="list-group list-group-flush">
+                        @foreach ($user->roles as $role)
+                        <li class="list-group-item">{{$role->name}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="card-footer text-muted">
+                    <a href="#" class="btn btn-danger" onclick="send_form()">Eliminar</a>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-3">
-        @include('user.includes.menu')
+        <div class="col-3">
+            @include('user.includes.menu_dependence')
+        </div>
     </div>
 </div>
 {{-- <div class="card mt-5">
@@ -52,7 +54,7 @@
 
     </div>
 </div> --}}
-<form method="POST" action="{{ route('dashboard.user.destroy', $user) }}" name="delete_form">
+<form method="POST" action="{{ route('dependence.user_dependence.destroy', $user) }}" name="delete_form">
     @method('DELETE')
     @csrf
 </form>

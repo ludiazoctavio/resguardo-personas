@@ -18,10 +18,8 @@ class AuthServiceProvider extends ServiceProvider
         'App\Permission' => 'App\Policies\PermissionPolicy',
         'App\Dependence' => 'App\Policies\DependencePolicy',
         'App\Person' => 'App\Policies\PersonPolicy',
-        'App\PersonDependence' => 'App\Policies\PersonDependencePolicy',
         'App\Report' => 'App\Policies\ReportPolicy',
         'App\Search' => 'App\Policies\SearchPolicy',
-        'App\SearchDependence' => 'App\Policies\SearchDependencePolicy',
         'App\User' => 'App\Policies\UserPolicy',
     ];
 
