@@ -1,8 +1,8 @@
-<header class="container">
-    <div class="row d-flex justify-content-lg-between mx-0">
+<header class="container-fluid">
+    <div class="row d-flex justify-content-lg-between justify-content-center mx-0">
         <div class="imagen-encabezado">
             <a href="/">
-                <img src="/images/logo_cdmx_titulo.png" alt="Gobierno de la Ciudad de México">
+                <img src="/images/cdmx.svg" alt="Gobierno de la Ciudad de México">
             </a>
         </div>
         <div>
