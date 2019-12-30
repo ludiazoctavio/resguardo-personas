@@ -2,7 +2,7 @@
     <div class="row d-flex justify-content-lg-between justify-content-center mx-0">
         <div class="imagen-encabezado">
             <a href="/">
-                <img src="/images/cdmx.svg" alt="Gobierno de la Ciudad de México">
+                <img class="w-100" src="/images/completo.svg" alt="Gobierno de la Ciudad de México">
             </a>
         </div>
         <div>
