@@ -17,7 +17,7 @@
     @include('layouts.includes.header')
     <div id="app">
         <main class="py-4">
-            <div class="row mx-0">
+            <div class="row mx-5">
                 <div class="col-3">
                     <nav class="nav flex-column lateral-menu">
                         {{-- Menú lateral --}}
