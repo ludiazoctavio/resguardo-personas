@@ -52,6 +52,16 @@ class Person extends Model
         return $this->hasMany('App\Alias');
     }
 
+    public function identification()
+    {
+        return $this->morphOne('App\Identification', 'identificationable');
+    }
+
+    public function address()
+    {
+        return $this->morphOne('App\Address', 'addressable');
+    }
+
     //Relaciones Catálogos
     public function type_register()
     {
@@ -153,14 +163,14 @@ class Person extends Model
 
     public function store_dependence($request)
     {
-        //dd($request->person);
+        
         $person = self::create($request->person + [
             'folio' => $this->generate_folio(),
             'type_register_id' => 2,
             'dependence_id' => Auth::user()->dependence->id,
             'user_id' => Auth::id(),
         ]);
-
+        
         //$person->save_aliases($request->aliases);
 
         $person->entry()->create($request->entry + [
@@ -172,6 +182,12 @@ class Person extends Model
                 'person_id' => $person->id,
             ]);
         }
+
+        if (!empty($request->identification)) {
+            $person->identification()->create($request->identification);
+        }
+
+        dd($person->identification);
         
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;

@@ -18,6 +18,8 @@ class CreateIdentificationsTable extends Migration
             $table->unsignedInteger('identification_type_id')->default(null)->nullable(true); //Tipo de documento
             $table->foreign('identification_type_id')->references('id')->on('identification_types')->onUpdate('cascade');
             $table->string('folio')->default(null)->nullable(true);
+            $table->unsignedInteger('identificationable_id');
+            $table->string('identificationable_type');
             $table->timestamps();
         });
     }

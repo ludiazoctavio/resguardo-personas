@@ -24,6 +24,8 @@ class CreateAddressesTable extends Migration
             $table->foreign('city_id')->references('id')->on('address_cities')->onUpdate('cascade');
             $table->unsignedInteger('state_id')->default(null)->nullable(true); //municipio
             $table->foreign('state_id')->references('id')->on('address_states')->onUpdate('cascade');
+            $table->unsignedInteger('addressable_id');
+            $table->string('addressable_type');
             $table->timestamps();
         });
     }

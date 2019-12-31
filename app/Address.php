@@ -8,5 +8,11 @@ class Address extends Model
 {
     protected $fillable = [
         'street', 'number', 'outdoor_number', 'pc', 'suburb', 'city_id', 'state_id',
+        'addressable_id', 'addressable_type',
     ];
+
+    public function addressable()
+    {
+        return $this->morphTo();
+    }
 }

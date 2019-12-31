@@ -17,6 +17,9 @@
                         <a class="nav-link active" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Datos generales</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" id="pills-identifications-tab" data-toggle="pill" href="#pills-identifications" role="tab" aria-controls="pills-identifications" aria-selected="false">Identificaciones</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" id="pills-entry-tab" data-toggle="pill" href="#pills-entry" role="tab" aria-controls="pills-entry" aria-selected="false">Fecha, hora y motivo de ingreso</a>
                     </li>
                     <li class="nav-item">
@@ -44,6 +47,7 @@
             @csrf
             <div class="tab-content" id="pills-tabContent">
                 @include('person.dependence.sections.edit.general')
+                @include('person.dependence.sections.edit.identifications')
                 @include('person.dependence.sections.edit.entry')
                 @include('person.dependence.sections.edit.egress')
                 @include('person.locatel.sections.edit.half_affiliation')

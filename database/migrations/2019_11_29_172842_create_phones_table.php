@@ -18,6 +18,8 @@ class CreatePhonesTable extends Migration
             $table->string('phone'); //Teléfono celular
             $table->unsignedInteger('phone_type_id')->default(null)->nullable(true); //circunstancia
             $table->foreign('phone_type_id')->references('id')->on('phone_types')->onUpdate('cascade');
+            $table->unsignedInteger('phoneable_id');
+            $table->string('phoneable_type');
             $table->timestamps();
         });
     }

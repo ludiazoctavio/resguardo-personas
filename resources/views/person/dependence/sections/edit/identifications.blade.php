@@ -3,7 +3,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="identification_type_id">Documento con el que se identifica:</label>
-                <select class="form-control @error('identification_type_id') is-invalid @enderror" id="identification_type_id" name="identification_type_id">
+                <select class="form-control @error('identification_type_id') is-invalid @enderror" id="identification_type_id" name="identification[identification_type_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($identification_types as $identification_type)
                     <option value="{{$identification_type->id}}">{{$identification_type->name}}</option>
@@ -16,9 +16,9 @@
                 @enderror
             </div>
             <div class="form-group col-md-8">
-                <label for="number_identification">Número o folio de la identificación:</label>
-                <input type="text" class="form-control @error('number_identification') is-invalid @enderror" id="number_identification" name="number_identification" value="{{ old('number_identification') }}" placeholder="Escribe el número o folio ">
-                @error('number_identification')
+                <label for="folio">Número o folio de la identificación:</label>
+                <input type="text" class="form-control @error('folio') is-invalid @enderror" id="folio" name="identification[folio]" value="{{ old('identification[number_identification]', $person->identification->folio) }}" placeholder="Escribe el número o folio ">
+                @error('folio')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>

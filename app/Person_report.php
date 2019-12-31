@@ -11,6 +11,22 @@ class Person_report extends Model
     ];
 
     //Relaciones
+    public function phones()
+    {
+        return $this->morphMany('App\Phone', 'phoneable');
+    }
+    
+    public function address()
+    {
+        return $this->morphOne('App\Address', 'addressable');
+    }
+
+    public function identification()
+    {
+        return $this->morphOne('App\Identification', 'identificationable');
+    }
+
+    //Catálogos
     public function age()
     {
         return $this->hasOne('App\Catalogs\Age', 'id', 'age_id');
@@ -31,13 +47,5 @@ class Person_report extends Model
         return $this->hasOne('App\Catalogs\Relationship', 'id', 'relationship_id');
     }
 
-    public function phones()
-    {
-        return $this->hasMany('App\Phone');
-    }
-    
-    public function addresses()
-    {
-        return $this->hasMany('App\Address');
-    }
+
 }
