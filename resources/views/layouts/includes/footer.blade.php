@@ -1,6 +1,6 @@
 <footer class="footer">
     <div class="container-fluid">
-        <div class="row d-flex justify-content-center align-items-center">
+        <div class="row mx-5 d-flex justify-content-center align-items-center">
         <div class="col-lg-4 col-12 text-lg-left text-center pl-0">
             <img src="https://ru.soluint.com/adip-regeneracion-urbana/public/src/img/gobierno-y-adip.svg">
         </div>
