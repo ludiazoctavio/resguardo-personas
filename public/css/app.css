@@ -11215,6 +11215,8 @@ header h6 {
 .card-header {
   background-color: transparent;
   border: none;
+  padding-bottom: 0.5rem;
+  padding-left: 0;
 }
 
 .card {
