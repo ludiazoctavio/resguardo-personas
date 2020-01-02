@@ -17,8 +17,8 @@
     @include('layouts.includes.header')
     <div id="app">
         <main class="py-4">
-            <div class="row mx-5">
-                <div class="col-3">
+            <div class="row mx-lg-5 mx-0">
+                <div class="col-lg-3 col-12">
                     <nav class="nav flex-column lateral-menu">
                         {{-- Menú lateral --}}
                         @if(auth()->user()->has_role(1))
@@ -36,11 +36,9 @@
                         @endif
                     </nav>
                 </div>
-                <div class="col-9">
-                    <div class="container">
+                <div class="col-lg-9 col-12">
                     {{-- content --}}
                     @yield('content')
-                    </div>
                 </div>
             </div>
         </main>

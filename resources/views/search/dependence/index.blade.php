@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('extra_head')
-    
+
 @endsection
 
 @section('content')
 <div class="card">
     <div class="card-header">
         <div class="row">
-            <form method="GET" class="col-8 d-flex justify-content-lg-between" action="">
+            <form method="GET" class="col-lg-8 col-12 d-flex justify-content-lg-between" action="">
                 <input type="text" class="form-control" id="folio" name="folio" placeholder="Buscar por folio" value="{{ app('request')->input('folio') }}">
                 &nbsp;&nbsp;
                 <input type="text" class="form-control" id="name" name="name" placeholder="Buscar por nombre" value="{{ app('request')->input('name') }}">
