@@ -8,9 +8,9 @@
 </li>
 @endsection
 @section('content')
-<div class="container">
-    <div class="row m-0">
-        <div class="col-9">
+<div class="container mb-5">
+    <div class="row">
+        <div class="col-lg-9 col-12">
             <div class="card">
                 <div class="card-header">
                     Usuario
@@ -27,7 +27,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-lg-3 col-12">
             @include('user.includes.menu')
         </div>
     </div>

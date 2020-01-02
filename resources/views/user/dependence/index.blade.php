@@ -9,11 +9,11 @@
     <div class="card">
         <div class="card-header">
             <div class="row justify-content-between">
-                <form method="GET" class="col-4 d-flex justify-content-lg-between" action="">
+                <form method="GET" class="col-lg-4 col-12 d-flex justify-content-lg-between" action="">
                     <input type="text" class="form-control" id="" name="" placeholder="Buscar por nombre">
                     <button type="submit" class="btn btn-cdmx ml-2"><i class="fa fa-search"></i></button>
                 </form>
-                <div class="col-4">
+                <div class="col-lg-4 col-12">
                     <a class="float-right mt-2" href="{{ route('dependence.user_dependence.create') }}">Nuevo usuario <i class="fa fa-plus-circle"></i></a>
                 </div>
             </div>
