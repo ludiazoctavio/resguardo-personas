@@ -4,9 +4,15 @@
             <div class="form-group col-md-4">
                 <label for="identification_type_id">Documento con el que se identifica:</label>
                 <select class="form-control @error('identification_type_id') is-invalid @enderror" id="identification_type_id" name="identification[identification_type_id]">
+                    @if (is_null($person->identification->identification_type_id))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($identification_types as $identification_type)
+                    @if (old('identification[age_id]', $person->identification->identification_type_id) == $identification_type->id)
+                    <option value="{{$identification_type->id}}" selected="">{{$identification_type->name}}</option>
+                    @else
                     <option value="{{$identification_type->id}}">{{$identification_type->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('identification_type_id')
