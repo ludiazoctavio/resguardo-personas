@@ -186,8 +186,6 @@ class Person extends Model
         if (!empty($request->identification)) {
             $person->identification()->create($request->identification);
         }
-
-        dd($person->identification);
         
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
@@ -200,6 +198,7 @@ class Person extends Model
         self::person_report()->update($request->person_report);
 
         self::disappearance_report()->update($request->disappearance_report);
+
         if (!empty($request->half_affiliation)) {
             self::half_affiliation()->update($request->half_affiliation);
         }
@@ -217,6 +216,12 @@ class Person extends Model
             self::egress()->update($request->egress);
         } elseif ($request->egress['date']) {
             self::egress()->create($request->egress);
+        }
+
+        if (!empty($this->identification)) {
+            self::identification()->update($request->identification);
+        } elseif ($request->identification) {
+            self::identification()->create($request->identification);
         }
         
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
