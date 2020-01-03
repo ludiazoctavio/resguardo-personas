@@ -10,4 +10,9 @@ class Egress extends Model
         'date', 'time', 'description', 'person_id'
     ];
 
+    public function companion()
+    {
+        return $this->morphOne('App\Companion', 'companionable');
+    }
+
 }
