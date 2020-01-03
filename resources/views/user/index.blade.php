@@ -12,7 +12,7 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <form method="GET" class="col-lg-4 col-12 d-flex justify-content-lg-between" action="">
+                <form method="GET" class="col-lg-4 col-12 mb-lg-0 mb-2 d-flex justify-content-lg-between" action="">
                     <input type="text" class="form-control" id="" name="" placeholder="Buscar por nombre">
                     <button type="submit" class="btn btn-cdmx ml-2"><i class="fa fa-search"></i></button>
                 </form>
