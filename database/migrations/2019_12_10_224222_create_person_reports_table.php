@@ -29,8 +29,6 @@ class CreatePersonReportsTable extends Migration
             $table->foreign('nationality_id')->references('id')->on('nationalities')->onUpdate('cascade');
             $table->unsignedInteger('person_id'); // desaparecido
             $table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('cascade');
-            $table->unsignedInteger('address_id')->default(null)->nullable(true); //Direccion
-            $table->foreign('address_id')->references('id')->on('addresses')->onUpdate('cascade');
             $table->boolean('confidential')->default(true); //confidencial
             $table->timestamps();
         });

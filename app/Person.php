@@ -49,7 +49,7 @@ class Person extends Model
 
     public function aliases()
     {
-        return $this->hasMany('App\Alias');
+        return $this->morphMany('App\Alias', 'aliasable');
     }
 
     public function identification()
@@ -173,9 +173,20 @@ class Person extends Model
         
         //$person->save_aliases($request->aliases);
 
-        $person->entry()->create($request->entry + [
+        $entry = $person->entry()->create($request->entry + [
             'person_id' => $person->id,
         ]);
+
+        //Datos acompañante en el ingreso
+        if (!empty($request->companion)) {
+            $companion = $entry->companion()->create($request->companion);
+            if (!empty($request->companion_identification)) {
+                $companion->identification()->create($request->companion_identification);
+            }
+            if (!empty($request->companion_address)) {
+                $companion->address()->create($request->companion_address);
+            }
+        }
 
         if (!empty($request->half_affiliation)) {
             $person->half_affiliation()->create($request->half_affiliation + [
@@ -211,12 +222,49 @@ class Person extends Model
         self::update($request->person);
 
         self::entry()->update($request->entry);
+        /*
+        //dd(self);
+        $entry = self::entry();
+        dd($entry);
+        //Datos acompañante en el ingreso
+        if (!empty($request->companion)) {
+            $entry->companion()->update($request->companion);
+            //$companion = $entry->companion();
+            //dd($companion);
+            if (!empty($request->companion_identification)) {
+                $companion->identification()->update($request->companion_identification);
+            }
+            if (!empty($request->companion_address)) {
+                self::entry()->companion()->address()->update($request->companion_address);
+            }
+        }
 
         if (!empty($this->egress)) {
-            self::egress()->update($request->egress);
+            $egress = self::egress()->update($request->egress);
+            //Datos acompañante en el egreso
+            if (!empty($request->companion_egress)) {
+                $companion_egress = $egress->companion()->update($request->companion_egress);
+                if (!empty($request->companion_egress_identification)) {
+                    $companion_egress->identification()->update($request->companion_egress_identification);
+                }
+                if (!empty($request->companion_egress_address)) {
+                    $companion_egress->address()->update($request->companion_egress_address);
+                }
+            }
         } elseif ($request->egress['date']) {
-            self::egress()->create($request->egress);
+            $egress = self::egress()->create($request->egress);
+            //Datos acompañante en el ingreso
+            if (!empty($request->companion_egress)) {
+                $companion_egress = $egress->companion()->create($request->companion_egress);
+                if (!empty($request->companion_egress_identification)) {
+                    $companion_egress->identification()->create($request->companion_egress_identification);
+                }
+                if (!empty($request->companion_egress_address)) {
+                    $companion_egress->address()->create($request->companion_egress_address);
+                }
+            }
         }
+        */
 
         if (!empty($this->identification)) {
             self::identification()->update($request->identification);
