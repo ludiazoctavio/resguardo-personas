@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
     <div class="pb-3">
-        <div class="form-row">
+        <div class="form-row headerbg mb-3">
             <div class="form-group col-md-6">
                 <div class="custom-control custom-checkbox pl-5">
                     <input type="checkbox" class="custom-control-input" id="accept" value="true" name="person[authorization]">
