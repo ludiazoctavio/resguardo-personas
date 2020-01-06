@@ -4,11 +4,11 @@
             <div class="form-group col-md-4">
                 <label for="identification_type_id">Documento con el que se identifica:</label>
                 <select class="form-control @error('identification_type_id') is-invalid @enderror" id="identification_type_id" name="identification[identification_type_id]">
-                    @if (is_null($person->identification->identification_type_id))
+                    @if (is_null($person->identification->identification_type_id ?? null))
                     <option value="" disabled="" selected="">Selecciona</option>
                     @endif
                     @foreach ($identification_types as $identification_type)
-                    @if (old('identification[age_id]', $person->identification->identification_type_id) == $identification_type->id)
+                    @if (old('identification[identification_type_id]', $person->identification->identification_type_id ?? '') == $identification_type->id)
                     <option value="{{$identification_type->id}}" selected="">{{$identification_type->name}}</option>
                     @else
                     <option value="{{$identification_type->id}}">{{$identification_type->name}}</option>
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group col-md-8">
                 <label for="folio">Número o folio de la identificación:</label>
-                <input type="text" class="form-control @error('folio') is-invalid @enderror" id="folio" name="identification[folio]" value="{{ old('identification[number_identification]', $person->identification->folio) }}" placeholder="Escribe el número o folio ">
+                <input type="text" class="form-control @error('folio') is-invalid @enderror" id="folio" name="identification[folio]" value="{{ old('identification[number_identification]', $person->identification->folio ?? '') }}" placeholder="Escribe el número o folio ">
                 @error('folio')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

@@ -187,9 +187,15 @@
             <div class="form-group col-md-3">
                 <label for="accompanying_city_id">Alcaldía:</label>
                 <select class="form-control @error('accompanying_city_id') is-invalid @enderror" id="accompanying_city_id" name="companion_address[city_id]">
+                    @if (is_null($person->entry->companion->address->city_id))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($cities as $city)
+                    @if (old('identification[age_id]', $person->entry->companion->address->city_id) == $city->id)
+                    <option value="{{$city->id}}" selected="">{{$city->name}}</option>
+                    @else
                     <option value="{{$city->id}}">{{$city->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('accompanying_city_id')
@@ -201,9 +207,15 @@
             <div class="form-group col-md-3">
                 <label for="accompanying_state_id">Entidad:</label>
                 <select class="form-control @error('accompanying_state_id') is-invalid @enderror" id="accompanying_state_id" name="companion_address[state_id]">
+                    @if (is_null($person->entry->companion->address->state_id))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($states as $state)
+                    @if (old('identification[age_id]', $person->entry->companion->address->state_id) == $state->id)
+                    <option value="{{$state->id}}" selected="">{{$state->name}}</option>
+                    @else
                     <option value="{{$state->id}}">{{$state->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('accompanying_state_id')

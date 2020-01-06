@@ -15,11 +15,11 @@ class CreateAddressesTable extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('street'); //Calle
-            $table->string('number'); //Numerio exterior
-            $table->string('outdoor_number'); //Numero interior
-            $table->string('pc'); //Código postal
-            $table->string('suburb'); //Colonia
+            $table->string('street')->default(null)->nullable(true); //Calle
+            $table->string('number')->default(null)->nullable(true); //Numerio exterior
+            $table->string('outdoor_number')->default(null)->nullable(true); //Numero interior
+            $table->string('pc')->default(null)->nullable(true); //Código postal
+            $table->string('suburb')->default(null)->nullable(true); //Colonia
             $table->unsignedInteger('city_id')->default(null)->nullable(true); //municipio
             $table->foreign('city_id')->references('id')->on('address_cities')->onUpdate('cascade');
             $table->unsignedInteger('state_id')->default(null)->nullable(true); //municipio
