@@ -5,7 +5,7 @@
 </li>
 @endsection
 @section('content')
-<div class="container">
+<div class="container mb-2">
     <div class="card">
         <div class="card-header">
             <h5>Nuevo usuario</h5>
@@ -75,7 +75,7 @@
                     <div class="form-row">
                         {{--<div class="form-group col-md-4">
                             <label for="ascription">Área de adscripción</label>
-                            
+
                             @error('ascription')
                                 <div class="invalid-feedback active" role="alert">
                                     <strong>{{ $message }}</strong>
