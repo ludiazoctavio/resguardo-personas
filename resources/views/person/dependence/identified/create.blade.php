@@ -8,10 +8,10 @@
 <div class="card">
     <div class="card-header">
         <div class="row float-right">
-            <div class="d-inline pr-2">
+            <div class="d-inline pr-lg-2 pl-3">
                 <strong>Persona identificada:</strong>
             </div>
-            <div class="d-inline">
+            <div class="d-inline pl-2">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Datos personales</a>
