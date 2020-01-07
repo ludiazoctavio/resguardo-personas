@@ -164,9 +164,9 @@ a active {
   color:#00b140;
   font-size: 16px;
 }
-.card-header a {
-  color:#009288;
-}
+// .card-header a {
+//   color:#009288;
+// }
 .fa-plus-circle {
   font-size: 16px;
 }
@@ -180,3 +180,4 @@ a active {
 // CUSTOM TABLE
 @import 'custom_table/table';
 @import 'cards';
+@import 'hr';
