@@ -1,9 +1,9 @@
 <div class="tab-pane fade" id="pills-particular_signs" role="tabpanel" aria-labelledby="pills-particular_signs-tab">
    <form id="testform">
-       <fieldset id="input1" class="clonedInput">
+       <fieldset id="input1" class="clonedInput" id="toClone">
          <div class="py-3">
              <div class="form-row">
-                 <div class="form-group col-md-4">
+                 <div id="" class="form-group col-md-4">
                      <label for="signal_type_id">Tipo de seña:</label>
                      <select class="form-control @error('signal_type_id') is-invalid @enderror" id="signal_type_id" name="signal_type_id">
                          <option value="" disabled="" selected="">Selecciona</option>
@@ -78,46 +78,46 @@
        <fieldset>
          <div class="row">
            <label class="text-labels">Agregar otra seña particular</label>
-           <input type="button" id="btnAdd" value="+">
+           <input type="button" id="btnAdd" >
          </div>
        </fieldset>
    </form>
 </div>
 <script type="text/javascript">
-    $(document).ready(function() {
-    $('#btnDel').attr('disabled','disabled');
-    $('#btnAdd').click(function() {
-        var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-        var newNum = new Number(num + 1); // the numeric ID of the new input field being added
+$(document).ready(function() {
+$('#btnDel').attr('disabled','disabled');
+$('#btnAdd').click(function() {
+      var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+      var newNum = new Number(num + 1); // the numeric ID of the new input field being added
 
-        // create the new element via clone(), and manipulate it's ID using newNum value
-        var newElem = $('#input' + num).clone().attr('id', 'Add' + newNum);
+      // create the new element via clone(), and manipulate it's ID using newNum value
+      var newElem = $('#toClone').clone().attr('id', 'Add' + newNum);
 
-        // manipulate the name/id values of the input inside the new element
-        newElem.children(':last').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+      // manipulate the name/id values of the input inside the new element
+      newElem.children(':last').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
 
-        // insert the new element after the last "duplicatable" input field
-        $('#input' + num).after(newElem);
+      // insert the new element after the last "duplicatable" input field
+      $('#toClone').after(newElem);
 
-        // enable the "remove" button
-        $('#btnDel').attr('disabled',false);
+      // enable the "remove" button
+      $('#btnDel').attr('disabled',false);
 
-        // business rule: you can only add 10 names
-        if (newNum == 10)
-          $('#btnAdd').attr('disabled','disabled');
-      });
+      // business rule: you can only add 10 names
+      if (newNum == 10)
+        $('#btnAdd').attr('disabled','disabled');
+  });
 
       $('#btnDel').click(function() {
-        var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-        $('#input' + num).remove(); // remove the last element
+      var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+      $('#input' + num).remove(); // remove the last element
 
-        // enable the "add" button
-        $('#btnAdd').attr('disabled',false);
+      // enable the "add" button
+      $('#btnAdd').attr('disabled',false);
 
-        // if only one element remains, disable the "remove" button
-        if (num-1 == 1)
-          $('#btnDel').attr('disabled','disabled');
-      });
+      // if only one element remains, disable the "remove" button
+      if (num-1 === 1)
+        $('#btnDel').attr('disabled','disabled');
+  });
 
-    });
+});
 </script>
