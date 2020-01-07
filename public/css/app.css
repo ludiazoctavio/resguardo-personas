@@ -7162,7 +7162,7 @@ button.bg-dark:focus {
 }
 
 .border-top {
-  border-top: 1px solid #009288 !important;
+  border-top: 1px solid #dee2e6 !important;
 }
 
 .border-right {
@@ -11455,5 +11455,14 @@ table.dataTable.no-footer {
 }
 
 hr.new1 {
-  border: 1px solid #009288;
+  border: 1px soli #009288;
 }
+
+.text-labels {
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1.33;
+  letter-spacing: 0.2px;
+  color: #009288;
+}
+
