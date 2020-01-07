@@ -7162,7 +7162,7 @@ button.bg-dark:focus {
 }
 
 .border-top {
-  border-top: 1px solid #dee2e6 !important;
+  border-top: 1px solid #009288 !important;
 }
 
 .border-right {
@@ -11299,10 +11299,6 @@ a active {
   font-size: 16px;
 }
 
-.card-header a {
-  color: #009288;
-}
-
 .fa-plus-circle {
   font-size: 16px;
 }
@@ -11458,3 +11454,6 @@ table.dataTable.no-footer {
   padding-top: 15px;
 }
 
+hr.new1 {
+  border: 1px solid #009288;
+}
