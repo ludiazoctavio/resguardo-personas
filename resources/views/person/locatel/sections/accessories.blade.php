@@ -5,7 +5,7 @@
                 <label for="accessory_id">Tipo de accesorio puesto:</label>
                 <select class="form-control @error('accessory_id') is-invalid @enderror" id="accessory_id" name="accessory_id">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($accessories as $accessory)
+                    @foreach ($accessory_types as $accessory)
                     <option value="{{$accessory->id}}">{{$accessory->name}}</option>
                     @endforeach
                 </select>

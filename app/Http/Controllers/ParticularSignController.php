@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Catalogs;
+namespace App\Http\Controllers;
 
-use App\Catalogs\Accessory;
+use App\ParticularSign;
 use Illuminate\Http\Request;
 
-class AccessoryController extends Controller
+class ParticularSignController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class AccessoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Accessory  $accessory
+     * @param  \App\ParticularSign  $particularSign
      * @return \Illuminate\Http\Response
      */
-    public function show(Accessory $accessory)
+    public function show(ParticularSign $particularSign)
     {
         //
     }
@@ -52,10 +52,10 @@ class AccessoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Accessory  $accessory
+     * @param  \App\ParticularSign  $particularSign
      * @return \Illuminate\Http\Response
      */
-    public function edit(Accessory $accessory)
+    public function edit(ParticularSign $particularSign)
     {
         //
     }
@@ -64,10 +64,10 @@ class AccessoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Accessory  $accessory
+     * @param  \App\ParticularSign  $particularSign
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Accessory $accessory)
+    public function update(Request $request, ParticularSign $particularSign)
     {
         //
     }
@@ -75,10 +75,10 @@ class AccessoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Accessory  $accessory
+     * @param  \App\ParticularSign  $particularSign
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Accessory $accessory)
+    public function destroy(ParticularSign $particularSign)
     {
         //
     }

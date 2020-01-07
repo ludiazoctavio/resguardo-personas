@@ -4,7 +4,7 @@ namespace App\Catalogs;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Accessory extends Model
+class AccessoryType extends Model
 {
     protected $fillable = ['name','inactive'];
 }

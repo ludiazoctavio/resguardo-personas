@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class AccessoriesTableSeeder extends Seeder
+class AccessoryTypesTableSeeder extends Seeder
 {
 
     /**
@@ -14,9 +14,9 @@ class AccessoriesTableSeeder extends Seeder
     {
         
 
-        \DB::table('accessories')->delete();
+        \DB::table('accessory_types')->delete();
         
-        \DB::table('accessories')->insert(array (
+        \DB::table('accessory_types')->insert(array (
             0 => 
             array (
                 'id' => 1,

@@ -62,6 +62,21 @@ class Person extends Model
         return $this->morphOne('App\Address', 'addressable');
     }
 
+    public function clothes()
+    {
+        return $this->hasMany('App\Cloting');
+    }
+
+    public function particular_signs()
+    {
+        return $this->hasMany('App\ParticularSign');
+    }
+
+    public function accessories()
+    {
+        return $this->hasMany('App\Accessory');
+    }
+
     //Relaciones Catálogos
     public function type_register()
     {
@@ -221,38 +236,36 @@ class Person extends Model
     {
         self::update($request->person);
 
-        self::entry()->updateOrCreate($this->entry->first('id')->toArray(), $request->entry);
-        //dd($this->entry->first('id')->toArray());
+        self::entry()->updateOrCreate($this->entry->toArray(), $request->entry);
+        
         
         //Datos acompañante en el ingreso
-        if (!empty($request->companion)) {
-            $this->entry->companion()->updateOrCreate($request->companion);
+        if (!empty($request->companion)) {            
+            $this->entry->companion()->updateOrCreate($this->entry->companion->first('id')->toArray(), $request->companion);
             if (!empty($request->companion_identification)) {
-                $this->entry->companion->identification()->updateOrCreate($request->companion_identification);
+                $this->entry->companion->identification()->updateOrCreate($this->entry->companion->identification->first('id')->toArray(), $request->companion_identification);
             }
             if (!empty($request->companion_address)) {
-                $this->entry->companion->address()->updateOrCreate($request->companion_address);
+                $this->entry->companion->address()->updateOrCreate($this->entry->companion->address->first('id')->toArray(), $request->companion_address);
             }
         }
-        //dd($request->companion_egress_identification);
+
         //Datos acompañante en el egreso
         if (!empty($request->egress)) {
-            self::egress()->updateOrCreate($request->egress);
+            self::egress()->updateOrCreate($this->egress->first('id')->toArray(), $request->egress);
             if (!empty($request->companion_egress)) {
-                $this->egress->companion()->updateOrCreate($request->companion_egress);
+                $this->egress->companion()->updateOrCreate($this->egress->companion->first('id')->toArray(), $request->companion_egress);
                 if (!empty($request->companion_egress_identification)) {
-                    $this->egress->companion->identification()->updateOrCreate($request->companion_egress_identification);
+                    $this->egress->companion->identification()->updateOrCreate($this->egress->companion->identification->first('id')->toArray(), $request->companion_egress_identification);
                 }
                 if (!empty($request->companion_egress_address)) {
-                    $this->egress->companion->address()->updateOrCreate($request->companion_egress_address);
+                    $this->egress->companion->address()->updateOrCreate($this->egress->companion->address->first('id')->toArray(), $request->companion_egress_address);
                 }
             }
         }
         
-        if (!empty($this->half_affiliation)) {
-            self::half_affiliation()->update($request->half_affiliation);
-        }else {
-            self::half_affiliation()->create($request->half_affiliation);
+        if (!empty($request->half_affiliation)) {
+            self::half_affiliation()->updateOrCreate($this->half_affiliation->first('id')->toArray(), $request->half_affiliation);
         }
 
         self::identification()->updateOrCreate($request->identification);
