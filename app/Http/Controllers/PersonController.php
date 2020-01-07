@@ -57,7 +57,7 @@ class PersonController extends Controller
             'sizes' => \App\Catalogs\Size::all(),
             'cloting_types' => \App\Catalogs\Clothing_type::all(),
             'colors' => \App\Catalogs\Color::all(),
-            'accessories' => \App\Catalogs\Accessory::all(),
+            'accessory_types' => \App\Catalogs\AccessoryType::all(),
             'half_affiliations' => \App\HalfAffiliationType::all(),
         ]);
     }
@@ -120,7 +120,7 @@ class PersonController extends Controller
             'sizes' => \App\Catalogs\Size::all(),
             'cloting_types' => \App\Catalogs\Clothing_type::all(),
             'colors' => \App\Catalogs\Color::all(),
-            'accessories' => \App\Catalogs\Accessory::all(),
+            'accessory_types' => \App\Catalogs\AccessoryType::all(),
             'half_affiliations' => \App\HalfAffiliationType::all(),
         ]);
     }

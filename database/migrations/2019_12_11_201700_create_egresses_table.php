@@ -15,9 +15,9 @@ class CreateEgressesTable extends Migration
     {
         Schema::create('egresses', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->date('date');
-            $table->time('time', 0);
-            $table->text('description');
+            $table->date('date')->default(null)->nullable(true);
+            $table->time('time', 0)->default(null)->nullable(true);
+            $table->text('description')->default(null)->nullable(true);
             $table->unsignedInteger('person_id');
             $table->foreign('person_id')->references('id')->on('people')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();

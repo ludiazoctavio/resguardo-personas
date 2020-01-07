@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAccessoriesTable extends Migration
+class CreateAccessoryTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAccessoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('accessories', function (Blueprint $table) {
+        Schema::create('accessory_types', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name',200)->unique(); //nombre 
             $table->boolean('inactive')->default(false); //inactiva
@@ -28,6 +28,6 @@ class CreateAccessoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('accessories');
+        Schema::dropIfExists('accessory_types');
     }
 }
