@@ -14,7 +14,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="pc">Código postal:</label>
-                <input type="text" class="form-control @error('pc') is-invalid @enderror" id="pc" name="pc" value="{{ old('pc') }}">
+                <input type="text" class="form-control @error('pc') is-invalid @enderror" id="pc" name="disappearance_address[pc]" value="{{ old('pc', $person->disappearance_report->address->pc) }}">
                 @error('pc')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -23,7 +23,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="suburb">Colonia:</label>
-                <input type="text" class="form-control @error('suburb') is-invalid @enderror" id="suburb" name="suburb" value="{{ old('suburb') }}">
+                <input type="text" class="form-control @error('suburb') is-invalid @enderror" id="suburb" name="disappearance_address[suburb]"
+                    value="{{ old('suburb', $person->disappearance_report->address->suburb) }}">
                 @error('suburb')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -32,7 +33,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="city_id">Alcaldía:</label>
-                <select class="form-control @error('city_id') is-invalid @enderror" id="city_id" name="city_id">
+                <select class="form-control @error('city_id') is-invalid @enderror" id="city_id" name="disappearance_address[city_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($cities as $city)
                     <option value="{{$city->id}}">{{$city->name}}</option>
@@ -46,7 +47,7 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="state_id">Entidad:</label>
-                <select class="form-control @error('state_id') is-invalid @enderror" id="state_id" name="state_id">
+                <select class="form-control @error('state_id') is-invalid @enderror" id="state_id" name="disappearance_address[state_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($states as $state)
                     <option value="{{$state->id}}">{{$state->name}}</option>
@@ -62,7 +63,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="street">Calle:</label>
-                <input type="text" class="form-control @error('street') is-invalid @enderror" id="street" name="street" value="{{ old('street') }}" placeholder="Escribe la calle">
+                <input type="text" class="form-control @error('street') is-invalid @enderror" id="street" name="disappearance_address[street]"
+                    value="{{ old('street', $person->disappearance_report->address->street) }}" placeholder="Escribe la calle">
                 @error('street')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -71,7 +73,7 @@
             </div>
             <div class="form-group col-md-8">
                 <label for="between_streets">Entre las calles:</label>
-                <input type="text" class="form-control @error('between_streets') is-invalid @enderror" id="between_streets" name="between_streets" value="{{ old('between_streets') }}" placeholder="Escribe entre que calles">
+                <input type="text" class="form-control @error('between_streets') is-invalid @enderror" id="between_streets" name="disappearance_address[between_streets]" value="{{ old('between_streets') }}" placeholder="Escribe entre que calles">
                 @error('between_streets')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -82,7 +84,7 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="reference">Referencia:</label>
-                <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference" name="reference" value="{{ old('reference') }}" placeholder="Escribe la referencia">
+                <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference" name="disappearance_address[reference]" value="{{ old('reference') }}" placeholder="Escribe la referencia">
                 @error('reference')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -92,6 +94,7 @@
         </div>
         <h6>Para una referencia más exacta, usa el siguiente mapa:</h6>
         <div class="flex-container">
+            <input id="position" name="disappearance_address[position]" type="hidden" value="{{ old('disappearance_address[position]', ) }}">
             <div id="map"></div>
         </div>
     </div>
@@ -143,16 +146,17 @@
 		.addTo(map)
 		.on('dragend', function() {
 			var coord = String(myMarker.getLatLng()).split(',');
-			console.log(coord);
+			//console.log(coord);
 			var lat = coord[0].split('(');
-			console.log(lat);
+			//console.log(lat);
 			var lng = coord[1].split(')');
-			console.log(lng);
+			//console.log(lng);
 			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
-			console.log(lat[1]);
-			console.log(lng[0]);
-			document.getElementById("id_latitude").value = lat[1];
-			document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
+			//console.log(lat[1]);
+			//console.log(lng[0]);
+            document.getElementById("position").value = coord;
+			//document.getElementById("id_latitude").value = lat[1];
+			//document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
 		});
 </script>
 <script>
