@@ -1,6 +1,6 @@
 <div class="tab-pane fade" id="pills-particular_signs" role="tabpanel" aria-labelledby="pills-particular_signs-tab">
    <form id="testform">
-       <fieldset id="input1" class="clonedInput" id="toClone">
+       <fieldset class="clonedInput" id="toClone">
          <div class="py-3">
              <div class="form-row">
                  <div id="" class="form-group col-md-4">
@@ -74,11 +74,14 @@
                  </div>
              </div>
          </div>
+         <hr class="new2">
        </fieldset>
        <fieldset>
-         <div class="row">
-           <label class="text-labels">Agregar otra seña particular</label>
-           <input type="button" id="btnAdd" >
+         <div class="row d-flex float-right">
+           <label class="text-labels mt-1">Agregar otra seña particular</label>
+           <a class="ml-1 mr-3" type="button" id="btnAdd">
+             <img src="/images/mas.svg" alt="">
+           </a>
          </div>
        </fieldset>
    </form>
@@ -103,24 +106,24 @@
       $('#toClone').after(newElem);
 
       // enable the "remove" button
-      $('#btnDel').attr('disabled',false);
+      // $('#btnDel').attr('disabled',false);
 
       // business rule: you can only add 10 names
       if (newNum == 10)
         $('#btnAdd').attr('disabled','disabled');
   });
 
-      $('#btnDel').click(function() {
-      var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-      $('#input' + num).remove(); // remove the last element
+      // $('#btnDel').click(function() {
+      // var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+      // $('#input' + num).remove(); // remove the last element
 
       // enable the "add" button
-      $('#btnAdd').attr('disabled',false);
-
-      // if only one element remains, disable the "remove" button
-      if (num-1 === 1)
-        $('#btnDel').attr('disabled','disabled');
-  });
+  //     $('#btnAdd').attr('disabled',false);
+  //
+  //      if only one element remains, disable the "remove" button
+  //      if (num-1 === 1)
+  //        $('#btnDel').attr('disabled','disabled');
+  // });
 
 });
 
