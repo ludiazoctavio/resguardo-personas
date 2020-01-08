@@ -38,8 +38,8 @@
     </div>
 </header>
 <div class="pleca" id="pleca">
-    <div class="container">
-        <ul class="nav mr-auto justify-content-end">
+    <div class="container-fluid mx-lg-5 mx-0">
+        <ul class="nav mr-2 justify-content-end">
             @auth
             @yield('pleca_menu')
             @endauth

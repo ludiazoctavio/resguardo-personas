@@ -1,10 +1,10 @@
-<div class="tab-pane fade" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
+<div class="tab-pane fade text-labels" id="pills-general" role="tabpanel" aria-labelledby="pills-general-tab">
     <div class="pb-3">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <div class="custom-control custom-checkbox pl-5">
                     <input type="checkbox" class="custom-control-input" id="accept" value="true" name="person[authorization]" @if ($person->authorization) checked @endif>
-                    <label class="custom-control-label" for="accept">Autoriza que la información proporcionada sea utilizada exclusivamente para la búsqueda e identificación de la persona desaparecida o no localizada</label>
+                    <label class="custom-control-label" for="accept">Autoriza que la indformación proporcionada sea utilizada exclusivamente para la búsqueda e identificación de la persona desaparecida o no localizada</label>
                     @error('person[authorization]')
                         <div class="invalid-feedback active" role="alert">
                             <strong>{{ $message }}</strong>

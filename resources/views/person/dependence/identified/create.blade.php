@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('pleca_menu')
 <li class="nav-item">
-    <button type="submit" form="reg-form" class="btn btn-primary">Realizar registro</button>
+    <button type="submit" form="reg-form" class="btn btn-06">Realizar registro</button>
 </li>
 @endsection
 @section('content')

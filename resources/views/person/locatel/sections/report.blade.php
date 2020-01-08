@@ -9,8 +9,8 @@
 </style>
 @endsection
 <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
-    <h6>¿Dónde lo vio por última vez?</h6>
-    <div class="pb-3">
+    <h6><b>¿Dónde lo vio por última vez?</b></h6>
+    <div class="pb-3 text-labels">
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="pc">Código postal:</label>
@@ -90,15 +90,15 @@
                 @enderror
             </div>
         </div>
-        <h6>Para una referencia más exacta, usa el siguiente mapa:</h6>
+        <h6><b>Para una referencia más exacta, usa el siguiente mapa:</b></h6>
         <div class="flex-container">
             <input id="position" name="disappearance_address[position]" type="hidden">
             <div id="map"></div>
         </div>
     </div>
     <div class="border-top py-3">
-        <h5>Hechos</h5>
-        <div class="form-row">
+        <h5><b>Hechos</b></h5>
+        <div class="form-row text-labels">
             <div class="form-group col-md-12">
                 <label for="acts">¿Podría describirme brevemente cómo se dieron los hechos?</label>
                 <textarea class="form-control @error('acts') is-invalid @enderror" id="acts" name="disappearance_report[description]" rows="3" placeholder="Escribe la descripción">{{ old('acts') }}</textarea>
@@ -109,7 +109,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-row">
+        <div class="form-row text-labels">
             <div class="form-group col-md-8">
                 <label for="circumstance_id">Selecciona alguna circunstancia del catálogo según la descripción</label>
                 <select class="form-control @error('circumstance_id') is-invalid @enderror" id="circumstance_id" name="disappearance_report[circumstance_id]">

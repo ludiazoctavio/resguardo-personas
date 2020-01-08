@@ -11227,6 +11227,7 @@ header h6 {
   background-color: #009288;
   color: white;
   font-weight: bold;
+  padding-left: 20px;
 }
 
 .card-half .card-body {
@@ -11277,6 +11278,7 @@ a active {
 .card-header .nav-link.active {
   color: #00b140;
   background-color: transparent;
+  font-weight: bold;
 }
 
 .lateral-menu .dropdown-item {
@@ -11468,5 +11470,34 @@ hr.new2 {
   line-height: 1.33;
   letter-spacing: 0.2px;
   color: #009288;
+}
+
+.btn-06 {
+  display: block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border-radius: 12px;
+  background-color: #00b140;
+  font-weight: bold;
+  font-size: 12px;
+  color: #ffffff !important;
+  padding: 10px 30px;
+  line-height: normal;
+}
+
+.labels-user {
+  font-weight: bold;
+}
+
+.titlegreen {
+  font-size: 22px !important;
+  font-weight: bold !important;
+  color: #00b140 !important;
+}
+
+.titlegrey {
+  font-size: 18px !important;
+  font-weight: bold !important;
+  color: #5d5d5d !important;
 }
 

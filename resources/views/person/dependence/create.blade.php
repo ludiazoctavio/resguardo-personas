@@ -11,19 +11,19 @@
             <div class="d-inline pr-lg-2 pl-3"><strong>Persona no identificada:</strong></div>
             <div class="d-inline pl-2">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                    <li class="nav-item">
+                    <li class="nav-item border-right">
                         <a class="nav-link active" id="pills-general-tab" data-toggle="pill" href="#pills-general" role="tab" aria-controls="pills-general" aria-selected="true">Datos generales</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item border-right">
                         <a class="nav-link" id="pills-entry-tab" data-toggle="pill" href="#pills-entry" role="tab" aria-controls="pills-entry" aria-selected="false">Fecha, hora y motivo de ingreso</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item border-right">
                         <a class="nav-link" id="pills-half_affiliation-tab" data-toggle="pill" href="#pills-half_affiliation" role="tab" aria-controls="pills-half_affiliation" aria-selected="false">Media filiación</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item border-right">
                         <a class="nav-link" id="pills-particular_signs-tab" data-toggle="pill" href="#pills-particular_signs" role="tab" aria-controls="pills-particular_signs" aria-selected="false">Señas particulares</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item border-right">
                         <a class="nav-link" id="pills-clothing-tab" data-toggle="pill" href="#pills-clothing" role="tab" aria-controls="pills-clothing" aria-selected="false">Ropa</a>
                     </li>
                     <li class="nav-item">

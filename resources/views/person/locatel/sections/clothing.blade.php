@@ -1,4 +1,4 @@
-<div class="tab-pane fade" id="pills-clothing" role="tabpanel" aria-labelledby="pills-clothing-tab">
+<div class="tab-pane fade text-labels" id="pills-clothing" role="tabpanel" aria-labelledby="pills-clothing-tab">
     <div class="py-3">
         <div class="form-row">
             <div class="form-group col-md-4">
