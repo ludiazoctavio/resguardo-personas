@@ -83,10 +83,11 @@
        </fieldset>
    </form>
 </div>
+
 @section('sub_script')
 
 <script type="text/javascript">
-$(document).ready(function() {
+  $(document).ready(function() {
   $('#btnDel').attr('disabled','disabled');
   $('#btnAdd').click(function() {
       var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
@@ -109,7 +110,7 @@ $(document).ready(function() {
         $('#btnAdd').attr('disabled','disabled');
   });
 
-    $('#btnDel').click(function() {
+      $('#btnDel').click(function() {
       var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
       $('#input' + num).remove(); // remove the last element
 
@@ -124,4 +125,5 @@ $(document).ready(function() {
 });
 
 </script>
+
 @endsection
