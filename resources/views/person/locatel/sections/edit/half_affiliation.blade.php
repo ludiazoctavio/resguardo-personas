@@ -65,15 +65,3 @@
         </div>
     </div>
 </div>
-@section('sub_script')
-<script>
-    var half_affiliation = {!! json_encode($person->half_affiliation) !!};
-    window.addEventListener("DOMContentLoaded", function(){
-        $.each(half_affiliation, function( index, value ) {
-            if (index.includes("half_affiliation_type_")) {
-                $("input[data-name="+index+"][value=" + value + "]").prop('checked', true);
-            }
-        });
-    });
-</script>
-@endsection
