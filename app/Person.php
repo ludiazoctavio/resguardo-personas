@@ -151,6 +151,7 @@ class Person extends Model
     //Almacenamiento
     public function store($request)
     {
+        //dd($request);
         $person = self::create($request->person + [
             'folio' => $this->generate_folio(),
             'type_register_id' => 1,
@@ -165,6 +166,9 @@ class Person extends Model
         $person->disappearance_report()->create($request->disappearance_report + [
             'person_id' => $person->id,
         ]);
+
+        $person->disappearance_report->address()->create($request->disappearance_address);
+
         if (!empty($request->half_affiliation)) {
             $person->half_affiliation()->create($request->half_affiliation + [
                 'person_id' => $person->id,
@@ -224,6 +228,8 @@ class Person extends Model
         self::person_report()->update($request->person_report);
 
         self::disappearance_report()->update($request->disappearance_report);
+
+        $this->disappearance_report->address()->update($request->disappearance_address);
 
         if (!empty($request->half_affiliation)) {
             self::half_affiliation()->update($request->half_affiliation);

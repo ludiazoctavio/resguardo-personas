@@ -64,5 +64,48 @@
         });
     });
 </script>
-@yield('sub_script')
+<script type="text/javascript">
+    var map = L.map('map').setView([19.4325, -99.1332], 13);
+    var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var myMarker = L.marker([19.4325, -99.1332], {title: "xxxNamexxx", alt: "xxxlatlngxxx", draggable: true})
+		.addTo(map)
+		.on('dragend', function() {
+			var coord = String(myMarker.getLatLng()).split(',');
+			//console.log(coord);
+			var lat = coord[0].split('(');
+			//console.log(lat);
+			var lng = coord[1].split(')');
+			//console.log(lng);
+			myMarker.bindPopup("Moved to: " + lat[1] + ", " + lng[0] + ".");
+			//console.log(lat[1]);
+			//console.log(lng[0]);
+            document.getElementById("position").value = coord;
+			//document.getElementById("id_latitude").value = lat[1];
+			//document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
+		});
+</script>
+<script>
+$('#pills-report-tab').click(function (e) {
+    //e.preventDefault();
+    //$(this).tab('show');
+    setTimeout(
+        function()
+        {
+            map.invalidateSize();
+        }, 300);
+});
+</script>
+<script type="text/javascript">
+    var half_affiliation = {!! json_encode($person->half_affiliation) !!};
+    window.addEventListener("DOMContentLoaded", function(){
+        $.each(half_affiliation, function( index, value ) {
+            if (index.includes("half_affiliation_type_")) {
+                $("input[data-name="+index+"][value=" + value + "]").prop('checked', true);
+            }
+        });
+    });
+</script>
 @endsection
