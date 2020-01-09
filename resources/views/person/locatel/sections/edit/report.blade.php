@@ -1,13 +1,3 @@
-@section('extra_head')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js" integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
-<style type="text/css">
-    #map {
-    height: 350px;
-    width: 100%;
-    }
-</style>
-@endsection
 <div class="tab-pane fade" id="pills-report" role="tabpanel" aria-labelledby="pills-report-tab">
     <h6>¿Dónde lo vio por última vez?</h6>
     <div class="pb-3">

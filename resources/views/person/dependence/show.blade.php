@@ -51,5 +51,4 @@
         $('#form-sow select').attr("disabled", true);
     });
 </script>
-@yield('sub_script')
 @endsection

@@ -70,5 +70,14 @@
         });
     });
 </script>
-@yield('sub_script')
+<script type="text/javascript">
+    var half_affiliation = {!! json_encode($person->half_affiliation) !!};
+    window.addEventListener("DOMContentLoaded", function(){
+        $.each(half_affiliation, function( index, value ) {
+            if (index.includes("half_affiliation_type_")) {
+                $("input[data-name="+index+"][value=" + value + "]").prop('checked', true);
+            }
+        });
+    });
+</script>
 @endsection

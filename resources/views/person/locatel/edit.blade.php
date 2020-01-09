@@ -1,4 +1,15 @@
 @extends('layouts.app')
+@extends('layouts.app')
+@section('extra_head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js" integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
+<style type="text/css">
+    #map {
+    height: 350px;
+    width: 100%;
+    }
+</style>
+@endsection
 @section('pleca_menu')
 <li class="nav-item">
     <button type="submit" class="btn btn-primary mr-4">Persona localizada</button>
