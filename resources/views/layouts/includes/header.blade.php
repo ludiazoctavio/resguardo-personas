@@ -1,5 +1,5 @@
 <header class="container-fluid">
-    <div class="row mx-5 d-flex justify-content-lg-between justify-content-center mx-0">
+    <div class="row mx-lg-5 mx-0 d-flex justify-content-lg-between justify-content-center">
         <div class="imagen-encabezado">
             <a href="/">
                 <img class="w-100" src="/images/completo.svg" alt="Gobierno de la Ciudad de México">

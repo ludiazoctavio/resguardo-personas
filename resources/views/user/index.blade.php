@@ -25,7 +25,7 @@
                     </select>
                 </div>
                 <div class="col-lg-4 col-12">
-                    <a class="float-right mt-2" href="{{ route('dashboard.user.create') }}">Nuevo usuario <i class="fa fa-plus-circle"></i></a>
+                    <a class="float-right mt-2 text-labels" href="{{ route('dashboard.user.create') }}">Nuevo usuario <i class="fa fa-plus-circle"></i></a>
                 </div>
             </div>
         </div>

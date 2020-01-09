@@ -1,3 +1,3 @@
-<li><a class="dropdown-item {!! active_class(route('dependence.person_dependence.create_identified')) !!}" href="{{ route('dependence.person_dependence.create_identified') }}">REGISTRO POR PERSONA IDENTIFICADA</a>
-<li><a class="dropdown-item {!! active_class(route('dependence.person_dependence.create')) !!}" href="{{ route('dependence.person_dependence.create') }}">REGISTRO POR PERSONA NO IDENTIFICADA</a>
+<li class="mb-2"><a class="dropdown-item {!! active_class(route('dependence.person_dependence.create_identified')) !!}" href="{{ route('dependence.person_dependence.create_identified') }}">REGISTRO POR PERSONA IDENTIFICADA</a>
+<li class="mb-2"><a class="dropdown-item {!! active_class(route('dependence.person_dependence.create')) !!}" href="{{ route('dependence.person_dependence.create') }}">REGISTRO POR PERSONA NO IDENTIFICADA</a>
 <li><a class="dropdown-item {!! active_class(route('dependence.search_dependence.index')) !!}" href="{{ route('dependence.search_dependence.index') }}">BÚSQUEDA DE REGISTROS</a></li>

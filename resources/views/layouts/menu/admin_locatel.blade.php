@@ -1,4 +1,4 @@
-<li><a class="dropdown-item {!! active_class(route('dashboard.person.create')) !!}" href="{{ route('dashboard.person.create') }}">
+<li class="mb-2"><a class="dropdown-item {!! active_class(route('dashboard.person.create')) !!}" href="{{ route('dashboard.person.create') }}">
     REGISTRO POR PERSONA NO LOCALIZADA
 </a>
 <ul class="nav nav-pills" role="tablist">

@@ -14,7 +14,7 @@
                     <button type="submit" class="btn btn-cdmx ml-2"><i class="fa fa-search"></i></button>
                 </form>
                 <div class="col-lg-4 col-12">
-                    <a class="float-right mt-2" href="{{ route('dependence.user_dependence.create') }}">Nuevo usuario <i class="fa fa-plus-circle"></i></a>
+                    <a class="float-right mt-2 text-labels" href="{{ route('dependence.user_dependence.create') }}">Nuevo usuario <i class="fa fa-plus-circle"></i></a>
                 </div>
             </div>
         </div>

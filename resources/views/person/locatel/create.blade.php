@@ -14,7 +14,7 @@
     <button type="button" class="btn btn-primary btn-06" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
 </li>
 <li class="nav-item">
-    <button type="submit" form="reg-form" class="btn btn-primary btn-06">Realizar registro</button>
+    <button type="submit" form="reg-form" class="btn btn-06">Realizar registro</button>
 </li>
 @endsection
 @section('content')
@@ -163,28 +163,28 @@ $('#pills-report-tab').click(function (e) {
     $('#btnAdd').click(function() {
         var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
         var newNum = new Number(num + 1); // the numeric ID of the new input field being added
-  
+
         // create the new element via clone(), and manipulate it's ID using newNum value
         var newElem = $('#toClone').clone().attr('id', 'Add' + newNum);
-  
+
         // manipulate the name/id values of the input inside the new element
         newElem.children(':last').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
-  
+
         // insert the new element after the last "duplicatable" input field
         $('#toClone').after(newElem);
-  
+
         // enable the "remove" button
         // $('#btnDel').attr('disabled',false);
-  
+
         // business rule: you can only add 10 names
         if (newNum == 10)
           $('#btnAdd').attr('disabled','disabled');
     });
-  
+
         // $('#btnDel').click(function() {
         // var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
         // $('#input' + num).remove(); // remove the last element
-  
+
         // enable the "add" button
     //     $('#btnAdd').attr('disabled',false);
     //
@@ -192,8 +192,8 @@ $('#pills-report-tab').click(function (e) {
     //      if (num-1 === 1)
     //        $('#btnDel').attr('disabled','disabled');
     // });
-  
+
   });
-  
+
   </script>
 @endsection
