@@ -117,11 +117,11 @@
 @section('extra_script')
 <script type="text/javascript">
     $(function() {
-        $('input[type=text]').keyup(function() {
-            this.value = this.value.toLocaleUpperCase();
+        $('input[type=text]').focusout(function() {
+            this.value = this.value.toUpperCase();
         });
-        $('textarea').keyup(function() {
-            this.value = this.value.toLocaleUpperCase();
+        $('textarea').focusout(function() {
+            this.value = this.value.toUpperCase();
         });
     });
 </script>

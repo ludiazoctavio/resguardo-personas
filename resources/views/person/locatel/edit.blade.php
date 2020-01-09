@@ -1,5 +1,4 @@
 @extends('layouts.app')
-@extends('layouts.app')
 @section('extra_head')
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js" integrity="sha256-fNoRrwkP2GuYPbNSJmMJOCyfRB2DhPQe0rGTgzRsyso=" crossorigin="anonymous"></script>
@@ -67,11 +66,11 @@
 @section('extra_script')
 <script type="text/javascript">
     $(function() {
-        $('input[type=text]').keyup(function() {
-            this.value = this.value.toLocaleUpperCase();
+        $('input[type=text]').focusout(function() {
+            this.value = this.value.toUpperCase();
         });
-        $('textarea').keyup(function() {
-            this.value = this.value.toLocaleUpperCase();
+        $('textarea').focusout(function() {
+            this.value = this.value.toUpperCase();
         });
     });
 </script>
