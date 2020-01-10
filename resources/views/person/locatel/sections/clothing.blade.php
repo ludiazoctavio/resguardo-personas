@@ -3,7 +3,7 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="cloting_type_id">Tipo de ropa:</label>
-                <select class="form-control @error('cloting_type_id') is-invalid @enderror" id="cloting_type_id" name="cloting_type_id">
+                <select class="form-control @error('cloting_type_id') is-invalid @enderror" id="cloting_type_id" name="clothes[clothing_type_id][]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($cloting_types as $cloting_type)
                     <option value="{{$cloting_type->id}}">{{$cloting_type->name}}</option>
@@ -17,7 +17,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="color_id">Color 1:</label>
-                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="color_id">
+                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="clothes[color_1_id][]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($colors as $color)
                     <option value="{{$color->id}}">{{$color->name}}</option>
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="color_id">Color 2:</label>
-                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="color_id">
+                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="clothes[color_2_id][]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($colors as $color)
                     <option value="{{$color->id}}">{{$color->name}}</option>
@@ -48,7 +48,7 @@
     <div class="form-row">
         <div class="form-group col-md-12">
             <label for="reference">Referencia:</label>
-            <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference" name="reference" value="{{ old('reference') }}" placeholder="Escribe la referencia">
+            <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference" name="clothes[description][]" value="{{ old('reference') }}" placeholder="Escribe la referencia">
             @error('reference')
                 <div class="invalid-feedback active" role="alert">
                     <strong>{{ $message }}</strong>

@@ -22,7 +22,9 @@ class SearchDependenceController extends Controller
     public function index(Request $request)
     {
         $qs = Person::where('type_register_id', '=', 2);
-        $qs->where('dependence_id', '=', Auth::user()->dependence->id);
+        if (Auth::user()->has_role(6)) {
+            $qs->where('dependence_id', '=', Auth::user()->dependence->id);
+        }
 
         if(count($request->all()) > 0){
             if ($request->folio){
