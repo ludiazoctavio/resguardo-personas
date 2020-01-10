@@ -173,6 +173,28 @@ class Person extends Model
             $person->half_affiliation()->create($request->half_affiliation);
         }
 
+        //Señas particulares
+        $particular_signs = [];
+        foreach ($request->particular_signs as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $particular_signs[$key][$name] = $row;
+            }
+        }
+        $person->particular_signs()->createMany($particular_signs);
+
+        //Ropa
+        $clothes = [];
+        foreach ($request->clothes as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $clothes[$key][$name] = $row;
+            }
+        }
+        $person->clothes()->createMany($clothes);
+
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
     }
@@ -295,6 +317,28 @@ class Person extends Model
         }
 
         self::identification()->updateOrCreate($this->identification->first('id')->toArray(), $request->identification);
+
+        //Señas particulares
+        $particular_signs = [];
+        foreach ($request->particular_signs as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $particular_signs[$key][$name] = $row;
+            }
+        }
+        //self::particular_signs()->rawUpdate($particular_signs);
+
+        //Ropa
+        $clothes = [];
+        foreach ($request->clothes as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $clothes[$key][$name] = $row;
+            }
+        }
+        //self::clothes()->rawUpdate($clothes);
         
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
     }

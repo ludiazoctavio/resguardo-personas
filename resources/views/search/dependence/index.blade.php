@@ -37,13 +37,13 @@
                     @foreach ($people as $item)
                     <tr>
                         <th scope="row"><a href="#">{{$item->folio}}</a></th>
-                        <td>@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
+                        <td>@if(!is_null($item->age)){{$item->age->name}}@elseif($item->age_range){{$item->age_range->name}}@endif</td>
                         <td>{{$item->getFullName()}}</td>
                         <td>{{$item->entry->time}}</td>
                         <td>{{$item->entry->date}}</td>
                         <td>{{$item->gender->name}}</td>
                         <td>Falta estatus</td>
-                        <td>@if(is_null($item->priority))@else{{$item->priority->name}}@endif</td>
+                        <td>@if(!is_null($item->priority)){{$item->priority->name}}@endif</td>
                         <td><a href="{{ route('dependence.person_dependence.edit', $item)}}"><i class="fa fa-pencil"></i></a></td>
                     </tr>
                     @endforeach
