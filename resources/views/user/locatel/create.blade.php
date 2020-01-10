@@ -13,7 +13,7 @@
         <div class="card-header">
             Nuevo usuario
         </div>
-        <div class="card-body mb-3">
+        <div class="card-body mb-5">
             <form method="POST" class="" action="{{ route('dashboard.user.store') }}">
                 @csrf
                 <div class="pb-3">
