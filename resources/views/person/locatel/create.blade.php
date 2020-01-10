@@ -169,13 +169,13 @@ $('#pills-report-tab').click(function (e) {
 
         // manipulate the name/id values of the input inside the new element
         newElem.children(':last').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
-
         // insert the new element after the last "duplicatable" input field
-        $('#toClone').after(newElem);
+        let child = newElem[0]
+        child.querySelector('input').value = ""
+        $('#toClone').after(child);
 
         // enable the "remove" button
         // $('#btnDel').attr('disabled',false);
-
         // business rule: you can only add 10 names
         if (newNum == 10)
           $('#btnAdd').attr('disabled','disabled');
