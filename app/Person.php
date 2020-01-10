@@ -64,7 +64,7 @@ class Person extends Model
 
     public function clothes()
     {
-        return $this->hasMany('App\Cloting');
+        return $this->hasMany('App\Clothing');
     }
 
     public function particular_signs()
@@ -170,9 +170,7 @@ class Person extends Model
         $person->disappearance_report->address()->create($request->disappearance_address);
 
         if (!empty($request->half_affiliation)) {
-            $person->half_affiliation()->create($request->half_affiliation + [
-                'person_id' => $person->id,
-            ]);
+            $person->half_affiliation()->create($request->half_affiliation);
         }
 
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
@@ -182,7 +180,7 @@ class Person extends Model
 
     public function store_dependence($request)
     {
-        
+
         $person = self::create($request->person + [
             'folio' => $this->generate_folio(),
             'type_register_id' => 2,
@@ -190,11 +188,8 @@ class Person extends Model
             'user_id' => Auth::id(),
         ]);
         
-        //$person->save_aliases($request->aliases);
 
-        $entry = $person->entry()->create($request->entry + [
-            'person_id' => $person->id,
-        ]);
+        $entry = $person->entry()->create($request->entry);
 
         //Datos acompañante en el ingreso
         if (!empty($request->companion)) {
@@ -208,14 +203,41 @@ class Person extends Model
         }
 
         if (!empty($request->half_affiliation)) {
-            $person->half_affiliation()->create($request->half_affiliation + [
-                'person_id' => $person->id,
-            ]);
+            $person->half_affiliation()->create($request->half_affiliation);
         }
 
         if (!empty($request->identification)) {
             $person->identification()->create($request->identification);
+        }else {
+            $person->identification()->create([]);
         }
+
+        //Señas particulares
+        $particular_signs = [];
+        foreach ($request->particular_signs as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $particular_signs[$key][$name] = $row;
+            }
+        }
+        $person->particular_signs()->createMany($particular_signs);
+
+        //Ropa
+        $clothes = [];
+        foreach ($request->clothes as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $clothes[$key][$name] = $row;
+            }
+        }
+        $person->clothes()->createMany($clothes);
+
+        $egress = $person->egress()->create([]);
+        $egress_companion = $egress->companion()->create([]);
+        $egress_companion->identification()->create([]);
+        $egress_companion->address()->create([]);
         
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
@@ -242,31 +264,29 @@ class Person extends Model
     {
         self::update($request->person);
 
-        self::entry()->updateOrCreate($this->entry->toArray(), $request->entry);
-        
+        self::entry()->update($request->entry);
         
         //Datos acompañante en el ingreso
         if (!empty($request->companion)) {            
-            $this->entry->companion()->updateOrCreate($this->entry->companion->first('id')->toArray(), $request->companion);
+            $this->entry->companion()->update($request->companion);
             if (!empty($request->companion_identification)) {
-                $this->entry->companion->identification()->updateOrCreate($this->entry->companion->identification->first('id')->toArray(), $request->companion_identification);
+                $this->entry->companion->identification()->update($request->companion_identification);
             }
             if (!empty($request->companion_address)) {
-                $this->entry->companion->address()->updateOrCreate($this->entry->companion->address->first('id')->toArray(), $request->companion_address);
+                $this->entry->companion->address()->update($request->companion_address);
             }
         }
 
         //Datos acompañante en el egreso
-        if (!empty($request->egress)) {
-            self::egress()->updateOrCreate($this->egress->first('id')->toArray(), $request->egress);
-            if (!empty($request->companion_egress)) {
-                $this->egress->companion()->updateOrCreate($this->egress->companion->first('id')->toArray(), $request->companion_egress);
-                if (!empty($request->companion_egress_identification)) {
-                    $this->egress->companion->identification()->updateOrCreate($this->egress->companion->identification->first('id')->toArray(), $request->companion_egress_identification);
-                }
-                if (!empty($request->companion_egress_address)) {
-                    $this->egress->companion->address()->updateOrCreate($this->egress->companion->address->first('id')->toArray(), $request->companion_egress_address);
-                }
+        self::egress()->update($request->egress);
+        
+        if (!empty($request->companion_egress)) {
+            $this->egress->companion()->update($request->companion_egress);
+            if (!empty($request->companion_egress_identification)) {
+                $this->egress->companion->identification()->update($request->companion_egress_identification);
+            }
+            if (!empty($request->companion_egress_address)) {
+                $this->egress->companion->address()->update($request->companion_egress_address);
             }
         }
         
@@ -274,7 +294,7 @@ class Person extends Model
             self::half_affiliation()->updateOrCreate($this->half_affiliation->first('id')->toArray(), $request->half_affiliation);
         }
 
-        self::identification()->updateOrCreate($request->identification);
+        self::identification()->updateOrCreate($this->identification->first('id')->toArray(), $request->identification);
         
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
     }
@@ -287,16 +307,6 @@ class Person extends Model
         return "{$this->first_name} {$this->last_name_1} {$this->last_name_2}";
     }
 
-    //Validacion
-    public function has_alias($id)
-    {
-        foreach ($this->aliases as $alias) {
-            dd($this);
-            //if($alias->id == $id || $role->slug == $id) return true;
-        }
-        return false;
-    }
-
     //Otras
     public function generate_folio()
     {
@@ -307,15 +317,6 @@ class Person extends Model
             return $this->generate_folio();
         }else {
             return $folio;
-        }
-    }
-
-    public function save_aliases(array $aliases)
-    {
-        foreach ($aliases as $alias) {
-            if(!$this->has_alias($alias)){
-                $this->aliases()->create($alias);
-            }
         }
     }
 }

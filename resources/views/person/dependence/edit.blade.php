@@ -9,7 +9,7 @@
     <div class="card-header">
         <div class="row justify-content-between">
             <div class="d-inline pr-2">
-                <h5><strong>{{ $person->folio }}</strong></h5>
+                <h5><strong>Folio: {{ $person->folio }} </strong>@if(!auth()->user()->has_role(6)){{ $person->dependence->name }}@endif</h5>
             </div>
             <div class="d-inline">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
