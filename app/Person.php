@@ -195,6 +195,17 @@ class Person extends Model
         }
         $person->clothes()->createMany($clothes);
 
+        //Accesorios
+        $accessories = [];
+        foreach ($request->accessories as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $accessories[$key][$name] = $row;
+            }
+        }
+        $person->accessories()->createMany($accessories);
+
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
     }
@@ -255,6 +266,17 @@ class Person extends Model
             }
         }
         $person->clothes()->createMany($clothes);
+
+        //Accesorios
+        $accessories = [];
+        foreach ($request->accessories as $name => $value)
+        {
+            foreach ($value as $key => $row)
+            {
+                $accessories[$key][$name] = $row;
+            }
+        }
+        $person->accessories()->createMany($accessories);
 
         $egress = $person->egress()->create([]);
         $egress_companion = $egress->companion()->create([]);

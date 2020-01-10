@@ -3,10 +3,11 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="accessory_id">Tipo de accesorio puesto:</label>
-                <select class="form-control @error('accessory_id') is-invalid @enderror" id="accessory_id" name="accessory_id">
+                <select class="form-control @error('accessory_id') is-invalid @enderror" id="accessory_id"
+                    name="accessories[accessory_id][]">
                     <option value="" disabled="" selected="">Selecciona</option>
-                    @foreach ($accessory_types as $accessory)
-                    <option value="{{$accessory->id}}">{{$accessory->name}}</option>
+                    @foreach ($accessory_types as $accessory_type)
+                    <option value="{{$accessory_type->id}}">{{$accessory_type->name}}</option>
                     @endforeach
                 </select>
                 @error('accessory_id')
@@ -17,7 +18,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="color_id">Color 1:</label>
-                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="color_id">
+                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id"
+                    name="accessories[color_1_id][]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($colors as $color)
                     <option value="{{$color->id}}">{{$color->name}}</option>
@@ -31,7 +33,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="color_id">Color 2:</label>
-                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id" name="color_id">
+                <select class="form-control @error('color_id') is-invalid @enderror" id="color_id"
+                    name="accessories[color_2_id][]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($colors as $color)
                     <option value="{{$color->id}}">{{$color->name}}</option>
@@ -49,7 +52,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="body_part_id">Parte del cuerpo:</label>
-                <select class="form-control @error('body_part_id') is-invalid @enderror" id="body_part_id" name="body_part_id">
+                <select class="form-control @error('body_part_id') is-invalid @enderror" id="body_part_id"
+                    name="accessories[body_part_id][]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($body_parts as $body_part)
                     <option value="{{$body_part->id}}">{{$body_part->name}}</option>
@@ -66,7 +70,8 @@
     <div class="form-row">
         <div class="form-group col-md-12">
             <label for="reference">Referencia:</label>
-            <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference" name="reference" value="{{ old('reference') }}" placeholder="Escribe la referencia">
+            <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference"
+                name="accessories[description][]" value="{{ old('reference') }}" placeholder="Escribe la referencia">
             @error('reference')
                 <div class="invalid-feedback active" role="alert">
                     <strong>{{ $message }}</strong>
@@ -74,7 +79,7 @@
             @enderror
         </div>
     </div>
-    <div class="pb-3">
+    {{--<div class="pb-3">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="image_half_affiliation">Agregar fotografía (si se cuenta con ella):</label>
@@ -89,5 +94,5 @@
                 @enderror
             </div>
         </div>
-    </div>
+    </div>--}}
 </div>
