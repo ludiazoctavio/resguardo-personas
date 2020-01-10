@@ -80,11 +80,11 @@
                 @enderror
             </div>
         </div>
-        <h6><b>Para una referencia más exacta, usa el siguiente mapa:</b></h6>
+        {{--<h6><b>Para una referencia más exacta, usa el siguiente mapa:</b></h6>
         <div class="flex-container">
             <input id="position" name="disappearance_address[position]" type="hidden">
             <div id="map"></div>
-        </div>
+        </div>--}}
     </div>
     <div class="border-top py-3">
         <h5><b>Hechos</b></h5>
