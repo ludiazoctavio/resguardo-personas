@@ -137,16 +137,19 @@
         <div class="form-row">
             <div class="form-group required col-md-4">
                 <label for="email">Correo electrónico:</label>
-                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="person_report[email]" value="{{ old('email', $person->person_report->email) }}" placeholder="Correo electrónico">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                    name="person_report[email]" value="{{ old('email', $person->person_report->email) }}" placeholder="Correo electrónico">
                 @error('email')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
                     </div>
                 @enderror
             </div>
+            @foreach($person->person_report->phones as $obj)
             <div class="form-group col-md-4">
                 <label for="phone">Teléfono:</label>
-                <input type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}" placeholder="5555555555">
+                <input type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone"
+                    name="phone" value="{{ old('phone', $obj->phone) }}" placeholder="5555555555">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -156,9 +159,15 @@
             <div class="form-group col-md-4">
                 <label for="phone_type_id">Tipo de teléfono:</label>
                 <select class="form-control @error('phone_type_id') is-invalid @enderror" id="phone_type_id" name="phone_type_id">
+                    @if (is_null($obj->phone_type_id))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($phone_types as $phone_type)
+                    @if (old('identification[identification_type_id]', $obj->phone_type_id) == $phone_type->id)
+                    <option value="{{$phone_type->id}}" selected="">{{$phone_type->name}}</option>
+                    @else
                     <option value="{{$phone_type->id}}">{{$phone_type->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('phone_type_id')
@@ -167,6 +176,7 @@
                     </div>
                 @enderror
             </div>
+            @endforeach
         </div>
     </div>
     <div class="border-top py-3">
@@ -203,7 +213,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="pc">Código postal:</label>
-                <input type="text" class="form-control @error('pc') is-invalid @enderror" id="pc" name="pc" value="{{ old('pc') }}">
+                <input type="text" pattern="[0-9]{5}" maxlength="5" minlength="5" class="form-control @error('pc') is-invalid @enderror" id="pc" name="pc" value="{{ old('pc') }}">
                 @error('pc')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

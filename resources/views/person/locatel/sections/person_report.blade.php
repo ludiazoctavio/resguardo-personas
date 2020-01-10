@@ -110,7 +110,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="email">Correo electrónico:</label>
-                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="person_report[email]" value="{{ old('email') }}" placeholder="Correo electrónico">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email"
+                    name="person_report[email]" value="{{ old('email') }}" placeholder="Correo electrónico">
                 @error('email')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -119,7 +120,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="phone">Teléfono:</label>
-                <input type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="form-control @error('phone') is-invalid @enderror" id="phone" name="phone" value="{{ old('phone') }}">
+                <input type="tel" pattern="[0-9]{10}" maxlength="10" minlength="10" class="form-control" id="phone"
+                    name="person_report_phone[phone]" value="{{ old('phone') }}">
                 @error('phone')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -128,7 +130,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="phone_type_id">Tipo de teléfono:</label>
-                <select class="form-control @error('phone_type_id') is-invalid @enderror" id="phone_type_id" name="phone_type_id">
+                <select class="form-control @error('phone_type_id') is-invalid @enderror" id="phone_type_id"
+                    name="person_report_phone[phone_type_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($phone_types as $phone_type)
                     <option value="{{$phone_type->id}}">{{$phone_type->name}}</option>
@@ -147,7 +150,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="street">Calle:</label>
-                <input type="text" class="form-control @error('street') is-invalid @enderror" id="street" name="street" value="{{ old('street') }}" placeholder="Escribe la calle">
+                <input type="text" class="form-control @error('street') is-invalid @enderror" id="street"
+                    name="person_report_address[street]" value="{{ old('street') }}" placeholder="Escribe la calle">
                 @error('street')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -156,7 +160,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="number">No. exterior:</label>
-                <input type="text" class="form-control @error('number') is-invalid @enderror" id="number" name="number" value="{{ old('number') }}" placeholder="Escribe el número exterior">
+                <input type="text" class="form-control @error('number') is-invalid @enderror" id="number"
+                    name="person_report_address[number]" value="{{ old('number') }}" placeholder="Escribe el número exterior">
                 @error('number')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -165,7 +170,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="outdoor_number">No. interior:</label>
-                <input type="text" class="form-control @error('outdoor_number') is-invalid @enderror" id="outdoor_number" name="outdoor_number" value="{{ old('outdoor_number') }}" placeholder="Escribe el número interior">
+                <input type="text" class="form-control @error('outdoor_number') is-invalid @enderror" id="outdoor_number"
+                    name="person_report_address[outdoor_number]" value="{{ old('outdoor_number') }}" placeholder="Escribe el número interior">
                 @error('outdoor_number')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -176,7 +182,8 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="pc">Código postal:</label>
-                <input type="text" class="form-control @error('pc') is-invalid @enderror" id="pc" name="pc" value="{{ old('pc') }}">
+                <input type="text" pattern="[0-9]{5}" maxlength="5" minlength="5" class="form-control @error('pc') is-invalid @enderror" id="pc"
+                    name="person_report_address[pc]" value="{{ old('pc') }}">
                 @error('pc')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -185,7 +192,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="suburb">Colonia:</label>
-                <input type="text" class="form-control @error('suburb') is-invalid @enderror" id="suburb" name="suburb" value="{{ old('suburb') }}">
+                <input type="text" class="form-control @error('suburb') is-invalid @enderror" id="suburb"
+                    name="person_report_address[suburb]" value="{{ old('suburb') }}">
                 @error('suburb')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -194,7 +202,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="city_id">Alcaldía:</label>
-                <select class="form-control @error('city_id') is-invalid @enderror" id="city_id" name="city_id">
+                <select class="form-control @error('city_id') is-invalid @enderror" id="city_id"
+                    name="person_report_address[city_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($cities as $city)
                     <option value="{{$city->id}}">{{$city->name}}</option>
@@ -208,7 +217,8 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="state_id">Entidad:</label>
-                <select class="form-control @error('state_id') is-invalid @enderror" id="state_id" name="state_id">
+                <select class="form-control @error('state_id') is-invalid @enderror" id="state_id"
+                    name="person_report_address[state_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($states as $state)
                     <option value="{{$state->id}}">{{$state->name}}</option>
@@ -227,7 +237,8 @@
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="identification_type_id">Documento con el que se identifica:</label>
-                <select class="form-control @error('identification_type_id') is-invalid @enderror" id="identification_type_id" name="identification_type_id">
+                <select class="form-control @error('identification_type_id') is-invalid @enderror" id="identification_type_id"
+                    name="person_report_identification[identification_type_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($identification_types as $identification_type)
                     <option value="{{$identification_type->id}}">{{$identification_type->name}}</option>
@@ -241,7 +252,8 @@
             </div>
             <div class="form-group col-md-4">
                 <label for="number_identification">Número o folio de la identificación:</label>
-                <input type="text" class="form-control @error('number_identification') is-invalid @enderror" id="number_identification" name="number_identification" value="{{ old('number_identification') }}" placeholder="Escribe el número o folio ">
+                <input type="text" class="form-control @error('number_identification') is-invalid @enderror" id="number_identification"
+                    name="person_report_identification[number_identification]" value="{{ old('number_identification') }}" placeholder="Escribe el número o folio ">
                 @error('number_identification')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -249,7 +261,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-row">
+        {{--<div class="form-row">
             <div class="form-group col-md-6">
                 <label for="image_identification">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
@@ -262,6 +274,6 @@
                     </div>
                 @enderror
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>

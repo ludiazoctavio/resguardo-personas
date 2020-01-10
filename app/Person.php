@@ -159,9 +159,13 @@ class Person extends Model
             'user_id' => Auth::id(),
         ]);
 
-        $person->person_report()->create($request->person_report + [
+        $person_report = $person->person_report()->create($request->person_report + [
             'person_id' => $person->id,
         ]);
+
+        $person_report->phones->create($request->person_report_phone);
+        $person_report->identification()->create($request->person_report_identification);
+        $person_report->address()->create($request->person_report_address);
 
         $person->disappearance_report()->create($request->disappearance_report + [
             'person_id' => $person->id,
@@ -246,37 +250,43 @@ class Person extends Model
         }
 
         //Señas particulares
-        $particular_signs = [];
-        foreach ($request->particular_signs as $name => $value)
-        {
-            foreach ($value as $key => $row)
+        if (!empty($request->particular_signs)) {
+            $particular_signs = [];
+            foreach ($request->particular_signs as $name => $value)
             {
-                $particular_signs[$key][$name] = $row;
+                foreach ($value as $key => $row)
+                {
+                    $particular_signs[$key][$name] = $row;
+                }
             }
+            $person->particular_signs()->createMany($particular_signs);
         }
-        $person->particular_signs()->createMany($particular_signs);
 
         //Ropa
-        $clothes = [];
-        foreach ($request->clothes as $name => $value)
-        {
-            foreach ($value as $key => $row)
+        if (!empty($request->clothes)) {
+            $clothes = [];
+            foreach ($request->clothes as $name => $value)
             {
-                $clothes[$key][$name] = $row;
+                foreach ($value as $key => $row)
+                {
+                    $clothes[$key][$name] = $row;
+                }
             }
+            $person->clothes()->createMany($clothes);
         }
-        $person->clothes()->createMany($clothes);
 
         //Accesorios
-        $accessories = [];
-        foreach ($request->accessories as $name => $value)
-        {
-            foreach ($value as $key => $row)
+        if (!empty($request->accessories)) {
+            $accessories = [];
+            foreach ($request->accessories as $name => $value)
             {
-                $accessories[$key][$name] = $row;
+                foreach ($value as $key => $row)
+                {
+                    $accessories[$key][$name] = $row;
+                }
             }
+            $person->accessories()->createMany($accessories);
         }
-        $person->accessories()->createMany($accessories);
 
         $egress = $person->egress()->create([]);
         $egress_companion = $egress->companion()->create([]);

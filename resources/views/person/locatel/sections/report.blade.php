@@ -4,7 +4,8 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="pc">Código postal:</label>
-                <input type="text" class="form-control @error('pc') is-invalid @enderror" id="pc" name="disappearance_address[pc]" value="{{ old('pc') }}">
+                <input type="text" pattern="[0-9]{5}" maxlength="5" minlength="5" class="form-control @error('pc') is-invalid @enderror" id="pc"
+                    name="disappearance_address[pc]" value="{{ old('pc') }}">
                 @error('pc')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Person_report extends Model
 {
     protected $fillable = [
-        'first_name', 'last_name_1', 'last_name_2', 'age_id', 'gender_id', 'relationship_id', 'nationality_id', 'person_id'
+        'first_name', 'last_name_1', 'last_name_2', 'email', 'age_id', 'gender_id', 'relationship_id', 'nationality_id', 'person_id'
     ];
 
     //Relaciones
