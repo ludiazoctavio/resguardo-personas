@@ -319,6 +319,7 @@ class Person extends Model
         self::identification()->updateOrCreate($this->identification->first('id')->toArray(), $request->identification);
 
         //Señas particulares
+        /*
         $particular_signs = [];
         foreach ($request->particular_signs as $name => $value)
         {
@@ -327,9 +328,11 @@ class Person extends Model
                 $particular_signs[$key][$name] = $row;
             }
         }
+        */
         //self::particular_signs()->rawUpdate($particular_signs);
 
         //Ropa
+        /*
         $clothes = [];
         foreach ($request->clothes as $name => $value)
         {
@@ -337,7 +340,7 @@ class Person extends Model
             {
                 $clothes[$key][$name] = $row;
             }
-        }
+        }*/
         //self::clothes()->rawUpdate($clothes);
         
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
