@@ -36,7 +36,6 @@
                             <option value="{{$height->id}}">{{$height->name}}</option>
                             @endif
                             @endforeach
-
                         </select>
                         @error('height_id')
                             <div class="invalid-feedback active" role="alert">

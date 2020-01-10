@@ -50,7 +50,8 @@
          <div class="form-row">
              <div class="form-group col-md-12">
                  <label for="reference">Referencia:</label>
-                 <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference" name="particular_signs[description][]" value="{{ old('reference') }}" placeholder="Escribe la referencia">
+                 <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference"
+                    name="particular_signs[description][]" value="{{ old('reference') }}" placeholder="Escribe la referencia">
                  @error('reference')
                      <div class="invalid-feedback active" role="alert">
                          <strong>{{ $message }}</strong>
