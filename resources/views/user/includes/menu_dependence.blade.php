@@ -7,5 +7,4 @@
     </a>
     <a href="#" class="list-group-item list-group-item-action">Cambiar contraseña</a>
     <a href="{{ route('dependence.user_dependence.assign_role', $user) }}" class="list-group-item list-group-item-action">Asignar roles</a>
-    <a href="#" class="list-group-item list-group-item-action text-white bg-danger" onclick="send_form()">Eliminar</a>
 </div>

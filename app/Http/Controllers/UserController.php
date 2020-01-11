@@ -30,7 +30,7 @@ class UserController extends Controller
         $this->authorize('index', User::class);
         return view('user.index', [
             'users' => User::all(),
-            'dependences' => Dependence::all(),
+            'dependences' => Dependence::orderBy('name', 'asc')->get(),
         ]);
     }
 
@@ -44,7 +44,7 @@ class UserController extends Controller
         $this->authorize('create', User::class);
         return view('user.locatel.create', [
             'roles' => Role::all(),
-            'dependences' => Dependence::all(),
+            'dependences' => Dependence::orderBy('name', 'asc')->get(),
         ]);
     }
 

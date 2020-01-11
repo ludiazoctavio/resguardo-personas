@@ -166,7 +166,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="accompanying_pc">Código postal:</label>
-                <input type="text" class="form-control @error('accompanying_pc') is-invalid @enderror" id="accompanying_pc" name="companion_address[pc]"
+                <input type="text" pattern="[0-9]{5}" maxlength="5" minlength="5" class="form-control @error('accompanying_pc') is-invalid @enderror" id="accompanying_pc" name="companion_address[pc]"
                     value="{{ old('accompanying_pc', $person->entry->companion->address->pc) }}">
                 @error('accompanying_pc')
                     <div class="invalid-feedback active" role="alert">
