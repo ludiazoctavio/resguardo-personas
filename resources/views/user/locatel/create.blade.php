@@ -10,7 +10,7 @@
 @section('content')
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header card-label">
             Nuevo usuario
         </div>
         <div class="card-body mb-5">

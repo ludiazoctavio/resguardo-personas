@@ -39,7 +39,7 @@
 </header>
 <div class="pleca" id="pleca">
     <div class="container-fluid mx-lg-5 mx-0">
-        <ul class="nav mr-2 justify-content-end">
+        <ul class="nav mr-2 justify-content-lg-end justify-content-center">
             @auth
             @yield('pleca_menu')
             @endauth
