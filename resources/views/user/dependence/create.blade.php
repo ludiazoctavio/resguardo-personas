@@ -10,7 +10,7 @@
         <div class="card-header">
             <h5>Nuevo usuario</h5>
         </div>
-        <div class="card-body">
+        <div class="card-body mb-5">
             <form method="POST" class="" action="{{ route('dependence.user_dependence.store') }}">
                 @csrf
                 <div class="pb-3">

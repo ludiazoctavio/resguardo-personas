@@ -10,7 +10,7 @@
 </style>
 @endsection
 @section('pleca_menu')
-<li class="nav-item">
+<li class="nav-item mr-1">
     <button type="button" class="btn btn-primary btn-06" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
 </li>
 <li class="nav-item">

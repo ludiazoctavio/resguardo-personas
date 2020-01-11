@@ -13,7 +13,7 @@
         <div class="card-header">
             Nuevo usuario
         </div>
-        <div class="card-body">
+        <div class="card-body mb-5">
             <form method="POST" class="" action="{{ route('dashboard.user.store') }}">
                 @csrf
                 <div class="pb-3">
@@ -98,7 +98,7 @@
                         </div>
                         {{--<div class="form-group col-md-4">
                             <label for="ascription">Área de adscripción</label>
-                            
+
                             @error('ascription')
                                 <div class="invalid-feedback active" role="alert">
                                     <strong>{{ $message }}</strong>
