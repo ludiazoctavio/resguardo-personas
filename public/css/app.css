@@ -11456,6 +11456,19 @@ table.dataTable.no-footer {
   padding-top: 15px;
 }
 
+.card-body {
+  padding: 0;
+}
+
+.card-label {
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1.71;
+  letter-spacing: normal;
+  color: #0f4c42;
+  margin-bottom: 1rem;
+}
+
 .new1 {
   border: 1px solid #009288;
 }
@@ -11504,5 +11517,16 @@ hr.new2 {
 .aviso {
   color: #fff;
   font-weight: bold;
+}
+
+.hover-link {
+  font-size: 12px !important;
+  letter-spacing: 0px !important;
+  color: #5d5d5d !important;
+}
+
+.hover-link:hover {
+  font-weight: bold !important;
+  color: #00b140 !important;
 }
 

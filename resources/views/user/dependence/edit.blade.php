@@ -1,13 +1,13 @@
 @extends('layouts.app_fluid')
 @section('pleca_menu')
 <li class="nav-item">
-    <a href="{{ route('dependence.user_dependence.index') }}" class="nav-link active">Usuarios</a>
+    <a href="{{ route('dependence.user_dependence.index') }}" class="nav-link hover-link active">Usuarios</a>
 </li>
 @endsection
 @section('content')
 <div class="container">
     <div class="card">
-        <div class="card-header">
+        <div class="card-header card-label">
             Editar usuario
         </div>
         <div class="card-body">
@@ -76,7 +76,7 @@
                     <div class="form-row">
                         {{--<div class="form-group col-md-4">
                             <label for="ascription">Área de adscripción</label>
-                            
+
                             @error('ascription')
                                 <div class="invalid-feedback active" role="alert">
                                     <strong>{{ $message }}</strong>

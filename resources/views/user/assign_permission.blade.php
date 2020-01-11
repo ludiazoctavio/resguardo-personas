@@ -1,10 +1,10 @@
 @extends('layouts.app_fluid')
 @section('pleca_menu')
 <li class="nav-item">
-    <a href="{{ route('dashboard.user.index') }}" class="nav-link active">Usuarios</a>
+    <a href="{{ route('dashboard.user.index') }}" class="nav-link hover-link border-right active">Usuarios</a>
 </li>
 <li class="nav-item">
-    <a href="#" class="nav-link">Estadísticas</a>
+    <a href="#" class="nav-link hover-link">Estadísticas</a>
 </li>
 @endsection
 @section('content')
