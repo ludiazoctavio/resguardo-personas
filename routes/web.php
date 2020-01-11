@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::get('aviso_de_privacidad', function(){ return view('aviso_privacidad'); });
+
 //Dashboard
 Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
     //Route::get('/', function(){ return view('home'); });
