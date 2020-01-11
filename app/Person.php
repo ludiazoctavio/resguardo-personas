@@ -163,7 +163,7 @@ class Person extends Model
             'person_id' => $person->id,
         ]);
 
-        $person_report->phones->create($request->person_report_phone);
+        $person_report->phones()->create($request->person_report_phone);
         $person_report->identification()->create($request->person_report_identification);
         $person_report->address()->create($request->person_report_address);
 
