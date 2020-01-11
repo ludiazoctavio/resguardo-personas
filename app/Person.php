@@ -303,6 +303,10 @@ class Person extends Model
 
         self::person_report()->update($request->person_report);
 
+        $this->person_report->phones()->update($request->person_report_phone);
+        $this->person_report->identification()->update($request->person_report_identification);
+        $this->person_report->address()->update($request->person_report_address);
+
         self::disappearance_report()->update($request->disappearance_report);
 
         $this->disappearance_report->address()->update($request->disappearance_address);

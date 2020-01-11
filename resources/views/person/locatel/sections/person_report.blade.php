@@ -253,7 +253,7 @@
             <div class="form-group col-md-4">
                 <label for="number_identification">Número o folio de la identificación:</label>
                 <input type="text" class="form-control @error('number_identification') is-invalid @enderror" id="number_identification"
-                    name="person_report_identification[number_identification]" value="{{ old('number_identification') }}" placeholder="Escribe el número o folio ">
+                    name="person_report_identification[folio]" value="{{ old('number_identification') }}" placeholder="Escribe el número o folio ">
                 @error('number_identification')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
