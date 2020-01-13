@@ -108,7 +108,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-row">
+        {{--<div class="form-row">
             <div class="form-group col-md-6">
                 <label for="accompanying_image_identification">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
@@ -122,7 +122,7 @@
                     </div>
                 @enderror
             </div>
-        </div>
+        </div>--}}
     </div>
     <div class="border-top py-3">
         <h5>Domicilio del acompañante</h5>

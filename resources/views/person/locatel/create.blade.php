@@ -11,7 +11,7 @@
 @endsection
 @section('pleca_menu')
 <li class="nav-item mr-1">
-    <button type="button" class="btn btn-primary btn-06" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
+    <button id="search_person" type="button" class="btn btn-primary btn-06" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
 </li>
 <li class="nav-item">
     <button type="submit" form="reg-form" class="btn btn-06">Realizar registro</button>
@@ -61,7 +61,7 @@
         </form>
     </div>
 </div>
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div id="modal_search" class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
@@ -78,31 +78,11 @@
                             <th scope="col">Folio</th>
                             <th scope="col">Edad</th>
                             <th scope="col">Nombre</th>
-                            <th scope="col">Hora de desaparición</th>
-                            <th scope="col">Fecha de desaparición</th>
                             <th scope="col">Sexo</th>
                             <th scope="col"></th>
                         </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row"><a href="#"></a></th>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>
-                            </tr>
-                            <tr>
-                                <th scope="row"><a href="#"></a></th>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"></td>
-                                <td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -194,6 +174,51 @@ $('#pills-report-tab').click(function (e) {
     // });
 
   });
-
   </script>
+  <script type="text/javascript">
+
+    $.ajaxSetup({
+
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    $("#search_person").click(function(e){
+        e.preventDefault();
+        var first_name = $("#first_name").val();
+        var last_name_1 = $("#last_name_1").val();
+        var last_name_2 = $("#last_name_2").val();
+
+        $.ajax({
+
+           type:'POST',
+           url:'/ajaxRequest',
+           data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2},
+
+           success:function(data){
+               
+                console.log(data);
+              //alert(data.success);
+              $('#modal_search tbody').html('');
+                $.each( data.success, function( key, value ) {
+                    console.log(value);
+                    var name = value.first_name+' '+value.last_name_1+' '+value.last_name_2;
+                    var age = value.age != "null"?value.age:value.rangue_age
+                    $('#modal_search tbody').after('<tr>'
+                        +'<th scope="row"><a href="#">'+value.folio+'</a></th>'
+                        +'<td class="text-center">'+age+'</td>'
+                        +'<td class="text-center">'+name+'</td>'
+                        +'<td class="text-center">'+value.gender+'</td>'
+                        +'<td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>'
+                        +'</tr>');
+                });
+
+           }
+
+        });
+
+	});
+
+</script>
 @endsection

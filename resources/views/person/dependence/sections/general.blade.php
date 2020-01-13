@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="border-top py-3">
+        {{--<div class="border-top py-3">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="image_general">Agregar fotografía (si se cuenta con ella):</label>
@@ -80,5 +80,5 @@
                     @enderror
                 </div>
             </div>
-        </div>
+        </div>--}}
     </div>
