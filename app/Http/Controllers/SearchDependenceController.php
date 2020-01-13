@@ -11,8 +11,7 @@ class SearchDependenceController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('role:' . config('app.admin_role'));
-        return true;
+        $this->middleware('role:' . config('app.admin_role').'_supervisor-locatel_operador-locatel_administrador-dependencia_alimentador-dependencia');
     }
     /**
      * Display a listing of the resource.

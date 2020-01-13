@@ -10,8 +10,7 @@ class SearchController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('role:' . config('app.admin_role'));
-        return true;
+        $this->middleware('role:' . config('app.admin_role').'_supervisor-locatel_operador-locatel');
     }
     /**
      * Display a listing of the resource.
