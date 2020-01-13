@@ -8,8 +8,8 @@
                 <p>Plataforma de registro de personas bajo el resguardo del Gobierno de la Ciudad de México</p>
                 <p class="font-weight-bold">Diseñado y operado por la Agencia Digital de Innovación Pública</p>
             </div>
-            <div class="col-lg-2 text-center text-lg-right mt-3 mt-lg-0">
-              <a href="" class="aviso">Aviso de privacidad</a>
+            <div class="col-lg-2 col-12 text-center text-lg-right mt-3 mt-lg-0">
+              <a href="aviso_de_privacidad" class="aviso">Aviso de privacidad</a>
             </div>
         </div>
     </div>
