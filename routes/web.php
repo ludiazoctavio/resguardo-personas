@@ -13,7 +13,7 @@
 
 Auth::routes();
 
-Route::get('aviso_de_privacidad', function(){ return view('aviso_privacidad'); });
+Route::get('aviso_de_privacidad', function(){ return view('aviso_privacidad'); })->name('aviso_de_privacidad');
 
 //Dashboard
 Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
@@ -32,6 +32,8 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
     Route::resource('person', 'PersonController');
     Route::resource('report', 'ReportController');
     Route::resource('search', 'SearchController');
+    Route::get('ajaxRequest', 'PersonController@ajaxRequest');
+    Route::post('ajaxRequest', 'PersonController@ajaxRequestPost');
 });
 
 //Rutas Locatel

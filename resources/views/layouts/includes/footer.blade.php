@@ -9,7 +9,7 @@
                 <p class="font-weight-bold">Diseñado y operado por la Agencia Digital de Innovación Pública</p>
             </div>
             <div class="col-lg-2 col-12 text-center text-lg-right mt-3 mt-lg-0">
-              <a href="aviso_de_privacidad" class="aviso">Aviso de privacidad</a>
+              <a href="{{ route('aviso_de_privacidad') }}" class="aviso">Aviso de privacidad</a>
             </div>
         </div>
     </div>

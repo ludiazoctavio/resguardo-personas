@@ -31,7 +31,7 @@
                 @enderror
             </div>
         </div>
-        <div class="form-row">
+        {{--<div class="form-row">
             <div class="form-group col-md-6">
                 <label for="image_identification">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
@@ -44,6 +44,6 @@
                     </div>
                 @enderror
             </div>
-        </div>
+        </div>--}}
     </div>
 </div>

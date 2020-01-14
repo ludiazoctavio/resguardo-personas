@@ -47,7 +47,7 @@
             </div>
         </div>
     </div>
-    <div class="pb-3">
+    {{--<div class="pb-3">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="image_half_affiliation">Agregar fotografía (si se cuenta con ella):</label>
@@ -62,5 +62,5 @@
                 @enderror
             </div>
         </div>
-    </div>
+    </div>--}}
 </div>

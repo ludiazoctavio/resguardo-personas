@@ -11,8 +11,7 @@ class PersonController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('role:' . config('app.admin_role'));
-        return true;
+        $this->middleware('role:' . config('app.admin_role').'_supervisor-locatel_operador-locatel');
     }
     /**
      * Display a listing of the resource.
@@ -150,5 +149,66 @@ class PersonController extends Controller
         $person->delete();
         alert()->success('Persona eliminada')->showConfirmButton();
         return redirect()->route('dashboard.person.index');
+    }
+
+        /**
+
+     * Create a new controller instance.
+
+     *
+
+     * @return void
+
+     */
+
+    public function ajaxRequest()
+
+    {
+
+        return view('ajaxRequest');
+
+    }
+
+    /**
+
+     * Create a new controller instance.
+
+     *
+
+     * @return void
+
+     */
+
+    public function ajaxRequestPost(Request $request)
+
+    {
+
+        $input = $request->all();
+        //return response()->json(['success'=>$input['first_name']]);
+
+        $qs = Person::all();
+        if(count($request->all()) > 0){
+            $arrayName = [];
+            if($input['first_name'] != null){
+                array_push($arrayName, ['first_name' , 'like', '%'.$input['first_name'].'%']);
+            }
+            if($input['last_name_1'] != null){
+                array_push($arrayName, ['last_name_1', 'like', '%'.$input['last_name_1'].'%']);
+            }
+            if($input['last_name_2'] != null){
+                array_push($arrayName, ['last_name_2', 'like', '%'.$input['last_name_2'].'%']);
+            }
+            $qs = $qs->where($arrayName);
+            
+            if ($request->date){
+                $qs = $qs->whereHas('disappearance_report', function($q) use ($request){
+                    $q->where('date', '=', date($request->date));
+                });
+            }
+        }
+        $qs->get();
+
+        return response()->json(['success'=>$qs]);
+
     }
 }
