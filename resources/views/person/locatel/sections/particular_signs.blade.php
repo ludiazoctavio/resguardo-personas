@@ -87,36 +87,3 @@
        </fieldset>
    </form>
 </div>
-
-@section('extra_script')
-<script type="text/javascript">
-    $(document).ready(function() {
-    $('#btnDel').attr('disabled','disabled');
-    $('#btnAdd').click(function() {
-        var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-        var newNum = new Number(num + 1); // the numeric ID of the new input field being added
-        // create the new element via clone(), and manipulate it's ID using newNum value
-        if(newNum > 2){
-          var newElem = $('#Add' + num).clone().attr('id', 'Add' + newNum);
-          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
-          let child = newElem[0];
-          child.querySelector('input').value = ""
-          $('#Add' + num).before(newElem);
-        }
-        else{
-          var newElem = $('#toClone').clone().attr('id', 'Add' + newNum);
-          // manipulate the name/id values of the input inside the new element
-          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
-          // insert the new element after the last "duplicatable" input field
-          let child = newElem[0];
-          child.querySelector('input').value = ""
-          $('#toClone').before(newElem);
-        }
-
-
-        if (newNum == 10)
-          $('#btnAdd').attr('disabled','disabled');
-    });
-  });
-  </script>
-  @endsection

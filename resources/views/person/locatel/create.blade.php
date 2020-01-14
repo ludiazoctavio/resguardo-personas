@@ -143,38 +143,28 @@ $('#pills-report-tab').click(function (e) {
     $('#btnAdd').click(function() {
         var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
         var newNum = new Number(num + 1); // the numeric ID of the new input field being added
-        console.log('numero' + newNum);
-        console.log('hola');
         // create the new element via clone(), and manipulate it's ID using newNum value
-        var newElem = $('#toClone').clone().attr('id', 'Add' + newNum);
+        if(newNum > 2){
+          var newElem = $('#Add' + num).clone().attr('id', 'Add' + newNum);
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#Add' + num).before(newElem);
+        }
+        else{
+          var newElem = $('#toClone').clone().attr('id', 'Add' + newNum);
+          // manipulate the name/id values of the input inside the new element
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          // insert the new element after the last "duplicatable" input field
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#toClone').before(newElem);
+        }
 
-        // manipulate the name/id values of the input inside the new element
-        console.log(newNum);
-        newElem.children('.new2').attr('id', 'num' + newNum).attr('name', 'num' + newNum);
-        // insert the new element after the last "duplicatable" input field
-        let child = newElem[0]
-        child.querySelector('input').value = ""
-        $('#toClone').after(child);
 
-        // enable the "remove" button
-        // $('#btnDel').attr('disabled',false);
-        // business rule: you can only add 10 names
         if (newNum == 10)
           $('#btnAdd').attr('disabled','disabled');
     });
-
-        // $('#btnDel').click(function() {
-        // var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
-        // $('#input' + num).remove(); // remove the last element
-
-        // enable the "add" button
-    //     $('#btnAdd').attr('disabled',false);
-    //
-    //      if only one element remains, disable the "remove" button
-    //      if (num-1 === 1)
-    //        $('#btnDel').attr('disabled','disabled');
-    // });
-
   });
   </script>
   <script type="text/javascript">
@@ -191,6 +181,7 @@ $('#pills-report-tab').click(function (e) {
         var first_name = $("#first_name").val();
         var last_name_1 = $("#last_name_1").val();
         var last_name_2 = $("#last_name_2").val();
+        console.log('Hi!');
 
         $.ajax({
 
