@@ -11,7 +11,7 @@
 @endsection
 @section('pleca_menu')
 <li class="nav-item mr-1">
-    <button id="search_person" type="button" class="btn btn-primary btn-06" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
+    <button id="search_person" type="button" class="btn btn-primary btn-06" style="display:none;" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
 </li>
 <li class="nav-item">
     <button type="submit" form="reg-form" class="btn btn-06">Realizar registro</button>
@@ -105,7 +105,7 @@
         });
     });
 </script>
-<script type="text/javascript">
+{{--<script type="text/javascript">
     var map = L.map('map').setView([19.4325, -99.1332], 13);
     var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -127,16 +127,14 @@
 			//document.getElementById("id_latitude").value = lat[1];
 			//document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
 		});
-</script>
-<script>
-$('#pills-report-tab').click(function (e) {
-    setTimeout(
-        function()
-        {
-            map.invalidateSize();
-        }, 300);
-});
-</script>
+    $('#pills-report-tab').click(function (e) {
+        setTimeout(
+            function()
+            {
+                map.invalidateSize();
+            }, 300);
+    });
+</script>--}}
 <script type="text/javascript">
     $(document).ready(function() {
     $('#btnDel').attr('disabled','disabled');
@@ -168,6 +166,13 @@ $('#pills-report-tab').click(function (e) {
   });
   </script>
   <script type="text/javascript">
+    $('#pills-general-tab').click(function (e) {
+        setTimeout(
+            function()
+            {
+                $('#search_person').show();
+            }, 300);
+    });
 
     $.ajaxSetup({
 
@@ -178,36 +183,26 @@ $('#pills-report-tab').click(function (e) {
 
     $("#search_person").click(function(e){
         e.preventDefault();
-        var first_name = $("#first_name").val();
-        var last_name_1 = $("#last_name_1").val();
-        var last_name_2 = $("#last_name_2").val();
-        console.log('Hi!');
+
+        $('#tableSearch tbody').html('');
+
+        var first_name = $("#person_first_name").val();
+        var last_name_1 = $("#person_last_name_1").val();
+        var last_name_2 = $("#person_last_name_2").val();
+        var age = $("#person_age_id").val();
+        var gender = $("#person_gender_id").val();
 
         $.ajax({
 
-           type:'POST',
-           url:'/ajaxRequest',
-           data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2},
+            type:'POST',
+            url:'/ajaxRequest',
+            data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2, age:age, gender:gender},
 
-           success:function(data){
-               
-                console.log(data);
-              //alert(data.success);
-              $('#modal_search tbody').html('');
-                $.each( data.success, function( key, value ) {
-                    console.log(value);
-                    var name = value.first_name+' '+value.last_name_1+' '+value.last_name_2;
-                    var age = value.age != "null"?value.age:value.rangue_age
-                    $('#modal_search tbody').after('<tr>'
-                        +'<th scope="row"><a href="#">'+value.folio+'</a></th>'
-                        +'<td class="text-center">'+age+'</td>'
-                        +'<td class="text-center">'+name+'</td>'
-                        +'<td class="text-center">'+value.gender+'</td>'
-                        +'<td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>'
-                        +'</tr>');
-                });
+            success:function(data){
 
-           }
+                $('#tableSearch tbody').html(data.html);
+                
+            }
 
         });
 
