@@ -149,7 +149,7 @@ $('#pills-report-tab').click(function (e) {
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           let child = newElem[0];
           child.querySelector('input').value = ""
-          $('#Add' + num).before(newElem);
+          $('#Add' + num).after(newElem);
         }
         else{
           var newElem = $('#toClone').clone().attr('id', 'Add' + newNum);
@@ -158,7 +158,7 @@ $('#pills-report-tab').click(function (e) {
           // insert the new element after the last "duplicatable" input field
           let child = newElem[0];
           child.querySelector('input').value = ""
-          $('#toClone').before(newElem);
+          $('#toClone').after(newElem);
         }
 
 
