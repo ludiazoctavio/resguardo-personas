@@ -209,7 +209,7 @@ class PersonController extends Controller
                 });
             }
 
-            $returnHTML = view('person.locatel.search_person')->with('people', $qs->get())->render();
+            $returnHTML = view('person.locatel.search_person')->with('people', $qs->orderBy('id', 'desc')->limit(10)->get())->render();
             return response()->json(array('success' => true, 'html'=>$returnHTML));
             //return response()->json(['success'=>$qs->get()]);
         }

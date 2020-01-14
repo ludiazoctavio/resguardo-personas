@@ -79,7 +79,7 @@
                             <th scope="col">Edad</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Sexo</th>
-                            <th scope="col"></th>
+                            <th scope="col">Dependencia</th>
                         </tr>
                         </thead>
                         <tbody>

@@ -36,7 +36,7 @@
                 <tbody>
                     @foreach ($people as $item)
                     <tr>
-                        <th scope="row"><a href="#">{{$item->folio}}</a></th>
+                        <th scope="row"><a href="{{ route('dashboard.person.edit', $item)}}">{{$item->folio}}</a></th>
                         <td class="text-center">@if(is_null($item->age))@else{{$item->age->name}}@endif</td>
                         <td class="text-center">{{$item->getFullName()}}</td>
                         <td class="text-center">{{$item->disappearance_report->time}}</td>
