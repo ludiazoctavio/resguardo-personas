@@ -166,52 +166,51 @@ $('#pills-report-tab').click(function (e) {
           $('#btnAdd').attr('disabled','disabled');
     });
   });
-  </script>
-  <script type="text/javascript">
+</script>
+<script type="text/javascript">
 
-    $.ajaxSetup({
+  $.ajaxSetup({
 
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+  });
 
-    $("#search_person").click(function(e){
-        e.preventDefault();
-        var first_name = $("#first_name").val();
-        var last_name_1 = $("#last_name_1").val();
-        var last_name_2 = $("#last_name_2").val();
-        console.log('Hi!');
+  $("#search_person").click(function(e){
+      e.preventDefault();
+      var first_name = $("#first_name").val();
+      var last_name_1 = $("#last_name_1").val();
+      var last_name_2 = $("#last_name_2").val();
+      console.log('Hi!');
 
-        $.ajax({
+      $.ajax({
 
-           type:'POST',
-           url:'/ajaxRequest',
-           data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2},
+          type:'POST',
+          url:'/ajaxRequest',
+          data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2},
 
-           success:function(data){
-               
-                console.log(data);
-              //alert(data.success);
-              $('#modal_search tbody').html('');
-                $.each( data.success, function( key, value ) {
-                    console.log(value);
-                    var name = value.first_name+' '+value.last_name_1+' '+value.last_name_2;
-                    var age = value.age != "null"?value.age:value.rangue_age
-                    $('#modal_search tbody').after('<tr>'
-                        +'<th scope="row"><a href="#">'+value.folio+'</a></th>'
-                        +'<td class="text-center">'+age+'</td>'
-                        +'<td class="text-center">'+name+'</td>'
-                        +'<td class="text-center">'+value.gender+'</td>'
-                        +'<td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>'
-                        +'</tr>');
-                });
+          success:function(data){
 
-           }
+              console.log(data);
+            //alert(data.success);
+            $('#modal_search tbody').html('');
+              $.each( data.success, function( key, value ) {
+                  console.log(value);
+                  var name = value.first_name+' '+value.last_name_1+' '+value.last_name_2;
+                  var age = value.age != "null"?value.age:value.rangue_age
+                  $('#modal_search tbody').after('<tr>'
+                      +'<th scope="row"><a href="#">'+value.folio+'</a></th>'
+                      +'<td class="text-center">'+age+'</td>'
+                      +'<td class="text-center">'+name+'</td>'
+                      +'<td class="text-center">'+value.gender+'</td>'
+                      +'<td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>'
+                      +'</tr>');
+              });
 
-        });
+          }
 
-	});
+      });
 
+});
 </script>
 @endsection
