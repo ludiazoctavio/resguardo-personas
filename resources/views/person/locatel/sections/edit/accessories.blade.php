@@ -1,8 +1,7 @@
 <div class="tab-pane fade" id="pills-accessories" role="tabpanel" aria-labelledby="pills-accessories-tab">
-    <form id="testform">
         @if (count($person->accessories) >= 1)
         @foreach ($person->accessories as $obj)
-        <input name="clothes[id][]" type="hidden" value="{{ old('clothes[id][]', $obj->id) }}">
+        <input name="accessories[id][]" type="hidden" value="{{ old('accessories[id][]', $obj->id) }}">
         <fieldset class="clonedInput2" id="toClone2">
             <div class="py-3">
                 <div class="form-row">
@@ -57,7 +56,7 @@
                             @endif
                             @foreach ($colors as $color)
                             @if (old('accessories[color_2_id][]', $obj->color_2_id) == $color->id)
-                            <option value="{{$color->id}}">{{$color->name}}</option>
+                            <option value="{{$color->id}}" selected="">{{$color->name}}</option>
                             @else
                             <option value="{{$color->id}}">{{$color->name}}</option>
                             @endif
@@ -76,10 +75,16 @@
                     <div class="form-group col-md-4">
                         <label for="body_part_id">Parte del cuerpo:</label>
                         <select class="form-control @error('body_part_id') is-invalid @enderror" id="body_part_id"
-                            name="body_part_id">
+                            name="accessories[body_part_id][]">
+                            @if (is_null($obj->body_part_id))
                             <option value="" disabled="" selected="">Selecciona</option>
+                            @endif
                             @foreach ($body_parts as $body_part)
+                            @if (old('accessories[body_part_id][]', $obj->body_part_id) == $body_part->id)
+                            <option value="{{$body_part->id}}" selected="">{{$body_part->name}}</option>
+                            @else
                             <option value="{{$body_part->id}}">{{$body_part->name}}</option>
+                            @endif
                             @endforeach
                         </select>
                         @error('body_part_id')
@@ -230,5 +235,4 @@
               </a>
             </div>
         </fieldset>
-    </form>
 </div>

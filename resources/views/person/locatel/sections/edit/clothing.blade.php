@@ -1,5 +1,4 @@
 <div class="tab-pane fade" id="pills-clothing" role="tabpanel" aria-labelledby="pills-clothing-tab">
-    <form id="testform">
         @if (count($person->clothes) >= 1)
         @foreach ($person->clothes as $obj)
         <input name="clothes[id][]" type="hidden" value="{{ old('clothes[id][]', $obj->id) }}">
@@ -57,7 +56,7 @@
                             @endif
                             @foreach ($colors as $color)
                             @if (old('clothes[color_2_id][]', $obj->color_2_id) == $color->id)
-                            <option value="{{$color->id}}">{{$color->name}}</option>
+                            <option value="{{$color->id}}" selected="">{{$color->name}}</option>
                             @else
                             <option value="{{$color->id}}">{{$color->name}}</option>
                             @endif
@@ -191,5 +190,4 @@
               </a>
             </div>
         </fieldset>
-    </form>
 </div>

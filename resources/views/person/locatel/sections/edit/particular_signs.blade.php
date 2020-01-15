@@ -1,5 +1,4 @@
 <div class="tab-pane fade" id="pills-particular_signs" role="tabpanel" aria-labelledby="pills-particular_signs-tab">
-    <form id="testform">
         @if (count($person->particular_signs) >= 1)
         @foreach ($person->particular_signs as $obj)
         <input name="particular_signs[id][]" type="hidden" value="{{ old('particular_signs[id][]', $obj->id) }}">
@@ -187,5 +186,4 @@
               </a>
             </div>
         </fieldset>
-    </form>
 </div>

@@ -1,5 +1,4 @@
 <div class="tab-pane fade text-labels" id="pills-clothing" role="tabpanel" aria-labelledby="pills-clothing-tab">
-  <form id="testform">
     <fieldset class="clonedInput1" id="toClone1">
       <div class="py-3">
           <div class="form-row">
@@ -87,5 +86,4 @@
         </a>
       </div>
     </fieldset>
-  </form>
 </div>
