@@ -74,7 +74,7 @@
         });
     });
 </script>
-<script type="text/javascript">
+{{--<script type="text/javascript">
     var map = L.map('map').setView([19.4325, -99.1332], 13);
     var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -96,18 +96,14 @@
 			//document.getElementById("id_latitude").value = lat[1];
 			//document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
 		});
-</script>
-<script>
-$('#pills-report-tab').click(function (e) {
-    //e.preventDefault();
-    //$(this).tab('show');
-    setTimeout(
-        function()
-        {
-            map.invalidateSize();
-        }, 300);
-});
-</script>
+    $('#pills-report-tab').click(function (e) {
+        setTimeout(
+            function()
+            {
+                map.invalidateSize();
+            }, 300);
+    });
+</script>--}}
 <script type="text/javascript">
     var half_affiliation = {!! json_encode($person->half_affiliation) !!};
     window.addEventListener("DOMContentLoaded", function(){
@@ -117,5 +113,95 @@ $('#pills-report-tab').click(function (e) {
             }
         });
     });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#btnDel').attr('disabled','disabled');
+    $('#btnAdd').click(function() {
+        var num = $('.clonedInput').length; // how many "duplicatable" input fields we currently have
+        var newNum = new Number(num + 1); // the numeric ID of the new input field being added
+        // create the new element via clone(), and manipulate it's ID using newNum value
+        if(newNum > 2){
+          var newElem = $('#Add' + num).clone().attr('id', 'Add' + newNum);
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#Add' + num).after(newElem);
+        }
+        else{
+          var newElem = $('#toClone').clone().attr('id', 'Add' + newNum);
+          // manipulate the name/id values of the input inside the new element
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          // insert the new element after the last "duplicatable" input field
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#toClone').after(newElem);
+        }
+
+
+        if (newNum == 10)
+          $('#btnAdd').attr('disabled','disabled');
+    });
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#btnDel').attr('disabled','disabled');
+    $('#btnAddClothing').click(function() {
+        var num = $('.clonedInput1').length; // how many "duplicatable" input fields we currently have
+        var newNum = new Number(num + 1); // the numeric ID of the new input field being added
+        // create the new element via clone(), and manipulate it's ID using newNum value
+        if(newNum > 2){
+          var newElem = $('#AddClothes' + num).clone().attr('id', 'AddClothes' + newNum);
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#AddClothes' + num).after(newElem);
+        }
+        else{
+          var newElem = $('#toClone1').clone().attr('id', 'AddClothes' + newNum);
+          // manipulate the name/id values of the input inside the new element
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          // insert the new element after the last "duplicatable" input field
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#toClone1').after(newElem);
+        }
+
+
+        if (newNum == 10)
+          $('#btnAddClothing').attr('disabled','disabled');
+    });
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#btnDel').attr('disabled','disabled');
+    $('#btnAddAccesories').click(function() {
+        var num = $('.clonedInput2').length; // how many "duplicatable" input fields we currently have
+        var newNum = new Number(num + 1); // the numeric ID of the new input field being added
+        // create the new element via clone(), and manipulate it's ID using newNum value
+        if(newNum > 2){
+          var newElem = $('#AddAccesorie' + num).clone().attr('id', 'AddAccesorie' + newNum);
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#AddAccesories' + num).after(newElem);
+        }
+        else{
+          var newElem = $('#toClone2').clone().attr('id', 'AddAccesorie' + newNum);
+          // manipulate the name/id values of the input inside the new element
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          // insert the new element after the last "duplicatable" input field
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#toClone2').after(newElem);
+        }
+
+
+        if (newNum == 10)
+          $('#btnAddAccesories').attr('disabled','disabled');
+    });
+  });
 </script>
 @endsection
