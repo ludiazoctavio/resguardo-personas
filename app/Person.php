@@ -347,15 +347,17 @@ class Person extends Model
                 $this->egress->companion->address()->update($request->companion_egress_address);
             }
         }
-        
-        if (!empty($request->half_affiliation)) {
-            self::half_affiliation()->updateOrCreate($this->half_affiliation->first('id')->toArray(), $request->half_affiliation);
+        //dd($this->half_affiliation);
+        if (!empty($this->half_affiliation)) {
+            self::half_affiliation()->update($request->half_affiliation);
+        }elseif (!empty($request->half_affiliation)) {
+            self::half_affiliation()->create($request->half_affiliation);
         }
 
         self::identification()->updateOrCreate($this->identification->first('id')->toArray(), $request->identification);
 
         //Señas particulares
-        /*
+        //dd($request->particular_signs);
         $particular_signs = [];
         foreach ($request->particular_signs as $name => $value)
         {
@@ -364,8 +366,19 @@ class Person extends Model
                 $particular_signs[$key][$name] = $row;
             }
         }
-        */
-        //self::particular_signs()->rawUpdate($particular_signs);
+        foreach ($particular_signs as $key => $value)
+        {
+            if (empty($value['id'])) {
+                $person->particular_signs()->create($value);
+            }else{
+                $particular_signs_new[$value['id']] = $value;
+                unset($particular_signs_new[$value['id']]['id']);
+                ParticularSign::updateOrCreate(
+                    ['id' => $value['id']],
+                    $particular_signs_new[$value['id']]
+                );
+            }
+        }
 
         //Ropa
         /*
