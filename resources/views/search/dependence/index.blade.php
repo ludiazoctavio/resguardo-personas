@@ -36,7 +36,7 @@
                 <tbody>
                     @foreach ($people as $item)
                     <tr>
-                        <th scope="row"><a href="#">{{$item->folio}}</a></th>
+                        <th scope="row"><a href="{{ route('dependence.person_dependence.edit', $item)}}">{{$item->folio}}</a></th>
                         <td>@if(!is_null($item->age)) {{$item->age->name}} @elseif($item->age_range) {{$item->age_range->name}} @endif</td>
                         <td>@if(strlen($item->getFullName()) >= 3) {{$item->getFullName()}} @else PERSONA NO IDENTIFICADA @endif</td>
                         <td>{{$item->entry->time}}</td>

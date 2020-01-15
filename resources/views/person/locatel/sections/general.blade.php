@@ -26,8 +26,8 @@
         </div>
         <div class="form-row">
             <div class="form-group required col-md-4">
-                <label for="first_name">Nombre(s):</label>
-                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="first_name" name="person[first_name]" value="{{ old('first_name') }}" placeholder="Escribe el nombre(s)" required>
+                <label for="person_first_name">Nombre(s):</label>
+                <input type="text" class="form-control @error('first_name') is-invalid @enderror" id="person_first_name" name="person[first_name]" value="{{ old('first_name') }}" placeholder="Escribe el nombre(s)" required>
                 @error('first_name')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -35,8 +35,8 @@
                 @enderror
             </div>
             <div class="form-group required col-md-4">
-                <label for="last_name_1">Primer apellido:</label>
-                <input type="text" class="form-control @error('last_name_1') is-invalid @enderror" id="last_name_1" name="person[last_name_1]" value="{{ old('last_name_1') }}" placeholder="Escribe el primer apellido" required>
+                <label for="person_last_name_1">Primer apellido:</label>
+                <input type="text" class="form-control @error('last_name_1') is-invalid @enderror" id="person_last_name_1" name="person[last_name_1]" value="{{ old('last_name_1') }}" placeholder="Escribe el primer apellido" required>
                 @error('last_name_1')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -44,8 +44,8 @@
                 @enderror
             </div>
             <div class="form-group col-md-4">
-                <label for="last_name_2">Segundo apellido:</label>
-                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="last_name_2" name="person[last_name_2]" value="{{ old('last_name_2') }}" placeholder="Escribe el segundo apellido">
+                <label for="person_last_name_2">Segundo apellido:</label>
+                <input type="text" class="form-control @error('last_name_2') is-invalid @enderror" id="person_last_name_2" name="person[last_name_2]" value="{{ old('last_name_2') }}" placeholder="Escribe el segundo apellido">
                 @error('last_name_2')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -66,8 +66,8 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <label for="age_id">Edad:</label>
-                <select class="form-control @error('age_id') is-invalid @enderror" id="age_id" name="person[age_id]">
+                <label for="person_age_id">Edad:</label>
+                <select class="form-control @error('age_id') is-invalid @enderror" id="person_age_id" name="person[age_id]">
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($ages as $age)
                     <option value="{{$age->id}}">{{$age->name}}</option>
@@ -80,8 +80,8 @@
                 @enderror
             </div>
             <div class="form-group required col-md-4">
-                <label for="gender_id">Sexo:</label>
-                <select class="form-control @error('gender_id') is-invalid @enderror" id="gender_id" name="person[gender_id]" required>
+                <label for="person_gender_id">Sexo:</label>
+                <select class="form-control @error('gender_id') is-invalid @enderror" id="person_gender_id" name="person[gender_id]" required>
                     <option value="" disabled="" selected="">Selecciona</option>
                     @foreach ($genders as $gender)
                     <option value="{{$gender->id}}">{{$gender->name}}</option>

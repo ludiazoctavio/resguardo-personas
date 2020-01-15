@@ -11,7 +11,7 @@
 @endsection
 @section('pleca_menu')
 <li class="nav-item mr-1">
-    <button id="search_person" type="button" class="btn btn-primary btn-06" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
+    <button id="search_person" type="button" class="btn btn-primary btn-06" style="display:none;" data-toggle="modal" data-target=".bd-example-modal-lg">Buscar persona</button>
 </li>
 <li class="nav-item">
     <button type="submit" form="reg-form" class="btn btn-06">Realizar registro</button>
@@ -79,7 +79,7 @@
                             <th scope="col">Edad</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Sexo</th>
-                            <th scope="col"></th>
+                            <th scope="col">Dependencia</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -105,7 +105,7 @@
         });
     });
 </script>
-<script type="text/javascript">
+{{--<script type="text/javascript">
     var map = L.map('map').setView([19.4325, -99.1332], 13);
     var OpenStreetMap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
@@ -127,16 +127,14 @@
 			//document.getElementById("id_latitude").value = lat[1];
 			//document.getElementById("id_longitude").value = lng[0].replace(/\s/g, '');
 		});
-</script>
-<script>
-$('#pills-report-tab').click(function (e) {
-    setTimeout(
-        function()
-        {
-            map.invalidateSize();
-        }, 300);
-});
-</script>
+    $('#pills-report-tab').click(function (e) {
+        setTimeout(
+            function()
+            {
+                map.invalidateSize();
+            }, 300);
+    });
+</script>--}}
 <script type="text/javascript">
     $(document).ready(function() {
     $('#btnDel').attr('disabled','disabled');
@@ -166,8 +164,20 @@ $('#pills-report-tab').click(function (e) {
           $('#btnAdd').attr('disabled','disabled');
     });
   });
+<<<<<<< HEAD
 </script>
 <script type="text/javascript">
+=======
+  </script>
+  <script type="text/javascript">
+    $('#pills-general-tab').click(function (e) {
+        setTimeout(
+            function()
+            {
+                $('#search_person').show();
+            }, 300);
+    });
+>>>>>>> 094a6c0c4dd76bafa5550fd46e507a078fc39438
 
   $.ajaxSetup({
 
@@ -176,15 +186,29 @@ $('#pills-report-tab').click(function (e) {
       }
   });
 
+<<<<<<< HEAD
   $("#search_person").click(function(e){
       e.preventDefault();
       var first_name = $("#first_name").val();
       var last_name_1 = $("#last_name_1").val();
       var last_name_2 = $("#last_name_2").val();
       console.log('Hi!');
+=======
+    $("#search_person").click(function(e){
+        e.preventDefault();
+
+        $('#tableSearch tbody').html('');
+
+        var first_name = $("#person_first_name").val();
+        var last_name_1 = $("#person_last_name_1").val();
+        var last_name_2 = $("#person_last_name_2").val();
+        var age = $("#person_age_id").val();
+        var gender = $("#person_gender_id").val();
+>>>>>>> 094a6c0c4dd76bafa5550fd46e507a078fc39438
 
       $.ajax({
 
+<<<<<<< HEAD
           type:'POST',
           url:'/ajaxRequest',
           data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2},
@@ -206,6 +230,17 @@ $('#pills-report-tab').click(function (e) {
                       +'<td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>'
                       +'</tr>');
               });
+=======
+            type:'POST',
+            url:'/ajaxRequest',
+            data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2, age:age, gender:gender},
+
+            success:function(data){
+
+                $('#tableSearch tbody').html(data.html);
+                
+            }
+>>>>>>> 094a6c0c4dd76bafa5550fd46e507a078fc39438
 
           }
 

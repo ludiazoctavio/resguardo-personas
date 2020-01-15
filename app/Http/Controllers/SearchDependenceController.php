@@ -53,7 +53,7 @@ class SearchDependenceController extends Controller
         }
         $this->authorize('index', Search::class);
         return view('search.dependence.index', [
-            'people' => $qs->get(),
+            'people' => $qs->orderBy('id', 'desc')->limit(50)->get(),
         ]);
     }
 

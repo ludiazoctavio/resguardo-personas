@@ -186,7 +186,7 @@ class PersonController extends Controller
         $input = $request->all();
         //return response()->json(['success'=>$input['first_name']]);
 
-        $qs = Person::all();
+        $qs = Person::where('closed', '=', 'FALSE');
         if(count($request->all()) > 0){
             $arrayName = [];
             if($input['first_name'] != null){
@@ -198,6 +198,9 @@ class PersonController extends Controller
             if($input['last_name_2'] != null){
                 array_push($arrayName, ['last_name_2', 'like', '%'.$input['last_name_2'].'%']);
             }
+            if($input['gender'] != null){
+                array_push($arrayName, ['gender_id', '=', $input['gender']]);
+            }
             $qs = $qs->where($arrayName);
             
             if ($request->date){
@@ -205,10 +208,12 @@ class PersonController extends Controller
                     $q->where('date', '=', date($request->date));
                 });
             }
-        }
-        $qs->get();
 
-        return response()->json(['success'=>$qs]);
+            $returnHTML = view('person.locatel.search_person')->with('people', $qs->orderBy('id', 'desc')->limit(10)->get())->render();
+            return response()->json(array('success' => true, 'html'=>$returnHTML));
+            //return response()->json(['success'=>$qs->get()]);
+        }
+
 
     }
 }
