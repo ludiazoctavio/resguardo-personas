@@ -7,17 +7,25 @@
 @section('content')
 <div class="card">
     <div class="card-header">
+      <form method="GET" action="">
         <div class="row">
-            <form method="GET" class="col-10 d-flex justify-content-lg-between" action="">
-                <input type="text" class="form-control" id="folio" name="folio" placeholder="Buscar por folio" value="{{ app('request')->input('folio') }}">
-                &nbsp;&nbsp;
-                <input type="text" class="form-control" id="name" name="name" placeholder="Buscar por nombre" value="{{ app('request')->input('name') }}">
-                &nbsp;&nbsp;
-                <button type="submit" class="btn btn-cdmx ml-2"><i class="fa fa-search"></i></button>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ app('request')->input('date') }}">
-            </form>
+          <div class="col-lg-4 col-12">
+            <input type="text" class="form-control" id="folio" name="folio" placeholder="Buscar por folio" value="{{ app('request')->input('folio') }}">
+            &nbsp;&nbsp;
+          </div>
+          <div class="col-lg-4 col-12">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Buscar por nombre" value="{{ app('request')->input('name') }}">
+            &nbsp;&nbsp;
+          </div>
+          <div class="col-lg-2 col-12 text-lg-center text-right mb-lg-1 mb-3">
+            <button type="submit" class="btn btn-cdmx ml-2"><i class="fa fa-search"></i></button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          </div>
+          <div class="col-lg-2 col-12">
+            <input type="date" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{ app('request')->input('date') }}">
+          </div>
         </div>
+      </form>
     </div>
     <div class="card-body p-0">
         <div class="table-responsive">

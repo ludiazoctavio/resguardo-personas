@@ -7,15 +7,21 @@
 @section('content')
 <div class="card">
     <div class="card-header">
+      <form action="" method="GET">
         <div class="row">
-            <form method="GET" class="col-lg-8 col-12 d-flex justify-content-lg-between" action="">
-                <input type="text" class="form-control" id="folio" name="folio" placeholder="Buscar por folio" value="{{ app('request')->input('folio') }}">
-                &nbsp;&nbsp;
-                <input type="text" class="form-control" id="name" name="name" placeholder="Buscar por nombre" value="{{ app('request')->input('name') }}">
-                &nbsp;&nbsp;
-                <button type="submit" class="btn btn-cdmx ml-2"><i class="fa fa-search"></i></button>
-            </form>
+          <div class="col-lg-3 col-12">
+            <input type="text" class="form-control" id="folio" name="folio" placeholder="Buscar por folio" value="{{ app('request')->input('folio') }}">
+            &nbsp;&nbsp;
+          </div>
+          <div class="col-lg-3 col-12">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Buscar por nombre" value="{{ app('request')->input('name') }}">
+            &nbsp;&nbsp;
+          </div>
+          <div class="col-lg-2 col-12">
+            <button type="submit" class="btn btn-cdmx ml-2"><i class="fa fa-search"></i></button>
+          </div>
         </div>
+      </form>
     </div>
     <div class="card-body p-0">
         <div class="table-responsive">

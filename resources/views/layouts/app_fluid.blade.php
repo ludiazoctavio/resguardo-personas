@@ -16,7 +16,7 @@
 <body class="body-custom">
     <div id="app">
         @include('layouts.includes.header')
-        <main class="py-4">
+        <main class="py-5">
             @yield('content')
         </main>
     </div>
