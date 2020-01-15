@@ -164,12 +164,68 @@
           $('#btnAdd').attr('disabled','disabled');
     });
   });
-<<<<<<< HEAD
 </script>
 <script type="text/javascript">
-=======
-  </script>
-  <script type="text/javascript">
+    $(document).ready(function() {
+    $('#btnDel').attr('disabled','disabled');
+    $('#btnAddClothing').click(function() {
+        var num = $('.clonedInput1').length; // how many "duplicatable" input fields we currently have
+        var newNum = new Number(num + 1); // the numeric ID of the new input field being added
+        // create the new element via clone(), and manipulate it's ID using newNum value
+        if(newNum > 2){
+          var newElem = $('#AddClothes' + num).clone().attr('id', 'AddClothes' + newNum);
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#AddClothes' + num).after(newElem);
+        }
+        else{
+          var newElem = $('#toClone1').clone().attr('id', 'AddClothes' + newNum);
+          // manipulate the name/id values of the input inside the new element
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          // insert the new element after the last "duplicatable" input field
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#toClone1').after(newElem);
+        }
+
+
+        if (newNum == 10)
+          $('#btnAddClothing').attr('disabled','disabled');
+    });
+  });
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+    $('#btnDel').attr('disabled','disabled');
+    $('#btnAddAccesories').click(function() {
+        var num = $('.clonedInput2').length; // how many "duplicatable" input fields we currently have
+        var newNum = new Number(num + 1); // the numeric ID of the new input field being added
+        // create the new element via clone(), and manipulate it's ID using newNum value
+        if(newNum > 2){
+          var newElem = $('#AddAccesorie' + num).clone().attr('id', 'AddAccesorie' + newNum);
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#AddAccesories' + num).after(newElem);
+        }
+        else{
+          var newElem = $('#toClone2').clone().attr('id', 'AddAccesorie' + newNum);
+          // manipulate the name/id values of the input inside the new element
+          newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
+          // insert the new element after the last "duplicatable" input field
+          let child = newElem[0];
+          child.querySelector('input').value = ""
+          $('#toClone2').after(newElem);
+        }
+
+
+        if (newNum == 10)
+          $('#btnAddAccesories').attr('disabled','disabled');
+    });
+  });
+</script>
+<script type="text/javascript">
     $('#pills-general-tab').click(function (e) {
         setTimeout(
             function()
@@ -177,7 +233,6 @@
                 $('#search_person').show();
             }, 300);
     });
->>>>>>> 094a6c0c4dd76bafa5550fd46e507a078fc39438
 
   $.ajaxSetup({
 
@@ -186,14 +241,6 @@
       }
   });
 
-<<<<<<< HEAD
-  $("#search_person").click(function(e){
-      e.preventDefault();
-      var first_name = $("#first_name").val();
-      var last_name_1 = $("#last_name_1").val();
-      var last_name_2 = $("#last_name_2").val();
-      console.log('Hi!');
-=======
     $("#search_person").click(function(e){
         e.preventDefault();
 
@@ -204,33 +251,9 @@
         var last_name_2 = $("#person_last_name_2").val();
         var age = $("#person_age_id").val();
         var gender = $("#person_gender_id").val();
->>>>>>> 094a6c0c4dd76bafa5550fd46e507a078fc39438
 
       $.ajax({
 
-<<<<<<< HEAD
-          type:'POST',
-          url:'/ajaxRequest',
-          data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2},
-
-          success:function(data){
-
-              console.log(data);
-            //alert(data.success);
-            $('#modal_search tbody').html('');
-              $.each( data.success, function( key, value ) {
-                  console.log(value);
-                  var name = value.first_name+' '+value.last_name_1+' '+value.last_name_2;
-                  var age = value.age != "null"?value.age:value.rangue_age
-                  $('#modal_search tbody').after('<tr>'
-                      +'<th scope="row"><a href="#">'+value.folio+'</a></th>'
-                      +'<td class="text-center">'+age+'</td>'
-                      +'<td class="text-center">'+name+'</td>'
-                      +'<td class="text-center">'+value.gender+'</td>'
-                      +'<td class="text-center"><a href="#"><i class="fa fa-pencil"></i></a></td>'
-                      +'</tr>');
-              });
-=======
             type:'POST',
             url:'/ajaxRequest',
             data:{first_name:first_name, last_name_1:last_name_1, last_name_2:last_name_2, age:age, gender:gender},
@@ -240,7 +263,6 @@
                 $('#tableSearch tbody').html(data.html);
                 
             }
->>>>>>> 094a6c0c4dd76bafa5550fd46e507a078fc39438
 
           }
 
