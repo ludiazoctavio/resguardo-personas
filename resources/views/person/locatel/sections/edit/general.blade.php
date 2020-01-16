@@ -59,7 +59,16 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="alias">Responde al nombre de:</label>
-                <input type="text" class="form-control @error('alias') is-invalid @enderror" id="alias" name="alias" value="{{ old('alias') }}" placeholder="Especifica el apodo o alias con el que responde la persona">
+                @if (count($person->aliases) >= 1)
+                @foreach ($person->aliases as $alias)
+                <input name="aliases[id][]" type="hidden" value="{{ old('aliases[id][]', $alias->id) }}">
+                <input type="text" class="form-control @error('alias') is-invalid @enderror" id="alias" name="aliases[alias][]"
+                    value="{{ old('alias', $alias->alias) }}" placeholder="Especifica el apodo o alias con el que responde la persona">
+                @endforeach
+                @else
+                <input type="text" class="form-control @error('alias') is-invalid @enderror" id="alias" name="aliases[alias][]"
+                    value="{{ old('alias') }}" placeholder="Especifica el apodo o alias con el que responde la persona">
+                @endif
                 @error('alias')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>

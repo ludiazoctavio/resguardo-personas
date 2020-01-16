@@ -51,7 +51,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="vital_signs_id">Signos vitales:</label>
-                    <select class="form-control @error('vital_signs_id') is-invalid @enderror" id="vital_signs_id" name="vital_signs_id">
+                    <select class="form-control @error('vital_signs_id') is-invalid @enderror" id="vital_signs_id" name="person[vital_signs_id]">
                         <option value="" disabled="" selected="">Selecciona</option>
                         @foreach ($vital_signs as $status)
                         <option value="{{$status->id}}">{{$status->name}}</option>

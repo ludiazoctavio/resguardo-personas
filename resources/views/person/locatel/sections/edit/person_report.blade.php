@@ -4,11 +4,13 @@
             <div class="form-group col-md-6">
                 <label for="anonymous">*Anónimo:</label>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline1" name="person_report[confidential]" value="true" class="custom-control-input" @if ($person->person_report->confidential) checked @endif>
+                    <input type="radio" id="customRadioInline1" name="person_report[confidential]"
+                        value="true" class="custom-control-input" @if ($person->person_report->confidential) checked @endif>
                     <label class="custom-control-label" for="customRadioInline1">Sí</label>
                 </div>
                 <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline2" name="person_report[confidential]" value="false" class="custom-control-input" @if (!$person->person_report->confidential) checked @endif>
+                    <input type="radio" id="customRadioInline2" name="person_report[confidential]"
+                        value="false" class="custom-control-input" @if (!$person->person_report->confidential) checked @endif>
                     <label class="custom-control-label" for="customRadioInline2">No</label>
                 </div>
                 @error('accept')
