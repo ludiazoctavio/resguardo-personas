@@ -13,7 +13,7 @@ class Person extends Model
     protected $fillable = [
         'folio', 'type_register_id', 'dependence_id', 'first_name', 'last_name_1', 'last_name_2', 'age_id', 'age_range_id',
         'gender_id', 'nationality_id', 'disability_id', 'physical_health_id', 'mental_health_id', 'occupation_id', 'height_id',
-        'scholarship_id', 'marital_status_id', 'priority_id', 'confidential', 'authorization', 'public', 'closed', 'user_id'
+        'scholarship_id', 'marital_status_id', 'priority_id', 'confidential', 'authorization', 'public', 'closed', 'user_id', 'vital_signs_id'
     ];
 
     //Relaciones
@@ -148,6 +148,11 @@ class Person extends Model
         return $this->hasOne('App\Catalogs\Marital_status', 'id', 'marital_status_id');
     }
 
+    public function vital_signs()
+    {
+        return $this->hasOne('App\Catalogs\Vital_signs', 'id', 'vital_signs_id');
+    }
+
     //Almacenamiento
     public function store($request)
     {
@@ -158,6 +163,19 @@ class Person extends Model
             'dependence_id' => Auth::user()->dependence->id,
             'user_id' => Auth::id(),
         ]);
+
+        //Alias
+        if (!empty($request->aliases)) {
+            $aliases = [];
+            foreach ($request->aliases as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $aliases[$key][$name] = $row;
+                }
+            }
+            $person->aliases()->createMany($aliases);
+        }
 
         $person_report = $person->person_report()->create($request->person_report + [
             'person_id' => $person->id,
@@ -243,6 +261,19 @@ class Person extends Model
             $person->half_affiliation()->create($request->half_affiliation);
         }
 
+        //Alias
+        if (!empty($request->aliases)) {
+            $aliases = [];
+            foreach ($request->aliases as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $aliases[$key][$name] = $row;
+                }
+            }
+            $person->aliases()->createMany($aliases);
+        }
+
         if (!empty($request->identification)) {
             $person->identification()->create($request->identification);
         }else {
@@ -301,6 +332,31 @@ class Person extends Model
     {
         self::update($request->person);
 
+        //Alias
+        if (!empty($request->aliases)) {
+            $aliases = [];
+            foreach ($request->aliases as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $aliases[$key][$name] = $row;
+                }
+            }
+            foreach ($aliases as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::aliases()->create($value);
+                }else{
+                    $aliases_update[$value['id']] = $value;
+                    unset($aliases_update[$value['id']]['id']);
+                    Alias::updateOrCreate(
+                        ['id' => $value['id']],
+                        $aliases_update[$value['id']]
+                    );
+                }
+            }
+        }
+
         self::person_report()->update($request->person_report);
 
         $this->person_report->phones()->update($request->person_report_phone);
@@ -313,6 +369,81 @@ class Person extends Model
 
         if (!empty($request->half_affiliation)) {
             self::half_affiliation()->update($request->half_affiliation);
+        }
+
+        //Señas particulares
+        if (!empty($request->particular_signs)) {
+            $particular_signs = [];
+            foreach ($request->particular_signs as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $particular_signs[$key][$name] = $row;
+                }
+            }
+            foreach ($particular_signs as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::particular_signs()->create($value);
+                }else{
+                    $particular_signs_update[$value['id']] = $value;
+                    unset($particular_signs_update[$value['id']]['id']);
+                    ParticularSign::updateOrCreate(
+                        ['id' => $value['id']],
+                        $particular_signs_update[$value['id']]
+                    );
+                }
+            }
+        }
+
+        //Ropa
+        if (!empty($request->clothes)) {
+            $clothes = [];
+            foreach ($request->clothes as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $clothes[$key][$name] = $row;
+                }
+            }
+            foreach ($clothes as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::clothes()->create($value);
+                }else{
+                    $clothes_update[$value['id']] = $value;
+                    unset($clothes_update[$value['id']]['id']);
+                    Clothing::updateOrCreate(
+                        ['id' => $value['id']],
+                        $clothes_update[$value['id']]
+                    );
+                }
+            }
+        }
+
+        //Accesorios
+        if (!empty($request->accessories)) {
+            $accessories = [];
+            foreach ($request->accessories as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $accessories[$key][$name] = $row;
+                }
+            }
+            foreach ($accessories as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::accessories()->create($value);
+                }else{
+                    $accessories_update[$value['id']] = $value;
+                    unset($accessories_update[$value['id']]['id']);
+                    Accessory::updateOrCreate(
+                        ['id' => $value['id']],
+                        $accessories_update[$value['id']]
+                    );
+                }
+            }
         }
 
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
@@ -347,7 +478,6 @@ class Person extends Model
                 $this->egress->companion->address()->update($request->companion_egress_address);
             }
         }
-        //dd($this->half_affiliation);
         if (!empty($this->half_affiliation)) {
             self::half_affiliation()->update($request->half_affiliation);
         }elseif (!empty($request->half_affiliation)) {
@@ -356,42 +486,106 @@ class Person extends Model
 
         self::identification()->updateOrCreate($this->identification->first('id')->toArray(), $request->identification);
 
-        //Señas particulares
-        //dd($request->particular_signs);
-        $particular_signs = [];
-        foreach ($request->particular_signs as $name => $value)
-        {
-            foreach ($value as $key => $row)
+        //Alias
+        if (!empty($request->aliases)) {
+            $aliases = [];
+            foreach ($request->aliases as $name => $value)
             {
-                $particular_signs[$key][$name] = $row;
+                foreach ($value as $key => $row)
+                {
+                    $aliases[$key][$name] = $row;
+                }
+            }
+            foreach ($aliases as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::aliases()->create($value);
+                }else{
+                    $aliases_update[$value['id']] = $value;
+                    unset($aliases_update[$value['id']]['id']);
+                    Alias::updateOrCreate(
+                        ['id' => $value['id']],
+                        $aliases_update[$value['id']]
+                    );
+                }
             }
         }
-        foreach ($particular_signs as $key => $value)
-        {
-            if (empty($value['id'])) {
-                $person->particular_signs()->create($value);
-            }else{
-                $particular_signs_new[$value['id']] = $value;
-                unset($particular_signs_new[$value['id']]['id']);
-                ParticularSign::updateOrCreate(
-                    ['id' => $value['id']],
-                    $particular_signs_new[$value['id']]
-                );
+
+        //Señas particulares
+        if (!empty($request->particular_signs)) {
+            $particular_signs = [];
+            foreach ($request->particular_signs as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $particular_signs[$key][$name] = $row;
+                }
+            }
+            foreach ($particular_signs as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::particular_signs()->create($value);
+                }else{
+                    $particular_signs_update[$value['id']] = $value;
+                    unset($particular_signs_update[$value['id']]['id']);
+                    ParticularSign::updateOrCreate(
+                        ['id' => $value['id']],
+                        $particular_signs_update[$value['id']]
+                    );
+                }
             }
         }
 
         //Ropa
-        /*
-        $clothes = [];
-        foreach ($request->clothes as $name => $value)
-        {
-            foreach ($value as $key => $row)
+        if (!empty($request->clothes)) {
+            $clothes = [];
+            foreach ($request->clothes as $name => $value)
             {
-                $clothes[$key][$name] = $row;
+                foreach ($value as $key => $row)
+                {
+                    $clothes[$key][$name] = $row;
+                }
             }
-        }*/
-        //self::clothes()->rawUpdate($clothes);
-        
+            foreach ($clothes as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::clothes()->create($value);
+                }else{
+                    $clothes_update[$value['id']] = $value;
+                    unset($clothes_update[$value['id']]['id']);
+                    Clothing::updateOrCreate(
+                        ['id' => $value['id']],
+                        $clothes_update[$value['id']]
+                    );
+                }
+            }
+        }
+
+        //Accesorios
+        if (!empty($request->accessories)) {
+            $accessories = [];
+            foreach ($request->accessories as $name => $value)
+            {
+                foreach ($value as $key => $row)
+                {
+                    $accessories[$key][$name] = $row;
+                }
+            }
+            foreach ($accessories as $key => $value)
+            {
+                if (empty($value['id'])) {
+                    self::accessories()->create($value);
+                }else{
+                    $accessories_update[$value['id']] = $value;
+                    unset($accessories_update[$value['id']]['id']);
+                    Accessory::updateOrCreate(
+                        ['id' => $value['id']],
+                        $accessories_update[$value['id']]
+                    );
+                }
+            }
+        }
+
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
     }
 

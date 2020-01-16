@@ -35,8 +35,16 @@
         <div class="form-row">
             <div class="form-group col-md-12">
                 <label for="alias">Responde al nombre de:</label>
-                <input type="text" class="form-control @error('alias') is-invalid @enderror" id="alias" name="alias"
+                @if (count($person->aliases) >= 1)
+                @foreach ($person->aliases as $alias)
+                <input name="aliases[id][]" type="hidden" value="{{ old('aliases[id][]', $alias->id) }}">
+                <input type="text" class="form-control @error('alias') is-invalid @enderror" id="alias" name="aliases[alias][]"
+                    value="{{ old('alias', $alias->alias) }}" placeholder="Especifica el apodo o alias con el que responde la persona">
+                @endforeach
+                @else
+                <input type="text" class="form-control @error('alias') is-invalid @enderror" id="alias" name="aliases[alias][]"
                     value="{{ old('alias') }}" placeholder="Especifica el apodo o alias con el que responde la persona">
+                @endif
                 @error('alias')
                     <div class="invalid-feedback active" role="alert">
                         <strong>{{ $message }}</strong>
@@ -134,9 +142,15 @@
             <div class="form-group col-md-4">
                 <label for="vital_signs_id">Signos vitales:</label>
                 <select class="form-control @error('vital_signs_id') is-invalid @enderror" id="vital_signs_id" name="person[vital_signs_id]">
+                    @if (is_null($person->vital_signs))
                     <option value="" disabled="" selected="">Selecciona</option>
+                    @endif
                     @foreach ($vital_signs as $status)
+                    @if (old('person[vital_signs_id]', $person->vital_signs_id) == $status->id)
+                    <option value="{{$status->id}}" selected="">{{$status->name}}</option>
+                    @else
                     <option value="{{$status->id}}">{{$status->name}}</option>
+                    @endif
                     @endforeach
                 </select>
                 @error('vital_signs_id')
@@ -168,9 +182,8 @@
             <div class="form-group col-md-4">
                 <label for="confidential">Confidencial:</label>
                 <select class="form-control @error('confidential') is-invalid @enderror" id="confidential" name="person[confidential]">
-                    <option value="" disabled="" selected="">Selecciona</option>
-                    <option value="true">Sí</option>
-                    <option value="false">No</option>
+                    <option value="true" @if($person->confidential) selected="" @endif>Sí</option>
+                    <option value="false" @if(!$person->confidential) selected="" @endif>No</option>
                 </select>
                 @error('confidential')
                     <div class="invalid-feedback active" role="alert">
