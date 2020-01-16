@@ -20,6 +20,7 @@ class SearchController extends Controller
     public function index(Request $request)
     {
         $qs = Person::where('type_register_id', '=', 1);
+        $qs->where('closed' , '=', false);
         if(count($request->all()) > 0){
             if ($request->folio){
                 $qs = $qs->where('folio' , 'like', '%'.$request->folio.'%');

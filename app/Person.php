@@ -449,6 +449,13 @@ class Person extends Model
         alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
     }
 
+    public function closed($request)
+    {
+        self::update(['closed' => true]);
+        
+        alert()->success('La actualización del registro de la persona se realizó con éxito.', 'Folio '.$this->folio)->showConfirmButton();
+    }
+
     public function my_update_dependence($request)
     {
         self::update($request->person);

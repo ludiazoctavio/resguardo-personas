@@ -11,7 +11,7 @@
 @endsection
 @section('pleca_menu')
 <li class="nav-item">
-    <button type="submit" class="btn btn-primary mr-4">Persona localizada</button>
+    <button type="submit" class="btn btn-primary mr-4" onclick="send_form()">Persona localizada</button>
 </li>
 <li class="nav-item">
     <button type="submit" form="reg-form" class="btn btn-primary">Actualizar registro</button>
@@ -59,6 +59,10 @@
                 @include('person.locatel.sections.edit.clothing')
                 @include('person.locatel.sections.edit.accessories')
             </div>
+        </form>
+        <form method="POST" action="{{ route('dashboard.person.closed', $person) }}" name="delete_form">
+            @method('PUT')
+            @csrf
         </form>
     </div>
 </div>
@@ -203,5 +207,37 @@
           $('#btnAddAccesories').attr('disabled','disabled');
     });
   });
+</script>
+<script>
+    function send_form()
+    {
+        swal({
+            title:"¿Deseas registrar la localización de la pesona?",
+            text:"Esta acción no se puede deshacer",
+            icon:"warning",
+            buttons: {
+                cancel:{
+                    text:"No, cancelar",
+                    value:false,
+                    visible: true,
+                    closeModal: true,
+                },
+                confirm:{
+                    text:"Si, continuar",
+                    value:true,
+                    visible: true,
+                    closeModal: true,
+                }
+            }
+        })
+        .then((isConfir) =>
+        {
+            if (isConfir) {
+                document.delete_form.submit();
+            }else{
+                swal("Operación cancelada", "No se modificó el registro", "error")
+            }
+        });
+    }
 </script>
 @endsection

@@ -21,6 +21,7 @@ class SearchDependenceController extends Controller
     public function index(Request $request)
     {
         $qs = Person::where('type_register_id', '=', 2);
+        $qs->where('closed' , '=', false);
         if (Auth::user()->has_role(6)) {
             $qs->where('dependence_id', '=', Auth::user()->dependence->id);
         }
