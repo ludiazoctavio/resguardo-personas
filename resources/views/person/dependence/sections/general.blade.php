@@ -33,7 +33,7 @@
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label for="disability_id">Tipo de discapacidad:</label>
-                    <select class="form-control @error('disability_id') is-invalid @enderror" id="disability_id" name="disability_id">
+                    <select class="form-control @error('disability_id') is-invalid @enderror" id="disability_id" name="person[disability_id]">
                         <option value="" disabled="" selected="">Selecciona</option>
                         @foreach ($disabilities as $disability)
                         <option value="{{$disability->id}}">{{$disability->name}}</option>
