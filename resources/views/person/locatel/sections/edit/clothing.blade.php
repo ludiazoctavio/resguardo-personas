@@ -74,7 +74,7 @@
                 <div class="form-group col-md-12">
                     <label for="reference">Referencia:</label>
                     <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference"
-                        name="reference" value="{{ old('particular_signs[description][]', $obj->description) }}" placeholder="Escribe la referencia">
+                        name="clothes[description][]" value="{{ old('particular_signs[description][]', $obj->description) }}" placeholder="Escribe la referencia">
                     @error('reference')
                         <div class="invalid-feedback active" role="alert">
                             <strong>{{ $message }}</strong>
@@ -155,7 +155,8 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                     <label for="reference">Referencia:</label>
-                    <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference" name="clothes[description][]" value="{{ old('reference') }}" placeholder="Escribe la referencia">
+                    <input type="text" class="form-control @error('reference') is-invalid @enderror" id="reference"
+                        name="clothes[description][]" value="{{ old('reference') }}" placeholder="Escribe la referencia">
                     @error('reference')
                         <div class="invalid-feedback active" role="alert">
                             <strong>{{ $message }}</strong>
