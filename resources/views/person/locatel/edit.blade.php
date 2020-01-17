@@ -190,7 +190,7 @@
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           let child = newElem[0];
           child.querySelector('input').value = ""
-          $('#AddAccesories' + num).after(newElem);
+          $('#AddAccesorie' + num).after(newElem);
         }
         else{
           var newElem = $('#toClone2').clone().attr('id', 'AddAccesorie' + newNum);
