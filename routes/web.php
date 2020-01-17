@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth'], 'as' => 'dashboard.'], function () {
     Route::resource('permission', 'PermissionController');
     Route::resource('dependence', 'DependenceController');
     Route::resource('person', 'PersonController');
+    Route::put('person/{person}/closed', 'PersonController@closed')->name('person.closed');
     Route::resource('report', 'ReportController');
     Route::resource('search', 'SearchController');
     Route::get('ajaxRequest', 'PersonController@ajaxRequest');

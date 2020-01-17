@@ -20,11 +20,21 @@ class SearchController extends Controller
     public function index(Request $request)
     {
         $qs = Person::where('type_register_id', '=', 1);
+        $qs->where('closed' , '=', false);
         if(count($request->all()) > 0){
             if ($request->folio){
                 $qs = $qs->where('folio' , 'like', '%'.$request->folio.'%');
             }
             if ($request->name){
+                $columns = ['first_name','last_name_1','last_name_2'];
+                $value = $request->name;
+                $qs->where(function ($q) use ($columns, $value) {
+                    foreach ($columns as $column) {
+                        $q->orWhere($column, 'like', "%{$value}%");
+                    }
+                });
+
+                /*
                 $fullName = $this->split_name($request->name);
                 $arrayName = [];
                 if($fullName['first_name'] != null){
@@ -43,6 +53,7 @@ class SearchController extends Controller
                     array_push($arrayName, ['last_name_1', 'like', '%'.$fullName['middle_name'].'%']);
                 }
                 $qs = $qs->where($arrayName);
+                */
             }
             if ($request->date){
                 $qs = $qs->whereHas('disappearance_report', function($q) use ($request){
