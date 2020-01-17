@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form method="POST" id="reg-form" class="" action="{{ route('dependence.person_dependence.store_identified') }}">
+        <form method="POST" id="reg-form" class="" action="{{ route('dependence.person_dependence.store_identified') }}" enctype="multipart/form-data">
             @csrf
             <div class="tab-content" id="pills-tabContent">
                 @include('person.dependence.sections.general')
@@ -70,7 +70,14 @@
           var newElem = $('#Add' + num).clone().attr('id', 'Add' + newNum);
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           let child = newElem[0];
-          child.querySelector('input').value = ""
+          let input_nodes = child.querySelectorAll('input');
+          for (var i = 0; i < input_nodes.length; i++) {
+            input_nodes[i].value = "";
+          }
+          let select_nodes = child.querySelectorAll('select');
+          for (var i = 0; i < select_nodes.length; i++) {
+              select_nodes[i].value = "";
+          }
           $('#Add' + num).after(newElem);
         }
         else{
@@ -79,7 +86,14 @@
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           // insert the new element after the last "duplicatable" input field
           let child = newElem[0];
-          child.querySelector('input').value = ""
+          let input_nodes = child.querySelectorAll('input');
+          for (var i = 0; i < input_nodes.length; i++) {
+            input_nodes[i].value = "";
+          }
+          let select_nodes = child.querySelectorAll('select');
+          for (var i = 0; i < select_nodes.length; i++) {
+              select_nodes[i].value = "";
+          }
           $('#toClone').after(newElem);
         }
 
@@ -100,7 +114,14 @@
           var newElem = $('#AddClothes' + num).clone().attr('id', 'AddClothes' + newNum);
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           let child = newElem[0];
-          child.querySelector('input').value = ""
+          let input_nodes = child.querySelectorAll('input');
+          for (var i = 0; i < input_nodes.length; i++) {
+            input_nodes[i].value = "";
+          }
+          let select_nodes = child.querySelectorAll('select');
+          for (var i = 0; i < select_nodes.length; i++) {
+              select_nodes[i].value = "";
+          }
           $('#AddClothes' + num).after(newElem);
         }
         else{
@@ -109,7 +130,14 @@
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           // insert the new element after the last "duplicatable" input field
           let child = newElem[0];
-          child.querySelector('input').value = ""
+          let input_nodes = child.querySelectorAll('input');
+          for (var i = 0; i < input_nodes.length; i++) {
+            input_nodes[i].value = "";
+          }
+          let select_nodes = child.querySelectorAll('select');
+          for (var i = 0; i < select_nodes.length; i++) {
+              select_nodes[i].value = "";
+          }
           $('#toClone1').after(newElem);
         }
 
@@ -131,7 +159,14 @@
           var newElem = $('#AddAccesorie' + num).clone().attr('id', 'AddAccesorie' + newNum);
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           let child = newElem[0];
-          child.querySelector('input').value = "";
+          let input_nodes = child.querySelectorAll('input');
+          for (var i = 0; i < input_nodes.length; i++) {
+            input_nodes[i].value = "";
+          }
+          let select_nodes = child.querySelectorAll('select');
+          for (var i = 0; i < select_nodes.length; i++) {
+              select_nodes[i].value = "";
+          }
           $('#AddAccesorie' + num).after(newElem);
         }
         else{
@@ -140,7 +175,14 @@
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           // insert the new element after the last "duplicatable" input field
           let child = newElem[0];
-          child.querySelector('input').value = ""
+          let input_nodes = child.querySelectorAll('input');
+          for (var i = 0; i < input_nodes.length; i++) {
+            input_nodes[i].value = "";
+          }
+          let select_nodes = child.querySelectorAll('select');
+          for (var i = 0; i < select_nodes.length; i++) {
+              select_nodes[i].value = "";
+          }
           $('#toClone2').after(newElem);
         }
 

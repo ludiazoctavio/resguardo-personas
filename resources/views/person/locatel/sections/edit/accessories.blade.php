@@ -229,7 +229,7 @@
         @endif
         <fieldset>
             <div class="row d-flex float-right">
-              <a class="ml-1 mr-3" onclick="return false;" type="button" id="btnAddAccesories">
+              <a class="ml-1 mr-3" type="button" id="btnAddAccesories">
                 <label class="text-labels mt-1">Agregar otro accesorio</label>
                 <img src="/images/mas.svg" alt="">
               </a>

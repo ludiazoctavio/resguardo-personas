@@ -105,6 +105,14 @@ class IdentificationTypesTableSeeder extends Seeder
                 'created_at' => NULL,
                 'updated_at' => NULL,
             ),
+            11 => 
+            array (
+                'id' => 12,
+                'name' => 'OTRO',
+                'inactive' => false,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
         ));
         
         
