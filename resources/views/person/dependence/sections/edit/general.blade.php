@@ -193,12 +193,34 @@
             </div>
         </div>
     </div>
-    {{--<div class="border-top py-3">
+    <div class="border-top py-3">
         <div class="form-row">
             <div class="form-group col-md-6">
+                @if ($person->image)
+                <div class="m-2">
+                    <button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModalCenter">
+                    Ver imgen
+                    </button>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <img class="img-fluid rounded" src="data:image/png;base64, {{$person->image->image}}" alt="{{$person->folio}}" />
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                @endif
                 <label for="image_general">Agregar fotografía (si se cuenta con ella):</label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="image_general" name="image_general" accept="image/*" lang="es">
+                    <input type="file" class="custom-file-input" id="image_general" name="person_image" accept="image/*" lang="es">
                     <label class="custom-file-label" for="image_general">Selecciona un archivo JPG o PNG</label>
                 </div>
                 @error('image_general')
@@ -208,5 +230,5 @@
                 @enderror
             </div>
         </div>
-    </div>--}}
+    </div>
 </div>

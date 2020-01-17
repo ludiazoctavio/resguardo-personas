@@ -65,12 +65,12 @@
                 </div>
             </div>
         </div>
-        {{--<div class="border-top py-3">
+        <div class="border-top py-3">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="image_general">Agregar fotografía (si se cuenta con ella):</label>
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="image_general" name="image_general" accept="image/*" lang="es">
+                        <input type="file" class="custom-file-input" id="image_general" name="person_image" accept="image/*" lang="es">
                         <label class="custom-file-label" for="image_general">Selecciona un archivo JPG o PNG</label>
                     </div>
                     @error('image_general')
@@ -80,5 +80,5 @@
                     @enderror
                 </div>
             </div>
-        </div>--}}
+        </div>
     </div>

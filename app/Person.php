@@ -62,6 +62,11 @@ class Person extends Model
         return $this->morphOne('App\Address', 'addressable');
     }
 
+    public function image()
+    {
+        return $this->morphOne('App\Image', 'imageable');
+    }
+
     public function clothes()
     {
         return $this->hasMany('App\Clothing');
@@ -242,7 +247,6 @@ class Person extends Model
             'dependence_id' => Auth::user()->dependence->id,
             'user_id' => Auth::id(),
         ]);
-        
 
         $entry = $person->entry()->create($request->entry);
 
@@ -323,6 +327,11 @@ class Person extends Model
         $egress_companion = $egress->companion()->create([]);
         $egress_companion->identification()->create([]);
         $egress_companion->address()->create([]);
+
+        if (!empty($request->person_image)) {
+            $image = base64_encode(file_get_contents($request->file('person_image')->path()));
+            $person->image()->create([ 'image' => $image]);
+        }
         
         alert()->success('El registro de la persona se realizó con éxito.','Folio '.$person->folio)->showConfirmButton();
         return $person;
@@ -590,6 +599,16 @@ class Person extends Model
                         $accessories_update[$value['id']]
                     );
                 }
+            }
+        }
+
+        if (!empty($request->person_image)) {
+            if (!empty($this->person_image)) {
+                $image = base64_encode(file_get_contents($request->file('person_image')->path()));
+                self::image()->update([ 'image' => $image]);
+            }else{
+                $image = base64_encode(file_get_contents($request->file('person_image')->path()));
+                self::image()->create([ 'image' => $image]);
             }
         }
 

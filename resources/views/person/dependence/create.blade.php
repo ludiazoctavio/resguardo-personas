@@ -34,7 +34,7 @@
         </div>
     </div>
     <div class="card-body">
-        <form method="POST" id="reg-form" class="" action="{{ route('dependence.person_dependence.store_identified') }}">
+        <form method="POST" id="reg-form" class="" action="{{ route('dependence.person_dependence.store_identified') }}" enctype="multipart/form-data">
             @csrf
             <div class="tab-content" id="pills-tabContent">
                 @include('person.dependence.sections.general')
