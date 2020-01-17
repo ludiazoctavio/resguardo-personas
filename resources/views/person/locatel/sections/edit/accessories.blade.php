@@ -7,7 +7,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="accessory_id">Tipo de accesorio puesto:</label>
-                        <select class="form-control @error('accessory_id') is-invalid @enderror" id="accessory_id"
+                        <select class="item-edit form-control @error('accessory_id') is-invalid @enderror" id="accessory_id"
                             name="accessories[accessory_type_id][]">
                             @if (is_null($obj->accessory_type_id))
                             <option value="" disabled="" selected="">Selecciona</option>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="color_id">Color 1:</label>
-                        <select class="form-control @error('color_id') is-invalid @enderror" id="color_id"
+                        <select class="item-edit form-control @error('color_id') is-invalid @enderror" id="color_id"
                             name="accessories[color_1_id][]">
                             @if (is_null($obj->color_1_id))
                             <option value="" disabled="" selected="">Selecciona</option>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="color_id">Color 2:</label>
-                        <select class="form-control @error('color_id') is-invalid @enderror" id="color_id"
+                        <select class="item-edit form-control @error('color_id') is-invalid @enderror" id="color_id"
                             name="accessories[color_2_id][]">
                             @if (is_null($obj->color_2_id))
                             <option value="" disabled="" selected="">Selecciona</option>
@@ -74,7 +74,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="body_part_id">Parte del cuerpo:</label>
-                        <select class="form-control @error('body_part_id') is-invalid @enderror" id="body_part_id"
+                        <select class="item-edit form-control @error('body_part_id') is-invalid @enderror" id="body_part_id"
                             name="accessories[body_part_id][]">
                             @if (is_null($obj->body_part_id))
                             <option value="" disabled="" selected="">Selecciona</option>
@@ -132,7 +132,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="accessory_id">Tipo de accesorio puesto:</label>
-                        <select class="form-control @error('accessory_id') is-invalid @enderror" id="accessory_id"
+                        <select class="item-edit form-control @error('accessory_id') is-invalid @enderror" id="accessory_id"
                             name="accessories[accessory_id][]">
                             <option value="" disabled="" selected="">Selecciona</option>
                             @foreach ($accessory_types as $accessory_type)
@@ -147,7 +147,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="color_id">Color 1:</label>
-                        <select class="form-control @error('color_id') is-invalid @enderror" id="color_id"
+                        <select class="item-edit form-control @error('color_id') is-invalid @enderror" id="color_id"
                             name="accessories[color_1_id][]">
                             <option value="" disabled="" selected="">Selecciona</option>
                             @foreach ($colors as $color)
@@ -162,7 +162,7 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="color_id">Color 2:</label>
-                        <select class="form-control @error('color_id') is-invalid @enderror" id="color_id"
+                        <select class="item-edit form-control @error('color_id') is-invalid @enderror" id="color_id"
                             name="accessories[color_2_id][]">
                             <option value="" disabled="" selected="">Selecciona</option>
                             @foreach ($colors as $color)
@@ -181,7 +181,7 @@
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="body_part_id">Parte del cuerpo:</label>
-                        <select class="form-control @error('body_part_id') is-invalid @enderror" id="body_part_id"
+                        <select class="item-edit form-control @error('body_part_id') is-invalid @enderror" id="body_part_id"
                             name="accessories[body_part_id][]">
                             <option value="" disabled="" selected="">Selecciona</option>
                             @foreach ($body_parts as $body_part)
@@ -229,7 +229,7 @@
         @endif
         <fieldset>
             <div class="row d-flex float-right">
-              <a class="ml-1 mr-3" type="button" id="btnAddAccesories">
+              <a class="ml-1 mr-3" onclick="return false;" type="button" id="btnAddAccesories">
                 <label class="text-labels mt-1">Agregar otro accesorio</label>
                 <img src="/images/mas.svg" alt="">
               </a>

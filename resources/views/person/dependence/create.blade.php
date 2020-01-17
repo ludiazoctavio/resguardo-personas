@@ -123,6 +123,7 @@
     $(document).ready(function() {
     $('#btnDel').attr('disabled','disabled');
     $('#btnAddAccesories').click(function() {
+            alert('hola')
         var num = $('.clonedInput2').length; // how many "duplicatable" input fields we currently have
         var newNum = new Number(num + 1); // the numeric ID of the new input field being added
         // create the new element via clone(), and manipulate it's ID using newNum value
@@ -130,7 +131,7 @@
           var newElem = $('#AddAccesorie' + num).clone().attr('id', 'AddAccesorie' + newNum);
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           let child = newElem[0];
-          child.querySelector('input').value = ""
+          child.querySelector('input').value = "";
           $('#AddAccesorie' + num).after(newElem);
         }
         else{

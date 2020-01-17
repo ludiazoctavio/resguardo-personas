@@ -189,8 +189,8 @@
           var newElem = $('#AddAccesorie' + num).clone().attr('id', 'AddAccesorie' + newNum);
           newElem.children('.new2').attr('id', 'name' + newNum).attr('name', 'name' + newNum);
           let child = newElem[0];
-          child.querySelector('input').value = ""
-          $('#AddAccesories' + num).after(newElem);
+          child.querySelector('input').value = "";
+          $('#AddAccesorie' + num).after(newElem);
         }
         else{
           var newElem = $('#toClone2').clone().attr('id', 'AddAccesorie' + newNum);
